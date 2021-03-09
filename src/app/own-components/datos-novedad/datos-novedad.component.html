@@ -1,0 +1,67 @@
+<div class="ion-padding">
+    <h5 class="semi-titulo">Datos de la novedad</h5>
+</div>
+<ion-grid fixed>
+    <ion-row class="ion-align-items-center">
+        <ion-col size="4">Contrato</ion-col>
+        <ion-col size="4">
+            <ion-text color="danger">
+                <span>{{ gestion.Contrato }}</span>
+            </ion-text>
+        </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-align-items-center">
+        <ion-col size="4">Titular</ion-col>
+        <ion-col size="4">
+            <ion-text color="danger">
+                <span>{{ gestion.Titular }}</span>
+            </ion-text>
+        </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-align-items-center">
+        <ion-col size="4">
+            Novedad
+        </ion-col>
+        <ion-col size="8">
+            <ion-text color="danger">
+                <span>{{ gestion.NovedadDesc }}</span>
+            </ion-text>
+        </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-align-items-center">
+        <ion-col size="4">Observaciones</ion-col>
+        <ion-col size="8">
+            <ion-text color="danger">
+                <span>{{ gestion.Observaciones }}</span>
+            </ion-text>
+        </ion-col>
+    </ion-row>
+    <ion-row class="ion-align-items-center">
+        <ion-col size="4">Cobrador</ion-col>
+        <ion-col size="8">
+            <ion-text color="danger">
+                <span>{{ gestion.IdCobrador }}</span>
+            </ion-text>
+        </ion-col>
+    </ion-row>
+    <ion-row class="ion-align-items-center">
+        <ion-col size="4">Usuario</ion-col>
+        <ion-col size="8"><span class="ion-text-capitalize">{{ gestion.Usuario }}</span>
+        </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-align-items-center">
+        <ion-col size="4">Fecha Programada</ion-col>
+        <ion-col size="8"><span>{{ gestion.Fechaprogramada | date }}</span></ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col size="12">
+            <ion-button color="danger" expand="block" (click)="imprimir()">
+                Imprimir
+            </ion-button>
+        </ion-col>
+    </ion-row>
+</ion-grid>

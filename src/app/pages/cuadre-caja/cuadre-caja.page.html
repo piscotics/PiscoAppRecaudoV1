@@ -1,0 +1,48 @@
+<app-header titulo="Cuadre caja"></app-header>
+<ion-content>
+    <div>
+        <ion-row class="ion-align-items-center">
+            <ion-col size="4">Criterio</ion-col>
+            <ion-col size="8">
+                <ion-datetime displayFormat="YYYY MM DD" value="{{ textoBusqueda | date:'yyyy-MM-dd'}}" (ionChange)="cambiofecha($event)" cancelText="Cancelar"></ion-datetime>
+            </ion-col>
+        </ion-row>
+        <ion-row class="ion-margin-top">
+            <ion-col>
+                <ion-button color="danger" expand="block" (click)="consultarCuadre()">
+                    Consultar Cuadre Caja
+                </ion-button>
+            </ion-col>
+            <ion-col *ngIf="cuadreCaja">
+                <ion-button color="danger" expand="block" (click)="imprimir()">
+                    Imprimir
+                </ion-button>
+            </ion-col>
+        </ion-row>
+    </div>
+    <div>
+        <ion-grid fixed *ngIf="cuadreCaja">
+            <ion-row>
+                <ion-col size="5">Fecha</ion-col>
+                <ion-col size="7">{{ cuadreCaja.fecha | date }}</ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size="5">Cantidad Pagos</ion-col>
+                <ion-col size="7">{{ cuadreCaja.cantidadpagos }}</ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size="5">Valor Pagos</ion-col>
+                <ion-col size="7">{{ cuadreCaja.valor | currency }}</ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size="5">Cantidad Anulados</ion-col>
+                <ion-col size="7">{{ cuadreCaja.cantidadanulados }}</ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size="5">Cantidad Novedades</ion-col>
+                <ion-col size="7">{{ cuadreCaja.cantidadnovedades }}</ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+
+</ion-content>

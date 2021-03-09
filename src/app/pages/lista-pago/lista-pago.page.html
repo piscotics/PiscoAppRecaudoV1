@@ -1,0 +1,38 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Lista Pagos</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div>
+        <ion-row class="ion-align-items-center">
+            <ion-col size="4">Criterio</ion-col>
+            <ion-col size="8">
+                <ion-datetime displayFormat="YYYY MM DD" value="{{ textoBusqueda | date:'yyyy-MM-dd'}}" (ionChange)="cambiofecha($event)" cancelText="Cancelar"></ion-datetime>
+            </ion-col>
+        </ion-row>
+        <ion-row class="ion-margin-top">
+            <ion-col>
+                <ion-button color="danger" expand="block" (click)="consultarLstPagos()">
+                    Consultar Lista Pagos
+                </ion-button>
+            </ion-col>
+        </ion-row>
+    </div>
+
+    <div>
+        <ion-grid>
+            <ion-row class="md5" *ngFor="let pago of pagos">
+                <ion-card>
+                    <ion-card-content>
+                        {{pago}}
+                    </ion-card-content>
+                </ion-card>
+                <!-- <ion-col>
+                <label *ngFor="let item of items">
+            </ion-col> -->
+            </ion-row>
+        </ion-grid>
+    </div>
+</ion-content>

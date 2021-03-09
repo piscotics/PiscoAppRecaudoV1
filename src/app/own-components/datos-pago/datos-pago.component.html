@@ -1,0 +1,90 @@
+<div class="ion-padding">
+    <h5 class="semi-titulo">Datos del pago</h5>
+</div>
+<ion-grid fixed>
+    <ion-row class="ion-align-items-center">
+        <ion-col size="4">Contrato</ion-col>
+        <ion-col size="4">
+            <ion-text color="danger">
+                <span>{{ pago.Contrato }}</span>
+            </ion-text>
+        </ion-col>
+    </ion-row>
+
+
+    <ion-row class="ion-align-items-center">
+        <ion-col size="4">
+            Cuota
+        </ion-col>
+        <ion-col size="8">
+            <ion-text color="danger">
+                <span>{{ pago.Cuota | currency:'COP':'symbol-narrow':'4.2-2' }}</span>
+            </ion-text>
+        </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-align-items-center">
+        <ion-col size="4">Cédula</ion-col>
+        <ion-col size="8">
+            <ion-text color="danger">
+                <span>{{ pago.Cedula }}</span>
+            </ion-text>
+        </ion-col>
+    </ion-row>
+    <ion-row class="ion-align-items-center">
+        <ion-col size="4">Nombre</ion-col>
+        <ion-col size="8">
+            <ion-text color="danger">
+                <span>{{ pago.Nombre }}</span>
+            </ion-text>
+        </ion-col>
+    </ion-row>
+    <ion-row class="ion-align-items-center">
+        <ion-col size="4">Fecha Pago</ion-col>
+        <ion-col size="8"><span class="ion-text-capitalize">{{ pago.FechaPago | date:'MMMM dd yyyy':'':'es-Co' }}</span>
+        </ion-col>
+    </ion-row>
+    <ion-row class="ion-align-items-center">
+        <ion-col size="4">Total</ion-col>
+        <ion-col size="8">
+            <ion-text color="danger">
+                <span>{{ pago.Total | currency:'COP':'symbol-narrow':'4.2-2' }}</span>
+            </ion-text>
+        </ion-col>
+    </ion-row>
+    <ion-row class="ion-align-items-center">
+        <ion-col size="4">Pago Hasta</ion-col>
+        <ion-col size="8"><span class="ion-text-capitalize">{{ pago.PagoHasta | date:'MMMM dd yyyy':'':'es-Co' }}</span>
+        </ion-col>
+    </ion-row>
+    <ion-row class="ion-align-items-center">
+        <ion-col size="4">Nro Doc</ion-col>
+        <ion-col size="8">
+            <ion-text color="danger">
+                <span>{{ pago.NumeroDocumento }}</span>
+            </ion-text>
+        </ion-col>
+    </ion-row>
+    <ion-row class="ion-align-items-center">
+        <ion-col size="4">Usuario</ion-col>
+        <ion-col size="8"><span>{{ pago.Usuario }}</span></ion-col>
+    </ion-row>
+    <ion-row class="ion-align-items-center">
+        <ion-col size="4">Terminal</ion-col>
+        <ion-col size="8"><span>{{ pago.Terminal }}</span></ion-col>
+    </ion-row>
+    <ion-row class="ion-align-items-center">
+        <ion-col size="4">Observaciones</ion-col>
+        <ion-col size="8">
+            <ion-textarea readonly rows="4" [value]="pago.Observaciones">
+            </ion-textarea>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col size="12">
+            <ion-button color="danger" expand="block" (click)="imprimir()">
+                Imprimir
+            </ion-button>
+        </ion-col>
+    </ion-row>
+</ion-grid>

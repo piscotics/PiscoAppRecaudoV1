@@ -1,0 +1,56 @@
+<app-header titulo="Login"></app-header>
+
+<ion-content>
+
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col>
+
+        <ion-thumbnail class="logo-empresa">
+          <ion-img src="assets/img/App.png"></ion-img>
+        </ion-thumbnail>
+
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-align-items-center">
+      <ion-col size="4">Usuario</ion-col>
+      <ion-col size="8">
+        <ion-input #userName autofocus="true" placeholder="Ejemplo: juanrojas18" type="text" [value]="usuario"
+          (ionChange)="usuario = userName.value"></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-align-items-center">
+      <ion-col size="4">Clave</ion-col>
+      <ion-col size="8">
+        <ion-input #password type="password" placeholder="ingrese la clave" [value]="clave"
+          (ionChange)="clave = password.value"></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="!config.servidorIp || !config.servidorPuerto" class="ion-align-items-center">
+      <ion-col size="12">
+        <ion-text color="danger">
+          No se ha configurado la aplicación, por favor diríjase a la pantalla de configuración
+        </ion-text>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-margin-top ion-text-center">
+      <ion-col>
+        <ion-button color="danger" (click)="iniciarSesion()">
+          Ingresar
+        </ion-button>
+        <ion-button color="danger" (click)="irAConfiguracion()">
+          Configuración
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+
+        <app-logo-empresa></app-logo-empresa>
+
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+</ion-content>

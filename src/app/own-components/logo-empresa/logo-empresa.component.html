@@ -1,0 +1,4 @@
+<ion-thumbnail class="logo-empresa">
+  <ion-icon color="medium" *ngIf="!config.logoEmpresa" name="ios-image"></ion-icon>
+  <ion-img *ngIf="config.logoEmpresa" [src]="config.logoEmpresaUtilizable"></ion-img>
+</ion-thumbnail>
