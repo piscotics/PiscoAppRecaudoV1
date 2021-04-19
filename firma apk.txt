@@ -1,0 +1,19 @@
+pagina referencia: https://www.nigmacode.com/ionic/exportar-y-firmar-apk-en-ionic/
+
+
+
+ionic cordova build --release android
+
+keytool -genkey -v -keystore piscorecaudomovil.keystore -alias piscorecaudomovil -keyalg RSA -keysize 2048 -validity 10000
+
+contraseña  P1sc0T1cs*2020
+
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore piscorecaudomovil.keystore app-release-unsigned.apk piscorecaudomovil
+
+
+zipalign -v 4 app-release-unsigned.apk piscorecaudomovil.apk
+
+
+
+
+

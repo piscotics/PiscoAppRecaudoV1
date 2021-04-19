@@ -17,6 +17,8 @@ var routes = [
     { path: 'registro-gestion2/:gestion', loadChildren: './pages/registro-gestion2/registro-gestion2.module#RegistroGestion2PageModule' },
     { path: 'actualizar-datos', loadChildren: './pages/actualizar-datos/actualizar-datos.module#ActualizarDatosPageModule' },
     { path: 'cuadre-caja', loadChildren: './pages/cuadre-caja/cuadre-caja.module#CuadreCajaPageModule' },
+    { path: 'consultar-ruta', loadChildren: './pages/consultar-ruta/consultar-ruta.module/#ConsultarRutaPageModule' },
+
     { path: 'geolocalizacion', loadChildren: './pages/geolocalizacion/geolocalizacion.module#GeolocalizacionPageModule' },
 ];
 var AppRoutingModule = /** @class */ (function() {
