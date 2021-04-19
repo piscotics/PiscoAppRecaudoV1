@@ -42,6 +42,9 @@ export class ActualizarDatosPage implements OnInit {
        this.contrato.plan = this.ctr.plan;
        this.contrato.cedula = this.ctr.cedula;
        this.contrato.nombre = this.ctr.nombre;
+
+      
+       
        this.contrato.departamento = this.ctr.departamento;
        this.contrato.ciudad = this.ctr.ciudad;
        this.contrato.direccion = this.ctr.direccion;
@@ -61,6 +64,8 @@ export class ActualizarDatosPage implements OnInit {
 
       if (this.contrato.departamento !== ''  && this.contrato.departamento !== undefined )
       {
+        console.log("el departamento es" +this.ctr.departamento)
+        this.contrato.departamento = this.ctr.departamento;
         this.contratoservice.cargarMunicipios(this.contrato.departamento).then((municipios: any[]) => {
           this.municipio = municipios;
         });

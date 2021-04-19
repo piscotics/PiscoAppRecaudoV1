@@ -41,7 +41,7 @@ import { OfflineService } from './services/offline.service';
 @NgModule({
   declarations: [AppComponent,LoginPage],
   entryComponents: [
-    LoginPage,
+  LoginPage,
   ],
   imports: [
     BrowserModule,

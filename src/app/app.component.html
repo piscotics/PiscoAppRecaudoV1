@@ -11,26 +11,23 @@
                 <ion-item button="true" (click)="consultarContrato()">Consultar contrato</ion-item>
                 <ion-item button="true" (click)="consultarPago()">Consultar pago</ion-item>
                 <ion-item button="true" (click)="cuadreCaja()">Cuadre caja</ion-item>
+              <!--  <ion-item button="true" (click)="consultarRuta()">Consultar Ruta</ion-item>-->
                 <ion-item button="true" (click)="removerLicencia()">Remover Licencia</ion-item>
                 <ion-item button="true" (click)="configurarImpresora()">Configurar impresora</ion-item>
 
-              
-              
-
-
-                <ion-item>
+              <!--  <ion-item>
                     <ion-label>Trabajo Fuera de Linea</ion-label>
                     <ion-toggle [(ngModel)]="statusOffline" color="primary" (ionChange)="offlineChange()"></ion-toggle>
                 </ion-item>
-                <ion-item button="true" (click)="offlineCargarRutas()">Cargar Ruta</ion-item>
+                <ion-item button="true" (click)="offlineCargarRutas()">Descargar Ruta</ion-item>
                 <ion-item button="true" (click)="offlineCargarPagosNovedades()">Sincronizar</ion-item>
-
+-->
                 <ion-item button="true" (click)="cerrarSesion()">Cerrar sesión</ion-item>
                 <ion-item button="true">
-                    <ion-input #licenseInput color="danger" value="{{ license }}"> </ion-input>
+                    <ion-input disabled="true" #licenseInput color="danger" value="{{ license }}"> </ion-input>
                 </ion-item>
                 <ion-item button="true">
-                    <ion-input #licenseInput color="danger" value="V. 16/Dic/2020"> </ion-input>
+                    <ion-input disabled="true" #licenseInput color="danger" value="V. 16/Abr/2021"> </ion-input>
                 </ion-item>
               
             </ion-list>

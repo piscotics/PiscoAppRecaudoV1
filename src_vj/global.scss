@@ -1,0 +1,36 @@
+// http://ionicframework.com/docs/theming/
+@import "~@ionic/angular/css/core.css";
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import "~@ionic/angular/css/display.css";
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+ion-thumbnail.logo-empresa {
+    margin: 0px auto;
+    --size: 120px;
+}
+
+ion-thumbnail.logo-empresa.borde {
+    border: 1px solid #d4d4d4;
+}
+
+ion-thumbnail.logo-empresa>ion-icon {
+    font-size: 8rem;
+}
+
+.semi-titulo {
+    margin: 0px;
+    font-weight: 400;
+}
+
+// ion-content{
+//   font-size: 0.9em;
+// }
+.modal-confirmar-pago .modal-wrapper {
+    height: 350px;
+    width: 90%;
+}

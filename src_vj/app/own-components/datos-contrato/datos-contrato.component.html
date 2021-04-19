@@ -1,0 +1,130 @@
+<div class="ion-padding">
+  <h5 class="semi-titulo">Datos del contrato</h5>
+</div>
+<ion-grid fixed>
+  <ion-row class="ion-align-items-center">
+    <ion-col size="4">Contrato</ion-col>
+    <ion-col size="4">
+      <ion-text color="danger">
+        <span *ngIf="contrato">{{ contrato.contrato }}</span>
+      </ion-text>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size="4">
+      Cuota
+    </ion-col>
+    <ion-col size="8">
+      <ion-text color="danger">
+        <span *ngIf="contrato">{{ contrato.cuota | currency:'COP':'symbol-narrow':'4.2-2' }}</span>
+      </ion-text>
+    </ion-col>
+  </ion-row>
+  <ion-row class="ion-align-items-center">
+    <ion-col size="4">Fecha Afiliación</ion-col>
+    <ion-col size="8"><span class="ion-text-capitalize" *ngIf="contrato">{{ contrato.fehaAfiliacion | date:'MMMM dd yyyy':'':'es-Co' }}</span>
+    </ion-col>
+  </ion-row>
+  <ion-row class="ion-align-items-center">
+    <ion-col size="4">Pago Hasta</ion-col>
+    <ion-col size="8"><span class="ion-text-capitalize" *ngIf="contrato">{{ contrato.pagoHasta | date:'MMMM dd yyyy':'':'es-Co' }}</span></ion-col>
+  </ion-row>
+  <ion-row *ngIf="modo === enumModo.MODO_CONSULTA || modo === enumModo.MODO_EDICION" class="ion-align-items-center">
+    <ion-col size="4">Estado</ion-col>
+    <ion-col size="8"><span *ngIf="contrato">{{ contrato.estado }}</span></ion-col>
+  </ion-row>
+  <ion-row *ngIf="modo === enumModo.MODO_CONSULTA || modo === enumModo.MODO_EDICION" class="ion-align-items-center">
+    <ion-col size="4">Plan</ion-col>
+    <ion-col size="8"><span *ngIf="contrato">{{ contrato.plan }}</span></ion-col>
+  </ion-row>
+  <ion-row class="ion-align-items-center">
+    <ion-col size="4">Cédula</ion-col>
+    <ion-col size="8">
+      <ion-text color="danger">
+        <span *ngIf="contrato">{{ contrato.cedula }}</span>
+      </ion-text>
+    </ion-col>
+  </ion-row>
+  <ion-row class="ion-align-items-center">
+    <ion-col size="4">Nombre</ion-col>
+    <ion-col size="8">
+      <ion-text color="danger">
+        <span *ngIf="contrato">{{ contrato.nombre }}</span>
+      </ion-text>
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="modo === enumModo.MODO_EDICION" class="ion-align-items-center">
+    <ion-col size="4">
+      Departamento
+    </ion-col>
+    <ion-col size="8">
+
+      <ion-select *ngIf="modo === enumModo.MODO_EDICION" placeholder="Seleccione un departamento" okText="Escoger"
+        cancelText="Cancelar" [value]="contrato.departamento" (ionChange)="departamentoSeleccionado($event)">
+        <ion-select-option *ngFor="let departamento of departamentos" [value]="departamento.id">{{departamento.nombre}}
+        </ion-select-option>
+      </ion-select>
+
+      <span *ngIf="contrato && modo !== enumModo.MODO_EDICION">{{ departamentoPorId(contrato.departamento) }}</span>
+
+
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="modo === enumModo.MODO_EDICION" class="ion-align-items-center">
+    <ion-col size="4">Ciudad</ion-col>
+    <ion-col size="8">
+
+      <ion-select *ngIf="modo === enumModo.MODO_EDICION" placeholder="Seleccione una ciudad" okText="Escoger"
+        cancelText="Cancelar" [value]="contrato.ciudad" (ionChange)="ciudadSeleccionada($event)">
+        <ion-select-option *ngFor="let ciudad of ciudades" [value]="ciudad.id">{{ ciudad.nombre }}</ion-select-option>
+      </ion-select>
+
+      <span *ngIf="contrato && modo !== enumModo.MODO_EDICION">{{ ciudadPorId(contrato.ciudad) }}</span>
+
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="modo === enumModo.MODO_CONSULTA || modo === enumModo.MODO_EDICION" class="ion-align-items-center">
+    <ion-col size="4">Dirección</ion-col>
+    <ion-col size="8">
+      <ion-input *ngIf="modo === enumModo.MODO_EDICION" placeholder="Ingrese una dirección"
+        [value]="contrato.direccion"></ion-input>
+      <span *ngIf="contrato && modo !== enumModo.MODO_EDICION">{{ contrato.direccion }}</span>
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="modo === enumModo.MODO_EDICION" class="ion-align-items-center">
+    <ion-col size="4">Dirección Cobro</ion-col>
+    <ion-col size="8">
+      <ion-input *ngIf="modo === enumModo.MODO_EDICION" placeholder="Ingrese una dirección de cobro"
+        [value]="contrato.direccionCobro">
+      </ion-input>
+      <span *ngIf="contrato && modo !== enumModo.MODO_EDICION">{{ contrato.direccionCobro }}</span>
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="modo === enumModo.MODO_CONSULTA || modo === enumModo.MODO_EDICION" class="ion-align-items-center">
+    <ion-col size="4">Teléfono</ion-col>
+    <ion-col size="8">
+      <ion-input *ngIf="modo === enumModo.MODO_EDICION" placeholder="Ingrese el teléfono" type="tel"
+        [value]="contrato.telefono">
+      </ion-input>
+      <span *ngIf="contrato && modo !== enumModo.MODO_EDICION">{{ contrato.telefono }}</span>
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="modo === enumModo.MODO_CONSULTA || modo === enumModo.MODO_EDICION" class="ion-align-items-center">
+    <ion-col size="4">Mòvil</ion-col>
+    <ion-col size="8">
+      <ion-input *ngIf="modo === enumModo.MODO_EDICION" placeholder="Ingrese el móvil" [value]="contrato.movil">
+      </ion-input>
+      <span *ngIf="contrato && modo !== enumModo.MODO_EDICION">{{ contrato.movil }}</span>
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="modo === enumModo.MODO_CONSULTA || modo === enumModo.MODO_EDICION" class="ion-align-items-center">
+    <ion-col size="4">Email</ion-col>
+    <ion-col size="8">
+      <ion-input *ngIf="modo === enumModo.MODO_EDICION" placeholder="Ingrese el email" type="email"
+        [value]="contrato.email">
+      </ion-input>
+      <span *ngIf="contrato && modo !== enumModo.MODO_EDICION">{{ contrato.email }}</span>
+    </ion-col>
+  </ion-row>
+
+</ion-grid>

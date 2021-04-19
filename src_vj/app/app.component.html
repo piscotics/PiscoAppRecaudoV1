@@ -1,0 +1,38 @@
+<ion-app>
+
+    <ion-menu side="end" [menuId]="menuPrincipalId" *ngIf="mostrarMenu()">
+        <ion-header>
+            <ion-toolbar color="danger">
+                <ion-title>Menú</ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <ion-content>
+            <ion-list>
+                <ion-item button="true" (click)="consultarContrato()">Consultar contrato</ion-item>
+                <ion-item button="true" (click)="consultarPago()">Consultar pago</ion-item>
+                <ion-item button="true" (click)="cuadreCaja()">Cuadre caja</ion-item>
+              <!--  <ion-item button="true" (click)="consultarRuta()">Consultar Ruta</ion-item>-->
+                <ion-item button="true" (click)="removerLicencia()">Remover Licencia</ion-item>
+                <ion-item button="true" (click)="configurarImpresora()">Configurar impresora</ion-item>
+
+              <!--  <ion-item>
+                    <ion-label>Trabajo Fuera de Linea</ion-label>
+                    <ion-toggle [(ngModel)]="statusOffline" color="primary" (ionChange)="offlineChange()"></ion-toggle>
+                </ion-item>
+                <ion-item button="true" (click)="offlineCargarRutas()">Descargar Ruta</ion-item>
+                <ion-item button="true" (click)="offlineCargarPagosNovedades()">Sincronizar</ion-item>
+-->
+                <ion-item button="true" (click)="cerrarSesion()">Cerrar sesión</ion-item>
+                <ion-item button="true">
+                    <ion-input disabled="true" #licenseInput color="danger" value="{{ license }}"> </ion-input>
+                </ion-item>
+                <ion-item button="true">
+                    <ion-input disabled="true" #licenseInput color="danger" value="V. 27/Mar/2021"> </ion-input>
+                </ion-item>
+              
+            </ion-list>
+        </ion-content>
+    </ion-menu>
+
+    <ion-router-outlet main></ion-router-outlet>
+</ion-app>
