@@ -220,6 +220,13 @@ export class DatosPagoComponent implements OnInit {
               printBody += this.pago.VlrDctoPago;
               printBody += this.print.PosCommand.LF;
             }
+
+            printBody += this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
+            printBody += 'Forma De Pago:';
+            printBody += this.print.PosCommand.LF;
+            printBody += this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
+            printBody += this.pago.FormaPago;
+            printBody += this.print.PosCommand.LF;
             
 
             if(this.pago.VlrIva !== null)

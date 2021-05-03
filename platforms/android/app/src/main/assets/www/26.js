@@ -11,20 +11,20 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_refresher", function() { return Refresher; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_refresher_content", function() { return RefresherContent; });
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/defineProperty */ "rePB");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/classCallCheck */ "1OyB");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createClass */ "vuIU");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ "o0o1");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator */ "HaE+");
-/* harmony import */ var _index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./index-e806d1f6.js */ "A36C");
-/* harmony import */ var _ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ionic-global-9d5c8ee3.js */ "Zgba");
-/* harmony import */ var _helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./helpers-90f46169.js */ "QPqR");
-/* harmony import */ var _animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./animation-54fe0237.js */ "z1RL");
-/* harmony import */ var _cubic_bezier_eea9a7a9_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./cubic-bezier-eea9a7a9.js */ "bC4P");
-/* harmony import */ var _index_9e3fe806_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./index-9e3fe806.js */ "39oe");
-/* harmony import */ var _haptic_27b3f981_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./haptic-27b3f981.js */ "qULd");
-/* harmony import */ var _spinner_configs_cd7845af_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./spinner-configs-cd7845af.js */ "h3R7");
+/* harmony import */ var D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/defineProperty */ "rePB");
+/* harmony import */ var D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ "o0o1");
+/* harmony import */ var D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator */ "HaE+");
+/* harmony import */ var D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/classCallCheck */ "1OyB");
+/* harmony import */ var D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createClass */ "vuIU");
+/* harmony import */ var _index_92848855_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./index-92848855.js */ "sxy2");
+/* harmony import */ var _ionic_global_23e7365a_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ionic-global-23e7365a.js */ "N4tN");
+/* harmony import */ var _helpers_47d562d2_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./helpers-47d562d2.js */ "9t5z");
+/* harmony import */ var _animation_239bd3e5_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./animation-239bd3e5.js */ "L1bk");
+/* harmony import */ var _cubic_bezier_685f606a_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./cubic-bezier-685f606a.js */ "PLvT");
+/* harmony import */ var _index_79d74e0b_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./index-79d74e0b.js */ "PQ8F");
+/* harmony import */ var _haptic_7b8ba70a_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./haptic-7b8ba70a.js */ "2c9M");
+/* harmony import */ var _spinner_configs_c78e170e_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./spinner-configs-c78e170e.js */ "6i10");
 
 
 
@@ -55,8 +55,8 @@ var createBaseAnimation = function createBaseAnimation(pullingRefresherIcon) {
   var spinnerArrowContainer = pullingRefresherIcon.querySelector('.spinner-arrow-container');
   var arrowContainer = pullingRefresherIcon.querySelector('.arrow-container');
   var arrow = arrowContainer ? arrowContainer.querySelector('ion-icon') : null;
-  var baseAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])().duration(1000).easing('ease-out');
-  var spinnerArrowContainerAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])().addElement(spinnerArrowContainer).keyframes([{
+  var baseAnimation = Object(_animation_239bd3e5_js__WEBPACK_IMPORTED_MODULE_8__["c"])().duration(1000).easing('ease-out');
+  var spinnerArrowContainerAnimation = Object(_animation_239bd3e5_js__WEBPACK_IMPORTED_MODULE_8__["c"])().addElement(spinnerArrowContainer).keyframes([{
     offset: 0,
     opacity: '0.3'
   }, {
@@ -69,7 +69,7 @@ var createBaseAnimation = function createBaseAnimation(pullingRefresherIcon) {
     offset: 1,
     opacity: '1'
   }]);
-  var circleInnerAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])().addElement(circle).keyframes([{
+  var circleInnerAnimation = Object(_animation_239bd3e5_js__WEBPACK_IMPORTED_MODULE_8__["c"])().addElement(circle).keyframes([{
     offset: 0,
     strokeDasharray: '1px, 200px'
   }, {
@@ -82,7 +82,7 @@ var createBaseAnimation = function createBaseAnimation(pullingRefresherIcon) {
     offset: 1,
     strokeDasharray: '100px, 200px'
   }]);
-  var circleOuterAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])().addElement(spinner).keyframes([{
+  var circleOuterAnimation = Object(_animation_239bd3e5_js__WEBPACK_IMPORTED_MODULE_8__["c"])().addElement(spinner).keyframes([{
     offset: 0,
     transform: 'rotate(-90deg)'
   }, {
@@ -96,7 +96,7 @@ var createBaseAnimation = function createBaseAnimation(pullingRefresherIcon) {
    */
 
   if (arrowContainer && arrow) {
-    var arrowContainerAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])().addElement(arrowContainer).keyframes([{
+    var arrowContainerAnimation = Object(_animation_239bd3e5_js__WEBPACK_IMPORTED_MODULE_8__["c"])().addElement(arrowContainer).keyframes([{
       offset: 0,
       transform: 'rotate(0deg)'
     }, {
@@ -109,7 +109,7 @@ var createBaseAnimation = function createBaseAnimation(pullingRefresherIcon) {
       offset: 1,
       transform: 'rotate(400deg)'
     }]);
-    var arrowAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])().addElement(arrow).keyframes([{
+    var arrowAnimation = Object(_animation_239bd3e5_js__WEBPACK_IMPORTED_MODULE_8__["c"])().addElement(arrow).keyframes([{
       offset: 0,
       transform: 'translateX(2px) scale(0)'
     }, {
@@ -130,7 +130,7 @@ var createBaseAnimation = function createBaseAnimation(pullingRefresherIcon) {
 
 var createScaleAnimation = function createScaleAnimation(pullingRefresherIcon) {
   var height = pullingRefresherIcon.clientHeight;
-  var spinnerAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])().addElement(pullingRefresherIcon).keyframes([{
+  var spinnerAnimation = Object(_animation_239bd3e5_js__WEBPACK_IMPORTED_MODULE_8__["c"])().addElement(pullingRefresherIcon).keyframes([{
     offset: 0,
     transform: "scale(0) translateY(-".concat(height + 20, "px)")
   }, {
@@ -142,7 +142,7 @@ var createScaleAnimation = function createScaleAnimation(pullingRefresherIcon) {
 
 var createTranslateAnimation = function createTranslateAnimation(pullingRefresherIcon) {
   var height = pullingRefresherIcon.clientHeight;
-  var spinnerAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])().addElement(pullingRefresherIcon).keyframes([{
+  var spinnerAnimation = Object(_animation_239bd3e5_js__WEBPACK_IMPORTED_MODULE_8__["c"])().addElement(pullingRefresherIcon).keyframes([{
     offset: 0,
     transform: "translateY(-".concat(height + 20, "px)")
   }, {
@@ -153,7 +153,7 @@ var createTranslateAnimation = function createTranslateAnimation(pullingRefreshe
 };
 
 var createSnapBackAnimation = function createSnapBackAnimation(pullingRefresherIcon) {
-  return Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])().duration(125).addElement(pullingRefresherIcon).fromTo('transform', 'translateY(var(--ion-pulling-refresher-translate, 100px))', 'translateY(0px)');
+  return Object(_animation_239bd3e5_js__WEBPACK_IMPORTED_MODULE_8__["c"])().duration(125).addElement(pullingRefresherIcon).fromTo('transform', 'translateY(var(--ion-pulling-refresher-translate, 100px))', 'translateY(0px)');
 }; // iOS Native Refresher
 // -----------------------------
 
@@ -163,7 +163,7 @@ var setSpinnerOpacity = function setSpinnerOpacity(spinner, opacity) {
 };
 
 var handleScrollWhilePulling = function handleScrollWhilePulling(spinner, ticks, opacity, currentTickToShow) {
-  Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["c"])(function () {
+  Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["c"])(function () {
     setSpinnerOpacity(spinner, opacity);
     ticks.forEach(function (el, i) {
       return el.style.setProperty('opacity', i <= currentTickToShow ? '0.99' : '0');
@@ -172,7 +172,7 @@ var handleScrollWhilePulling = function handleScrollWhilePulling(spinner, ticks,
 };
 
 var handleScrollWhileRefreshing = function handleScrollWhileRefreshing(spinner, lastVelocityY) {
-  Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["c"])(function () {
+  Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["c"])(function () {
     // If user pulls down quickly, the spinner should spin faster
     spinner.style.setProperty('--refreshing-rotation-duration', lastVelocityY >= 1.0 ? '0.5s' : '2s');
     spinner.style.setProperty('opacity', '1');
@@ -185,7 +185,7 @@ var translateElement = function translateElement(el, value) {
   }
 
   var trans = transitionEndAsync(el, 200);
-  Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["c"])(function () {
+  Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["c"])(function () {
     el.style.setProperty('transition', '0.2s all ease-out');
 
     if (value === undefined) {
@@ -199,43 +199,11 @@ var translateElement = function translateElement(el, value) {
 // -----------------------------
 
 
-var shouldUseNativeRefresher = /*#__PURE__*/function () {
-  var _ref = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee(referenceEl, mode) {
-    var refresherContent, pullingSpinner, refreshingSpinner;
-    return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee$(_context) {
-      while (1) {
-        switch (_context.prev = _context.next) {
-          case 0:
-            refresherContent = referenceEl.querySelector('ion-refresher-content');
-
-            if (refresherContent) {
-              _context.next = 3;
-              break;
-            }
-
-            return _context.abrupt("return", Promise.resolve(false));
-
-          case 3:
-            _context.next = 5;
-            return refresherContent.componentOnReady();
-
-          case 5:
-            pullingSpinner = referenceEl.querySelector('ion-refresher-content .refresher-pulling ion-spinner');
-            refreshingSpinner = referenceEl.querySelector('ion-refresher-content .refresher-refreshing ion-spinner');
-            return _context.abrupt("return", pullingSpinner !== null && refreshingSpinner !== null && (mode === 'ios' && Object(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["i"])('mobile') && referenceEl.style.webkitOverflowScrolling !== undefined || mode === 'md'));
-
-          case 8:
-          case "end":
-            return _context.stop();
-        }
-      }
-    }, _callee);
-  }));
-
-  return function shouldUseNativeRefresher(_x, _x2) {
-    return _ref.apply(this, arguments);
-  };
-}();
+var shouldUseNativeRefresher = function shouldUseNativeRefresher(referenceEl, mode) {
+  var pullingSpinner = referenceEl.querySelector('ion-refresher-content .refresher-pulling ion-spinner');
+  var refreshingSpinner = referenceEl.querySelector('ion-refresher-content .refresher-refreshing ion-spinner');
+  return pullingSpinner !== null && refreshingSpinner !== null && (mode === 'ios' && Object(_ionic_global_23e7365a_js__WEBPACK_IMPORTED_MODULE_6__["i"])('mobile') && referenceEl.style.webkitOverflowScrolling !== undefined || mode === 'md');
+};
 
 var transitionEndAsync = function transitionEndAsync(el) {
   var expectedDuration = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
@@ -291,12 +259,12 @@ var refresherMdCss = "ion-refresher{left:0;top:0;display:none;position:absolute;
 
 var Refresher = /*#__PURE__*/function () {
   function Refresher(hostRef) {
-    Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, Refresher);
+    Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__["default"])(this, Refresher);
 
-    Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["r"])(this, hostRef);
-    this.ionRefresh = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionRefresh", 7);
-    this.ionPull = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionPull", 7);
-    this.ionStart = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionStart", 7);
+    Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["r"])(this, hostRef);
+    this.ionRefresh = Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionRefresh", 7);
+    this.ionPull = Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionPull", 7);
+    this.ionStart = Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionStart", 7);
     this.appliedStyles = false;
     this.didStart = false;
     this.progress = 0;
@@ -374,7 +342,7 @@ var Refresher = /*#__PURE__*/function () {
     this.disabled = false;
   }
 
-  Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(Refresher, [{
+  Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__["default"])(Refresher, [{
     key: "disabledChanged",
     value: function disabledChanged() {
       if (this.gesture) {
@@ -383,40 +351,16 @@ var Refresher = /*#__PURE__*/function () {
     }
   }, {
     key: "checkNativeRefresher",
-    value: function () {
-      var _checkNativeRefresher = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee2() {
-        var useNativeRefresher, contentEl;
-        return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                _context2.next = 2;
-                return shouldUseNativeRefresher(this.el, Object(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this));
+    value: function checkNativeRefresher() {
+      var useNativeRefresher = shouldUseNativeRefresher(this.el, Object(_ionic_global_23e7365a_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this));
 
-              case 2:
-                useNativeRefresher = _context2.sent;
-
-                if (useNativeRefresher && !this.nativeRefresher) {
-                  contentEl = this.el.closest('ion-content');
-                  this.setupNativeRefresher(contentEl);
-                } else if (!useNativeRefresher) {
-                  this.destroyNativeRefresher();
-                }
-
-              case 4:
-              case "end":
-                return _context2.stop();
-            }
-          }
-        }, _callee2, this);
-      }));
-
-      function checkNativeRefresher() {
-        return _checkNativeRefresher.apply(this, arguments);
+      if (useNativeRefresher && !this.nativeRefresher) {
+        var contentEl = this.el.closest('ion-content');
+        this.setupNativeRefresher(contentEl);
+      } else if (!useNativeRefresher) {
+        this.destroyNativeRefresher();
       }
-
-      return checkNativeRefresher;
-    }()
+    }
   }, {
     key: "destroyNativeRefresher",
     value: function destroyNativeRefresher() {
@@ -430,27 +374,27 @@ var Refresher = /*#__PURE__*/function () {
   }, {
     key: "resetNativeRefresher",
     value: function () {
-      var _resetNativeRefresher = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee3(el, state) {
-        return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee3$(_context3) {
+      var _resetNativeRefresher = Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee(el, state) {
+        return D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee$(_context) {
           while (1) {
-            switch (_context3.prev = _context3.next) {
+            switch (_context.prev = _context.next) {
               case 0:
                 this.state = state;
 
-                if (!(Object(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this) === 'ios')) {
-                  _context3.next = 6;
+                if (!(Object(_ionic_global_23e7365a_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this) === 'ios')) {
+                  _context.next = 6;
                   break;
                 }
 
-                _context3.next = 4;
+                _context.next = 4;
                 return translateElement(el, undefined);
 
               case 4:
-                _context3.next = 8;
+                _context.next = 8;
                 break;
 
               case 6:
-                _context3.next = 8;
+                _context.next = 8;
                 return transitionEndAsync(this.el.querySelector('.refresher-refreshing-icon'), 200);
 
               case 8:
@@ -468,13 +412,13 @@ var Refresher = /*#__PURE__*/function () {
 
               case 15:
               case "end":
-                return _context3.stop();
+                return _context.stop();
             }
           }
-        }, _callee3, this);
+        }, _callee, this);
       }));
 
-      function resetNativeRefresher(_x3, _x4) {
+      function resetNativeRefresher(_x, _x2) {
         return _resetNativeRefresher.apply(this, arguments);
       }
 
@@ -483,19 +427,19 @@ var Refresher = /*#__PURE__*/function () {
   }, {
     key: "setupiOSNativeRefresher",
     value: function () {
-      var _setupiOSNativeRefresher = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee4(pullingSpinner, refreshingSpinner) {
+      var _setupiOSNativeRefresher = Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee2(pullingSpinner, refreshingSpinner) {
         var _this = this;
 
         var ticks, MAX_PULL, NUM_TICKS;
-        return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee4$(_context4) {
+        return D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee2$(_context2) {
           while (1) {
-            switch (_context4.prev = _context4.next) {
+            switch (_context2.prev = _context2.next) {
               case 0:
                 this.elementToTransform = this.scrollEl;
                 ticks = pullingSpinner.shadowRoot.querySelectorAll('svg');
                 MAX_PULL = this.scrollEl.clientHeight * 0.16;
                 NUM_TICKS = ticks.length;
-                Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["c"])(function () {
+                Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["c"])(function () {
                   return ticks.forEach(function (el) {
                     return el.style.setProperty('animation', 'none');
                   });
@@ -509,7 +453,7 @@ var Refresher = /*#__PURE__*/function () {
                       return;
                     }
 
-                  Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["f"])(function () {
+                  Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["f"])(function () {
                     // PTR should only be active when overflow scrolling at the top
                     var scrollTop = _this.scrollEl.scrollTop;
                     var refresherHeight = _this.el.clientHeight;
@@ -522,14 +466,14 @@ var Refresher = /*#__PURE__*/function () {
                       if (_this.state === 8
                       /* Refreshing */
                       ) {
-                          var ratio = Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["h"])(0, scrollTop / (refresherHeight * 0.5), 1);
-                          Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["c"])(function () {
+                          var ratio = Object(_helpers_47d562d2_js__WEBPACK_IMPORTED_MODULE_7__["e"])(0, scrollTop / (refresherHeight * 0.5), 1);
+                          Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["c"])(function () {
                             return setSpinnerOpacity(refreshingSpinner, 1 - ratio);
                           });
                           return;
                         }
 
-                      Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["c"])(function () {
+                      Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["c"])(function () {
                         return setSpinnerOpacity(pullingSpinner, 0);
                       });
                       return;
@@ -549,9 +493,9 @@ var Refresher = /*#__PURE__*/function () {
                     } // delay showing the next tick marks until user has pulled 30px
 
 
-                    var opacity = Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["h"])(0, Math.abs(scrollTop) / refresherHeight, 0.99);
-                    var pullAmount = _this.progress = Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["h"])(0, (Math.abs(scrollTop) - 30) / MAX_PULL, 1);
-                    var currentTickToShow = Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["h"])(0, Math.floor(pullAmount * NUM_TICKS), NUM_TICKS - 1);
+                    var opacity = Object(_helpers_47d562d2_js__WEBPACK_IMPORTED_MODULE_7__["e"])(0, Math.abs(scrollTop) / refresherHeight, 0.99);
+                    var pullAmount = _this.progress = Object(_helpers_47d562d2_js__WEBPACK_IMPORTED_MODULE_7__["e"])(0, (Math.abs(scrollTop) - 30) / MAX_PULL, 1);
+                    var currentTickToShow = Object(_helpers_47d562d2_js__WEBPACK_IMPORTED_MODULE_7__["e"])(0, Math.floor(pullAmount * NUM_TICKS), NUM_TICKS - 1);
                     var shouldShowRefreshingSpinner = _this.state === 8
                     /* Refreshing */
                     || currentTickToShow === NUM_TICKS - 1;
@@ -565,7 +509,7 @@ var Refresher = /*#__PURE__*/function () {
                         _this.beginRefresh();
 
                         _this.didRefresh = true;
-                        Object(_haptic_27b3f981_js__WEBPACK_IMPORTED_MODULE_11__["d"])({
+                        Object(_haptic_7b8ba70a_js__WEBPACK_IMPORTED_MODULE_11__["d"])({
                           style: 'light'
                         });
                         /**
@@ -587,14 +531,14 @@ var Refresher = /*#__PURE__*/function () {
                 };
 
                 this.scrollEl.addEventListener('scroll', this.scrollListenerCallback);
-                _context4.next = 9;
-                return Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! ./index-f49d994d.js */ "iWo5"));
+                _context2.next = 9;
+                return Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! ./index-eea61379.js */ "ItpF"));
 
               case 9:
-                this.gesture = _context4.sent.createGesture({
+                this.gesture = _context2.sent.createGesture({
                   el: this.scrollEl,
                   gestureName: 'refresher',
-                  gesturePriority: 31,
+                  gesturePriority: 10,
                   direction: 'y',
                   threshold: 5,
                   onStart: function onStart() {
@@ -602,19 +546,6 @@ var Refresher = /*#__PURE__*/function () {
 
                     if (!_this.didRefresh) {
                       translateElement(_this.elementToTransform, '0px');
-                    }
-                    /**
-                     * If the content had `display: none` when
-                     * the refresher was initialized, its clientHeight
-                     * will be 0. When the gesture starts, the content
-                     * will be visible, so try to get the correct
-                     * client height again. This is most common when
-                     * using the refresher in an ion-menu.
-                     */
-
-
-                    if (MAX_PULL === 0) {
-                      MAX_PULL = _this.scrollEl.clientHeight * 0.16;
                     }
                   },
                   onMove: function onMove(ev) {
@@ -631,7 +562,7 @@ var Refresher = /*#__PURE__*/function () {
 
                       _this.needsCompletion = false;
                     } else if (_this.didRefresh) {
-                      Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["f"])(function () {
+                      Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["f"])(function () {
                         return translateElement(_this.elementToTransform, "".concat(_this.el.clientHeight, "px"));
                       });
                     }
@@ -641,13 +572,13 @@ var Refresher = /*#__PURE__*/function () {
 
               case 11:
               case "end":
-                return _context4.stop();
+                return _context2.stop();
             }
           }
-        }, _callee4, this);
+        }, _callee2, this);
       }));
 
-      function setupiOSNativeRefresher(_x5, _x6) {
+      function setupiOSNativeRefresher(_x3, _x4) {
         return _setupiOSNativeRefresher.apply(this, arguments);
       }
 
@@ -656,20 +587,20 @@ var Refresher = /*#__PURE__*/function () {
   }, {
     key: "setupMDNativeRefresher",
     value: function () {
-      var _setupMDNativeRefresher = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee6(contentEl, pullingSpinner, refreshingSpinner) {
+      var _setupMDNativeRefresher = Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee4(contentEl, pullingSpinner, refreshingSpinner) {
         var _this2 = this;
 
         var circle, pullingRefresherIcon, refreshingCircle;
-        return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee6$(_context6) {
+        return D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee4$(_context4) {
           while (1) {
-            switch (_context6.prev = _context6.next) {
+            switch (_context4.prev = _context4.next) {
               case 0:
-                circle = Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["g"])(pullingSpinner).querySelector('circle');
+                circle = Object(_helpers_47d562d2_js__WEBPACK_IMPORTED_MODULE_7__["g"])(pullingSpinner).querySelector('circle');
                 pullingRefresherIcon = this.el.querySelector('ion-refresher-content .refresher-pulling-icon');
-                refreshingCircle = Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["g"])(refreshingSpinner).querySelector('circle');
+                refreshingCircle = Object(_helpers_47d562d2_js__WEBPACK_IMPORTED_MODULE_7__["g"])(refreshingSpinner).querySelector('circle');
 
                 if (circle !== null && refreshingCircle !== null) {
-                  Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["c"])(function () {
+                  Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["c"])(function () {
                     circle.style.setProperty('animation', 'none'); // This lines up the animation on the refreshing spinner with the pulling spinner
 
                     refreshingSpinner.style.setProperty('animation-delay', '-655ms');
@@ -677,14 +608,14 @@ var Refresher = /*#__PURE__*/function () {
                   });
                 }
 
-                _context6.next = 6;
-                return Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! ./index-f49d994d.js */ "iWo5"));
+                _context4.next = 6;
+                return Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! ./index-eea61379.js */ "ItpF"));
 
               case 6:
-                this.gesture = _context6.sent.createGesture({
+                this.gesture = _context4.sent.createGesture({
                   el: this.scrollEl,
                   gestureName: 'refresher',
-                  gesturePriority: 31,
+                  gesturePriority: 10,
                   direction: 'y',
                   threshold: 5,
                   canStart: function canStart() {
@@ -712,7 +643,7 @@ var Refresher = /*#__PURE__*/function () {
                       _this2.state = 2
                       /* Pulling */
                       ;
-                      Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["c"])(function () {
+                      Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["c"])(function () {
                         var animationType = getRefresherAnimationType(contentEl);
                         var animation = createPullingAnimation(animationType, pullingRefresherIcon);
                         ev.data.animation = animation;
@@ -729,7 +660,7 @@ var Refresher = /*#__PURE__*/function () {
                     } // Since we are using an easing curve, slow the gesture tracking down a bit
 
 
-                    _this2.progress = Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["h"])(0, ev.deltaY / 180 * 0.5, 1);
+                    _this2.progress = Object(_helpers_47d562d2_js__WEBPACK_IMPORTED_MODULE_7__["e"])(0, ev.deltaY / 180 * 0.5, 1);
                     ev.data.animation.progressStep(_this2.progress);
 
                     _this2.ionPull.emit();
@@ -739,7 +670,7 @@ var Refresher = /*#__PURE__*/function () {
                       return;
                     }
 
-                    Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["c"])(function () {
+                    Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["c"])(function () {
                       return _this2.scrollEl.style.removeProperty('--overflow');
                     });
 
@@ -762,19 +693,19 @@ var Refresher = /*#__PURE__*/function () {
                       return;
                     }
 
-                    var progress = Object(_cubic_bezier_eea9a7a9_js__WEBPACK_IMPORTED_MODULE_9__["g"])([0, 0], [0, 0], [1, 1], [1, 1], _this2.progress)[0];
+                    var progress = Object(_cubic_bezier_685f606a_js__WEBPACK_IMPORTED_MODULE_9__["g"])([0, 0], [0, 0], [1, 1], [1, 1], _this2.progress)[0];
                     var snapBackAnimation = createSnapBackAnimation(pullingRefresherIcon);
 
                     _this2.animations.push(snapBackAnimation);
 
-                    Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["c"])( /*#__PURE__*/Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee5() {
-                      return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee5$(_context5) {
+                    Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["c"])( /*#__PURE__*/Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee3() {
+                      return D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee3$(_context3) {
                         while (1) {
-                          switch (_context5.prev = _context5.next) {
+                          switch (_context3.prev = _context3.next) {
                             case 0:
                               pullingRefresherIcon.style.setProperty('--ion-pulling-refresher-translate', "".concat(progress * 100, "px"));
                               ev.data.animation.progressEnd();
-                              _context5.next = 4;
+                              _context3.next = 4;
                               return snapBackAnimation.play();
 
                             case 4:
@@ -784,10 +715,10 @@ var Refresher = /*#__PURE__*/function () {
 
                             case 6:
                             case "end":
-                              return _context5.stop();
+                              return _context3.stop();
                           }
                         }
-                      }, _callee5);
+                      }, _callee3);
                     })));
                   }
                 });
@@ -795,13 +726,13 @@ var Refresher = /*#__PURE__*/function () {
 
               case 8:
               case "end":
-                return _context6.stop();
+                return _context4.stop();
             }
           }
-        }, _callee6, this);
+        }, _callee4, this);
       }));
 
-      function setupMDNativeRefresher(_x7, _x8, _x9) {
+      function setupMDNativeRefresher(_x5, _x6, _x7) {
         return _setupMDNativeRefresher.apply(this, arguments);
       }
 
@@ -810,47 +741,42 @@ var Refresher = /*#__PURE__*/function () {
   }, {
     key: "setupNativeRefresher",
     value: function () {
-      var _setupNativeRefresher = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee7(contentEl) {
+      var _setupNativeRefresher = Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee5(contentEl) {
         var pullingSpinner, refreshingSpinner;
-        return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee7$(_context7) {
+        return D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee5$(_context5) {
           while (1) {
-            switch (_context7.prev = _context7.next) {
+            switch (_context5.prev = _context5.next) {
               case 0:
                 if (!(this.scrollListenerCallback || !contentEl || this.nativeRefresher || !this.scrollEl)) {
-                  _context7.next = 2;
+                  _context5.next = 2;
                   break;
                 }
 
-                return _context7.abrupt("return");
+                return _context5.abrupt("return");
 
               case 2:
-                /**
-                 * If using non-native refresher before make sure
-                 * we clean up any old CSS. This can happen when
-                 * a user manually calls the refresh method in a
-                 * component create callback before the native
-                 * refresher is setup.
-                 */
-                this.setCss(0, '', false, '');
                 this.nativeRefresher = true;
                 pullingSpinner = this.el.querySelector('ion-refresher-content .refresher-pulling ion-spinner');
                 refreshingSpinner = this.el.querySelector('ion-refresher-content .refresher-refreshing ion-spinner');
+                _context5.next = 7;
+                return contentEl.componentOnReady();
 
-                if (Object(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this) === 'ios') {
+              case 7:
+                if (Object(_ionic_global_23e7365a_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this) === 'ios') {
                   this.setupiOSNativeRefresher(pullingSpinner, refreshingSpinner);
                 } else {
                   this.setupMDNativeRefresher(contentEl, pullingSpinner, refreshingSpinner);
                 }
 
-              case 7:
+              case 8:
               case "end":
-                return _context7.stop();
+                return _context5.stop();
             }
           }
-        }, _callee7, this);
+        }, _callee5, this);
       }));
 
-      function setupNativeRefresher(_x10) {
+      function setupNativeRefresher(_x8) {
         return _setupNativeRefresher.apply(this, arguments);
       }
 
@@ -864,66 +790,59 @@ var Refresher = /*#__PURE__*/function () {
   }, {
     key: "connectedCallback",
     value: function () {
-      var _connectedCallback = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee8() {
+      var _connectedCallback = Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee6() {
         var _this3 = this;
 
         var contentEl;
-        return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee8$(_context8) {
+        return D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee6$(_context6) {
           while (1) {
-            switch (_context8.prev = _context8.next) {
+            switch (_context6.prev = _context6.next) {
               case 0:
                 if (!(this.el.getAttribute('slot') !== 'fixed')) {
-                  _context8.next = 3;
+                  _context6.next = 3;
                   break;
                 }
 
                 console.error('Make sure you use: <ion-refresher slot="fixed">');
-                return _context8.abrupt("return");
+                return _context6.abrupt("return");
 
               case 3:
                 contentEl = this.el.closest('ion-content');
 
                 if (contentEl) {
-                  _context8.next = 7;
+                  _context6.next = 7;
                   break;
                 }
 
                 console.error('<ion-refresher> must be used inside an <ion-content>');
-                return _context8.abrupt("return");
+                return _context6.abrupt("return");
 
               case 7:
-                _context8.next = 9;
-                return contentEl.componentOnReady();
-
-              case 9:
-                _context8.next = 11;
+                _context6.next = 9;
                 return contentEl.getScrollElement();
 
-              case 11:
-                this.scrollEl = _context8.sent;
-                this.backgroundContentEl = Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["g"])(contentEl).querySelector('#background-content');
-                _context8.next = 15;
-                return shouldUseNativeRefresher(this.el, Object(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this));
+              case 9:
+                this.scrollEl = _context6.sent;
+                this.backgroundContentEl = Object(_helpers_47d562d2_js__WEBPACK_IMPORTED_MODULE_7__["g"])(contentEl).querySelector('#background-content');
 
-              case 15:
-                if (!_context8.sent) {
-                  _context8.next = 19;
+                if (!shouldUseNativeRefresher(this.el, Object(_ionic_global_23e7365a_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this))) {
+                  _context6.next = 15;
                   break;
                 }
 
                 this.setupNativeRefresher(contentEl);
-                _context8.next = 23;
+                _context6.next = 19;
                 break;
 
-              case 19:
-                _context8.next = 21;
-                return Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! ./index-f49d994d.js */ "iWo5"));
+              case 15:
+                _context6.next = 17;
+                return Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! ./index-eea61379.js */ "ItpF"));
 
-              case 21:
-                this.gesture = _context8.sent.createGesture({
+              case 17:
+                this.gesture = _context6.sent.createGesture({
                   el: contentEl,
                   gestureName: 'refresher',
-                  gesturePriority: 31,
+                  gesturePriority: 10,
                   direction: 'y',
                   threshold: 20,
                   passive: false,
@@ -942,12 +861,12 @@ var Refresher = /*#__PURE__*/function () {
                 });
                 this.disabledChanged();
 
-              case 23:
+              case 19:
               case "end":
-                return _context8.stop();
+                return _context6.stop();
             }
           }
-        }, _callee8, this);
+        }, _callee6, this);
       }));
 
       function connectedCallback() {
@@ -980,19 +899,19 @@ var Refresher = /*#__PURE__*/function () {
   }, {
     key: "complete",
     value: function () {
-      var _complete = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee9() {
+      var _complete = Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee7() {
         var _this4 = this;
 
-        return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee9$(_context9) {
+        return D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee7$(_context7) {
           while (1) {
-            switch (_context9.prev = _context9.next) {
+            switch (_context7.prev = _context7.next) {
               case 0:
                 if (this.nativeRefresher) {
                   this.needsCompletion = true; // Do not reset scroll el until user removes pointer from screen
 
                   if (!this.pointerDown) {
-                    Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["r"])(function () {
-                      return Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["r"])(function () {
+                    Object(_helpers_47d562d2_js__WEBPACK_IMPORTED_MODULE_7__["r"])(function () {
+                      return Object(_helpers_47d562d2_js__WEBPACK_IMPORTED_MODULE_7__["r"])(function () {
                         return _this4.resetNativeRefresher(_this4.elementToTransform, 32
                         /* Completing */
                         );
@@ -1007,10 +926,10 @@ var Refresher = /*#__PURE__*/function () {
 
               case 1:
               case "end":
-                return _context9.stop();
+                return _context7.stop();
             }
           }
-        }, _callee9, this);
+        }, _callee7, this);
       }));
 
       function complete() {
@@ -1026,18 +945,18 @@ var Refresher = /*#__PURE__*/function () {
   }, {
     key: "cancel",
     value: function () {
-      var _cancel = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee10() {
+      var _cancel = Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee8() {
         var _this5 = this;
 
-        return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee10$(_context10) {
+        return D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee8$(_context8) {
           while (1) {
-            switch (_context10.prev = _context10.next) {
+            switch (_context8.prev = _context8.next) {
               case 0:
                 if (this.nativeRefresher) {
                   // Do not reset scroll el until user removes pointer from screen
                   if (!this.pointerDown) {
-                    Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["r"])(function () {
-                      return Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["r"])(function () {
+                    Object(_helpers_47d562d2_js__WEBPACK_IMPORTED_MODULE_7__["r"])(function () {
+                      return Object(_helpers_47d562d2_js__WEBPACK_IMPORTED_MODULE_7__["r"])(function () {
                         return _this5.resetNativeRefresher(_this5.elementToTransform, 16
                         /* Cancelling */
                         );
@@ -1052,10 +971,10 @@ var Refresher = /*#__PURE__*/function () {
 
               case 1:
               case "end":
-                return _context10.stop();
+                return _context8.stop();
             }
           }
-        }, _callee10, this);
+        }, _callee8, this);
       }));
 
       function cancel() {
@@ -1288,7 +1207,7 @@ var Refresher = /*#__PURE__*/function () {
       }
 
       this.appliedStyles = y > 0;
-      Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["c"])(function () {
+      Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["c"])(function () {
         if (_this7.scrollEl && _this7.backgroundContentEl) {
           var scrollStyle = _this7.scrollEl.style;
           var backgroundStyle = _this7.backgroundContentEl.style;
@@ -1304,16 +1223,16 @@ var Refresher = /*#__PURE__*/function () {
     value: function render() {
       var _class;
 
-      var mode = Object(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this);
-      return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["H"], {
+      var mode = Object(_ionic_global_23e7365a_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this);
+      return Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["H"], {
         slot: "fixed",
-        class: (_class = {}, Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class, mode, true), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class, "refresher-".concat(mode), true), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class, 'refresher-native', this.nativeRefresher), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class, 'refresher-active', this.state !== 1), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class, 'refresher-pulling', this.state === 2), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class, 'refresher-ready', this.state === 4), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class, 'refresher-refreshing', this.state === 8), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class, 'refresher-cancelling', this.state === 16), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class, 'refresher-completing', this.state === 32), _class)
+        class: (_class = {}, Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class, mode, true), Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class, "refresher-".concat(mode), true), Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class, 'refresher-native', this.nativeRefresher), Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class, 'refresher-active', this.state !== 1), Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class, 'refresher-pulling', this.state === 2), Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class, 'refresher-ready', this.state === 4), Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class, 'refresher-refreshing', this.state === 8), Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class, 'refresher-cancelling', this.state === 16), Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class, 'refresher-completing', this.state === 32), _class)
       });
     }
   }, {
     key: "el",
     get: function get() {
-      return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["i"])(this);
+      return Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["i"])(this);
     }
   }], [{
     key: "watchers",
@@ -1334,70 +1253,70 @@ Refresher.style = {
 
 var RefresherContent = /*#__PURE__*/function () {
   function RefresherContent(hostRef) {
-    Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, RefresherContent);
+    Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__["default"])(this, RefresherContent);
 
-    Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["r"])(this, hostRef);
+    Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["r"])(this, hostRef);
   }
 
-  Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(RefresherContent, [{
+  Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__["default"])(RefresherContent, [{
     key: "componentWillLoad",
     value: function componentWillLoad() {
       if (this.pullingIcon === undefined) {
-        var mode = Object(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this);
+        var mode = Object(_ionic_global_23e7365a_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this);
         var overflowRefresher = this.el.style.webkitOverflowScrolling !== undefined ? 'lines' : 'arrow-down';
-        this.pullingIcon = _ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["c"].get('refreshingIcon', mode === 'ios' && Object(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["i"])('mobile') ? _ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["c"].get('spinner', overflowRefresher) : 'circular');
+        this.pullingIcon = _ionic_global_23e7365a_js__WEBPACK_IMPORTED_MODULE_6__["c"].get('refreshingIcon', mode === 'ios' && Object(_ionic_global_23e7365a_js__WEBPACK_IMPORTED_MODULE_6__["i"])('mobile') ? _ionic_global_23e7365a_js__WEBPACK_IMPORTED_MODULE_6__["c"].get('spinner', overflowRefresher) : 'circular');
       }
 
       if (this.refreshingSpinner === undefined) {
-        var _mode = Object(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this);
+        var _mode = Object(_ionic_global_23e7365a_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this);
 
-        this.refreshingSpinner = _ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["c"].get('refreshingSpinner', _ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["c"].get('spinner', _mode === 'ios' ? 'lines' : 'circular'));
+        this.refreshingSpinner = _ionic_global_23e7365a_js__WEBPACK_IMPORTED_MODULE_6__["c"].get('refreshingSpinner', _ionic_global_23e7365a_js__WEBPACK_IMPORTED_MODULE_6__["c"].get('spinner', _mode === 'ios' ? 'lines' : 'circular'));
       }
     }
   }, {
     key: "render",
     value: function render() {
       var pullingIcon = this.pullingIcon;
-      var hasSpinner = pullingIcon != null && _spinner_configs_cd7845af_js__WEBPACK_IMPORTED_MODULE_12__["S"][pullingIcon] !== undefined;
-      var mode = Object(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this);
-      return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["H"], {
+      var hasSpinner = pullingIcon != null && _spinner_configs_c78e170e_js__WEBPACK_IMPORTED_MODULE_12__["S"][pullingIcon] !== undefined;
+      var mode = Object(_ionic_global_23e7365a_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this);
+      return Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["H"], {
         class: mode
-      }, Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+      }, Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
         class: "refresher-pulling"
-      }, this.pullingIcon && hasSpinner && Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+      }, this.pullingIcon && hasSpinner && Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
         class: "refresher-pulling-icon"
-      }, Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+      }, Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
         class: "spinner-arrow-container"
-      }, Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("ion-spinner", {
+      }, Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])("ion-spinner", {
         name: this.pullingIcon,
         paused: true
-      }), mode === 'md' && this.pullingIcon === 'circular' && Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+      }), mode === 'md' && this.pullingIcon === 'circular' && Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
         class: "arrow-container"
-      }, Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("ion-icon", {
+      }, Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])("ion-icon", {
         name: "caret-back-sharp"
-      })))), this.pullingIcon && !hasSpinner && Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+      })))), this.pullingIcon && !hasSpinner && Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
         class: "refresher-pulling-icon"
-      }, Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("ion-icon", {
+      }, Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])("ion-icon", {
         icon: this.pullingIcon,
         lazy: false
-      })), this.pullingText && Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+      })), this.pullingText && Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
         class: "refresher-pulling-text",
-        innerHTML: Object(_index_9e3fe806_js__WEBPACK_IMPORTED_MODULE_10__["s"])(this.pullingText)
-      })), Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+        innerHTML: Object(_index_79d74e0b_js__WEBPACK_IMPORTED_MODULE_10__["s"])(this.pullingText)
+      })), Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
         class: "refresher-refreshing"
-      }, this.refreshingSpinner && Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+      }, this.refreshingSpinner && Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
         class: "refresher-refreshing-icon"
-      }, Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("ion-spinner", {
+      }, Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])("ion-spinner", {
         name: this.refreshingSpinner
-      })), this.refreshingText && Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+      })), this.refreshingText && Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
         class: "refresher-refreshing-text",
-        innerHTML: Object(_index_9e3fe806_js__WEBPACK_IMPORTED_MODULE_10__["s"])(this.refreshingText)
+        innerHTML: Object(_index_79d74e0b_js__WEBPACK_IMPORTED_MODULE_10__["s"])(this.refreshingText)
       })));
     }
   }, {
     key: "el",
     get: function get() {
-      return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["i"])(this);
+      return Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["i"])(this);
     }
   }]);
 

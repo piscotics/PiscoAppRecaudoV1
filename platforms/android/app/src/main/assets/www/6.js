@@ -11,13 +11,13 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_button", function() { return Button; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_icon", function() { return Icon; });
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/defineProperty */ "rePB");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/classCallCheck */ "1OyB");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createClass */ "vuIU");
-/* harmony import */ var _index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./index-e806d1f6.js */ "A36C");
-/* harmony import */ var _ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ionic-global-9d5c8ee3.js */ "Zgba");
-/* harmony import */ var _helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./helpers-90f46169.js */ "QPqR");
-/* harmony import */ var _theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./theme-ff3fc52f.js */ "74mu");
+/* harmony import */ var D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/defineProperty */ "rePB");
+/* harmony import */ var D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/classCallCheck */ "1OyB");
+/* harmony import */ var D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createClass */ "vuIU");
+/* harmony import */ var _index_92848855_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./index-92848855.js */ "sxy2");
+/* harmony import */ var _ionic_global_23e7365a_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ionic-global-23e7365a.js */ "N4tN");
+/* harmony import */ var _helpers_47d562d2_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./helpers-47d562d2.js */ "9t5z");
+/* harmony import */ var _theme_5641d27f_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./theme-5641d27f.js */ "sPtc");
 
 
 
@@ -78,7 +78,7 @@ var getNamedUrl = function getNamedUrl(iconName) {
     return url;
   }
 
-  return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_3__["k"])("svg/".concat(iconName, ".svg"));
+  return Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_3__["k"])("svg/".concat(iconName, ".svg"));
 };
 
 var getName = function getName(iconName, icon, mode, ios, md) {
@@ -145,15 +145,14 @@ var Button = /*#__PURE__*/function () {
   function Button(hostRef) {
     var _this = this;
 
-    Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, Button);
+    Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, Button);
 
-    Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_3__["r"])(this, hostRef);
-    this.ionFocus = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_3__["e"])(this, "ionFocus", 7);
-    this.ionBlur = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_3__["e"])(this, "ionBlur", 7);
+    Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_3__["r"])(this, hostRef);
+    this.ionFocus = Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_3__["e"])(this, "ionFocus", 7);
+    this.ionBlur = Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_3__["e"])(this, "ionBlur", 7);
     this.inItem = false;
     this.inListHeader = false;
     this.inToolbar = false;
-    this.inheritedAttributes = {};
     /**
      * The type of button.
      */
@@ -183,8 +182,8 @@ var Button = /*#__PURE__*/function () {
 
     this.handleClick = function (ev) {
       if (_this.type === 'button') {
-        Object(_theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_6__["o"])(_this.href, ev, _this.routerDirection, _this.routerAnimation);
-      } else if (Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_5__["j"])(_this.el)) {
+        Object(_theme_5641d27f_js__WEBPACK_IMPORTED_MODULE_6__["o"])(_this.href, ev, _this.routerDirection, _this.routerAnimation);
+      } else if (Object(_helpers_47d562d2_js__WEBPACK_IMPORTED_MODULE_5__["i"])(_this.el)) {
         // this button wants to specifically submit a form
         // climb up the dom to see if we're in a <form>
         // and if so, then use JS to submit it
@@ -211,13 +210,12 @@ var Button = /*#__PURE__*/function () {
     };
   }
 
-  Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(Button, [{
+  Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(Button, [{
     key: "componentWillLoad",
     value: function componentWillLoad() {
       this.inToolbar = !!this.el.closest('ion-buttons');
       this.inListHeader = !!this.el.closest('ion-list-header');
       this.inItem = !!this.el.closest('ion-item') || !!this.el.closest('ion-item-divider');
-      this.inheritedAttributes = Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_5__["i"])(this.el, ['aria-label']);
     }
   }, {
     key: "hasIconOnly",
@@ -241,7 +239,7 @@ var Button = /*#__PURE__*/function () {
     value: function render() {
       var _createColorClasses$;
 
-      var mode = Object(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_4__["b"])(this);
+      var mode = Object(_ionic_global_23e7365a_js__WEBPACK_IMPORTED_MODULE_4__["b"])(this);
       var buttonType = this.buttonType,
           type = this.type,
           disabled = this.disabled,
@@ -253,8 +251,7 @@ var Button = /*#__PURE__*/function () {
           expand = this.expand,
           hasIconOnly = this.hasIconOnly,
           shape = this.shape,
-          strong = this.strong,
-          inheritedAttributes = this.inheritedAttributes;
+          strong = this.strong;
       var finalSize = size === undefined && this.inItem ? 'small' : size;
       var TagType = href === undefined ? 'button' : 'a';
       var attrs = TagType === 'button' ? {
@@ -271,32 +268,32 @@ var Button = /*#__PURE__*/function () {
         fill = this.inToolbar || this.inListHeader ? 'clear' : 'solid';
       }
 
-      return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_3__["h"])(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_3__["H"], {
+      return Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_3__["h"])(_index_92848855_js__WEBPACK_IMPORTED_MODULE_3__["H"], {
         onClick: this.handleClick,
         "aria-disabled": disabled ? 'true' : null,
-        class: Object(_theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_6__["c"])(color, (_createColorClasses$ = {}, Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses$, mode, true), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses$, buttonType, true), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses$, "".concat(buttonType, "-").concat(expand), expand !== undefined), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses$, "".concat(buttonType, "-").concat(finalSize), finalSize !== undefined), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses$, "".concat(buttonType, "-").concat(shape), shape !== undefined), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses$, "".concat(buttonType, "-").concat(fill), true), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses$, "".concat(buttonType, "-strong"), strong), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses$, 'in-toolbar', Object(_theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_6__["h"])('ion-toolbar', this.el)), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses$, 'in-toolbar-color', Object(_theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_6__["h"])('ion-toolbar[color]', this.el)), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses$, 'button-has-icon-only', hasIconOnly), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses$, 'button-disabled', disabled), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses$, 'ion-activatable', true), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses$, 'ion-focusable', true), _createColorClasses$))
-      }, Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_3__["h"])(TagType, Object.assign({}, attrs, {
+        class: Object(_theme_5641d27f_js__WEBPACK_IMPORTED_MODULE_6__["c"])(color, (_createColorClasses$ = {}, Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses$, mode, true), Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses$, buttonType, true), Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses$, "".concat(buttonType, "-").concat(expand), expand !== undefined), Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses$, "".concat(buttonType, "-").concat(finalSize), finalSize !== undefined), Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses$, "".concat(buttonType, "-").concat(shape), shape !== undefined), Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses$, "".concat(buttonType, "-").concat(fill), true), Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses$, "".concat(buttonType, "-strong"), strong), Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses$, 'in-toolbar', Object(_theme_5641d27f_js__WEBPACK_IMPORTED_MODULE_6__["h"])('ion-toolbar', this.el)), Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses$, 'in-toolbar-color', Object(_theme_5641d27f_js__WEBPACK_IMPORTED_MODULE_6__["h"])('ion-toolbar[color]', this.el)), Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses$, 'button-has-icon-only', hasIconOnly), Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses$, 'button-disabled', disabled), Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses$, 'ion-activatable', true), Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses$, 'ion-focusable', true), _createColorClasses$))
+      }, Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_3__["h"])(TagType, Object.assign({}, attrs, {
         class: "button-native",
         part: "native",
         disabled: disabled,
         onFocus: this.onFocus,
         onBlur: this.onBlur
-      }, inheritedAttributes), Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_3__["h"])("span", {
+      }), Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_3__["h"])("span", {
         class: "button-inner"
-      }, Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_3__["h"])("slot", {
+      }, Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_3__["h"])("slot", {
         name: "icon-only"
-      }), Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_3__["h"])("slot", {
+      }), Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_3__["h"])("slot", {
         name: "start"
-      }), Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_3__["h"])("slot", null), Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_3__["h"])("slot", {
+      }), Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_3__["h"])("slot", null), Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_3__["h"])("slot", {
         name: "end"
-      })), mode === 'md' && Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_3__["h"])("ion-ripple-effect", {
+      })), mode === 'md' && Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_3__["h"])("ion-ripple-effect", {
         type: this.rippleType
       })));
     }
   }, {
     key: "el",
     get: function get() {
-      return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_3__["i"])(this);
+      return Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_3__["i"])(this);
     }
   }]);
 
@@ -396,9 +393,9 @@ var iconCss = ":host{display:inline-block;width:1em;height:1em;contain:strict;fi
 
 var Icon = /*#__PURE__*/function () {
   function Icon(hostRef) {
-    Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, Icon);
+    Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, Icon);
 
-    Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_3__["r"])(this, hostRef);
+    Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_3__["r"])(this, hostRef);
     this.isVisible = false;
     /**
      * The mode determines which platform styles to use.
@@ -413,7 +410,7 @@ var Icon = /*#__PURE__*/function () {
     this.lazy = false;
   }
 
-  Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(Icon, [{
+  Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(Icon, [{
     key: "connectedCallback",
     value: function connectedCallback() {
       var _this2 = this;
@@ -494,20 +491,20 @@ var Icon = /*#__PURE__*/function () {
 
       var mode = this.mode || 'md';
       var flipRtl = this.flipRtl || this.ariaLabel && (this.ariaLabel.indexOf('arrow') > -1 || this.ariaLabel.indexOf('chevron') > -1) && this.flipRtl !== false;
-      return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_3__["h"])(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_3__["H"], {
+      return Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_3__["h"])(_index_92848855_js__WEBPACK_IMPORTED_MODULE_3__["H"], {
         role: "img",
-        class: Object.assign(Object.assign(Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])({}, mode, true), createColorClasses(this.color)), (_Object$assign2 = {}, Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_Object$assign2, "icon-".concat(this.size), !!this.size), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_Object$assign2, 'flip-rtl', !!flipRtl && this.el.ownerDocument.dir === 'rtl'), _Object$assign2))
-      }, this.svgContent ? Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_3__["h"])("div", {
+        class: Object.assign(Object.assign(Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])({}, mode, true), createColorClasses(this.color)), (_Object$assign2 = {}, Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_Object$assign2, "icon-".concat(this.size), !!this.size), Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_Object$assign2, 'flip-rtl', !!flipRtl && this.el.ownerDocument.dir === 'rtl'), _Object$assign2))
+      }, this.svgContent ? Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_3__["h"])("div", {
         class: "icon-inner",
         innerHTML: this.svgContent
-      }) : Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_3__["h"])("div", {
+      }) : Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_3__["h"])("div", {
         class: "icon-inner"
       }));
     }
   }, {
     key: "el",
     get: function get() {
-      return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_3__["i"])(this);
+      return Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_3__["i"])(this);
     }
   }], [{
     key: "assetsDirs",
@@ -533,7 +530,7 @@ var getIonMode = function getIonMode() {
 };
 
 var createColorClasses = function createColorClasses(color) {
-  return color ? Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])({
+  return color ? Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])({
     'ion-color': true
   }, "ion-color-".concat(color), true) : null;
 };

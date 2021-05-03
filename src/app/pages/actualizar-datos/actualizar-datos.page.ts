@@ -1,12 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild,ChangeDetectorRef  } from '@angular/core';
 import { ContratoModel } from 'src/app/models/contrato-model';
 import { ModoVisualizarContratoEnum } from 'src/app/enums/modo-visualizar-contrato.enum';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ContratoService } from '../../services/contrato.service';
-import { AlertController } from '@ionic/angular';
+import { Platform, ToastController, AlertController, NavController,NavParams } from '@ionic/angular';
+
 import { ContratoUpdateModel } from '../../models/contrato-update-model';
 import { SesionLocalModel } from '../../models/sesion-local.model';
 import { SesionService } from '../../services/sesion.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-actualizar-datos',
@@ -14,10 +16,17 @@ import { SesionService } from '../../services/sesion.service';
   styleUrls: ['./actualizar-datos.page.scss'],
 })
 export class ActualizarDatosPage implements OnInit {
-
+  @ViewChild('wrapper') wrapper:ElementRef;
+  
   ctr: ContratoModel = null;
   modoVisualizarContrato: ModoVisualizarContratoEnum = ModoVisualizarContratoEnum.MODO_CONCISO;
   departamento: string[];
+  departamentoSeleccionado : string;
+  nvoDpto: string ;
+  nvoDptoCobro: string ;
+  dispatchOrderForm: FormGroup;
+  nvoCiudad : string;
+  nvoCiudadCobro : string;
   municipio: string[];
   municipiocobro: string[];
   contrato: ContratoUpdateModel = null;
@@ -26,7 +35,16 @@ export class ActualizarDatosPage implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute, private contratoservice: ContratoService, 
               private alertController: AlertController, private sesion: SesionService,
-              private router: Router) { }
+              private router: Router,
+             
+             ) {
+
+                this.dispatchOrderForm = new  FormGroup({
+                'Dpto_Principal': new FormControl('', Validators.required)
+                });
+
+
+               }
 
   ngOnInit() {
 
@@ -43,7 +61,7 @@ export class ActualizarDatosPage implements OnInit {
        this.contrato.cedula = this.ctr.cedula;
        this.contrato.nombre = this.ctr.nombre;
 
-      
+       this.departamentoSeleccionado =  this.ctr.departamento;
        
        this.contrato.departamento = this.ctr.departamento;
        this.contrato.ciudad = this.ctr.ciudad;
@@ -54,8 +72,10 @@ export class ActualizarDatosPage implements OnInit {
        this.contrato.email = this.ctr.email;
        this.contrato.barrio = this.ctr.barrio;
        this.contrato.barriocobro = this.ctr.barriocobro;
-       this.contrato.ciudadcobro  = this.ctr.ciudadcobro;
+       
        this.contrato.departamentocobro = this.ctr.departamentocobro;
+       this.contrato.ciudadcobro  = this.ctr.ciudadcobro;
+       this.contrato.formaPago =  this.ctr.formaPago;
     }
 
   
@@ -64,29 +84,59 @@ export class ActualizarDatosPage implements OnInit {
 
       if (this.contrato.departamento !== ''  && this.contrato.departamento !== undefined )
       {
-        console.log("el departamento es" +this.ctr.departamento)
+       
         this.contrato.departamento = this.ctr.departamento;
+        this.nvoDpto = this.contrato.departamento ;
+       
         this.contratoservice.cargarMunicipios(this.contrato.departamento).then((municipios: any[]) => {
           this.municipio = municipios;
+          this.contrato.ciudad  = this.ctr.ciudad;
+          this.nvoCiudad = this.contrato.ciudad;
+
         });
       }
 
       if (this.contrato.departamentocobro !== '' && this.contrato.departamentocobro !== undefined)
       {
+
+        this.contrato.departamentocobro = this.ctr.departamentocobro;
+        this.nvoDptoCobro = this.contrato.departamentocobro ;
+
         this.contratoservice.cargarMunicipios(this.contrato.departamentocobro).then((municipios: any[]) => {
           this.municipiocobro = municipios;
+
+          this.contrato.ciudadcobro  = this.ctr.ciudadcobro;
+          this.nvoCiudadCobro = this.contrato.ciudadcobro ;
+
         });
       }
     });
   }
+  ngAfterContentInit() {
+    console.log('ngAfterContentInit - wrapper', this.wrapper);
+    console.log("el dpt a seleccionar es: " + localStorage.getItem('Dpto_Principal') )
 
+    this.dispatchOrderForm.get('Dpto_Principal').setValue(localStorage.getItem('Dpto_Principal'));
+    
+  }
+  ngAfterViewInit() {
+    console.log('ngAfterViewInit - wrapper', this.wrapper);
+    console.log("el dpt a seleccionar es: " + localStorage.getItem('Dpto_Principal') )
 
+    this.dispatchOrderForm.get('Dpto_Principal').setValue(localStorage.getItem('Dpto_Principal'));
+    
+  }
   actualizardpto(event) {
+    console.log(event)
     this.contrato.departamento = event.target.value;
 
     this.contratoservice.cargarMunicipios(this.contrato.departamento).then((municipios: any[]) => {
       this.municipio = municipios;
     });
+
+
+   
+
   }
 
   actualizardptocobro(event) {
@@ -147,3 +197,5 @@ export class ActualizarDatosPage implements OnInit {
   }
 
 }
+
+

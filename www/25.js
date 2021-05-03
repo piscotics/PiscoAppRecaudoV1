@@ -10,16 +10,16 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_range", function() { return Range; });
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/defineProperty */ "rePB");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ "o0o1");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator */ "HaE+");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/classCallCheck */ "1OyB");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createClass */ "vuIU");
-/* harmony import */ var _index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./index-e806d1f6.js */ "A36C");
-/* harmony import */ var _ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ionic-global-9d5c8ee3.js */ "Zgba");
-/* harmony import */ var _helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./helpers-90f46169.js */ "QPqR");
-/* harmony import */ var _theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./theme-ff3fc52f.js */ "74mu");
+/* harmony import */ var D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/defineProperty */ "rePB");
+/* harmony import */ var D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ "o0o1");
+/* harmony import */ var D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator */ "HaE+");
+/* harmony import */ var D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/classCallCheck */ "1OyB");
+/* harmony import */ var D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createClass */ "vuIU");
+/* harmony import */ var _index_92848855_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./index-92848855.js */ "sxy2");
+/* harmony import */ var _ionic_global_23e7365a_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ionic-global-23e7365a.js */ "N4tN");
+/* harmony import */ var _helpers_47d562d2_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./helpers-47d562d2.js */ "9t5z");
+/* harmony import */ var _theme_5641d27f_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./theme-5641d27f.js */ "sPtc");
 
 
 
@@ -36,14 +36,13 @@ var Range = /*#__PURE__*/function () {
   function Range(hostRef) {
     var _this = this;
 
-    Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__["default"])(this, Range);
+    Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__["default"])(this, Range);
 
-    Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["r"])(this, hostRef);
-    this.ionChange = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionChange", 7);
-    this.ionStyle = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionStyle", 7);
-    this.ionFocus = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionFocus", 7);
-    this.ionBlur = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionBlur", 7);
-    this.didLoad = false;
+    Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["r"])(this, hostRef);
+    this.ionChange = Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionChange", 7);
+    this.ionStyle = Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionStyle", 7);
+    this.ionFocus = Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionFocus", 7);
+    this.ionBlur = Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionBlur", 7);
     this.noUpdate = false;
     this.hasFocus = false;
     this.ratioA = 0;
@@ -51,7 +50,6 @@ var Range = /*#__PURE__*/function () {
     /**
      * How long, in milliseconds, to wait to trigger the
      * `ionChange` event after each change in the range value.
-     * This also impacts form bindings such as `ngModel` or `v-model`.
      */
 
     this.debounce = 0;
@@ -110,7 +108,7 @@ var Range = /*#__PURE__*/function () {
     this.value = 0;
 
     this.clampBounds = function (value) {
-      return Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["h"])(_this.min, value, _this.max);
+      return Object(_helpers_47d562d2_js__WEBPACK_IMPORTED_MODULE_7__["e"])(_this.min, value, _this.max);
     };
 
     this.ensureValueInBounds = function (value) {
@@ -124,49 +122,6 @@ var Range = /*#__PURE__*/function () {
       }
     };
 
-    this.setupGesture = /*#__PURE__*/Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee() {
-      var rangeSlider;
-      return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              rangeSlider = _this.rangeSlider;
-
-              if (!rangeSlider) {
-                _context.next = 6;
-                break;
-              }
-
-              _context.next = 4;
-              return Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! ./index-f49d994d.js */ "iWo5"));
-
-            case 4:
-              _this.gesture = _context.sent.createGesture({
-                el: rangeSlider,
-                gestureName: 'range',
-                gesturePriority: 100,
-                threshold: 0,
-                onStart: function onStart(ev) {
-                  return _this.onStart(ev);
-                },
-                onMove: function onMove(ev) {
-                  return _this.onMove(ev);
-                },
-                onEnd: function onEnd(ev) {
-                  return _this.onEnd(ev);
-                }
-              });
-
-              _this.gesture.enable(!_this.disabled);
-
-            case 6:
-            case "end":
-              return _context.stop();
-          }
-        }
-      }, _callee);
-    }));
-
     this.handleKeyboard = function (knob, isIncrease) {
       var step = _this.step;
       step = step > 0 ? step : 1;
@@ -177,9 +132,9 @@ var Range = /*#__PURE__*/function () {
       }
 
       if (knob === 'A') {
-        _this.ratioA = Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["h"])(0, _this.ratioA + step, 1);
+        _this.ratioA = Object(_helpers_47d562d2_js__WEBPACK_IMPORTED_MODULE_7__["e"])(0, _this.ratioA + step, 1);
       } else {
-        _this.ratioB = Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["h"])(0, _this.ratioB + step, 1);
+        _this.ratioB = Object(_helpers_47d562d2_js__WEBPACK_IMPORTED_MODULE_7__["e"])(0, _this.ratioB + step, 1);
       }
 
       _this.updateValue();
@@ -206,10 +161,10 @@ var Range = /*#__PURE__*/function () {
     };
   }
 
-  Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__["default"])(Range, [{
+  Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__["default"])(Range, [{
     key: "debounceChanged",
     value: function debounceChanged() {
-      this.ionChange = Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["e"])(this.ionChange, this.debounce);
+      this.ionChange = Object(_helpers_47d562d2_js__WEBPACK_IMPORTED_MODULE_7__["d"])(this.ionChange, this.debounce);
     }
   }, {
     key: "minChanged",
@@ -247,27 +202,11 @@ var Range = /*#__PURE__*/function () {
       });
     }
   }, {
-    key: "componentDidLoad",
-    value: function componentDidLoad() {
-      this.setupGesture();
-      this.didLoad = true;
-    }
-  }, {
     key: "connectedCallback",
     value: function connectedCallback() {
       this.updateRatio();
       this.debounceChanged();
       this.disabledChanged();
-      /**
-       * If we have not yet rendered
-       * ion-range, then rangeSlider is not defined.
-       * But if we are moving ion-range via appendChild,
-       * then rangeSlider will be defined.
-       */
-
-      if (this.didLoad) {
-        this.setupGesture();
-      }
     }
   }, {
     key: "disconnectedCallback",
@@ -277,6 +216,59 @@ var Range = /*#__PURE__*/function () {
         this.gesture = undefined;
       }
     }
+  }, {
+    key: "componentDidLoad",
+    value: function () {
+      var _componentDidLoad = Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee() {
+        var _this2 = this;
+
+        var rangeSlider;
+        return D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                rangeSlider = this.rangeSlider;
+
+                if (!rangeSlider) {
+                  _context.next = 6;
+                  break;
+                }
+
+                _context.next = 4;
+                return Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! ./index-eea61379.js */ "ItpF"));
+
+              case 4:
+                this.gesture = _context.sent.createGesture({
+                  el: rangeSlider,
+                  gestureName: 'range',
+                  gesturePriority: 100,
+                  threshold: 0,
+                  onStart: function onStart(ev) {
+                    return _this2.onStart(ev);
+                  },
+                  onMove: function onMove(ev) {
+                    return _this2.onMove(ev);
+                  },
+                  onEnd: function onEnd(ev) {
+                    return _this2.onEnd(ev);
+                  }
+                });
+                this.gesture.enable(!this.disabled);
+
+              case 6:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function componentDidLoad() {
+        return _componentDidLoad.apply(this, arguments);
+      }
+
+      return componentDidLoad;
+    }()
   }, {
     key: "getValue",
     value: function getValue() {
@@ -313,7 +305,7 @@ var Range = /*#__PURE__*/function () {
       var rect = this.rect = this.rangeSlider.getBoundingClientRect();
       var currentX = detail.currentX; // figure out which knob they started closer to
 
-      var ratio = Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["h"])(0, (currentX - rect.left) / rect.width, 1);
+      var ratio = Object(_helpers_47d562d2_js__WEBPACK_IMPORTED_MODULE_7__["e"])(0, (currentX - rect.left) / rect.width, 1);
 
       if (document.dir === 'rtl') {
         ratio = 1 - ratio;
@@ -341,7 +333,7 @@ var Range = /*#__PURE__*/function () {
       // figure out where the pointer is currently at
       // update the knob being interacted with
       var rect = this.rect;
-      var ratio = Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["h"])(0, (currentX - rect.left) / rect.width, 1);
+      var ratio = Object(_helpers_47d562d2_js__WEBPACK_IMPORTED_MODULE_7__["e"])(0, (currentX - rect.left) / rect.width, 1);
 
       if (document.dir === 'rtl') {
         ratio = 1 - ratio;
@@ -432,7 +424,7 @@ var Range = /*#__PURE__*/function () {
     value: function render() {
       var _barStyle,
           _createColorClasses,
-          _this2 = this;
+          _this3 = this;
 
       var min = this.min,
           max = this.max,
@@ -444,7 +436,7 @@ var Range = /*#__PURE__*/function () {
           pin = this.pin,
           ratioLower = this.ratioLower,
           ratioUpper = this.ratioUpper;
-      var mode = Object(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this);
+      var mode = Object(_ionic_global_23e7365a_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this);
       var barStart = "".concat(ratioLower * 100, "%");
       var barEnd = "".concat(100 - ratioUpper * 100, "%");
       var doc = document;
@@ -453,10 +445,10 @@ var Range = /*#__PURE__*/function () {
       var end = isRTL ? 'left' : 'right';
 
       var tickStyle = function tickStyle(tick) {
-        return Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])({}, start, tick[start]);
+        return Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])({}, start, tick[start]);
       };
 
-      var barStyle = (_barStyle = {}, Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_barStyle, start, barStart), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_barStyle, end, barEnd), _barStyle);
+      var barStyle = (_barStyle = {}, Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_barStyle, start, barStart), Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_barStyle, end, barEnd), _barStyle);
       var ticks = [];
 
       if (this.snaps && this.ticks) {
@@ -471,20 +463,20 @@ var Range = /*#__PURE__*/function () {
         }
       }
 
-      Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["d"])(true, el, this.name, JSON.stringify(this.getValue()), disabled);
-      return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["H"], {
+      Object(_helpers_47d562d2_js__WEBPACK_IMPORTED_MODULE_7__["c"])(true, el, this.name, JSON.stringify(this.getValue()), disabled);
+      return Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["H"], {
         onFocusin: this.onFocus,
         onFocusout: this.onBlur,
-        class: Object(_theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_8__["c"])(this.color, (_createColorClasses = {}, Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, mode, true), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, 'in-item', Object(_theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_8__["h"])('ion-item', el)), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, 'range-disabled', disabled), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, 'range-pressed', pressedKnob !== undefined), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, 'range-has-pin', pin), _createColorClasses))
-      }, Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("slot", {
+        class: Object(_theme_5641d27f_js__WEBPACK_IMPORTED_MODULE_8__["c"])(this.color, (_createColorClasses = {}, Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, mode, true), Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, 'in-item', Object(_theme_5641d27f_js__WEBPACK_IMPORTED_MODULE_8__["h"])('ion-item', el)), Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, 'range-disabled', disabled), Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, 'range-pressed', pressedKnob !== undefined), Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, 'range-has-pin', pin), _createColorClasses))
+      }, Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])("slot", {
         name: "start"
-      }), Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+      }), Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
         class: "range-slider",
         ref: function ref(rangeEl) {
-          return _this2.rangeSlider = rangeEl;
+          return _this3.rangeSlider = rangeEl;
         }
       }, ticks.map(function (tick) {
-        return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+        return Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
           style: tickStyle(tick),
           role: "presentation",
           class: {
@@ -493,11 +485,11 @@ var Range = /*#__PURE__*/function () {
           },
           part: tick.active ? 'tick-active' : 'tick'
         });
-      }), Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+      }), Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
         class: "range-bar",
         role: "presentation",
         part: "bar"
-      }), Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+      }), Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
         class: "range-bar range-bar-active",
         role: "presentation",
         style: barStyle,
@@ -522,14 +514,14 @@ var Range = /*#__PURE__*/function () {
         handleKeyboard: handleKeyboard,
         min: min,
         max: max
-      })), Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("slot", {
+      })), Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])("slot", {
         name: "end"
       }));
     }
   }, {
     key: "el",
     get: function get() {
-      return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["i"])(this);
+      return Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["i"])(this);
     }
   }], [{
     key: "watchers",
@@ -547,16 +539,16 @@ var Range = /*#__PURE__*/function () {
   return Range;
 }();
 
-var renderKnob = function renderKnob(isRTL, _ref3) {
-  var knob = _ref3.knob,
-      value = _ref3.value,
-      ratio = _ref3.ratio,
-      min = _ref3.min,
-      max = _ref3.max,
-      disabled = _ref3.disabled,
-      pressed = _ref3.pressed,
-      pin = _ref3.pin,
-      handleKeyboard = _ref3.handleKeyboard;
+var renderKnob = function renderKnob(isRTL, _ref2) {
+  var knob = _ref2.knob,
+      value = _ref2.value,
+      ratio = _ref2.ratio,
+      min = _ref2.min,
+      max = _ref2.max,
+      disabled = _ref2.disabled,
+      pressed = _ref2.pressed,
+      pin = _ref2.pin,
+      handleKeyboard = _ref2.handleKeyboard;
   var start = isRTL ? 'right' : 'left';
 
   var knobStyle = function knobStyle() {
@@ -565,7 +557,7 @@ var renderKnob = function renderKnob(isRTL, _ref3) {
     return style;
   };
 
-  return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+  return Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
     onKeyDown: function onKeyDown(ev) {
       var key = ev.key;
 
@@ -594,11 +586,11 @@ var renderKnob = function renderKnob(isRTL, _ref3) {
     "aria-valuemax": max,
     "aria-disabled": disabled ? 'true' : null,
     "aria-valuenow": value
-  }, pin && Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+  }, pin && Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
     class: "range-pin",
     role: "presentation",
     part: "pin"
-  }, Math.round(value)), Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+  }, Math.round(value)), Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
     class: "range-knob",
     role: "presentation",
     part: "knob"
@@ -612,11 +604,11 @@ var ratioToValue = function ratioToValue(ratio, min, max, step) {
     value = Math.round(value / step) * step + min;
   }
 
-  return Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["h"])(min, value, max);
+  return Object(_helpers_47d562d2_js__WEBPACK_IMPORTED_MODULE_7__["e"])(min, value, max);
 };
 
 var valueToRatio = function valueToRatio(value, min, max) {
-  return Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["h"])(0, (value - min) / (max - min), 1);
+  return Object(_helpers_47d562d2_js__WEBPACK_IMPORTED_MODULE_7__["e"])(0, (value - min) / (max - min), 1);
 };
 
 Range.style = {

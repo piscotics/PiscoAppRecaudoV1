@@ -57,6 +57,7 @@ export class ConsultarContrato2Page implements OnInit {
             contrato.plan = contratoResponse.Plan;
             contrato.cedula = contratoResponse.Cedula;
             contrato.nombre = contratoResponse.Titular;
+            localStorage.setItem('Dpto_Principal',contratoResponse.Departamento);
             contrato.departamento = contratoResponse.Departamento;
             contrato.ciudad = contratoResponse.Municipio;
             contrato.direccion = contratoResponse.Direccion;

@@ -23,4 +23,5 @@ export class ConsultaPagoModel {
     VlrSaldo: number;
     VlrDctoPago: number;
     VlrIva: number;
+    FormaPago : string;
 }

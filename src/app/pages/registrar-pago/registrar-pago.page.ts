@@ -35,6 +35,7 @@ export class RegistrarPagoPage implements OnInit {
   isDisabled: any = true;
   listCantidadCuotas: number[] = [];
   ngTipoPago: string;
+  nvoFormaPago: string ;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -79,13 +80,16 @@ export class RegistrarPagoPage implements OnInit {
         registroPago.titular = this.contrato.nombre;
         registroPago.VALOR = this.contrato.cuota;
         registroPago.PLAN = this.contrato.plan;
+        registroPago.FORMAPAGO = this.contrato.formaPago;
         this.registroPago = registroPago;
         
       }
 
       this.pagosService.cargarFormaPago().then((tipospagos: any[]) => {
         this.tipopago = tipospagos;
-        //console.log("el tipo de pgo es " + JSON.stringify(tipospagos[3].NombreTipoPago));
+        this.nvoFormaPago = this.tipopago[3].NombreTipoPago ;
+
+        console.log("el tipo de pgo es " + this.nvoFormaPago ); //JSON.stringify(tipospagos[3].NombreTipoPago)
         
         //this.ngTipoPago = JSON.stringify(tipospagos[3]); 
        console.log(JSON.stringify(this.tipopago));
@@ -113,7 +117,7 @@ export class RegistrarPagoPage implements OnInit {
 
     this.pagosService.prepararRegistroPago(this.registroPago).then((registroPago: RegistrarpagoModel) => {
 
-      registroPago.FORMAPAGO = registroPago.FORMAPAGO;
+      //registroPago.FORMAPAGO = registroPago.FORMAPAGO;
       console.log(`Registro de pago a enviar al server: ${JSON.stringify(registroPago)}`);
       this.modalController.create({
         component: ModalConfirmarPagoComponent,
@@ -161,6 +165,9 @@ export class RegistrarPagoPage implements OnInit {
               registroBusqueda.VlrSaldo = respuesta.VlrSaldo;
               registroBusqueda.VlrDctoPago  = respuesta.VlrDctoPago;
               registroBusqueda.VlrIva = respuesta.VlrIva;
+              registroBusqueda.FormaPago = registroPago.FORMAPAGO;
+              console.log("la forma de pago al guardar es :" + registroPago.FORMAPAGO)
+
 
               this.router.navigate(['registrar-pago2', JSON.stringify(registroBusqueda)], extras);
             });

@@ -72,6 +72,7 @@ var ConsultarContrato2Page = /** @class */ (function () {
                     contrato.plan = contratoResponse.Plan;
                     contrato.cedula = contratoResponse.Cedula;
                     contrato.nombre = contratoResponse.Titular;
+                    localStorage.setItem('Dpto_Principal', contratoResponse.Departamento);
                     contrato.departamento = contratoResponse.Departamento;
                     contrato.ciudad = contratoResponse.Municipio;
                     contrato.direccion = contratoResponse.Direccion;

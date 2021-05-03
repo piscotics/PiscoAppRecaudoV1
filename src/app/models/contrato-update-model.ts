@@ -21,4 +21,5 @@ export class ContratoUpdateModel {
     usuario: string;
     posx: string;
     posy: string;
+    formaPago :string;
 }

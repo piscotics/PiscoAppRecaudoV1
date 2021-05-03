@@ -11,18 +11,18 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_nav", function() { return Nav; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_nav_link", function() { return NavLink; });
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createForOfIteratorHelper */ "uFwe");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ "o0o1");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator */ "HaE+");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/classCallCheck */ "1OyB");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createClass */ "vuIU");
-/* harmony import */ var _index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./index-e806d1f6.js */ "A36C");
-/* harmony import */ var _ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ionic-global-9d5c8ee3.js */ "Zgba");
-/* harmony import */ var _helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./helpers-90f46169.js */ "QPqR");
-/* harmony import */ var _index_d8cfb4a8_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./index-d8cfb4a8.js */ "S0TR");
-/* harmony import */ var _cubic_bezier_eea9a7a9_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./cubic-bezier-eea9a7a9.js */ "bC4P");
-/* harmony import */ var _framework_delegate_4584ab5a_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./framework-delegate-4584ab5a.js */ "ZaV5");
+/* harmony import */ var D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createForOfIteratorHelper */ "uFwe");
+/* harmony import */ var D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ "o0o1");
+/* harmony import */ var D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator */ "HaE+");
+/* harmony import */ var D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/classCallCheck */ "1OyB");
+/* harmony import */ var D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createClass */ "vuIU");
+/* harmony import */ var _index_92848855_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./index-92848855.js */ "sxy2");
+/* harmony import */ var _ionic_global_23e7365a_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ionic-global-23e7365a.js */ "N4tN");
+/* harmony import */ var _helpers_47d562d2_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./helpers-47d562d2.js */ "9t5z");
+/* harmony import */ var _index_96111fa9_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./index-96111fa9.js */ "gN1R");
+/* harmony import */ var _cubic_bezier_685f606a_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./cubic-bezier-685f606a.js */ "PLvT");
+/* harmony import */ var _framework_delegate_d1eb6504_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./framework-delegate-d1eb6504.js */ "NqGI");
 
 
 
@@ -40,19 +40,19 @@ var VIEW_STATE_DESTROYED = 3;
 
 var ViewController = /*#__PURE__*/function () {
   function ViewController(component, params) {
-    Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__["default"])(this, ViewController);
+    Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__["default"])(this, ViewController);
 
     this.component = component;
     this.params = params;
     this.state = VIEW_STATE_NEW;
   }
 
-  Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__["default"])(ViewController, [{
+  Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__["default"])(ViewController, [{
     key: "init",
     value: function () {
-      var _init = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee(container) {
+      var _init = Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee(container) {
         var component;
-        return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee$(_context) {
+        return D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
@@ -65,7 +65,7 @@ var ViewController = /*#__PURE__*/function () {
 
                 component = this.component;
                 _context.next = 5;
-                return Object(_framework_delegate_4584ab5a_js__WEBPACK_IMPORTED_MODULE_10__["a"])(this.delegate, container, component, ['ion-page', 'ion-page-invisible'], this.params);
+                return Object(_framework_delegate_d1eb6504_js__WEBPACK_IMPORTED_MODULE_10__["a"])(this.delegate, container, component, ['ion-page', 'ion-page-invisible'], this.params);
 
               case 5:
                 this.element = _context.sent;
@@ -91,7 +91,7 @@ var ViewController = /*#__PURE__*/function () {
   }, {
     key: "_destroy",
     value: function _destroy() {
-      Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["k"])(this.state !== VIEW_STATE_DESTROYED, 'view state must be ATTACHED');
+      Object(_helpers_47d562d2_js__WEBPACK_IMPORTED_MODULE_7__["h"])(this.state !== VIEW_STATE_DESTROYED, 'view state must be ATTACHED');
       var element = this.element;
 
       if (element) {
@@ -191,12 +191,12 @@ var navCss = ":host{left:0;right:0;top:0;bottom:0;position:absolute;contain:layo
 
 var Nav = /*#__PURE__*/function () {
   function Nav(hostRef) {
-    Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__["default"])(this, Nav);
+    Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__["default"])(this, Nav);
 
-    Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["r"])(this, hostRef);
-    this.ionNavWillLoad = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionNavWillLoad", 7);
-    this.ionNavWillChange = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionNavWillChange", 3);
-    this.ionNavDidChange = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionNavDidChange", 3);
+    Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["r"])(this, hostRef);
+    this.ionNavWillLoad = Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionNavWillLoad", 7);
+    this.ionNavWillChange = Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionNavWillChange", 3);
+    this.ionNavDidChange = Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionNavDidChange", 3);
     this.transInstr = [];
     this.animationEnabled = true;
     this.useRouter = false;
@@ -210,7 +210,7 @@ var Nav = /*#__PURE__*/function () {
     this.animated = true;
   }
 
-  Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__["default"])(Nav, [{
+  Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__["default"])(Nav, [{
     key: "swipeGestureChanged",
     value: function swipeGestureChanged() {
       if (this.gesture) {
@@ -232,8 +232,8 @@ var Nav = /*#__PURE__*/function () {
       this.useRouter = !!document.querySelector('ion-router') && !this.el.closest('[no-router]');
 
       if (this.swipeGesture === undefined) {
-        var mode = Object(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this);
-        this.swipeGesture = _ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["c"].getBoolean('swipeBackEnabled', mode === 'ios');
+        var mode = Object(_ionic_global_23e7365a_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this);
+        this.swipeGesture = _ionic_global_23e7365a_js__WEBPACK_IMPORTED_MODULE_6__["c"].getBoolean('swipeBackEnabled', mode === 'ios');
       }
 
       this.ionNavWillLoad.emit();
@@ -241,14 +241,14 @@ var Nav = /*#__PURE__*/function () {
   }, {
     key: "componentDidLoad",
     value: function () {
-      var _componentDidLoad = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee2() {
-        return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee2$(_context2) {
+      var _componentDidLoad = Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee2() {
+        return D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
                 this.rootChanged();
                 _context2.next = 3;
-                return __webpack_require__.e(/*! import() | swipe-back-2154c9a7-js */ "swipe-back-2154c9a7-js").then(__webpack_require__.bind(null, /*! ./swipe-back-2154c9a7.js */ "V+6w"));
+                return __webpack_require__.e(/*! import() | swipe-back-2c765762-js */ "swipe-back-2c765762-js").then(__webpack_require__.bind(null, /*! ./swipe-back-2c765762.js */ "3wQK"));
 
               case 3:
                 this.gesture = _context2.sent.createSwipeBackGesture(this.el, this.canStart.bind(this), this.onStart.bind(this), this.onMove.bind(this), this.onEnd.bind(this));
@@ -271,13 +271,13 @@ var Nav = /*#__PURE__*/function () {
   }, {
     key: "disconnectedCallback",
     value: function disconnectedCallback() {
-      var _iterator = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper__WEBPACK_IMPORTED_MODULE_0__["default"])(this.views),
+      var _iterator = Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper__WEBPACK_IMPORTED_MODULE_0__["default"])(this.views),
           _step;
 
       try {
         for (_iterator.s(); !(_step = _iterator.n()).done;) {
           var view = _step.value;
-          Object(_index_d8cfb4a8_js__WEBPACK_IMPORTED_MODULE_8__["l"])(view.element, _index_d8cfb4a8_js__WEBPACK_IMPORTED_MODULE_8__["d"]);
+          Object(_index_96111fa9_js__WEBPACK_IMPORTED_MODULE_8__["l"])(view.element, _index_96111fa9_js__WEBPACK_IMPORTED_MODULE_8__["d"]);
 
           view._destroy();
         }
@@ -520,8 +520,8 @@ var Nav = /*#__PURE__*/function () {
             changed: true,
             element: enteringEl,
             markVisible: function () {
-              var _markVisible = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee3() {
-                return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee3$(_context3) {
+              var _markVisible = Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee3() {
+                return D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee3$(_context3) {
                   while (1) {
                     switch (_context3.prev = _context3.next) {
                       case 0:
@@ -580,9 +580,9 @@ var Nav = /*#__PURE__*/function () {
   }, {
     key: "getRouteId",
     value: function () {
-      var _getRouteId = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee4() {
+      var _getRouteId = Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee4() {
         var active;
-        return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee4$(_context4) {
+        return D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee4$(_context4) {
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
@@ -691,9 +691,9 @@ var Nav = /*#__PURE__*/function () {
   }, {
     key: "queueTrns",
     value: function () {
-      var _queueTrns = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee5(ti, done) {
+      var _queueTrns = Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee5(ti, done) {
         var promise, router, canTransition;
-        return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee5$(_context5) {
+        return D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee5$(_context5) {
           while (1) {
             switch (_context5.prev = _context5.next) {
               case 0:
@@ -848,9 +848,9 @@ var Nav = /*#__PURE__*/function () {
   }, {
     key: "runTransition",
     value: function () {
-      var _runTransition = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee6(ti) {
+      var _runTransition = Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee6(ti) {
         var leavingView, enteringView, requiresTransition, isBackDirection, result;
-        return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee6$(_context6) {
+        return D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee6$(_context6) {
           while (1) {
             switch (_context6.prev = _context6.next) {
               case 0:
@@ -961,8 +961,8 @@ var Nav = /*#__PURE__*/function () {
       }
 
       if (ti.removeView !== undefined) {
-        Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["k"])(ti.removeStart !== undefined, 'removeView needs removeStart');
-        Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["k"])(ti.removeCount !== undefined, 'removeView needs removeCount');
+        Object(_helpers_47d562d2_js__WEBPACK_IMPORTED_MODULE_7__["h"])(ti.removeStart !== undefined, 'removeView needs removeStart');
+        Object(_helpers_47d562d2_js__WEBPACK_IMPORTED_MODULE_7__["h"])(ti.removeCount !== undefined, 'removeView needs removeCount');
         var index = this.views.indexOf(ti.removeView);
 
         if (index < 0) {
@@ -1000,7 +1000,7 @@ var Nav = /*#__PURE__*/function () {
         return;
       }
 
-      Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["k"])(insertViews.length > 0, 'length can not be zero');
+      Object(_helpers_47d562d2_js__WEBPACK_IMPORTED_MODULE_7__["h"])(insertViews.length > 0, 'length can not be zero');
       var viewControllers = convertToViews(insertViews);
 
       if (viewControllers.length === 0) {
@@ -1008,7 +1008,7 @@ var Nav = /*#__PURE__*/function () {
       } // Check all the inserted view are correct
 
 
-      var _iterator2 = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper__WEBPACK_IMPORTED_MODULE_0__["default"])(viewControllers),
+      var _iterator2 = Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper__WEBPACK_IMPORTED_MODULE_0__["default"])(viewControllers),
           _step2;
 
       try {
@@ -1064,9 +1064,9 @@ var Nav = /*#__PURE__*/function () {
   }, {
     key: "postViewInit",
     value: function postViewInit(enteringView, leavingView, ti) {
-      Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["k"])(leavingView || enteringView, 'Both leavingView and enteringView are null');
-      Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["k"])(ti.resolve, 'resolve must be valid');
-      Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["k"])(ti.reject, 'reject must be valid');
+      Object(_helpers_47d562d2_js__WEBPACK_IMPORTED_MODULE_7__["h"])(leavingView || enteringView, 'Both leavingView and enteringView are null');
+      Object(_helpers_47d562d2_js__WEBPACK_IMPORTED_MODULE_7__["h"])(ti.resolve, 'resolve must be valid');
+      Object(_helpers_47d562d2_js__WEBPACK_IMPORTED_MODULE_7__["h"])(ti.reject, 'reject must be valid');
       var opts = ti.opts;
       var insertViews = ti.insertViews;
       var removeStart = ti.removeStart;
@@ -1074,8 +1074,8 @@ var Nav = /*#__PURE__*/function () {
       var destroyQueue; // there are views to remove
 
       if (removeStart !== undefined && removeCount !== undefined) {
-        Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["k"])(removeStart >= 0, 'removeStart can not be negative');
-        Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["k"])(removeCount >= 0, 'removeCount can not be negative');
+        Object(_helpers_47d562d2_js__WEBPACK_IMPORTED_MODULE_7__["h"])(removeStart >= 0, 'removeStart can not be negative');
+        Object(_helpers_47d562d2_js__WEBPACK_IMPORTED_MODULE_7__["h"])(removeCount >= 0, 'removeCount can not be negative');
         destroyQueue = [];
 
         for (var i = 0; i < removeCount; i++) {
@@ -1091,7 +1091,7 @@ var Nav = /*#__PURE__*/function () {
       }
 
       var finalBalance = this.views.length + (insertViews !== undefined ? insertViews.length : 0) - (removeCount !== undefined ? removeCount : 0);
-      Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["k"])(finalBalance >= 0, 'final balance can not be negative');
+      Object(_helpers_47d562d2_js__WEBPACK_IMPORTED_MODULE_7__["h"])(finalBalance >= 0, 'final balance can not be negative');
 
       if (finalBalance === 0) {
         console.warn("You can't remove all the pages in the navigation stack. nav.pop() is probably called too many times.", this, this.el);
@@ -1104,7 +1104,7 @@ var Nav = /*#__PURE__*/function () {
         // add the views to the
         var insertIndex = ti.insertStart;
 
-        var _iterator3 = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper__WEBPACK_IMPORTED_MODULE_0__["default"])(insertViews),
+        var _iterator3 = Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper__WEBPACK_IMPORTED_MODULE_0__["default"])(insertViews),
             _step3;
 
         try {
@@ -1131,15 +1131,15 @@ var Nav = /*#__PURE__*/function () {
 
 
       if (destroyQueue && destroyQueue.length > 0) {
-        var _iterator4 = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper__WEBPACK_IMPORTED_MODULE_0__["default"])(destroyQueue),
+        var _iterator4 = Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper__WEBPACK_IMPORTED_MODULE_0__["default"])(destroyQueue),
             _step4;
 
         try {
           for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
             var _view2 = _step4.value;
-            Object(_index_d8cfb4a8_js__WEBPACK_IMPORTED_MODULE_8__["l"])(_view2.element, _index_d8cfb4a8_js__WEBPACK_IMPORTED_MODULE_8__["b"]);
-            Object(_index_d8cfb4a8_js__WEBPACK_IMPORTED_MODULE_8__["l"])(_view2.element, _index_d8cfb4a8_js__WEBPACK_IMPORTED_MODULE_8__["c"]);
-            Object(_index_d8cfb4a8_js__WEBPACK_IMPORTED_MODULE_8__["l"])(_view2.element, _index_d8cfb4a8_js__WEBPACK_IMPORTED_MODULE_8__["d"]);
+            Object(_index_96111fa9_js__WEBPACK_IMPORTED_MODULE_8__["l"])(_view2.element, _index_96111fa9_js__WEBPACK_IMPORTED_MODULE_8__["b"]);
+            Object(_index_96111fa9_js__WEBPACK_IMPORTED_MODULE_8__["l"])(_view2.element, _index_96111fa9_js__WEBPACK_IMPORTED_MODULE_8__["c"]);
+            Object(_index_96111fa9_js__WEBPACK_IMPORTED_MODULE_8__["l"])(_view2.element, _index_96111fa9_js__WEBPACK_IMPORTED_MODULE_8__["d"]);
           } // once all lifecycle events has been delivered, we can safely detroy the views
 
         } catch (err) {
@@ -1148,7 +1148,7 @@ var Nav = /*#__PURE__*/function () {
           _iterator4.f();
         }
 
-        var _iterator5 = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper__WEBPACK_IMPORTED_MODULE_0__["default"])(destroyQueue),
+        var _iterator5 = Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper__WEBPACK_IMPORTED_MODULE_0__["default"])(destroyQueue),
             _step5;
 
         try {
@@ -1166,12 +1166,12 @@ var Nav = /*#__PURE__*/function () {
   }, {
     key: "transition",
     value: function () {
-      var _transition2 = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee7(enteringView, leavingView, ti) {
+      var _transition2 = Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee7(enteringView, leavingView, ti) {
         var _this = this;
 
         var opts, progressCallback, mode, enteringEl, leavingEl, animationOpts, _yield$_transition, hasCompleted;
 
-        return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee7$(_context7) {
+        return D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee7$(_context7) {
           while (1) {
             switch (_context7.prev = _context7.next) {
               case 0:
@@ -1181,21 +1181,21 @@ var Nav = /*#__PURE__*/function () {
                 progressCallback = opts.progressAnimation ? function (ani) {
                   return _this.sbAni = ani;
                 } : undefined;
-                mode = Object(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this);
+                mode = Object(_ionic_global_23e7365a_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this);
                 enteringEl = enteringView.element;
                 leavingEl = leavingView && leavingView.element;
                 animationOpts = Object.assign({
                   mode: mode,
                   showGoBack: this.canGoBackSync(enteringView),
                   baseEl: this.el,
-                  animationBuilder: this.animation || opts.animationBuilder || _ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["c"].get('navAnimation'),
+                  animationBuilder: this.animation || opts.animationBuilder || _ionic_global_23e7365a_js__WEBPACK_IMPORTED_MODULE_6__["c"].get('navAnimation'),
                   progressCallback: progressCallback,
-                  animated: this.animated && _ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["c"].getBoolean('animated', true),
+                  animated: this.animated && _ionic_global_23e7365a_js__WEBPACK_IMPORTED_MODULE_6__["c"].getBoolean('animated', true),
                   enteringEl: enteringEl,
                   leavingEl: leavingEl
                 }, opts);
                 _context7.next = 8;
-                return Object(_index_d8cfb4a8_js__WEBPACK_IMPORTED_MODULE_8__["t"])(animationOpts);
+                return Object(_index_96111fa9_js__WEBPACK_IMPORTED_MODULE_8__["t"])(animationOpts);
 
               case 8:
                 _yield$_transition = _context7.sent;
@@ -1242,10 +1242,10 @@ var Nav = /*#__PURE__*/function () {
       if (existingIndex > -1) {
         // this view is already in the stack!!
         // move it to its new location
-        Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["k"])(view.nav === this, 'view is not part of the nav');
+        Object(_helpers_47d562d2_js__WEBPACK_IMPORTED_MODULE_7__["h"])(view.nav === this, 'view is not part of the nav');
         views.splice(index, 0, views.splice(existingIndex, 1)[0]);
       } else {
-        Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["k"])(!view.nav, 'nav is used'); // this is a new view to add to the stack
+        Object(_helpers_47d562d2_js__WEBPACK_IMPORTED_MODULE_7__["h"])(!view.nav, 'nav is used'); // this is a new view to add to the stack
         // create the new entering view
 
         view.nav = this; // insert the entering view into the correct index in the stack
@@ -1256,10 +1256,10 @@ var Nav = /*#__PURE__*/function () {
   }, {
     key: "removeView",
     value: function removeView(view) {
-      Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["k"])(view.state === VIEW_STATE_ATTACHED || view.state === VIEW_STATE_DESTROYED, 'view state should be loaded or destroyed');
+      Object(_helpers_47d562d2_js__WEBPACK_IMPORTED_MODULE_7__["h"])(view.state === VIEW_STATE_ATTACHED || view.state === VIEW_STATE_DESTROYED, 'view state should be loaded or destroyed');
       var views = this.views;
       var index = views.indexOf(view);
-      Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["k"])(index > -1, 'view must be part of the stack');
+      Object(_helpers_47d562d2_js__WEBPACK_IMPORTED_MODULE_7__["h"])(index > -1, 'view must be part of the stack');
 
       if (index >= 0) {
         views.splice(index, 1);
@@ -1306,12 +1306,12 @@ var Nav = /*#__PURE__*/function () {
           if (i > activeViewIndex) {
             // this view comes after the active view
             // let's unload it
-            Object(_index_d8cfb4a8_js__WEBPACK_IMPORTED_MODULE_8__["l"])(element, _index_d8cfb4a8_js__WEBPACK_IMPORTED_MODULE_8__["d"]);
+            Object(_index_96111fa9_js__WEBPACK_IMPORTED_MODULE_8__["l"])(element, _index_96111fa9_js__WEBPACK_IMPORTED_MODULE_8__["d"]);
             this.destroyView(view);
           } else if (i < activeViewIndex) {
             // this view comes before the active view
             // and it is not a portal then ensure it is hidden
-            Object(_index_d8cfb4a8_js__WEBPACK_IMPORTED_MODULE_8__["s"])(element, true);
+            Object(_index_96111fa9_js__WEBPACK_IMPORTED_MODULE_8__["s"])(element, true);
           }
         }
       }
@@ -1365,9 +1365,9 @@ var Nav = /*#__PURE__*/function () {
 
         if (!shouldComplete) {
           this.sbAni.easing('cubic-bezier(1, 0, 0.68, 0.28)');
-          newStepValue += Object(_cubic_bezier_eea9a7a9_js__WEBPACK_IMPORTED_MODULE_9__["g"])([0, 0], [1, 0], [0.68, 0.28], [1, 1], stepValue)[0];
+          newStepValue += Object(_cubic_bezier_685f606a_js__WEBPACK_IMPORTED_MODULE_9__["g"])([0, 0], [1, 0], [0.68, 0.28], [1, 1], stepValue)[0];
         } else {
-          newStepValue += Object(_cubic_bezier_eea9a7a9_js__WEBPACK_IMPORTED_MODULE_9__["g"])([0, 0], [0.32, 0.72], [0, 1], [1, 1], stepValue)[0];
+          newStepValue += Object(_cubic_bezier_685f606a_js__WEBPACK_IMPORTED_MODULE_9__["g"])([0, 0], [0.32, 0.72], [0, 1], [1, 1], stepValue)[0];
         }
 
         this.sbAni.progressEnd(shouldComplete ? 1 : 0, newStepValue, dur);
@@ -1376,12 +1376,12 @@ var Nav = /*#__PURE__*/function () {
   }, {
     key: "render",
     value: function render() {
-      return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("slot", null);
+      return Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])("slot", null);
     }
   }, {
     key: "el",
     get: function get() {
-      return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["i"])(this);
+      return Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["i"])(this);
     }
   }], [{
     key: "watchers",
@@ -1431,9 +1431,9 @@ var NavLink = /*#__PURE__*/function () {
   function NavLink(hostRef) {
     var _this3 = this;
 
-    Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__["default"])(this, NavLink);
+    Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__["default"])(this, NavLink);
 
-    Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["r"])(this, hostRef);
+    Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["r"])(this, hostRef);
     /**
      * The transition direction when navigating to another page.
      */
@@ -1445,17 +1445,17 @@ var NavLink = /*#__PURE__*/function () {
     };
   }
 
-  Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__["default"])(NavLink, [{
+  Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__["default"])(NavLink, [{
     key: "render",
     value: function render() {
-      return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["H"], {
+      return Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["H"], {
         onClick: this.onClick
       });
     }
   }, {
     key: "el",
     get: function get() {
-      return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["i"])(this);
+      return Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["i"])(this);
     }
   }]);
 

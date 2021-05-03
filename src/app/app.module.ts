@@ -34,7 +34,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { OwnComponentsModule } from './own-components/own-components.module';
 import { PrintService } from './services/print.service';
 import { TasksService } from './services/tasks-service.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginPage } from './pages/login/login.page';
 import { OfflineService } from './services/offline.service';
 
@@ -48,6 +48,7 @@ import { OfflineService } from './services/offline.service';
     IonicModule.forRoot(),
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     OwnComponentsModule
   ],

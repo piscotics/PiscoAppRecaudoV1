@@ -10,16 +10,16 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_searchbar", function() { return Searchbar; });
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/defineProperty */ "rePB");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ "o0o1");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator */ "HaE+");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/classCallCheck */ "1OyB");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createClass */ "vuIU");
-/* harmony import */ var _index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./index-e806d1f6.js */ "A36C");
-/* harmony import */ var _ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ionic-global-9d5c8ee3.js */ "Zgba");
-/* harmony import */ var _helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./helpers-90f46169.js */ "QPqR");
-/* harmony import */ var _theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./theme-ff3fc52f.js */ "74mu");
+/* harmony import */ var D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/defineProperty */ "rePB");
+/* harmony import */ var D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ "o0o1");
+/* harmony import */ var D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator */ "HaE+");
+/* harmony import */ var D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/classCallCheck */ "1OyB");
+/* harmony import */ var D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createClass */ "vuIU");
+/* harmony import */ var _index_92848855_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./index-92848855.js */ "sxy2");
+/* harmony import */ var _ionic_global_23e7365a_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ionic-global-23e7365a.js */ "N4tN");
+/* harmony import */ var _helpers_47d562d2_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./helpers-47d562d2.js */ "9t5z");
+/* harmony import */ var _theme_5641d27f_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./theme-5641d27f.js */ "sPtc");
 
 
 
@@ -36,16 +36,16 @@ var Searchbar = /*#__PURE__*/function () {
   function Searchbar(hostRef) {
     var _this = this;
 
-    Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__["default"])(this, Searchbar);
+    Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__["default"])(this, Searchbar);
 
-    Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["r"])(this, hostRef);
-    this.ionInput = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionInput", 7);
-    this.ionChange = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionChange", 7);
-    this.ionCancel = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionCancel", 7);
-    this.ionClear = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionClear", 7);
-    this.ionBlur = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionBlur", 7);
-    this.ionFocus = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionFocus", 7);
-    this.ionStyle = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionStyle", 7);
+    Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["r"])(this, hostRef);
+    this.ionInput = Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionInput", 7);
+    this.ionChange = Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionChange", 7);
+    this.ionCancel = Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionCancel", 7);
+    this.ionClear = Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionClear", 7);
+    this.ionBlur = Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionBlur", 7);
+    this.ionFocus = Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionFocus", 7);
+    this.ionStyle = Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionStyle", 7);
     this.isCancelVisible = false;
     this.shouldAlignLeft = true;
     this.focused = false;
@@ -70,14 +70,14 @@ var Searchbar = /*#__PURE__*/function () {
      * Defaults to `"arrow-back-sharp"`.
      */
 
-    this.cancelButtonIcon = _ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["c"].get('backButtonIcon', 'arrow-back-sharp');
+    this.cancelButtonIcon = _ionic_global_23e7365a_js__WEBPACK_IMPORTED_MODULE_6__["c"].get('backButtonIcon', 'arrow-back-sharp');
     /**
      * Set the the cancel button text. Only applies to `ios` mode.
      */
 
     this.cancelButtonText = 'Cancel';
     /**
-     * Set the amount of time, in milliseconds, to wait to trigger the `ionChange` event after each keystroke. This also impacts form bindings such as `ngModel` or `v-model`.
+     * Set the amount of time, in milliseconds, to wait to trigger the `ionChange` event after each keystroke.
      */
 
     this.debounce = 250;
@@ -207,10 +207,10 @@ var Searchbar = /*#__PURE__*/function () {
     };
   }
 
-  Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__["default"])(Searchbar, [{
+  Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__["default"])(Searchbar, [{
     key: "debounceChanged",
     value: function debounceChanged() {
-      this.ionChange = Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["e"])(this.ionChange, this.debounce);
+      this.ionChange = Object(_helpers_47d562d2_js__WEBPACK_IMPORTED_MODULE_7__["d"])(this.ionChange, this.debounce);
     }
   }, {
     key: "valueChanged",
@@ -234,7 +234,7 @@ var Searchbar = /*#__PURE__*/function () {
       requestAnimationFrame(function () {
         _this2.positionElements();
 
-        Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["j"])(_this2);
+        Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["j"])(_this2);
       });
     }
   }, {
@@ -268,8 +268,8 @@ var Searchbar = /*#__PURE__*/function () {
   }, {
     key: "setFocus",
     value: function () {
-      var _setFocus = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee() {
-        return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee$(_context) {
+      var _setFocus = Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee() {
+        return D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
@@ -310,7 +310,7 @@ var Searchbar = /*#__PURE__*/function () {
     value: function positionElements() {
       var value = this.getValue();
       var prevAlignLeft = this.shouldAlignLeft;
-      var mode = Object(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this);
+      var mode = Object(_ionic_global_23e7365a_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this);
       var shouldAlignLeft = !this.animated || value.trim() !== '' || !!this.focused;
       this.shouldAlignLeft = shouldAlignLeft;
 
@@ -352,7 +352,7 @@ var Searchbar = /*#__PURE__*/function () {
         tempSpan.innerText = this.placeholder || '';
         doc.body.appendChild(tempSpan); // Get the width of the span then remove it
 
-        Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["r"])(function () {
+        Object(_helpers_47d562d2_js__WEBPACK_IMPORTED_MODULE_7__["r"])(function () {
           var textWidth = tempSpan.offsetWidth;
           tempSpan.remove(); // Calculate the input padding
 
@@ -437,12 +437,12 @@ var Searchbar = /*#__PURE__*/function () {
           _this4 = this;
 
       var cancelButtonText = this.cancelButtonText;
-      var animated = this.animated && _ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["c"].getBoolean('animated', true);
-      var mode = Object(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this);
+      var animated = this.animated && _ionic_global_23e7365a_js__WEBPACK_IMPORTED_MODULE_6__["c"].getBoolean('animated', true);
+      var mode = Object(_ionic_global_23e7365a_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this);
       var clearIcon = this.clearIcon || (mode === 'ios' ? 'close-circle' : 'close-sharp');
       var searchIcon = this.searchIcon || (mode === 'ios' ? 'search-outline' : 'search-sharp');
       var shouldShowCancelButton = this.shouldShowCancelButton();
-      var cancelButton = this.showCancelButton !== 'never' && Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("button", {
+      var cancelButton = this.showCancelButton !== 'never' && Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])("button", {
         "aria-label": cancelButtonText,
         "aria-hidden": shouldShowCancelButton ? undefined : 'true',
         type: "button",
@@ -450,21 +450,21 @@ var Searchbar = /*#__PURE__*/function () {
         onMouseDown: this.onCancelSearchbar,
         onTouchStart: this.onCancelSearchbar,
         class: "searchbar-cancel-button"
-      }, Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+      }, Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
         "aria-hidden": "true"
-      }, mode === 'md' ? Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("ion-icon", {
+      }, mode === 'md' ? Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])("ion-icon", {
         "aria-hidden": "true",
         mode: mode,
         icon: this.cancelButtonIcon,
         lazy: false
       }) : cancelButtonText));
-      return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["H"], {
+      return Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["H"], {
         role: "search",
         "aria-disabled": this.disabled ? 'true' : null,
-        class: Object(_theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_8__["c"])(this.color, (_createColorClasses = {}, Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, mode, true), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, 'searchbar-animated', animated), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, 'searchbar-disabled', this.disabled), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, 'searchbar-no-animate', animated && this.noAnimate), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, 'searchbar-has-value', this.hasValue()), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, 'searchbar-left-aligned', this.shouldAlignLeft), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, 'searchbar-has-focus', this.focused), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, 'searchbar-should-show-cancel', this.shouldShowCancelButton()), _createColorClasses))
-      }, Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+        class: Object(_theme_5641d27f_js__WEBPACK_IMPORTED_MODULE_8__["c"])(this.color, (_createColorClasses = {}, Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, mode, true), Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, 'searchbar-animated', animated), Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, 'searchbar-disabled', this.disabled), Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, 'searchbar-no-animate', animated && this.noAnimate), Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, 'searchbar-has-value', this.hasValue()), Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, 'searchbar-left-aligned', this.shouldAlignLeft), Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, 'searchbar-has-focus', this.focused), Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, 'searchbar-should-show-cancel', this.shouldShowCancelButton()), _createColorClasses))
+      }, Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
         class: "searchbar-input-container"
-      }, Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("input", {
+      }, Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])("input", {
         "aria-label": "search text",
         disabled: this.disabled,
         ref: function ref(el) {
@@ -482,20 +482,20 @@ var Searchbar = /*#__PURE__*/function () {
         autoComplete: this.autocomplete,
         autoCorrect: this.autocorrect,
         spellcheck: this.spellcheck
-      }), mode === 'md' && cancelButton, Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("ion-icon", {
+      }), mode === 'md' && cancelButton, Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])("ion-icon", {
         "aria-hidden": "true",
         mode: mode,
         icon: searchIcon,
         lazy: false,
         class: "searchbar-search-icon"
-      }), Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("button", {
+      }), Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])("button", {
         "aria-label": "reset",
         type: "button",
         "no-blur": true,
         class: "searchbar-clear-button",
         onMouseDown: this.onClearInput,
         onTouchStart: this.onClearInput
-      }, Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("ion-icon", {
+      }, Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])("ion-icon", {
         "aria-hidden": "true",
         mode: mode,
         icon: clearIcon,
@@ -506,7 +506,7 @@ var Searchbar = /*#__PURE__*/function () {
   }, {
     key: "el",
     get: function get() {
-      return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["i"])(this);
+      return Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["i"])(this);
     }
   }], [{
     key: "watchers",

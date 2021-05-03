@@ -15,4 +15,5 @@ export class PagoResponseModel {
     VlrSaldo: number;
     VlrDctoPago: number;
     VlrIva: number;
+    FormaPago : string;
 }

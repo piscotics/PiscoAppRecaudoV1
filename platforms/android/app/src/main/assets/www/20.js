@@ -10,24 +10,24 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_modal", function() { return Modal; });
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/defineProperty */ "rePB");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ "o0o1");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator */ "HaE+");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/classCallCheck */ "1OyB");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createClass */ "vuIU");
-/* harmony import */ var _index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./index-e806d1f6.js */ "A36C");
-/* harmony import */ var _ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ionic-global-9d5c8ee3.js */ "Zgba");
-/* harmony import */ var _helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./helpers-90f46169.js */ "QPqR");
-/* harmony import */ var _animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./animation-54fe0237.js */ "z1RL");
-/* harmony import */ var _index_d8cfb4a8_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./index-d8cfb4a8.js */ "S0TR");
-/* harmony import */ var _cubic_bezier_eea9a7a9_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./cubic-bezier-eea9a7a9.js */ "bC4P");
-/* harmony import */ var _gesture_controller_31cb6bb9_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./gesture-controller-31cb6bb9.js */ "y08P");
-/* harmony import */ var _index_f49d994d_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./index-f49d994d.js */ "iWo5");
-/* harmony import */ var _hardware_back_button_4a6b37fb_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./hardware-back-button-4a6b37fb.js */ "B4Jq");
-/* harmony import */ var _overlays_12c20431_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./overlays-12c20431.js */ "oLNq");
-/* harmony import */ var _theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./theme-ff3fc52f.js */ "74mu");
-/* harmony import */ var _framework_delegate_4584ab5a_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./framework-delegate-4584ab5a.js */ "ZaV5");
+/* harmony import */ var D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/defineProperty */ "rePB");
+/* harmony import */ var D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ "o0o1");
+/* harmony import */ var D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator */ "HaE+");
+/* harmony import */ var D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/classCallCheck */ "1OyB");
+/* harmony import */ var D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createClass */ "vuIU");
+/* harmony import */ var _index_92848855_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./index-92848855.js */ "sxy2");
+/* harmony import */ var _ionic_global_23e7365a_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ionic-global-23e7365a.js */ "N4tN");
+/* harmony import */ var _helpers_47d562d2_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./helpers-47d562d2.js */ "9t5z");
+/* harmony import */ var _animation_239bd3e5_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./animation-239bd3e5.js */ "L1bk");
+/* harmony import */ var _index_96111fa9_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./index-96111fa9.js */ "gN1R");
+/* harmony import */ var _cubic_bezier_685f606a_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./cubic-bezier-685f606a.js */ "PLvT");
+/* harmony import */ var _gesture_controller_89173521_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./gesture-controller-89173521.js */ "rxGk");
+/* harmony import */ var _index_eea61379_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./index-eea61379.js */ "ItpF");
+/* harmony import */ var _hardware_back_button_7b6ede21_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./hardware-back-button-7b6ede21.js */ "x/Nk");
+/* harmony import */ var _overlays_d577c227_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./overlays-d577c227.js */ "xG4I");
+/* harmony import */ var _theme_5641d27f_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./theme-5641d27f.js */ "sPtc");
+/* harmony import */ var _framework_delegate_d1eb6504_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./framework-delegate-d1eb6504.js */ "NqGI");
 
 
 
@@ -78,23 +78,23 @@ var createSwipeToCloseGesture = function createSwipeToCloseGesture(el, animation
   };
 
   var onMove = function onMove(detail) {
-    var step = Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["h"])(0.0001, detail.deltaY / height, 0.9999);
+    var step = Object(_helpers_47d562d2_js__WEBPACK_IMPORTED_MODULE_7__["e"])(0.0001, detail.deltaY / height, 0.9999);
     animation.progressStep(step);
   };
 
   var onEnd = function onEnd(detail) {
     var velocity = detail.velocityY;
-    var step = Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["h"])(0.0001, detail.deltaY / height, 0.9999);
+    var step = Object(_helpers_47d562d2_js__WEBPACK_IMPORTED_MODULE_7__["e"])(0.0001, detail.deltaY / height, 0.9999);
     var threshold = (detail.deltaY + velocity * 1000) / height;
     var shouldComplete = threshold >= 0.5;
     var newStepValue = shouldComplete ? -0.001 : 0.001;
 
     if (!shouldComplete) {
       animation.easing('cubic-bezier(1, 0, 0.68, 0.28)');
-      newStepValue += Object(_cubic_bezier_eea9a7a9_js__WEBPACK_IMPORTED_MODULE_10__["g"])([0, 0], [1, 0], [0.68, 0.28], [1, 1], step)[0];
+      newStepValue += Object(_cubic_bezier_685f606a_js__WEBPACK_IMPORTED_MODULE_10__["g"])([0, 0], [1, 0], [0.68, 0.28], [1, 1], step)[0];
     } else {
       animation.easing('cubic-bezier(0.32, 0.72, 0, 1)');
-      newStepValue += Object(_cubic_bezier_eea9a7a9_js__WEBPACK_IMPORTED_MODULE_10__["g"])([0, 0], [0.32, 0.72], [0, 1], [1, 1], step)[0];
+      newStepValue += Object(_cubic_bezier_685f606a_js__WEBPACK_IMPORTED_MODULE_10__["g"])([0, 0], [0.32, 0.72], [0, 1], [1, 1], step)[0];
     }
 
     var duration = shouldComplete ? computeDuration(step * height, velocity) : computeDuration((1 - step) * height, velocity);
@@ -111,7 +111,7 @@ var createSwipeToCloseGesture = function createSwipeToCloseGesture(el, animation
     }
   };
 
-  var gesture = Object(_index_f49d994d_js__WEBPACK_IMPORTED_MODULE_12__["createGesture"])({
+  var gesture = Object(_index_eea61379_js__WEBPACK_IMPORTED_MODULE_12__["createGesture"])({
     el: el,
     gestureName: 'modalSwipeToClose',
     gesturePriority: 40,
@@ -126,7 +126,7 @@ var createSwipeToCloseGesture = function createSwipeToCloseGesture(el, animation
 };
 
 var computeDuration = function computeDuration(remaining, velocity) {
-  return Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["h"])(400, remaining / Math.abs(velocity * 1.1), 500);
+  return Object(_helpers_47d562d2_js__WEBPACK_IMPORTED_MODULE_7__["e"])(400, remaining / Math.abs(velocity * 1.1), 500);
 };
 /**
  * iOS Modal Enter Animation for the Card presentation style
@@ -134,18 +134,18 @@ var computeDuration = function computeDuration(remaining, velocity) {
 
 
 var iosEnterAnimation = function iosEnterAnimation(baseEl, presentingEl) {
-  var backdropAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])().addElement(baseEl.querySelector('ion-backdrop')).fromTo('opacity', 0.01, 'var(--backdrop-opacity)').beforeStyles({
+  var backdropAnimation = Object(_animation_239bd3e5_js__WEBPACK_IMPORTED_MODULE_8__["c"])().addElement(baseEl.querySelector('ion-backdrop')).fromTo('opacity', 0.01, 'var(--backdrop-opacity)').beforeStyles({
     'pointer-events': 'none'
   }).afterClearStyles(['pointer-events']);
-  var wrapperAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])().addElement(baseEl.querySelectorAll('.modal-wrapper, .modal-shadow')).beforeStyles({
+  var wrapperAnimation = Object(_animation_239bd3e5_js__WEBPACK_IMPORTED_MODULE_8__["c"])().addElement(baseEl.querySelectorAll('.modal-wrapper, .modal-shadow')).beforeStyles({
     'opacity': 1
   }).fromTo('transform', 'translateY(100vh)', 'translateY(0vh)');
-  var baseAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])().addElement(baseEl).easing('cubic-bezier(0.32,0.72,0,1)').duration(500).addAnimation(wrapperAnimation);
+  var baseAnimation = Object(_animation_239bd3e5_js__WEBPACK_IMPORTED_MODULE_8__["c"])().addElement(baseEl).easing('cubic-bezier(0.32,0.72,0,1)').duration(500).addAnimation(wrapperAnimation);
 
   if (presentingEl) {
     var isMobile = window.innerWidth < 768;
     var hasCardModal = presentingEl.tagName === 'ION-MODAL' && presentingEl.presentingElement !== undefined;
-    var presentingAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])().beforeStyles({
+    var presentingAnimation = Object(_animation_239bd3e5_js__WEBPACK_IMPORTED_MODULE_8__["c"])().beforeStyles({
       'transform': 'translateY(0)',
       'transform-origin': 'top center',
       'overflow': 'hidden'
@@ -199,7 +199,7 @@ var iosEnterAnimation = function iosEnterAnimation(baseEl, presentingEl) {
           filter: 'contrast(0.85)',
           transform: _finalTransform
         }]);
-        var shadowAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])().afterStyles({
+        var shadowAnimation = Object(_animation_239bd3e5_js__WEBPACK_IMPORTED_MODULE_8__["c"])().afterStyles({
           'transform': _finalTransform
         }).addElement(presentingEl.querySelector('.modal-shadow')).keyframes([{
           offset: 0,
@@ -226,16 +226,16 @@ var iosEnterAnimation = function iosEnterAnimation(baseEl, presentingEl) {
 
 var iosLeaveAnimation = function iosLeaveAnimation(baseEl, presentingEl) {
   var duration = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 500;
-  var backdropAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])().addElement(baseEl.querySelector('ion-backdrop')).fromTo('opacity', 'var(--backdrop-opacity)', 0.0);
-  var wrapperAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])().addElement(baseEl.querySelectorAll('.modal-wrapper, .modal-shadow')).beforeStyles({
+  var backdropAnimation = Object(_animation_239bd3e5_js__WEBPACK_IMPORTED_MODULE_8__["c"])().addElement(baseEl.querySelector('ion-backdrop')).fromTo('opacity', 'var(--backdrop-opacity)', 0.0);
+  var wrapperAnimation = Object(_animation_239bd3e5_js__WEBPACK_IMPORTED_MODULE_8__["c"])().addElement(baseEl.querySelectorAll('.modal-wrapper, .modal-shadow')).beforeStyles({
     'opacity': 1
   }).fromTo('transform', 'translateY(0vh)', 'translateY(100vh)');
-  var baseAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])().addElement(baseEl).easing('cubic-bezier(0.32,0.72,0,1)').duration(duration).addAnimation(wrapperAnimation);
+  var baseAnimation = Object(_animation_239bd3e5_js__WEBPACK_IMPORTED_MODULE_8__["c"])().addElement(baseEl).easing('cubic-bezier(0.32,0.72,0,1)').duration(duration).addAnimation(wrapperAnimation);
 
   if (presentingEl) {
     var isMobile = window.innerWidth < 768;
     var hasCardModal = presentingEl.tagName === 'ION-MODAL' && presentingEl.presentingElement !== undefined;
-    var presentingAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])().beforeClearStyles(['transform']).afterClearStyles(['transform']).onFinish(function (currentStep) {
+    var presentingAnimation = Object(_animation_239bd3e5_js__WEBPACK_IMPORTED_MODULE_8__["c"])().beforeClearStyles(['transform']).afterClearStyles(['transform']).onFinish(function (currentStep) {
       // only reset background color if this is the last card-style modal
       if (currentStep !== 1) {
         return;
@@ -290,7 +290,7 @@ var iosLeaveAnimation = function iosLeaveAnimation(baseEl, presentingEl) {
           filter: 'contrast(1)',
           transform: 'translateY(0) scale(1)'
         }]);
-        var shadowAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])().addElement(presentingEl.querySelector('.modal-shadow')).afterStyles({
+        var shadowAnimation = Object(_animation_239bd3e5_js__WEBPACK_IMPORTED_MODULE_8__["c"])().addElement(presentingEl.querySelector('.modal-shadow')).afterStyles({
           'transform': 'translateY(0) scale(1)'
         }).keyframes([{
           offset: 0,
@@ -316,9 +316,9 @@ var iosLeaveAnimation = function iosLeaveAnimation(baseEl, presentingEl) {
 
 
 var mdEnterAnimation = function mdEnterAnimation(baseEl) {
-  var baseAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])();
-  var backdropAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])();
-  var wrapperAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])();
+  var baseAnimation = Object(_animation_239bd3e5_js__WEBPACK_IMPORTED_MODULE_8__["c"])();
+  var backdropAnimation = Object(_animation_239bd3e5_js__WEBPACK_IMPORTED_MODULE_8__["c"])();
+  var wrapperAnimation = Object(_animation_239bd3e5_js__WEBPACK_IMPORTED_MODULE_8__["c"])();
   backdropAnimation.addElement(baseEl.querySelector('ion-backdrop')).fromTo('opacity', 0.01, 'var(--backdrop-opacity)').beforeStyles({
     'pointer-events': 'none'
   }).afterClearStyles(['pointer-events']);
@@ -339,9 +339,9 @@ var mdEnterAnimation = function mdEnterAnimation(baseEl) {
 
 
 var mdLeaveAnimation = function mdLeaveAnimation(baseEl) {
-  var baseAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])();
-  var backdropAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])();
-  var wrapperAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])();
+  var baseAnimation = Object(_animation_239bd3e5_js__WEBPACK_IMPORTED_MODULE_8__["c"])();
+  var backdropAnimation = Object(_animation_239bd3e5_js__WEBPACK_IMPORTED_MODULE_8__["c"])();
+  var wrapperAnimation = Object(_animation_239bd3e5_js__WEBPACK_IMPORTED_MODULE_8__["c"])();
   var wrapperEl = baseEl.querySelector('.modal-wrapper');
   backdropAnimation.addElement(baseEl.querySelector('ion-backdrop')).fromTo('opacity', 'var(--backdrop-opacity)', 0.0);
   wrapperAnimation.addElement(wrapperEl).keyframes([{
@@ -363,13 +363,13 @@ var Modal = /*#__PURE__*/function () {
   function Modal(hostRef) {
     var _this = this;
 
-    Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__["default"])(this, Modal);
+    Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__["default"])(this, Modal);
 
-    Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["r"])(this, hostRef);
-    this.didPresent = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionModalDidPresent", 7);
-    this.willPresent = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionModalWillPresent", 7);
-    this.willDismiss = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionModalWillDismiss", 7);
-    this.didDismiss = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionModalDidDismiss", 7); // Whether or not modal is being dismissed via gesture
+    Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["r"])(this, hostRef);
+    this.didPresent = Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionModalDidPresent", 7);
+    this.willPresent = Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionModalWillPresent", 7);
+    this.willDismiss = Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionModalWillDismiss", 7);
+    this.didDismiss = Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionModalDidDismiss", 7); // Whether or not modal is being dismissed via gesture
 
     this.gestureAnimationDismissing = false;
     this.presented = false;
@@ -400,7 +400,7 @@ var Modal = /*#__PURE__*/function () {
     this.swipeToClose = false;
 
     this.onBackdropTap = function () {
-      _this.dismiss(undefined, _overlays_12c20431_js__WEBPACK_IMPORTED_MODULE_14__["B"]);
+      _this.dismiss(undefined, _overlays_d577c227_js__WEBPACK_IMPORTED_MODULE_14__["B"]);
     };
 
     this.onDismiss = function (ev) {
@@ -425,7 +425,7 @@ var Modal = /*#__PURE__*/function () {
     };
   }
 
-  Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__["default"])(Modal, [{
+  Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__["default"])(Modal, [{
     key: "swipeToCloseChanged",
     value: function swipeToCloseChanged(enable) {
       if (this.gesture) {
@@ -437,7 +437,7 @@ var Modal = /*#__PURE__*/function () {
   }, {
     key: "connectedCallback",
     value: function connectedCallback() {
-      Object(_overlays_12c20431_js__WEBPACK_IMPORTED_MODULE_14__["e"])(this.el);
+      Object(_overlays_d577c227_js__WEBPACK_IMPORTED_MODULE_14__["e"])(this.el);
     }
     /**
      * Present the modal overlay after it has been created.
@@ -446,11 +446,11 @@ var Modal = /*#__PURE__*/function () {
   }, {
     key: "present",
     value: function () {
-      var _present2 = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee() {
+      var _present2 = Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee() {
         var _this2 = this;
 
         var container, componentProps;
-        return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee$(_context) {
+        return D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
@@ -476,19 +476,19 @@ var Modal = /*#__PURE__*/function () {
                   modal: this.el
                 });
                 _context.next = 8;
-                return Object(_framework_delegate_4584ab5a_js__WEBPACK_IMPORTED_MODULE_16__["a"])(this.delegate, container, this.component, ['ion-page'], componentProps);
+                return Object(_framework_delegate_d1eb6504_js__WEBPACK_IMPORTED_MODULE_16__["a"])(this.delegate, container, this.component, ['ion-page'], componentProps);
 
               case 8:
                 this.usersElement = _context.sent;
                 _context.next = 11;
-                return Object(_index_d8cfb4a8_js__WEBPACK_IMPORTED_MODULE_9__["e"])(this.usersElement);
+                return Object(_index_96111fa9_js__WEBPACK_IMPORTED_MODULE_9__["e"])(this.usersElement);
 
               case 11:
-                Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["c"])(function () {
+                Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["c"])(function () {
                   return _this2.el.classList.add('show-modal');
                 });
                 _context.next = 14;
-                return Object(_overlays_12c20431_js__WEBPACK_IMPORTED_MODULE_14__["d"])(this, 'modalEnter', iosEnterAnimation, mdEnterAnimation, this.presentingElement);
+                return Object(_overlays_d577c227_js__WEBPACK_IMPORTED_MODULE_14__["d"])(this, 'modalEnter', iosEnterAnimation, mdEnterAnimation, this.presentingElement);
 
               case 14:
                 if (this.swipeToClose) {
@@ -514,14 +514,14 @@ var Modal = /*#__PURE__*/function () {
     value: function initSwipeToClose() {
       var _this3 = this;
 
-      if (Object(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this) !== 'ios') {
+      if (Object(_ionic_global_23e7365a_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this) !== 'ios') {
         return;
       } // All of the elements needed for the swipe gesture
       // should be in the DOM and referenced by now, except
       // for the presenting el
 
 
-      var animationBuilder = this.leaveAnimation || _ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["c"].get('modalLeave', iosLeaveAnimation);
+      var animationBuilder = this.leaveAnimation || _ionic_global_23e7365a_js__WEBPACK_IMPORTED_MODULE_6__["c"].get('modalLeave', iosLeaveAnimation);
       var ani = this.animation = animationBuilder(this.el, this.presentingElement);
       this.gesture = createSwipeToCloseGesture(this.el, ani, function () {
         /**
@@ -536,8 +536,8 @@ var Modal = /*#__PURE__*/function () {
          */
         _this3.gestureAnimationDismissing = true;
 
-        _this3.animation.onFinish( /*#__PURE__*/Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee2() {
-          return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee2$(_context2) {
+        _this3.animation.onFinish( /*#__PURE__*/Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee2() {
+          return D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee2$(_context2) {
             while (1) {
               switch (_context2.prev = _context2.next) {
                 case 0:
@@ -567,9 +567,9 @@ var Modal = /*#__PURE__*/function () {
   }, {
     key: "dismiss",
     value: function () {
-      var _dismiss2 = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee3(data, role) {
+      var _dismiss2 = Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee3(data, role) {
         var enteringAnimation, dismissed;
-        return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee3$(_context3) {
+        return D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
@@ -581,9 +581,9 @@ var Modal = /*#__PURE__*/function () {
                 return _context3.abrupt("return", false);
 
               case 2:
-                enteringAnimation = _overlays_12c20431_js__WEBPACK_IMPORTED_MODULE_14__["h"].get(this) || [];
+                enteringAnimation = _overlays_d577c227_js__WEBPACK_IMPORTED_MODULE_14__["h"].get(this) || [];
                 _context3.next = 5;
-                return Object(_overlays_12c20431_js__WEBPACK_IMPORTED_MODULE_14__["f"])(this, data, role, 'modalLeave', iosLeaveAnimation, mdLeaveAnimation, this.presentingElement);
+                return Object(_overlays_d577c227_js__WEBPACK_IMPORTED_MODULE_14__["f"])(this, data, role, 'modalLeave', iosLeaveAnimation, mdLeaveAnimation, this.presentingElement);
 
               case 5:
                 dismissed = _context3.sent;
@@ -594,7 +594,7 @@ var Modal = /*#__PURE__*/function () {
                 }
 
                 _context3.next = 9;
-                return Object(_framework_delegate_4584ab5a_js__WEBPACK_IMPORTED_MODULE_16__["d"])(this.delegate, this.usersElement);
+                return Object(_framework_delegate_d1eb6504_js__WEBPACK_IMPORTED_MODULE_16__["d"])(this.delegate, this.usersElement);
 
               case 9:
                 if (this.animation) {
@@ -630,7 +630,7 @@ var Modal = /*#__PURE__*/function () {
   }, {
     key: "onDidDismiss",
     value: function onDidDismiss() {
-      return Object(_overlays_12c20431_js__WEBPACK_IMPORTED_MODULE_14__["g"])(this.el, 'ionModalDidDismiss');
+      return Object(_overlays_d577c227_js__WEBPACK_IMPORTED_MODULE_14__["g"])(this.el, 'ionModalDidDismiss');
     }
     /**
      * Returns a promise that resolves when the modal will dismiss.
@@ -639,19 +639,19 @@ var Modal = /*#__PURE__*/function () {
   }, {
     key: "onWillDismiss",
     value: function onWillDismiss() {
-      return Object(_overlays_12c20431_js__WEBPACK_IMPORTED_MODULE_14__["g"])(this.el, 'ionModalWillDismiss');
+      return Object(_overlays_d577c227_js__WEBPACK_IMPORTED_MODULE_14__["g"])(this.el, 'ionModalWillDismiss');
     }
   }, {
     key: "render",
     value: function render() {
       var _Object$assign;
 
-      var mode = Object(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this);
-      return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["H"], {
+      var mode = Object(_ionic_global_23e7365a_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this);
+      return Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["H"], {
         "no-router": true,
         "aria-modal": "true",
         tabindex: "-1",
-        class: Object.assign((_Object$assign = {}, Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_Object$assign, mode, true), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_Object$assign, "modal-card", this.presentingElement !== undefined && mode === 'ios'), _Object$assign), Object(_theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_15__["g"])(this.cssClass)),
+        class: Object.assign((_Object$assign = {}, Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_Object$assign, mode, true), Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_Object$assign, "modal-card", this.presentingElement !== undefined && mode === 'ios'), _Object$assign), Object(_theme_5641d27f_js__WEBPACK_IMPORTED_MODULE_15__["g"])(this.cssClass)),
         style: {
           zIndex: "".concat(20000 + this.overlayIndex)
         },
@@ -661,24 +661,24 @@ var Modal = /*#__PURE__*/function () {
         onIonModalWillPresent: this.onLifecycle,
         onIonModalWillDismiss: this.onLifecycle,
         onIonModalDidDismiss: this.onLifecycle
-      }, Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("ion-backdrop", {
+      }, Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])("ion-backdrop", {
         visible: this.showBackdrop,
         tappable: this.backdropDismiss
-      }), mode === 'ios' && Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+      }), mode === 'ios' && Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
         class: "modal-shadow"
-      }), Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+      }), Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
         tabindex: "0"
-      }), Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+      }), Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
         role: "dialog",
         class: "modal-wrapper ion-overlay-wrapper"
-      }), Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+      }), Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
         tabindex: "0"
       }));
     }
   }, {
     key: "el",
     get: function get() {
-      return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["i"])(this);
+      return Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["i"])(this);
     }
   }], [{
     key: "watchers",

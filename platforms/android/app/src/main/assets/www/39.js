@@ -10,16 +10,16 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_textarea", function() { return Textarea; });
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/defineProperty */ "rePB");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ "o0o1");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator */ "HaE+");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/classCallCheck */ "1OyB");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createClass */ "vuIU");
-/* harmony import */ var _index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./index-e806d1f6.js */ "A36C");
-/* harmony import */ var _ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ionic-global-9d5c8ee3.js */ "Zgba");
-/* harmony import */ var _helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./helpers-90f46169.js */ "QPqR");
-/* harmony import */ var _theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./theme-ff3fc52f.js */ "74mu");
+/* harmony import */ var D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/defineProperty */ "rePB");
+/* harmony import */ var D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ "o0o1");
+/* harmony import */ var D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator */ "HaE+");
+/* harmony import */ var D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/classCallCheck */ "1OyB");
+/* harmony import */ var D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createClass */ "vuIU");
+/* harmony import */ var _index_92848855_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./index-92848855.js */ "sxy2");
+/* harmony import */ var _ionic_global_23e7365a_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ionic-global-23e7365a.js */ "N4tN");
+/* harmony import */ var _helpers_47d562d2_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./helpers-47d562d2.js */ "9t5z");
+/* harmony import */ var _theme_5641d27f_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./theme-5641d27f.js */ "sPtc");
 
 
 
@@ -36,17 +36,16 @@ var Textarea = /*#__PURE__*/function () {
   function Textarea(hostRef) {
     var _this = this;
 
-    Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__["default"])(this, Textarea);
+    Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__["default"])(this, Textarea);
 
-    Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["r"])(this, hostRef);
-    this.ionChange = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionChange", 7);
-    this.ionInput = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionInput", 7);
-    this.ionStyle = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionStyle", 7);
-    this.ionBlur = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionBlur", 7);
-    this.ionFocus = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionFocus", 7);
+    Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["r"])(this, hostRef);
+    this.ionChange = Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionChange", 7);
+    this.ionInput = Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionInput", 7);
+    this.ionStyle = Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionStyle", 7);
+    this.ionBlur = Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionBlur", 7);
+    this.ionFocus = Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionFocus", 7);
     this.inputId = "ion-textarea-".concat(textareaIds++);
     this.didBlurAfterEdit = false;
-    this.inheritedAttributes = {};
     /**
      * This is required for a WebKit bug which requires us to
      * blur and focus an input to properly focus the input in
@@ -74,7 +73,7 @@ var Textarea = /*#__PURE__*/function () {
 
     this.clearOnEdit = false;
     /**
-     * Set the amount of time, in milliseconds, to wait to trigger the `ionChange` event after each keystroke. This also impacts form bindings such as `ngModel` or `v-model`.
+     * Set the amount of time, in milliseconds, to wait to trigger the `ionChange` event after each keystroke.
      */
 
     this.debounce = 0;
@@ -149,10 +148,10 @@ var Textarea = /*#__PURE__*/function () {
     };
   }
 
-  Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__["default"])(Textarea, [{
+  Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__["default"])(Textarea, [{
     key: "debounceChanged",
     value: function debounceChanged() {
-      this.ionChange = Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["e"])(this.ionChange, this.debounce);
+      this.ionChange = Object(_helpers_47d562d2_js__WEBPACK_IMPORTED_MODULE_7__["d"])(this.ionChange, this.debounce);
     }
   }, {
     key: "disabledChanged",
@@ -200,16 +199,11 @@ var Textarea = /*#__PURE__*/function () {
       }
     }
   }, {
-    key: "componentWillLoad",
-    value: function componentWillLoad() {
-      this.inheritedAttributes = Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["i"])(this.el, ['title']);
-    }
-  }, {
     key: "componentDidLoad",
     value: function componentDidLoad() {
       var _this2 = this;
 
-      Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["r"])(function () {
+      Object(_helpers_47d562d2_js__WEBPACK_IMPORTED_MODULE_7__["r"])(function () {
         return _this2.runAutoGrow();
       });
     }
@@ -221,7 +215,7 @@ var Textarea = /*#__PURE__*/function () {
       var nativeInput = this.nativeInput;
 
       if (nativeInput && this.autoGrow) {
-        Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["f"])(function () {
+        Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["f"])(function () {
           nativeInput.style.height = 'auto';
           nativeInput.style.height = nativeInput.scrollHeight + 'px';
 
@@ -239,8 +233,8 @@ var Textarea = /*#__PURE__*/function () {
   }, {
     key: "setFocus",
     value: function () {
-      var _setFocus = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee() {
-        return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee$(_context) {
+      var _setFocus = Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee() {
+        return D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
@@ -271,8 +265,8 @@ var Textarea = /*#__PURE__*/function () {
   }, {
     key: "setBlur",
     value: function () {
-      var _setBlur = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee2() {
-        return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee2$(_context2) {
+      var _setBlur = Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee2() {
+        return D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
@@ -361,24 +355,24 @@ var Textarea = /*#__PURE__*/function () {
     value: function render() {
       var _this4 = this;
 
-      var mode = Object(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this);
+      var mode = Object(_ionic_global_23e7365a_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this);
       var value = this.getValue();
       var labelId = this.inputId + '-lbl';
-      var label = Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["f"])(this.el);
+      var label = Object(_helpers_47d562d2_js__WEBPACK_IMPORTED_MODULE_7__["f"])(this.el);
 
       if (label) {
         label.id = labelId;
       }
 
-      return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["H"], {
+      return Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["H"], {
         "aria-disabled": this.disabled ? 'true' : null,
-        class: Object(_theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_8__["c"])(this.color, Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])({}, mode, true))
-      }, Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+        class: Object(_theme_5641d27f_js__WEBPACK_IMPORTED_MODULE_8__["c"])(this.color, Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])({}, mode, true))
+      }, Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
         class: "textarea-wrapper",
         ref: function ref(el) {
           return _this4.textareaWrapper = el;
         }
-      }, Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("textarea", Object.assign({
+      }, Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])("textarea", {
         class: "native-textarea",
         "aria-labelledby": labelId,
         ref: function ref(el) {
@@ -403,12 +397,12 @@ var Textarea = /*#__PURE__*/function () {
         onBlur: this.onBlur,
         onFocus: this.onFocus,
         onKeyDown: this.onKeyDown
-      }, this.inheritedAttributes), value)));
+      }, value)));
     }
   }, {
     key: "el",
     get: function get() {
-      return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["i"])(this);
+      return Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["i"])(this);
     }
   }], [{
     key: "watchers",

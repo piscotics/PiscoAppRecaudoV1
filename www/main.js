@@ -33,7 +33,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\Recaudooffline V.1.0.1\src\main.ts */"zUnb");
+module.exports = __webpack_require__(/*! D:\Recaudooffline V.1.0.1\PiscoAppRecaudo\src\main.ts */"zUnb");
 
 
 /***/ }),
@@ -245,6 +245,7 @@ var DatosPagoComponent = /** @class */ (function () {
                         printBody += _this.print.PosCommand.LF;
                         printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
                         // tslint:disable-next-line: max-line-length
+                        console.log('el pago hasta es ' + _this.pago.PagoHasta);
                         printBody += _this.print.mapTextColumn(moment__WEBPACK_IMPORTED_MODULE_10__(_this.pago.PagoDesde).format('MMM DD, YYYY'), moment__WEBPACK_IMPORTED_MODULE_10__(_this.pago.PagoHasta).format('MMM DD, YYYY'));
                         printBody += _this.print.PosCommand.LF;
                     }
@@ -253,7 +254,12 @@ var DatosPagoComponent = /** @class */ (function () {
                         printBody += _this.print.mapTextColumn('Proxima Visi:', 'Anulado:');
                         printBody += _this.print.PosCommand.LF;
                         printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
-                        printBody += _this.print.mapTextColumn(moment__WEBPACK_IMPORTED_MODULE_10__(_this.pago.PVisita).format('MMM DD, YYYY'), _this.pago.Anulado);
+                        if (_this.pago.Anulado == "1") {
+                            printBody += _this.print.mapTextColumn(moment__WEBPACK_IMPORTED_MODULE_10__(_this.pago.PVisita).format('MMM DD, YYYY'), "Si");
+                        }
+                        else {
+                            printBody += _this.print.mapTextColumn(moment__WEBPACK_IMPORTED_MODULE_10__(_this.pago.PVisita).format('MMM DD, YYYY'), "No");
+                        }
                         printBody += _this.print.PosCommand.LF;
                     }
                     if (_this.pago.Vdesde !== null && _this.pago.Vdesde !== undefined) {
@@ -288,6 +294,12 @@ var DatosPagoComponent = /** @class */ (function () {
                         printBody += _this.pago.VlrDctoPago;
                         printBody += _this.print.PosCommand.LF;
                     }
+                    printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
+                    printBody += 'Forma De Pago:';
+                    printBody += _this.print.PosCommand.LF;
+                    printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
+                    printBody += _this.pago.FormaPago;
+                    printBody += _this.print.PosCommand.LF;
                     if (_this.pago.VlrIva !== null) {
                         printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
                         printBody += 'Valor Iva:';
@@ -532,7 +544,7 @@ var DatosNovedadComponent = /** @class */ (function () {
                     printBody += 'Fecha / Hora Novedad:';
                     printBody += _this.print.PosCommand.LF;
                     printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
-                    printBody += moment__WEBPACK_IMPORTED_MODULE_10__().format('DD/MM/YYYY HH:mm:ss');
+                    printBody += moment__WEBPACK_IMPORTED_MODULE_10__().format('DD/MMM/YYYY HH:mm:ss');
                     printBody += _this.print.PosCommand.LF;
                     printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
                     printBody += 'Contrato: ' + _this.gestion.Contrato;
@@ -550,7 +562,7 @@ var DatosNovedadComponent = /** @class */ (function () {
                     printBody += 'Pago Hasta:';
                     printBody += _this.print.PosCommand.LF;
                     printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
-                    printBody += _this.gestion.PagoHasta;
+                    printBody += moment__WEBPACK_IMPORTED_MODULE_10__(_this.gestion.PagoHasta).format('DD/MMM/YYYY');
                     printBody += _this.print.PosCommand.LF;
                     printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
                     printBody += 'Novedad:';
@@ -562,11 +574,11 @@ var DatosNovedadComponent = /** @class */ (function () {
                     printBody += 'Proxima Visita:';
                     printBody += _this.print.PosCommand.LF;
                     printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
-                    var newDate = new Date(_this.gestion.Fechaprogramada + 'T00:00:00');
+                    //let newDate = new Date(this.gestion.Fechaprogramada +  'T00:00:00');
                     //const formattedDate = newDate.toLocaleDateString('es-ES', {
                     //  day: 'numeric', month: 'short', year: 'numeric'
                     // }).replace('.', '');
-                    printBody += newDate;
+                    printBody += moment__WEBPACK_IMPORTED_MODULE_10__(_this.gestion.Fechaprogramada).format('DD/MMM/YYYY');
                     printBody += _this.print.PosCommand.LF;
                     printBody += _this.print.PosCommand.LF;
                     printBody += '_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _';
@@ -1316,9 +1328,38 @@ var OfflineService = /** @class */ (function () {
             });
         });
     };
+    OfflineService.prototype.getConsultarRutas = function (fechar, estado) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
+            var data, todos, i, ex_3;
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        return [4 /*yield*/, this.db.executeSql("SELECT PAGOHASTA FROM RUTAS WHERE FECHAR = ? AND ESTADO = ? ", [fechar, estado])];
+                    case 1:
+                        data = _a.sent();
+                        if (data.rows.length > 0) {
+                            todos = [];
+                            for (i = 0; i < data.rows.length; i++) {
+                                todos.push(data.rows.item(i));
+                            }
+                            return [2 /*return*/, todos];
+                        }
+                        else {
+                            return [2 /*return*/, []];
+                        }
+                        return [3 /*break*/, 3];
+                    case 2:
+                        ex_3 = _a.sent();
+                        throw ex_3;
+                    case 3: return [2 /*return*/];
+                }
+            });
+        });
+    };
     OfflineService.prototype.sincronizarLicencias = function (data) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var sql, _i, data_2, d, ex_3;
+            var sql, _i, data_2, d, ex_4;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1341,8 +1382,8 @@ var OfflineService = /** @class */ (function () {
                         return [3 /*break*/, 2];
                     case 5: return [3 /*break*/, 7];
                     case 6:
-                        ex_3 = _a.sent();
-                        throw ex_3;
+                        ex_4 = _a.sent();
+                        throw ex_4;
                     case 7: return [2 /*return*/];
                 }
             });
@@ -1350,7 +1391,7 @@ var OfflineService = /** @class */ (function () {
     };
     OfflineService.prototype.sincronizarUsuarios = function (data) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var sql, _i, data_3, d, ex_4;
+            var sql, _i, data_3, d, ex_5;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1373,8 +1414,8 @@ var OfflineService = /** @class */ (function () {
                         return [3 /*break*/, 2];
                     case 5: return [3 /*break*/, 7];
                     case 6:
-                        ex_4 = _a.sent();
-                        throw ex_4;
+                        ex_5 = _a.sent();
+                        throw ex_5;
                     case 7: return [2 /*return*/];
                 }
             });
@@ -1382,7 +1423,7 @@ var OfflineService = /** @class */ (function () {
     };
     OfflineService.prototype.sincronizarPagos = function (data) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var sql, _i, data_4, d, ex_5;
+            var sql, _i, data_4, d, ex_6;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1405,8 +1446,8 @@ var OfflineService = /** @class */ (function () {
                         return [3 /*break*/, 2];
                     case 5: return [3 /*break*/, 7];
                     case 6:
-                        ex_5 = _a.sent();
-                        throw ex_5;
+                        ex_6 = _a.sent();
+                        throw ex_6;
                     case 7: return [2 /*return*/];
                 }
             });
@@ -1414,7 +1455,7 @@ var OfflineService = /** @class */ (function () {
     };
     OfflineService.prototype.guardarPagosLocal = function (d) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var id_1, sql, ex_6;
+            var id_1, sql, ex_7;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1428,8 +1469,8 @@ var OfflineService = /** @class */ (function () {
                         _a.sent();
                         return [2 /*return*/, id_1];
                     case 2:
-                        ex_6 = _a.sent();
-                        throw ex_6;
+                        ex_7 = _a.sent();
+                        throw ex_7;
                     case 3: return [2 /*return*/];
                 }
             });
@@ -1437,7 +1478,7 @@ var OfflineService = /** @class */ (function () {
     };
     OfflineService.prototype.guardarNovedadLocal = function (d) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var sql, ex_7;
+            var sql, ex_8;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1450,8 +1491,8 @@ var OfflineService = /** @class */ (function () {
                         _a.sent();
                         return [3 /*break*/, 3];
                     case 2:
-                        ex_7 = _a.sent();
-                        throw ex_7;
+                        ex_8 = _a.sent();
+                        throw ex_8;
                     case 3: return [2 /*return*/];
                 }
             });
@@ -1459,7 +1500,7 @@ var OfflineService = /** @class */ (function () {
     };
     OfflineService.prototype.sincronizarNovedades = function (data) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var sql, _i, data_5, d, ex_8;
+            var sql, _i, data_5, d, ex_9;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1482,8 +1523,8 @@ var OfflineService = /** @class */ (function () {
                         return [3 /*break*/, 2];
                     case 5: return [3 /*break*/, 7];
                     case 6:
-                        ex_8 = _a.sent();
-                        throw ex_8;
+                        ex_9 = _a.sent();
+                        throw ex_9;
                     case 7: return [2 /*return*/];
                 }
             });
@@ -1491,7 +1532,7 @@ var OfflineService = /** @class */ (function () {
     };
     OfflineService.prototype.sincronizarEmpresas = function (d) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var sql, ex_9;
+            var sql, ex_10;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1505,8 +1546,8 @@ var OfflineService = /** @class */ (function () {
                         _a.sent();
                         return [3 /*break*/, 4];
                     case 3:
-                        ex_9 = _a.sent();
-                        throw ex_9;
+                        ex_10 = _a.sent();
+                        throw ex_10;
                     case 4: return [2 /*return*/];
                 }
             });
@@ -1514,7 +1555,7 @@ var OfflineService = /** @class */ (function () {
     };
     OfflineService.prototype.sincronizarFormaPago = function (data) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var sql, _i, data_6, d, ex_10;
+            var sql, _i, data_6, d, ex_11;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1537,8 +1578,8 @@ var OfflineService = /** @class */ (function () {
                         return [3 /*break*/, 2];
                     case 5: return [3 /*break*/, 7];
                     case 6:
-                        ex_10 = _a.sent();
-                        throw ex_10;
+                        ex_11 = _a.sent();
+                        throw ex_11;
                     case 7: return [2 /*return*/];
                 }
             });
@@ -1546,7 +1587,7 @@ var OfflineService = /** @class */ (function () {
     };
     OfflineService.prototype.SincronizarListaNovedades = function (data) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var sql, _i, data_7, d, ex_11;
+            var sql, _i, data_7, d, ex_12;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1569,8 +1610,8 @@ var OfflineService = /** @class */ (function () {
                         return [3 /*break*/, 2];
                     case 5: return [3 /*break*/, 7];
                     case 6:
-                        ex_11 = _a.sent();
-                        throw ex_11;
+                        ex_12 = _a.sent();
+                        throw ex_12;
                     case 7: return [2 /*return*/];
                 }
             });
@@ -1578,7 +1619,7 @@ var OfflineService = /** @class */ (function () {
     };
     OfflineService.prototype.loginOffline = function (usuario, contrasena) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var res, data, ex_12;
+            var res, data, ex_13;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1595,8 +1636,8 @@ var OfflineService = /** @class */ (function () {
                         }
                         return [3 /*break*/, 3];
                     case 2:
-                        ex_12 = _a.sent();
-                        throw ex_12;
+                        ex_13 = _a.sent();
+                        throw ex_13;
                     case 3: return [2 /*return*/];
                 }
             });
@@ -1604,7 +1645,7 @@ var OfflineService = /** @class */ (function () {
     };
     OfflineService.prototype.getInfoEmpresa = function () {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var data, ex_13;
+            var data, ex_14;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1620,8 +1661,8 @@ var OfflineService = /** @class */ (function () {
                         }
                         return [3 /*break*/, 3];
                     case 2:
-                        ex_13 = _a.sent();
-                        throw ex_13;
+                        ex_14 = _a.sent();
+                        throw ex_14;
                     case 3: return [2 /*return*/];
                 }
             });
@@ -1629,7 +1670,7 @@ var OfflineService = /** @class */ (function () {
     };
     OfflineService.prototype.getPagoHasta = function (contrato) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var data, ex_14;
+            var data, ex_15;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1642,8 +1683,8 @@ var OfflineService = /** @class */ (function () {
                         }
                         return [3 /*break*/, 3];
                     case 2:
-                        ex_14 = _a.sent();
-                        throw ex_14;
+                        ex_15 = _a.sent();
+                        throw ex_15;
                     case 3: return [2 /*return*/];
                 }
             });
@@ -1651,7 +1692,7 @@ var OfflineService = /** @class */ (function () {
     };
     OfflineService.prototype.updatePagoHasta = function (Pagohasta, contrato) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var data, ex_15;
+            var data, ex_16;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1661,8 +1702,8 @@ var OfflineService = /** @class */ (function () {
                         data = _a.sent();
                         return [3 /*break*/, 3];
                     case 2:
-                        ex_15 = _a.sent();
-                        throw ex_15;
+                        ex_16 = _a.sent();
+                        throw ex_16;
                     case 3: return [2 /*return*/];
                 }
             });
@@ -1670,7 +1711,7 @@ var OfflineService = /** @class */ (function () {
     };
     OfflineService.prototype.getInfoContrato = function (contrato) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var data, ex_16;
+            var data, ex_17;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1686,8 +1727,8 @@ var OfflineService = /** @class */ (function () {
                         }
                         return [3 /*break*/, 3];
                     case 2:
-                        ex_16 = _a.sent();
-                        throw ex_16;
+                        ex_17 = _a.sent();
+                        throw ex_17;
                     case 3: return [2 /*return*/];
                 }
             });
@@ -1695,7 +1736,7 @@ var OfflineService = /** @class */ (function () {
     };
     OfflineService.prototype.getInfoCedula = function (cedula) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var data, todos, i, ex_17;
+            var data, todos, i, ex_18;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1715,8 +1756,8 @@ var OfflineService = /** @class */ (function () {
                         }
                         return [3 /*break*/, 3];
                     case 2:
-                        ex_17 = _a.sent();
-                        throw ex_17;
+                        ex_18 = _a.sent();
+                        throw ex_18;
                     case 3: return [2 /*return*/];
                 }
             });
@@ -1724,7 +1765,7 @@ var OfflineService = /** @class */ (function () {
     };
     OfflineService.prototype.getBeneficiarios = function (contrato) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var data, bene, ex_18;
+            var data, bene, ex_19;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1741,8 +1782,8 @@ var OfflineService = /** @class */ (function () {
                         }
                         return [3 /*break*/, 3];
                     case 2:
-                        ex_18 = _a.sent();
-                        throw ex_18;
+                        ex_19 = _a.sent();
+                        throw ex_19;
                     case 3: return [2 /*return*/];
                 }
             });
@@ -1750,7 +1791,7 @@ var OfflineService = /** @class */ (function () {
     };
     OfflineService.prototype.getUltimospagos = function (contrato) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var data, pagos, ex_19;
+            var data, pagos, ex_20;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1767,35 +1808,6 @@ var OfflineService = /** @class */ (function () {
                         }
                         return [3 /*break*/, 3];
                     case 2:
-                        ex_19 = _a.sent();
-                        throw ex_19;
-                    case 3: return [2 /*return*/];
-                }
-            });
-        });
-    };
-    OfflineService.prototype.getFormaPago = function () {
-        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var data, todos, i, ex_20;
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, this.db.executeSql("SELECT * FROM FORMAPAGO ", [])];
-                    case 1:
-                        data = _a.sent();
-                        if (data.rows.length > 0) {
-                            todos = [];
-                            for (i = 0; i < data.rows.length; i++) {
-                                todos.push(data.rows.item(i));
-                            }
-                            return [2 /*return*/, todos];
-                        }
-                        else {
-                            return [2 /*return*/, []];
-                        }
-                        return [3 /*break*/, 3];
-                    case 2:
                         ex_20 = _a.sent();
                         throw ex_20;
                     case 3: return [2 /*return*/];
@@ -1803,14 +1815,14 @@ var OfflineService = /** @class */ (function () {
             });
         });
     };
-    OfflineService.prototype.getNovedades = function () {
+    OfflineService.prototype.getFormaPago = function () {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
             var data, todos, i, ex_21;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, this.db.executeSql("SELECT * FROM TIPONOVEDAD ", [])];
+                        return [4 /*yield*/, this.db.executeSql("SELECT * FROM FORMAPAGO ", [])];
                     case 1:
                         data = _a.sent();
                         if (data.rows.length > 0) {
@@ -1832,9 +1844,38 @@ var OfflineService = /** @class */ (function () {
             });
         });
     };
+    OfflineService.prototype.getNovedades = function () {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
+            var data, todos, i, ex_22;
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        return [4 /*yield*/, this.db.executeSql("SELECT * FROM TIPONOVEDAD ", [])];
+                    case 1:
+                        data = _a.sent();
+                        if (data.rows.length > 0) {
+                            todos = [];
+                            for (i = 0; i < data.rows.length; i++) {
+                                todos.push(data.rows.item(i));
+                            }
+                            return [2 /*return*/, todos];
+                        }
+                        else {
+                            return [2 /*return*/, []];
+                        }
+                        return [3 /*break*/, 3];
+                    case 2:
+                        ex_22 = _a.sent();
+                        throw ex_22;
+                    case 3: return [2 /*return*/];
+                }
+            });
+        });
+    };
     OfflineService.prototype.getCuadreCaja = function (usuario, fecha) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var m, data, ex_22;
+            var m, data, ex_23;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1851,8 +1892,8 @@ var OfflineService = /** @class */ (function () {
                         }
                         return [3 /*break*/, 3];
                     case 2:
-                        ex_22 = _a.sent();
-                        throw ex_22;
+                        ex_23 = _a.sent();
+                        throw ex_23;
                     case 3: return [2 /*return*/];
                 }
             });
@@ -1860,7 +1901,7 @@ var OfflineService = /** @class */ (function () {
     };
     OfflineService.prototype.getListapago = function () {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var data, todos, i, ex_23;
+            var data, todos, i, ex_24;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1880,8 +1921,8 @@ var OfflineService = /** @class */ (function () {
                         }
                         return [3 /*break*/, 3];
                     case 2:
-                        ex_23 = _a.sent();
-                        throw ex_23;
+                        ex_24 = _a.sent();
+                        throw ex_24;
                     case 3: return [2 /*return*/];
                 }
             });
@@ -1889,7 +1930,7 @@ var OfflineService = /** @class */ (function () {
     };
     OfflineService.prototype.getListaNovedades = function () {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var data, todos, i, ex_24;
+            var data, todos, i, ex_25;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1909,8 +1950,8 @@ var OfflineService = /** @class */ (function () {
                         }
                         return [3 /*break*/, 3];
                     case 2:
-                        ex_24 = _a.sent();
-                        throw ex_24;
+                        ex_25 = _a.sent();
+                        throw ex_25;
                     case 3: return [2 /*return*/];
                 }
             });
@@ -2347,6 +2388,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var SesionService = /** @class */ (function () {
     function SesionService(platform, http, router, androidPermissions, loadingController, toastController, nativeStorage, configuracionService, device, alertController, offline) {
+        var _this = this;
         this.platform = platform;
         this.http = http;
         this.router = router;
@@ -2362,6 +2404,18 @@ var SesionService = /** @class */ (function () {
         this.sesionLocalKey = 'SESION_LOCAL';
         this.sesionEmpresaKey = 'EMPRESA_LOCAL';
         this.sesionLocal = new _models_sesion_local_model__WEBPACK_IMPORTED_MODULE_9__["SesionLocalModel"]();
+        this.mostrarAlerta = function (mensaje) {
+            _this.alertController.create({
+                header: 'Informaciòn',
+                message: mensaje,
+                buttons: [{
+                        role: 'cancel',
+                        text: 'Ok',
+                    }]
+            }).then(function (alert) {
+                alert.present();
+            });
+        };
         this.config = this.configuracionService.config;
     }
     // Obtiene la información acerca de la sesión actual
@@ -2526,7 +2580,7 @@ var SesionService = /** @class */ (function () {
                         }
                     }, function (error) {
                         console.log(JSON.stringify(error));
-                        _this.mostrarToast('Error autenticando en el servidor');
+                        _this.mostrarAlerta('Usuario O Contraseña Incorrectos, Intenta Nuevamente ');
                         loading.dismiss();
                         reject();
                     });
@@ -2626,7 +2680,7 @@ var SesionService = /** @class */ (function () {
                         .subscribe(function (resultado) {
                         if (!resultado) {
                             loading.dismiss();
-                            _this.mostrarToast('No se Pudo Agregar la Licencia, intente nuevamente.');
+                            _this.mostrarToast('Licencia Ya Registrada.');
                             reject();
                         }
                         else {
@@ -3210,6 +3264,10 @@ var AppComponent = /** @class */ (function () {
             });
         });
     };
+    AppComponent.prototype.consultarRuta = function () {
+        this.router.navigate(['consultar-ruta']);
+        this.menu.close(this.menuPrincipalId);
+    };
     AppComponent.prototype.initializeApp = function () {
         var _this = this;
         this.platform.ready().then(function () {
@@ -3260,27 +3318,28 @@ var AppComponent = /** @class */ (function () {
     };
     AppComponent.prototype.removerLicencia = function () {
         var _this = this;
-        var alert = this.alert.create({
-            cssClass: 'my-custom-class',
-            header: 'Confirmar Licencia!',
-            message: 'Desea Validar La <strong>Licencia</strong>!!!',
+        console.log("se removera la licencia");
+        this.alertController.create({
+            header: 'Eliminar Licencia',
+            message: 'Esta Seguro De Eliminar La Licencia, ¿Desea continuar?',
             buttons: [
                 {
-                    text: 'Cancelar',
-                    role: 'cancel',
-                    cssClass: 'secondary',
-                    handler: function (blah) {
-                        console.log('Confirm Cancel: blah');
-                    }
-                }, {
-                    text: 'Confirmar',
+                    text: 'Si', role: 'accept',
                     handler: function () {
                         _this.sesionService.removerLicencia();
                         _this.sesionService.cerrarSesion();
                         _this.router.navigate(['']);
                     }
+                },
+                {
+                    text: 'No', role: 'cancel',
+                    handler: function () {
+                        _this.alertController.dismiss();
+                    }
                 }
             ]
+        }).then(function (a) {
+            a.present();
         });
     };
     AppComponent.prototype.geolicalizacion = function () {
@@ -3383,6 +3442,7 @@ var AppComponent = /** @class */ (function () {
                 })
             };
             var configHelper = new _helpers_config_helper__WEBPACK_IMPORTED_MODULE_15__["ConfigHelper"](_this.configuracionService.config);
+            console.log(JSON.stringify(body));
             _this.http.post("" + configHelper.getApiUrl() + url, body, httpOptions).subscribe(function (res) {
                 resolve(res);
             }, function (err) {
@@ -3478,7 +3538,7 @@ var AppComponent = /** @class */ (function () {
                     case 4:
                         _a.sent();
                         l.message = "Creando Tablas Locales";
-                        return [4 /*yield*/, this.ofline.createTables()];
+                        return [4 /*yield*/, this.ofline.createTablesRutas()];
                     case 5:
                         _a.sent();
                         l.message = 'Sincronizando Rutas';
@@ -3534,7 +3594,7 @@ var AppComponent = /** @class */ (function () {
                     case 4:
                         _a.sent();
                         l.message = "Creando Tablas Locales";
-                        return [4 /*yield*/, this.ofline.createTables()];
+                        return [4 /*yield*/, this.ofline.createTablesPgosNovedad()];
                     case 5:
                         _a.sent();
                         l.message = 'Sincronizando Lista Novedades';
@@ -3875,7 +3935,7 @@ var TasksService = /** @class */ (function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<app-header titulo=\"Login\"></app-header>\r\n\r\n<ion-content>\r\n\r\n  <ion-grid fixed>\r\n    <ion-row>\r\n      <ion-col>\r\n\r\n        <ion-thumbnail class=\"logo-empresa\">\r\n          <ion-img src=\"assets/img/App.png\"></ion-img>\r\n        </ion-thumbnail>\r\n\r\n      </ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"ion-align-items-center\">\r\n      <ion-col size=\"4\">Usuario</ion-col>\r\n      <ion-col size=\"8\">\r\n        <ion-input #userName autofocus=\"true\" placeholder=\"Ejemplo: juanrojas18\" type=\"text\" [value]=\"usuario\"\r\n          (ionChange)=\"usuario = userName.value\"></ion-input>\r\n      </ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"ion-align-items-center\">\r\n      <ion-col size=\"4\">Clave</ion-col>\r\n      <ion-col size=\"8\">\r\n        <ion-input #password type=\"password\" placeholder=\"ingrese la clave\" [value]=\"clave\"\r\n          (ionChange)=\"clave = password.value\"></ion-input>\r\n      </ion-col>\r\n    </ion-row>\r\n    <ion-row *ngIf=\"!config.servidorIp || !config.servidorPuerto\" class=\"ion-align-items-center\">\r\n      <ion-col size=\"12\">\r\n        <ion-text color=\"danger\">\r\n          No se ha configurado la aplicación, por favor diríjase a la pantalla de configuración\r\n        </ion-text>\r\n      </ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"ion-margin-top ion-text-center\">\r\n      <ion-col>\r\n        <ion-button color=\"danger\" (click)=\"iniciarSesion()\">\r\n          Ingresar\r\n        </ion-button>\r\n        <ion-button color=\"danger\" (click)=\"irAConfiguracion()\">\r\n          Configuración\r\n        </ion-button>\r\n      </ion-col>\r\n    </ion-row>\r\n    <ion-row>\r\n      <ion-col>\r\n\r\n        <app-logo-empresa></app-logo-empresa>\r\n\r\n      </ion-col>\r\n    </ion-row>\r\n\r\n  </ion-grid>\r\n\r\n</ion-content>");
+/* harmony default export */ __webpack_exports__["default"] = ("<app-header titulo=\"Login\"></app-header>\r\n\r\n\r\n\r\n<ion-content>\r\n  <ion-grid fixed>\r\n    <ion-row>\r\n      <ion-col>\r\n\r\n        <ion-thumbnail class=\"logo-empresa\">\r\n          <ion-img src=\"assets/img/App.png\"></ion-img>\r\n        </ion-thumbnail>\r\n\r\n      </ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"ion-align-items-center\">\r\n      <ion-col size=\"4\">Usuario</ion-col>\r\n      <ion-col size=\"8\">\r\n        <ion-input #userName autofocus=\"true\" placeholder=\"Ejemplo: juanrojas18\" type=\"text\" [value]=\"usuario\"\r\n          (ionChange)=\"usuario = userName.value\"></ion-input>\r\n      </ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"ion-align-items-center\">\r\n      <ion-col size=\"4\">Clave</ion-col>\r\n      <ion-col size=\"8\">\r\n        <ion-input #password type=\"password\" placeholder=\"ingrese la clave\" [value]=\"clave\"\r\n          (ionChange)=\"clave = password.value\"></ion-input>\r\n      </ion-col>\r\n    </ion-row>\r\n    \r\n    <ion-row class=\"ion-margin-top ion-text-center\">\r\n      <ion-col>\r\n        <ion-button color=\"danger\" (click)=\"iniciarSesion()\">\r\n          Ingresar\r\n        </ion-button>\r\n        <ion-button color=\"danger\" (click)=\"irAConfiguracion()\">\r\n          Configuración\r\n        </ion-button>\r\n      </ion-col>\r\n    </ion-row>\r\n    <ion-row>\r\n      <ion-col>\r\n\r\n        <app-logo-empresa></app-logo-empresa>\r\n\r\n      </ion-col>\r\n    </ion-row>\r\n\r\n  </ion-grid>\r\n\r\n</ion-content>");
 
 /***/ }),
 
@@ -3888,7 +3948,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"ion-padding\">\r\n  <h5 class=\"semi-titulo ion-text-center\">Confirmación del pago</h5>\r\n</div>\r\n<ion-grid fixed>\r\n  <ion-row class=\"ion-align-items-center\">\r\n    <ion-col size=\"4\">Contrato</ion-col>\r\n    <ion-col size=\"4\">\r\n      <ion-text color=\"danger\">\r\n        <span *ngIf=\"registroPago\">{{ registroPago.IDCONTRATO }}</span>\r\n      </ion-text>\r\n    </ion-col>\r\n  </ion-row>\r\n\r\n  <ion-row class=\"ion-align-items-center\">\r\n    <ion-col size=\"4\">Nombre</ion-col>\r\n    <ion-col size=\"8\">\r\n      <ion-text color=\"danger\">\r\n        <span *ngIf=\"registroPago\">{{ registroPago.titular }}</span>\r\n      </ion-text>\r\n    </ion-col>\r\n  </ion-row>\r\n\r\n  <ion-row class=\"ion-align-items-center\">\r\n    <ion-col size=\"4\">\r\n      Valor neto\r\n    </ion-col>\r\n    <ion-col size=\"8\">\r\n      <ion-text color=\"danger\">\r\n        <span *ngIf=\"registroPago\">{{ registroPago.CUOTAMENSUAL | currency:'COP':'symbol-narrow':'4.2-2' }}</span>\r\n      </ion-text>\r\n    </ion-col>\r\n  </ion-row>\r\n\r\n  <ion-row class=\"ion-align-items-center\">\r\n    <ion-col size=\"4\">\r\n      Descuento\r\n    </ion-col>\r\n    <ion-col size=\"8\">\r\n      <ion-text>\r\n        <span *ngIf=\"registroPago\">{{ registroPago.DESCUENTO | currency:'COP':'symbol-narrow':'4.2-2' }}</span>\r\n      </ion-text>\r\n    </ion-col>\r\n  </ion-row>\r\n\r\n  <ion-row class=\"ion-align-items-center\">\r\n    <ion-col size=\"4\">\r\n      Valor total\r\n    </ion-col>\r\n    <ion-col size=\"8\">\r\n      <ion-text color=\"danger\">\r\n        <span *ngIf=\"registroPago\">{{ registroPago.VALOR | currency:'COP':'symbol-narrow':'4.2-2' }}</span>\r\n      </ion-text>\r\n    </ion-col>\r\n  </ion-row>\r\n\r\n  <ion-row class=\"ion-align-items-center\">\r\n    <ion-col size=\"12\">¿Está seguro que desea realizar el pago?</ion-col>\r\n  </ion-row>\r\n\r\n  <ion-row class=\"ion-align-items-center\">\r\n    <ion-col class=\"ion-justify-right\" size=\"6\">\r\n      <ion-button color=\"success\" expand=\"block\" (click)=\"aceptar()\">\r\n        Si\r\n      </ion-button>\r\n    </ion-col>\r\n    <ion-col size=\"6\">\r\n      <ion-button color=\"danger\" expand=\"block\" (click)=\"cancelar()\">\r\n        No\r\n      </ion-button>\r\n    </ion-col>\r\n  </ion-row>\r\n\r\n</ion-grid>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"ion-padding\">\r\n  <h5 class=\"semi-titulo ion-text-center\">Confirmación del pago</h5>\r\n</div>\r\n<ion-grid fixed>\r\n  <ion-row class=\"ion-align-items-center\">\r\n    <ion-col size=\"4\">Contrato</ion-col>\r\n    <ion-col size=\"4\">\r\n      <ion-text color=\"danger\">\r\n        <span *ngIf=\"registroPago\">{{ registroPago.IDCONTRATO }}</span>\r\n      </ion-text>\r\n    </ion-col>\r\n  </ion-row>\r\n\r\n  <ion-row class=\"ion-align-items-center\">\r\n    <ion-col size=\"4\">Nombre</ion-col>\r\n    <ion-col size=\"8\">\r\n      <ion-text color=\"danger\">\r\n        <span *ngIf=\"registroPago\">{{ registroPago.titular }}</span>\r\n      </ion-text>\r\n    </ion-col>\r\n  </ion-row>\r\n  <ion-row class=\"ion-align-items-center\">\r\n    <ion-col size=\"4\">\r\n      Valor total\r\n    </ion-col>\r\n    <ion-col size=\"8\">\r\n      <ion-text color=\"danger\">\r\n        <span *ngIf=\"registroPago\">{{ registroPago.VALOR | currency:'COP':'symbol-narrow':'4.2-2' }}</span>\r\n      </ion-text>\r\n    </ion-col>\r\n  </ion-row>\r\n\r\n  <ion-row class=\"ion-align-items-center\">\r\n    <ion-col size=\"4\">\r\n      Descuento\r\n    </ion-col>\r\n    <ion-col size=\"8\">\r\n      <ion-text>\r\n        <span *ngIf=\"registroPago\">{{ registroPago.DESCUENTO | currency:'COP':'symbol-narrow':'4.2-2' }}</span>\r\n      </ion-text>\r\n    </ion-col>\r\n  </ion-row>\r\n\r\n \r\n  <ion-row class=\"ion-align-items-center\">\r\n    <ion-col size=\"4\">\r\n      Valor neto\r\n    </ion-col>\r\n    <ion-col size=\"8\">\r\n      <ion-text color=\"danger\">\r\n        <span *ngIf=\"registroPago\">{{ registroPago.VALOR-registroPago.DESCUENTO | currency:'COP':'symbol-narrow':'4.2-2' }}</span>\r\n      </ion-text>\r\n    </ion-col>\r\n  </ion-row>\r\n\r\n  <ion-row class=\"ion-align-items-center\">\r\n    <ion-col size=\"12\">¿Está seguro que desea realizar el pago?</ion-col>\r\n  </ion-row>\r\n\r\n  <ion-row class=\"ion-align-items-center\">\r\n    <ion-col class=\"ion-justify-right\" size=\"6\">\r\n      <ion-button color=\"success\" expand=\"block\" (click)=\"aceptar()\">\r\n        Si\r\n      </ion-button>\r\n    </ion-col>\r\n    <ion-col size=\"6\">\r\n      <ion-button color=\"danger\" expand=\"block\" (click)=\"cancelar()\">\r\n        No\r\n      </ion-button>\r\n    </ion-col>\r\n  </ion-row>\r\n\r\n</ion-grid>");
 
 /***/ }),
 
@@ -3901,7 +3961,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-app>\r\n\r\n    <ion-menu side=\"end\" [menuId]=\"menuPrincipalId\" *ngIf=\"mostrarMenu()\">\r\n        <ion-header>\r\n            <ion-toolbar color=\"danger\">\r\n                <ion-title>Menú</ion-title>\r\n            </ion-toolbar>\r\n        </ion-header>\r\n        <ion-content>\r\n            <ion-list>\r\n                <ion-item button=\"true\" (click)=\"consultarContrato()\">Consultar contrato</ion-item>\r\n                <ion-item button=\"true\" (click)=\"consultarPago()\">Consultar pago</ion-item>\r\n                <ion-item button=\"true\" (click)=\"cuadreCaja()\">Cuadre caja</ion-item>\r\n                <ion-item button=\"true\" (click)=\"removerLicencia()\">Remover Licencia</ion-item>\r\n                <ion-item button=\"true\" (click)=\"configurarImpresora()\">Configurar impresora</ion-item>\r\n\r\n              \r\n              \r\n\r\n\r\n                <ion-item>\r\n                    <ion-label>Trabajo Fuera de Linea</ion-label>\r\n                    <ion-toggle [(ngModel)]=\"statusOffline\" color=\"primary\" (ionChange)=\"offlineChange()\"></ion-toggle>\r\n                </ion-item>\r\n                <ion-item button=\"true\" (click)=\"offlineCargarRutas()\">Cargar Ruta</ion-item>\r\n                <ion-item button=\"true\" (click)=\"offlineCargarPagosNovedades()\">Sincronizar</ion-item>\r\n\r\n                <ion-item button=\"true\" (click)=\"cerrarSesion()\">Cerrar sesión</ion-item>\r\n                <ion-item button=\"true\">\r\n                    <ion-input #licenseInput color=\"danger\" value=\"{{ license }}\"> </ion-input>\r\n                </ion-item>\r\n                <ion-item button=\"true\">\r\n                    <ion-input #licenseInput color=\"danger\" value=\"V. 16/Dic/2020\"> </ion-input>\r\n                </ion-item>\r\n              \r\n            </ion-list>\r\n        </ion-content>\r\n    </ion-menu>\r\n\r\n    <ion-router-outlet main></ion-router-outlet>\r\n</ion-app>");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-app>\r\n\r\n    <ion-menu side=\"end\" [menuId]=\"menuPrincipalId\" *ngIf=\"mostrarMenu()\">\r\n        <ion-header>\r\n            <ion-toolbar color=\"danger\">\r\n                <ion-title>Menú</ion-title>\r\n            </ion-toolbar>\r\n        </ion-header>\r\n        <ion-content>\r\n            <ion-list>\r\n                <ion-item button=\"true\" (click)=\"consultarContrato()\">Consultar contrato</ion-item>\r\n                <ion-item button=\"true\" (click)=\"consultarPago()\">Consultar pago</ion-item>\r\n                <ion-item button=\"true\" (click)=\"cuadreCaja()\">Cuadre caja</ion-item>\r\n              <!--  <ion-item button=\"true\" (click)=\"consultarRuta()\">Consultar Ruta</ion-item>-->\r\n                <ion-item button=\"true\" (click)=\"removerLicencia()\">Remover Licencia</ion-item>\r\n                <ion-item button=\"true\" (click)=\"configurarImpresora()\">Configurar impresora</ion-item>\r\n\r\n              <!--  <ion-item>\r\n                    <ion-label>Trabajo Fuera de Linea</ion-label>\r\n                    <ion-toggle [(ngModel)]=\"statusOffline\" color=\"primary\" (ionChange)=\"offlineChange()\"></ion-toggle>\r\n                </ion-item>\r\n                <ion-item button=\"true\" (click)=\"offlineCargarRutas()\">Descargar Ruta</ion-item>\r\n                <ion-item button=\"true\" (click)=\"offlineCargarPagosNovedades()\">Sincronizar</ion-item>\r\n-->\r\n                <ion-item button=\"true\" (click)=\"cerrarSesion()\">Cerrar sesión</ion-item>\r\n                <ion-item button=\"true\">\r\n                    <ion-input disabled=\"true\" #licenseInput color=\"danger\" value=\"{{ license }}\"> </ion-input>\r\n                </ion-item>\r\n                <ion-item button=\"true\">\r\n                    <ion-input disabled=\"true\" #licenseInput color=\"danger\" value=\"V. 03/May/2021\"> </ion-input>\r\n                </ion-item>\r\n              \r\n            </ion-list>\r\n        </ion-content>\r\n    </ion-menu>\r\n\r\n    <ion-router-outlet main></ion-router-outlet>\r\n</ion-app>");
 
 /***/ }),
 
@@ -4002,6 +4062,7 @@ var AppModule = /** @class */ (function () {
                 _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"].forRoot(),
                 _app_routing_module__WEBPACK_IMPORTED_MODULE_22__["AppRoutingModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_26__["FormsModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_26__["ReactiveFormsModule"],
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClientModule"],
                 _own_components_own_components_module__WEBPACK_IMPORTED_MODULE_23__["OwnComponentsModule"]
             ],
@@ -4747,7 +4808,7 @@ var ModalConfirmarPagoComponent = /** @class */ (function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"ion-padding\">\r\n    <h5 class=\"semi-titulo\">Datos del pago</h5>\r\n</div>\r\n<ion-grid fixed>\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Contrato</ion-col>\r\n        <ion-col size=\"4\">\r\n            <ion-text color=\"danger\">\r\n                <span>{{ pago.Contrato }}</span>\r\n            </ion-text>\r\n        </ion-col>\r\n    </ion-row>\r\n\r\n\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">\r\n            Cuota\r\n        </ion-col>\r\n        <ion-col size=\"8\">\r\n            <ion-text color=\"danger\">\r\n                <span>{{ pago.Cuota | currency:'COP':'symbol-narrow':'4.2-2' }}</span>\r\n            </ion-text>\r\n        </ion-col>\r\n    </ion-row>\r\n\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Cédula</ion-col>\r\n        <ion-col size=\"8\">\r\n            <ion-text color=\"danger\">\r\n                <span>{{ pago.Cedula }}</span>\r\n            </ion-text>\r\n        </ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Nombre</ion-col>\r\n        <ion-col size=\"8\">\r\n            <ion-text color=\"danger\">\r\n                <span>{{ pago.Nombre }}</span>\r\n            </ion-text>\r\n        </ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Fecha Pago</ion-col>\r\n        <ion-col size=\"8\"><span class=\"ion-text-capitalize\">{{ pago.FechaPago | date:'MMMM dd yyyy':'':'es-Co' }}</span>\r\n        </ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Total</ion-col>\r\n        <ion-col size=\"8\">\r\n            <ion-text color=\"danger\">\r\n                <span>{{ pago.Total | currency:'COP':'symbol-narrow':'4.2-2' }}</span>\r\n            </ion-text>\r\n        </ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Pago Hasta</ion-col>\r\n        <ion-col size=\"8\"><span class=\"ion-text-capitalize\">{{ pago.PagoHasta | date:'MMMM dd yyyy':'':'es-Co' }}</span>\r\n        </ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Nro Doc</ion-col>\r\n        <ion-col size=\"8\">\r\n            <ion-text color=\"danger\">\r\n                <span>{{ pago.NumeroDocumento }}</span>\r\n            </ion-text>\r\n        </ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Usuario</ion-col>\r\n        <ion-col size=\"8\"><span>{{ pago.Usuario }}</span></ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Terminal</ion-col>\r\n        <ion-col size=\"8\"><span>{{ pago.Terminal }}</span></ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Observaciones</ion-col>\r\n        <ion-col size=\"8\">\r\n            <ion-textarea readonly rows=\"4\" [value]=\"pago.Observaciones\">\r\n            </ion-textarea>\r\n        </ion-col>\r\n    </ion-row>\r\n    <ion-row>\r\n        <ion-col size=\"12\">\r\n            <ion-button color=\"danger\" expand=\"block\" (click)=\"imprimir()\">\r\n                Imprimir\r\n            </ion-button>\r\n        </ion-col>\r\n    </ion-row>\r\n</ion-grid>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"ion-padding\">\r\n    <h5 class=\"semi-titulo\">Datos del pago</h5>\r\n</div>\r\n<ion-grid fixed>\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Contrato</ion-col>\r\n        <ion-col size=\"4\">\r\n            <ion-text color=\"danger\">\r\n                <span>{{ pago.Contrato }}</span>\r\n            </ion-text>\r\n        </ion-col>\r\n    </ion-row>\r\n\r\n\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">\r\n            Cuota\r\n        </ion-col>\r\n        <ion-col size=\"8\">\r\n            <ion-text color=\"danger\">\r\n                <span>{{ pago.Cuota | currency:'COP':'symbol-narrow':'4.2-2' }}</span>\r\n            </ion-text>\r\n        </ion-col>\r\n    </ion-row>\r\n\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Cédula</ion-col>\r\n        <ion-col size=\"8\">\r\n            <ion-text color=\"danger\">\r\n                <span>{{ pago.Cedula }}</span>\r\n            </ion-text>\r\n        </ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Nombre</ion-col>\r\n        <ion-col size=\"8\">\r\n            <ion-text color=\"danger\">\r\n                <span>{{ pago.Nombre }}</span>\r\n            </ion-text>\r\n        </ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Fecha Pago</ion-col>\r\n        <ion-col size=\"8\"><span class=\"ion-text-capitalize\">{{ pago.FechaPago | date:'MMMM dd yyyy':'':'es-Co' }}</span>\r\n        </ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Total</ion-col>\r\n        <ion-col size=\"8\">\r\n            <ion-text color=\"danger\">\r\n                <span>{{ pago.Total | currency:'COP':'symbol-narrow':'4.2-2' }}</span>\r\n            </ion-text>\r\n        </ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Forma De Pago</ion-col>\r\n        <ion-col size=\"8\"><span>{{ pago.FormaPago }}</span></ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Pago Hasta</ion-col>\r\n        <ion-col size=\"8\"><span class=\"ion-text-capitalize\">{{ pago.PagoHasta | date:'MMMM dd yyyy':'':'es-Co' }}</span>\r\n        </ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Nro Doc</ion-col>\r\n        <ion-col size=\"8\">\r\n            <ion-text color=\"danger\">\r\n                <span>{{ pago.NumeroDocumento }}</span>\r\n            </ion-text>\r\n        </ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Usuario</ion-col>\r\n        <ion-col size=\"8\"><span>{{ pago.Usuario }}</span></ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Terminal</ion-col>\r\n        <ion-col size=\"8\"><span>{{ pago.Terminal }}</span></ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Observaciones</ion-col>\r\n        <ion-col size=\"8\">\r\n            <ion-textarea readonly rows=\"4\" [value]=\"pago.Observaciones\">\r\n            </ion-textarea>\r\n        </ion-col>\r\n    </ion-row>\r\n    <ion-row>\r\n        <ion-col size=\"12\">\r\n            <ion-button color=\"danger\" expand=\"block\" (click)=\"imprimir()\">\r\n                Imprimir\r\n            </ion-button>\r\n        </ion-col>\r\n    </ion-row>\r\n</ion-grid>");
 
 /***/ }),
 
@@ -4808,9 +4869,11 @@ var routes = [
     { path: 'registro-gestion2/:gestion', loadChildren: './pages/registro-gestion2/registro-gestion2.module#RegistroGestion2PageModule' },
     { path: 'actualizar-datos/:contrato', loadChildren: './pages/actualizar-datos/actualizar-datos.module#ActualizarDatosPageModule' },
     { path: 'cuadre-caja', loadChildren: './pages/cuadre-caja/cuadre-caja.module#CuadreCajaPageModule' },
+    { path: 'consultar-ruta', loadChildren: './pages/consultar-ruta/consultar-ruta.module#ConsultarRutaPageModule' },
     { path: 'lista-pagos', loadChildren: './pages/lista-pago/lista-pago.module#ListaPagoPageModule' },
     { path: 'geolocalizacion', loadChildren: './pages/geolocalizacion/geolocalizacion.module#GeolocalizacionPageModule' },
     { path: 'lista-pago', loadChildren: './pages/lista-pago/lista-pago.module#ListaPagoPageModule' },
+    { path: 'pruebas', loadChildren: './pages/pruebas/pruebas.module#PruebasPageModule' },
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -4885,6 +4948,10 @@ var map = {
 	"./pages/consultar-pago/consultar-pago.module": [
 		"WNKF",
 		"pages-consultar-pago-consultar-pago-module"
+	],
+	"./pages/consultar-ruta/consultar-ruta.module": [
+		"oDmx",
+		"pages-consultar-ruta-consultar-ruta-module"
 	],
 	"./pages/cuadre-caja/cuadre-caja.module": [
 		"e7df",

@@ -76,7 +76,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<app-header titulo=\"Menú\"></app-header>\r\n\r\n<ion-content>\r\n  <ion-grid fixed>\r\n    <ion-row>\r\n      <ion-col>\r\n\r\n        <ion-button expand=\"block\" color=\"danger\" (click)=\"consultarContrato()\">\r\n          Consultar contrato\r\n        </ion-button>\r\n\r\n      </ion-col>\r\n    </ion-row>\r\n    <ion-row>\r\n      <ion-col>\r\n        <ion-button expand=\"block\" color=\"danger\" (click)=\"consultarPago()\">\r\n          Consultar pago\r\n        </ion-button>\r\n      </ion-col>\r\n    </ion-row>\r\n    <ion-row>\r\n      <ion-col>\r\n        <ion-button expand=\"block\" color=\"danger\" (click)=\"cuadreCaja()\">\r\n          Cuadre caja\r\n        </ion-button>\r\n      </ion-col>\r\n    </ion-row>\r\n    <ion-row>\r\n      <ion-col>\r\n        <ion-button expand=\"block\" color=\"danger\" (click)=\"geolicalizacion()\">\r\n          Geolocalización\r\n        </ion-button>\r\n      </ion-col>\r\n    </ion-row>\r\n    <ion-row>\r\n      <ion-col>\r\n        <ion-button expand=\"block\" color=\"danger\" (click)=\"configurarImpresora()\">\r\n          Configurar impresora\r\n        </ion-button>\r\n      </ion-col>\r\n    </ion-row>\r\n    <ion-row>\r\n      <ion-col>\r\n\r\n        <app-logo-empresa></app-logo-empresa>\r\n\r\n      </ion-col>\r\n    </ion-row>\r\n\r\n  </ion-grid>\r\n\r\n\r\n</ion-content>");
+/* harmony default export */ __webpack_exports__["default"] = ("<app-header titulo=\"Menú\"></app-header>\r\n\r\n<ion-content>\r\n  <ion-grid fixed>\r\n    <ion-row>\r\n      <ion-col>\r\n\r\n        <ion-button expand=\"block\" color=\"danger\" (click)=\"consultarContrato()\">\r\n          Consultar contrato\r\n        </ion-button>\r\n\r\n      </ion-col>\r\n    </ion-row>\r\n    <ion-row>\r\n      <ion-col>\r\n        <ion-button expand=\"block\" color=\"danger\" (click)=\"consultarPago()\">\r\n          Consultar pago\r\n        </ion-button>\r\n      </ion-col>\r\n    </ion-row>\r\n    <ion-row>\r\n      <ion-col>\r\n        <ion-button expand=\"block\" color=\"danger\" (click)=\"cuadreCaja()\">\r\n          Cuadre caja\r\n        </ion-button>\r\n      </ion-col>\r\n    </ion-row>\r\n    <ion-row>\r\n      <ion-col>\r\n        <ion-button expand=\"block\" color=\"danger\" (click)=\"consultarRuta()\">\r\n          Consultar Ruta\r\n        </ion-button>\r\n      </ion-col>\r\n    </ion-row>\r\n    <ion-row>\r\n      <ion-col>\r\n        <ion-button expand=\"block\" color=\"danger\" (click)=\"geolicalizacion()\">\r\n          Geolocalización\r\n        </ion-button>\r\n      </ion-col>\r\n    </ion-row>\r\n    <ion-row>\r\n      <ion-col>\r\n        <ion-button expand=\"block\" color=\"danger\" (click)=\"configurarImpresora()\">\r\n          Configurar impresora\r\n        </ion-button>\r\n      </ion-col>\r\n    </ion-row>\r\n    <ion-row>\r\n      <ion-col>\r\n\r\n        <app-logo-empresa></app-logo-empresa>\r\n\r\n      </ion-col>\r\n    </ion-row>\r\n\r\n  </ion-grid>\r\n\r\n\r\n</ion-content>");
 
 /***/ }),
 
@@ -118,6 +118,9 @@ var MenuPage = /** @class */ (function () {
     };
     MenuPage.prototype.configurarImpresora = function () {
         alert('configurarImpresora');
+    };
+    MenuPage.prototype.consultarRuta = function () {
+        alert('consultarRuta');
     };
     MenuPage.ctorParameters = function () { return []; };
     MenuPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([

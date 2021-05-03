@@ -100,9 +100,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _models_config_model__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../models/config.model */ "oRqo");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
 /* harmony import */ var _services_configuracion_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../services/configuracion.service */ "Hpqp");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! moment */ "wd/R");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_10__);
-
 
 
 
@@ -150,16 +147,17 @@ var ConsultarPagoPage = /** @class */ (function () {
             _this.pago.Cuota = res.Cuota;
             _this.pago.Cedula = res.Cedula;
             _this.pago.Nombre = res.Nombre;
-            _this.pago.FechaPago = moment__WEBPACK_IMPORTED_MODULE_10__(res.FechaPago).format('MMMM DD YYYY');
+            _this.pago.FechaPago = res.FechaPago;
             _this.pago.Total = res.Total;
             if (res.PagoHasta !== null) {
-                _this.pago.PagoHasta = moment__WEBPACK_IMPORTED_MODULE_10__(res.PagoHasta).format('MMM DD, YYYY');
+                _this.pago.PagoHasta = res.PagoHasta;
+                console.log('el pago consulta hasta es ' + _this.pago.PagoHasta);
             }
             else {
                 _this.pago.PagoHasta = null;
             }
             if (res.PagoDesde !== null) {
-                _this.pago.PagoDesde = moment__WEBPACK_IMPORTED_MODULE_10__(res.PagoDesde).format('MMMM DD YYYY');
+                _this.pago.PagoDesde = res.PagoDesde;
             }
             else {
                 _this.pago.PagoDesde = null;
@@ -185,6 +183,8 @@ var ConsultarPagoPage = /** @class */ (function () {
             _this.pago.VlrDctoPago = res.VlrDctoPago;
             _this.pago.VlrIva = res.VlrIva;
             _this.pago.VlrSaldo = res.VlrSaldo;
+            _this.pago.FormaPago = res.FormaPago;
+            console.log("la forma de pago es " + _this.pago.FormaPago);
         }, function (err) {
             _this.alert.create({
                 header: 'Error',

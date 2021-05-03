@@ -39,12 +39,13 @@ var ActualizarDatosPageModule = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             imports: [
                 _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"],
                 _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"],
                 _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild(routes),
                 src_app_own_components_own_components_module__WEBPACK_IMPORTED_MODULE_7__["OwnComponentsModule"]
             ],
-            declarations: [_actualizar_datos_page__WEBPACK_IMPORTED_MODULE_6__["ActualizarDatosPage"]]
+            declarations: [_actualizar_datos_page__WEBPACK_IMPORTED_MODULE_6__["ActualizarDatosPage"]],
+            entryComponents: [_actualizar_datos_page__WEBPACK_IMPORTED_MODULE_6__["ActualizarDatosPage"]]
         })
     ], ActualizarDatosPageModule);
     return ActualizarDatosPageModule;
@@ -74,6 +75,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
 /* harmony import */ var _models_contrato_update_model__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../models/contrato-update-model */ "iapu");
 /* harmony import */ var _services_sesion_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../services/sesion.service */ "PbBf");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/forms */ "3Pt+");
+
 
 
 
@@ -95,6 +98,9 @@ var ActualizarDatosPage = /** @class */ (function () {
         this.modoVisualizarContrato = src_app_enums_modo_visualizar_contrato_enum__WEBPACK_IMPORTED_MODULE_4__["ModoVisualizarContratoEnum"].MODO_CONCISO;
         this.contrato = null;
         this.sesionLocal = null;
+        this.dispatchOrderForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_10__["FormGroup"]({
+            'Dpto_Principal': new _angular_forms__WEBPACK_IMPORTED_MODULE_10__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_10__["Validators"].required)
+        });
     }
     ActualizarDatosPage.prototype.ngOnInit = function () {
         var _this = this;
@@ -110,6 +116,7 @@ var ActualizarDatosPage = /** @class */ (function () {
             this.contrato.plan = this.ctr.plan;
             this.contrato.cedula = this.ctr.cedula;
             this.contrato.nombre = this.ctr.nombre;
+            this.departamentoSeleccionado = this.ctr.departamento;
             this.contrato.departamento = this.ctr.departamento;
             this.contrato.ciudad = this.ctr.ciudad;
             this.contrato.direccion = this.ctr.direccion;
@@ -119,25 +126,45 @@ var ActualizarDatosPage = /** @class */ (function () {
             this.contrato.email = this.ctr.email;
             this.contrato.barrio = this.ctr.barrio;
             this.contrato.barriocobro = this.ctr.barriocobro;
-            this.contrato.ciudadcobro = this.ctr.ciudadcobro;
             this.contrato.departamentocobro = this.ctr.departamentocobro;
+            this.contrato.ciudadcobro = this.ctr.ciudadcobro;
+            this.contrato.formaPago = this.ctr.formaPago;
         }
         this.contratoservice.cargarDepartamentos().then(function (departamentos) {
             _this.departamento = departamentos;
             if (_this.contrato.departamento !== '' && _this.contrato.departamento !== undefined) {
+                _this.contrato.departamento = _this.ctr.departamento;
+                _this.nvoDpto = _this.contrato.departamento;
                 _this.contratoservice.cargarMunicipios(_this.contrato.departamento).then(function (municipios) {
                     _this.municipio = municipios;
+                    _this.contrato.ciudad = _this.ctr.ciudad;
+                    _this.nvoCiudad = _this.contrato.ciudad;
                 });
             }
             if (_this.contrato.departamentocobro !== '' && _this.contrato.departamentocobro !== undefined) {
+                _this.contrato.departamentocobro = _this.ctr.departamentocobro;
+                _this.nvoDptoCobro = _this.contrato.departamentocobro;
                 _this.contratoservice.cargarMunicipios(_this.contrato.departamentocobro).then(function (municipios) {
                     _this.municipiocobro = municipios;
+                    _this.contrato.ciudadcobro = _this.ctr.ciudadcobro;
+                    _this.nvoCiudadCobro = _this.contrato.ciudadcobro;
                 });
             }
         });
     };
+    ActualizarDatosPage.prototype.ngAfterContentInit = function () {
+        console.log('ngAfterContentInit - wrapper', this.wrapper);
+        console.log("el dpt a seleccionar es: " + localStorage.getItem('Dpto_Principal'));
+        this.dispatchOrderForm.get('Dpto_Principal').setValue(localStorage.getItem('Dpto_Principal'));
+    };
+    ActualizarDatosPage.prototype.ngAfterViewInit = function () {
+        console.log('ngAfterViewInit - wrapper', this.wrapper);
+        console.log("el dpt a seleccionar es: " + localStorage.getItem('Dpto_Principal'));
+        this.dispatchOrderForm.get('Dpto_Principal').setValue(localStorage.getItem('Dpto_Principal'));
+    };
     ActualizarDatosPage.prototype.actualizardpto = function (event) {
         var _this = this;
+        console.log(event);
         this.contrato.departamento = event.target.value;
         this.contratoservice.cargarMunicipios(this.contrato.departamento).then(function (municipios) {
             _this.municipio = municipios;
@@ -197,6 +224,9 @@ var ActualizarDatosPage = /** @class */ (function () {
         { type: _services_sesion_service__WEBPACK_IMPORTED_MODULE_9__["SesionService"] },
         { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"] }
     ]; };
+    ActualizarDatosPage.propDecorators = {
+        wrapper: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["ViewChild"], args: ['wrapper',] }]
+    };
     ActualizarDatosPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
             selector: 'app-actualizar-datos',
@@ -236,7 +266,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<app-header titulo=\"actualizar datos\"></app-header>\r\n\r\n<ion-content>\r\n    <app-datos-contrato [contrato]=\"contrato\" [modo]=\"modoVisualizarContrato\"></app-datos-contrato>\r\n\r\n\r\n    <div class=\"ion-padding\">\r\n        <h5 class=\"semi-titulo\">Datos Para Actualizar</h5>\r\n    </div>\r\n    <ion-grid fixed>\r\n\r\n\r\n        <ion-row class=\"ion-align-items-center\">\r\n            <ion-col size=\"4\">Telefono</ion-col>\r\n            <ion-col size=\"8\">\r\n                <ion-input #telefonoInput rows=\"4\" maxlength=\"10\" placeholder=\"Ingrese Telefono\" [value]=\"contrato.telefono\" (ionChange)=\"contrato.telefono = telefonoInput.value\">\r\n                </ion-input>\r\n            </ion-col>\r\n        </ion-row>\r\n\r\n\r\n\r\n        <ion-row class=\"ion-align-items-center\">\r\n            <ion-col size=\"4\">Celular</ion-col>\r\n            <ion-col size=\"8\">\r\n                <ion-input #movilInput rows=\"4\" maxlength=\"10\" placeholder=\"Ingrese Celular\" [value]=\"contrato.movil\" (ionChange)=\"contrato.movil = movilInput.value\">\r\n                </ion-input>\r\n            </ion-col>\r\n        </ion-row>\r\n\r\n        <ion-row class=\"ion-align-items-center\">\r\n            <ion-col size=\"4\">Email</ion-col>\r\n            <ion-col size=\"8\">\r\n                <ion-input #emailInput ngControl=\"email\" rows=\"4\" placeholder=\"Ingresa Email valido\" [value]=\"contrato.email\" (ionChange)=\"contrato.email = emailInput.value\" (focusout)=\"emailvalidate($event)\" type=\"email\"></ion-input>\r\n            </ion-col>\r\n            <ion-col color=\"danger\" expand=\"block\" size=\"12\">\r\n                <ion-text color=\"danger\">\r\n                    <span *ngIf=\"mailvalidate\">Email Es Incorrecto!</span>\r\n                </ion-text>\r\n            </ion-col>\r\n\r\n\r\n        </ion-row>\r\n\r\n        <ion-row class=\"ion-align-items-center\">\r\n            <ion-col size=\"4\">Departamento</ion-col>\r\n            <ion-col size=\"8\">\r\n                <ion-select cancelText=\"Cancelar\" placeholder=\"Seleccione un Departamento\" [value]=\"contrato.departamento\" (ionChange)=\"actualizardpto($event)\">\r\n                    <ion-select-option *ngFor=\"let dpto of departamento\">{{ dpto }}</ion-select-option>\r\n                </ion-select>\r\n            </ion-col>\r\n        </ion-row>\r\n\r\n\r\n        <ion-row class=\"ion-align-items-center\">\r\n            <ion-col size=\"4\">Ciudad</ion-col>\r\n            <ion-col size=\"8\">\r\n                <ion-select cancelText=\"Cancelar\" placeholder=\"Seleccione un Municipio\" [value]=\"contrato.ciudad\" (ionChange)=\"actualizarmuni($event)\">\r\n                    <ion-select-option *ngFor=\"let muni of municipio\">{{ muni }}</ion-select-option>\r\n                </ion-select>\r\n            </ion-col>\r\n        </ion-row>\r\n\r\n        <ion-row class=\"ion-align-items-center\">\r\n            <ion-col size=\"4\">Barrio</ion-col>\r\n            <ion-col size=\"8\">\r\n                <ion-input #barrioInput rows=\"4\" placeholder=\"Ingrese Barrio\" [value]=\"contrato.barrio\" (ionChange)=\"contrato.barrio = barrioInput.value\">\r\n                </ion-input>\r\n            </ion-col>\r\n        </ion-row>\r\n\r\n        <ion-row class=\"ion-align-items-center\">\r\n            <ion-col size=\"4\">Direccion</ion-col>\r\n            <ion-col size=\"8\">\r\n                <ion-input #direccionInput rows=\"4\" placeholder=\"Ingresa Direccion\" [value]=\"contrato.direccion\" (ionChange)=\"contrato.direccion = direccionInput.value\">\r\n                </ion-input>\r\n            </ion-col>\r\n        </ion-row>\r\n\r\n\r\n        <ion-row class=\"ion-align-items-center\">\r\n            <ion-col size=\"4\">Departamento Cobro</ion-col>\r\n            <ion-col size=\"8\">\r\n                <ion-select cancelText=\"Cancelar\" placeholder=\"Seleccione Departamento Cobro\" [value]=\"contrato.departamentocobro\" (ionChange)=\"actualizardptocobro($event)\">\r\n                    <ion-select-option *ngFor=\"let dpto of departamento\">{{ dpto }}</ion-select-option>\r\n                </ion-select>\r\n            </ion-col>\r\n        </ion-row>\r\n\r\n\r\n        <ion-row class=\"ion-align-items-center\">\r\n            <ion-col size=\"4\">Ciudad Cobro</ion-col>\r\n            <ion-col size=\"8\">\r\n                <ion-select cancelText=\"Cancelar\" placeholder=\"Seleccione Ciudad de Cobro\" [value]=\"contrato.ciudadcobro\" (ionChange)=\"actualizarmunicobro($event)\">\r\n                    <ion-select-option *ngFor=\"let muni of municipiocobro\">{{ muni }}</ion-select-option>\r\n                </ion-select>\r\n            </ion-col>\r\n        </ion-row>\r\n\r\n        <ion-row class=\"ion-align-items-center\">\r\n            <ion-col size=\"4\">Barrio Cobro</ion-col>\r\n            <ion-col size=\"8\">\r\n                <ion-input #barriocobroInput rows=\"4\" placeholder=\"Ingrese Barrio Cobro\" [value]=\"contrato.barriocobro\" (ionChange)=\"contrato.barriocobro = barriocobroInput.value\">\r\n                </ion-input>\r\n            </ion-col>\r\n        </ion-row>\r\n\r\n        <ion-row class=\"ion-align-items-center\">\r\n            <ion-col size=\"4\">Direccion Cobro</ion-col>\r\n            <ion-col size=\"8\">\r\n                <ion-input #direccioncobroInput rows=\"4\" placeholder=\"Ingresa Direccion Cobro\" [value]=\"contrato.direccionCobro\" (ionChange)=\"contrato.direccionCobro = direccioncobroInput.value\">\r\n                </ion-input>\r\n            </ion-col>\r\n        </ion-row>\r\n\r\n        <ion-row>\r\n            <ion-col size=\"12\">\r\n                <ion-button color=\"danger\" (click)=\"guardar()\">\r\n                    Guardar\r\n                </ion-button>\r\n            </ion-col>\r\n        </ion-row>\r\n    </ion-grid>\r\n\r\n</ion-content>");
+/* harmony default export */ __webpack_exports__["default"] = ("<app-header titulo=\"actualizar datos\"></app-header>\r\n\r\n<ion-content>\r\n    <form [formGroup]=\"dispatchOrderForm\" novalidate>\r\n    <app-datos-contrato [contrato]=\"contrato\" [modo]=\"modoVisualizarContrato\"></app-datos-contrato>\r\n\r\n\r\n    <div class=\"ion-padding\">\r\n        <h5 class=\"semi-titulo\">Datos Para Actualizar</h5>\r\n    </div>\r\n    <ion-grid fixed>\r\n\r\n\r\n        <ion-row class=\"ion-align-items-center\">\r\n            <ion-col size=\"4\">Telefono</ion-col>\r\n            <ion-col size=\"8\">\r\n                <ion-input #telefonoInput rows=\"4\" maxlength=\"10\" placeholder=\"Ingrese Telefono\" [value]=\"contrato.telefono\" (ionChange)=\"contrato.telefono = telefonoInput.value\">\r\n                </ion-input>\r\n            </ion-col>\r\n        </ion-row>\r\n\r\n\r\n\r\n        <ion-row class=\"ion-align-items-center\">\r\n            <ion-col size=\"4\">Celular</ion-col>\r\n            <ion-col size=\"8\">\r\n                <ion-input #movilInput rows=\"4\" maxlength=\"10\" placeholder=\"Ingrese Celular\" [value]=\"contrato.movil\" (ionChange)=\"contrato.movil = movilInput.value\">\r\n                </ion-input>\r\n            </ion-col>\r\n        </ion-row>\r\n\r\n        <ion-row class=\"ion-align-items-center\">\r\n            <ion-col size=\"4\">Email</ion-col>\r\n            <ion-col size=\"8\">\r\n                <ion-input #emailInput ngControl=\"email\" rows=\"4\" placeholder=\"Ingresa Email valido\" [value]=\"contrato.email\" (ionChange)=\"contrato.email = emailInput.value\" (focusout)=\"emailvalidate($event)\" type=\"email\"></ion-input>\r\n            </ion-col>\r\n            <ion-col color=\"danger\" expand=\"block\" size=\"12\">\r\n                <ion-text color=\"danger\">\r\n                    <span *ngIf=\"mailvalidate\">Email Es Incorrecto!</span>\r\n                </ion-text>\r\n            </ion-col>\r\n\r\n\r\n        </ion-row>\r\n\r\n        <ion-row class=\"ion-align-items-center\">\r\n            <ion-col size=\"4\">Departamento</ion-col>\r\n            <ion-col size=\"8\">\r\n                <ion-select   #selectDpto cancelText=\"Cancelar\" placeholder=\"Seleccione un Departamento\"   (ionChange)=\"actualizardpto($event)\" [value]=\"nvoDpto\">\r\n                    <ion-select-option *ngFor=\"let dpto of departamento\" [value]=\"dpto\" >{{ dpto }}</ion-select-option>\r\n                </ion-select>\r\n            </ion-col>\r\n        </ion-row>\r\n\r\n\r\n        <ion-row class=\"ion-align-items-center\">\r\n            <ion-col size=\"4\">Ciudad</ion-col>\r\n            <ion-col size=\"8\">\r\n                <ion-select #selectMunicipio cancelText=\"Cancelar\" placeholder=\"Seleccione un Municipio\" [value]=\"nvoCiudad\" (ionChange)=\"actualizarmuni($event)\">\r\n                    <ion-select-option *ngFor=\"let muni of municipio\" [value]=\"muni\" >{{ muni }}</ion-select-option>\r\n                </ion-select>\r\n            </ion-col>\r\n        </ion-row>\r\n\r\n        <ion-row class=\"ion-align-items-center\">\r\n            <ion-col size=\"4\">Barrio</ion-col>\r\n            <ion-col size=\"8\">\r\n                <ion-input #barrioInput rows=\"4\" placeholder=\"Ingrese Barrio\" [value]=\"contrato.barrio\" (ionChange)=\"contrato.barrio = barrioInput.value\">\r\n                </ion-input>\r\n            </ion-col>\r\n        </ion-row>\r\n\r\n        <ion-row class=\"ion-align-items-center\">\r\n            <ion-col size=\"4\">Direccion</ion-col>\r\n            <ion-col size=\"8\">\r\n                <ion-input #direccionInput rows=\"4\" placeholder=\"Ingresa Direccion\" [value]=\"contrato.direccion\" (ionChange)=\"contrato.direccion = direccionInput.value\">\r\n                </ion-input>\r\n            </ion-col>\r\n        </ion-row>\r\n\r\n\r\n        <ion-row class=\"ion-align-items-center\">\r\n            <ion-col size=\"4\">Departamento Cobro</ion-col>\r\n            <ion-col size=\"8\">\r\n\r\n              \r\n\r\n                <ion-select  #selectDptoCobro cancelText=\"Cancelar\"  placeholder=\"Seleccione Departamento Cobro\" [value]=\"nvoDptoCobro\" (ionChange)=\"actualizardptocobro($event)\">\r\n                    <ion-select-option *ngFor=\"let dpto of departamento\" [value]=\"dpto\">{{ dpto }}</ion-select-option>\r\n                </ion-select>\r\n\r\n\r\n            </ion-col>\r\n        </ion-row>\r\n\r\n\r\n        <ion-row class=\"ion-align-items-center\">\r\n            <ion-col size=\"4\">Ciudad Cobro</ion-col>\r\n            <ion-col size=\"8\">\r\n                <ion-select #selectMunicipioCobro cancelText=\"Cancelar\" placeholder=\"Seleccione Ciudad de Cobro\" [value]=\"nvoCiudadCobro\" (ionChange)=\"actualizarmunicobro($event)\">\r\n                    <ion-select-option *ngFor=\"let muni of municipiocobro\" [value]=\"muni\">{{ muni }}</ion-select-option>\r\n                </ion-select>\r\n            </ion-col>\r\n        </ion-row>\r\n\r\n        <ion-row class=\"ion-align-items-center\">\r\n            <ion-col size=\"4\">Barrio Cobro</ion-col>\r\n            <ion-col size=\"8\">\r\n                <ion-input #barriocobroInput rows=\"4\" placeholder=\"Ingrese Barrio Cobro\" [value]=\"contrato.barriocobro\" (ionChange)=\"contrato.barriocobro = barriocobroInput.value\">\r\n                </ion-input>\r\n            </ion-col>\r\n        </ion-row>\r\n\r\n        <ion-row class=\"ion-align-items-center\">\r\n            <ion-col size=\"4\">Direccion Cobro</ion-col>\r\n            <ion-col size=\"8\">\r\n                <ion-input #direccioncobroInput rows=\"4\" placeholder=\"Ingresa Direccion Cobro\" [value]=\"contrato.direccionCobro\" (ionChange)=\"contrato.direccionCobro = direccioncobroInput.value\">\r\n                </ion-input>\r\n            </ion-col>\r\n        </ion-row>\r\n\r\n        <ion-row>\r\n            <ion-col size=\"12\">\r\n                <ion-button color=\"danger\" (click)=\"guardar()\">\r\n                    Guardar\r\n                </ion-button>\r\n            </ion-col>\r\n        </ion-row>\r\n    </ion-grid>\r\n\r\n    </form>\r\n</ion-content>");
 
 /***/ }),
 

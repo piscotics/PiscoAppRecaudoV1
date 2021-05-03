@@ -48,7 +48,7 @@
     </ion-col>
     <ion-col size="8">
       <ion-text color="danger">
-        <span *ngIf="registroPago">{{ registroPago.CUOTAMENSUAL-registroPago.DESCUENTO | currency:'COP':'symbol-narrow':'4.2-2' }}</span>
+        <span *ngIf="registroPago">{{ registroPago.VALOR-registroPago.DESCUENTO | currency:'COP':'symbol-narrow':'4.2-2' }}</span>
       </ion-text>
     </ion-col>
   </ion-row>

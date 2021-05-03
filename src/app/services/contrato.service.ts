@@ -291,6 +291,7 @@ export class ContratoService {
       const configHelper = new ConfigHelper(this.config);
       this.http.get(`${configHelper.getApiUrl()}/contrato/departamentos`)
         .subscribe((result: any[]) => {
+          console.log(JSON.stringify(result));
           resolve(result);
       },
       (error: HttpErrorResponse) => {

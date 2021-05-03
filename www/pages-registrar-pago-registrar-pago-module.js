@@ -56,7 +56,11 @@ var RegistrarPagoPage = /** @class */ (function () {
         this.tipopago = [];
         this.isDisabled = true;
         this.listCantidadCuotas = [];
+        // [value]="registroPago.FORMAPAGO" 
     }
+    // ionViewDidEnter(){
+    // this.registroPago.FORMAPAGO ="Efectivo";
+    //}
     RegistrarPagoPage.prototype.ngOnInit = function () {
         var _this = this;
         this.platform.ready().then(function () {
@@ -79,10 +83,14 @@ var RegistrarPagoPage = /** @class */ (function () {
                 registroPago.titular = _this.contrato.nombre;
                 registroPago.VALOR = _this.contrato.cuota;
                 registroPago.PLAN = _this.contrato.plan;
+                registroPago.FORMAPAGO = _this.contrato.formaPago;
                 _this.registroPago = registroPago;
             }
             _this.pagosService.cargarFormaPago().then(function (tipospagos) {
                 _this.tipopago = tipospagos;
+                _this.nvoFormaPago = _this.tipopago[3].NombreTipoPago;
+                console.log("el tipo de pgo es " + _this.nvoFormaPago); //JSON.stringify(tipospagos[3].NombreTipoPago)
+                //this.ngTipoPago = JSON.stringify(tipospagos[3]); 
                 console.log(JSON.stringify(_this.tipopago));
             });
         });
@@ -103,7 +111,7 @@ var RegistrarPagoPage = /** @class */ (function () {
     RegistrarPagoPage.prototype.guardar = function () {
         var _this = this;
         this.pagosService.prepararRegistroPago(this.registroPago).then(function (registroPago) {
-            registroPago.FORMAPAGO = registroPago.FORMAPAGO;
+            //registroPago.FORMAPAGO = registroPago.FORMAPAGO;
             console.log("Registro de pago a enviar al server: " + JSON.stringify(registroPago));
             _this.modalController.create({
                 component: _own_components_modal_confirmar_pago_modal_confirmar_pago_component__WEBPACK_IMPORTED_MODULE_3__["ModalConfirmarPagoComponent"],
@@ -146,6 +154,8 @@ var RegistrarPagoPage = /** @class */ (function () {
                             registroBusqueda.VlrSaldo = respuesta.VlrSaldo;
                             registroBusqueda.VlrDctoPago = respuesta.VlrDctoPago;
                             registroBusqueda.VlrIva = respuesta.VlrIva;
+                            registroBusqueda.FormaPago = registroPago.FORMAPAGO;
+                            console.log("la forma de pago al guardar es :" + registroPago.FORMAPAGO);
                             _this.router.navigate(['registrar-pago2', JSON.stringify(registroBusqueda)], extras);
                         });
                     }
@@ -218,7 +228,7 @@ var RegistrarPagoPage = /** @class */ (function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<app-header titulo=\"registrar pago\"></app-header>\r\n\r\n<ion-content>\r\n    <app-datos-contrato [contrato]=\"contrato\" [modo]=\"modoVisualizarContrato\"></app-datos-contrato>\r\n    <div class=\"ion-padding\">\r\n        <h5 class=\"semi-titulo\">Datos del pago</h5>\r\n    </div>\r\n    <ion-grid fixed *ngIf=\"registroPago\">\r\n        <ion-row class=\"ion-align-items-center\">\r\n            <ion-col size=\"4\">Cuotas a pagar</ion-col>\r\n            <ion-col size=\"2\">\r\n                <ion-select cancelText=\"Cancelar\" placeholder=\"Seleccione cantidad de cuotas\" [value]=\"registroPago.CANTIDADCUOTAS\" (ionChange)=\"actualizarCantidadCuotas($event)\">\r\n                    <ion-select-option *ngFor=\"let cuota of listCantidadCuotas\" [value]=\"cuota\">{{ cuota }}</ion-select-option>\r\n                </ion-select>\r\n            </ion-col>\r\n        </ion-row>\r\n        <ion-row class=\"ion-align-items-center\">\r\n            <ion-col size=\"4\">Total</ion-col>\r\n            <ion-col size=\"3\">\r\n                <ion-input #valorInput color=\"danger\" value=\"{{ registroPago.VALOR }}\" disabled=\"{{ isDisabled }}\" (ionChange)=\"registroPago.VALOR = valorInput.value\"> </ion-input>\r\n            </ion-col>\r\n        </ion-row>\r\n        <ion-row class=\"ion-align-items-center\">\r\n            <ion-col size=\"4\">Descuento</ion-col>\r\n            <ion-input #descuentoInput color=\"danger\" value=\"{{ registroPago.DESCUENTO }}\" (ionChange)=\"registroPago.DESCUENTO = descuentoInput.value\"> </ion-input>\r\n        </ion-row>\r\n\r\n        <ion-row class=\"ion-align-items-center\">\r\n            <ion-col size=\"4\">Forma de pago</ion-col>\r\n            <ion-col size=\"8\">\r\n                <ion-select cancelText=\"Cancelar\" placeholder=\"Seleccione forma de pago\" [value]=\"registroPago.FORMAPAGO\" (ionChange)=\"actualizatipopago($event)\">\r\n                    <ion-select-option *ngFor=\"let tipo of tipopago\">{{tipo.NombreTipoPago}}</ion-select-option>\r\n                </ion-select>\r\n            </ion-col>\r\n        </ion-row>\r\n        <ion-row class=\"ion-align-items-center\">\r\n            <ion-col size=\"4\">Fecha pago</ion-col>\r\n            <ion-col size=\"8\">\r\n                <ion-text class=\"ion-text-capitalize\" color=\"danger\">\r\n                    <span>{{ registroPago.FECHAPAGOR | date:'MMMM dd yyyy':'':'es-Co' }}</span></ion-text>\r\n            </ion-col>\r\n        </ion-row>\r\n        <ion-row class=\"ion-align-items-center\">\r\n            <ion-col size=\"4\">Observaciones</ion-col>\r\n            <ion-col size=\"8\">\r\n                <ion-textarea #observacionesInput rows=\"4\" placeholder=\"Ingresa alguna observación\" [value]=\"registroPago.OBSERVACIONES\" (ionChange)=\"registroPago.OBSERVACIONES = observacionesInput.value\">\r\n                </ion-textarea>\r\n            </ion-col>\r\n        </ion-row>\r\n        <ion-row *ngIf=\"contrato\">\r\n            <ion-col size=\"12\">\r\n                <ion-button color=\"danger\" (click)=\"guardar()\">\r\n                    Guardar\r\n                </ion-button>\r\n            </ion-col>\r\n        </ion-row>\r\n    </ion-grid>\r\n</ion-content>");
+/* harmony default export */ __webpack_exports__["default"] = ("<app-header titulo=\"registrar pago\"></app-header>\r\n\r\n<ion-content>\r\n    <app-datos-contrato [contrato]=\"contrato\" [modo]=\"modoVisualizarContrato\"></app-datos-contrato>\r\n    <div class=\"ion-padding\">\r\n        <h5 class=\"semi-titulo\">Datos del pago</h5>\r\n    </div>\r\n    <ion-grid fixed *ngIf=\"registroPago\">\r\n        <ion-row class=\"ion-align-items-center\">\r\n            <ion-col size=\"4\">Cuotas a pagar</ion-col>\r\n            <ion-col size=\"2\">\r\n                <ion-select class=\"select-full-width\" cancelText=\"Cancelar\" placeholder=\"Seleccione cantidad de cuotas\" [value]=\"registroPago.CANTIDADCUOTAS\" (ionChange)=\"actualizarCantidadCuotas($event)\">\r\n                    <ion-select-option *ngFor=\"let cuota of listCantidadCuotas\" [value]=\"cuota\">{{ cuota }}</ion-select-option>\r\n                </ion-select>\r\n            </ion-col>\r\n        </ion-row>\r\n        <ion-row class=\"ion-align-items-center\">\r\n            <ion-col size=\"4\">Total</ion-col>\r\n            <ion-col size=\"3\">\r\n                <ion-input #valorInput color=\"danger\" value=\"{{ registroPago.VALOR }}\" disabled=\"{{ isDisabled }}\" (ionChange)=\"registroPago.VALOR = valorInput.value\"> </ion-input>\r\n            </ion-col>\r\n        </ion-row>\r\n        <ion-row class=\"ion-align-items-center\">\r\n            <ion-col size=\"4\">Descuento</ion-col>\r\n            <ion-input #descuentoInput color=\"danger\" value=\"{{ registroPago.DESCUENTO }}\" (ionChange)=\"registroPago.DESCUENTO = descuentoInput.value\"> </ion-input>\r\n        </ion-row>\r\n\r\n        <ion-row class=\"ion-align-items-center\">\r\n            <ion-col size=\"4\">Forma de pago</ion-col>\r\n            <ion-col size=\"8\">\r\n\r\n               <ion-select  #selectFormaPago cancelText=\"Cancelar\" placeholder=\"Seleccione El Tipo De Pago\" [value]=\"nvoFormaPago\" (ionChange)=\"actualizatipopago($event)\">\r\n                    <ion-select-option *ngFor=\"let tipo of tipopago\" [value]=\"tipo.NombreTipoPago\"> {{tipo.NombreTipoPago}}</ion-select-option>\r\n                </ion-select>\r\n            </ion-col>\r\n        </ion-row>\r\n       \r\n        <ion-row class=\"ion-align-items-center\">\r\n            <ion-col size=\"4\">Fecha pago</ion-col>\r\n            <ion-col size=\"8\">\r\n                <ion-text class=\"ion-text-capitalize\" color=\"danger\">\r\n                    <span>{{ registroPago.FECHAPAGOR | date:'MMMM dd yyyy':'':'es-Co' }}</span></ion-text>\r\n            </ion-col>\r\n        </ion-row>\r\n        <ion-row class=\"ion-align-items-center\">\r\n            <ion-col size=\"4\">Observaciones</ion-col>\r\n            <ion-col size=\"8\">\r\n                <ion-textarea #observacionesInput rows=\"4\" placeholder=\"Ingresa alguna observación\" [value]=\"registroPago.OBSERVACIONES\" (ionChange)=\"registroPago.OBSERVACIONES = observacionesInput.value\">\r\n                </ion-textarea>\r\n            </ion-col>\r\n        </ion-row>\r\n        <ion-row *ngIf=\"contrato\">\r\n            <ion-col size=\"12\">\r\n                <ion-button color=\"danger\" (click)=\"guardar()\">\r\n                    Guardar\r\n                </ion-button>\r\n            </ion-col>\r\n        </ion-row>\r\n    </ion-grid>\r\n</ion-content>");
 
 /***/ }),
 
@@ -321,7 +331,7 @@ var RegistrarPagoPageModule = /** @class */ (function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJyZWdpc3RyYXItcGFnby5wYWdlLnNjc3MifQ== */");
+/* harmony default export */ __webpack_exports__["default"] = (".select-full-width {\n  max-width: 100% !important;\n  width: 100% !important;\n  padding-left: 0 !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcLi5cXC4uXFxyZWdpc3RyYXItcGFnby5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSwwQkFBQTtFQUNBLHNCQUFBO0VBQ0EsMEJBQUE7QUFDRiIsImZpbGUiOiJyZWdpc3RyYXItcGFnby5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuc2VsZWN0LWZ1bGwtd2lkdGgge1xyXG4gIG1heC13aWR0aDogMTAwJSAhaW1wb3J0YW50O1xyXG4gIHdpZHRoOiAxMDAlICFpbXBvcnRhbnQ7XHJcbiAgcGFkZGluZy1sZWZ0OiAwICFpbXBvcnRhbnQ7XHJcbn0iXX0= */");
 
 /***/ })
 

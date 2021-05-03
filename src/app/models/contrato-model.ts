@@ -18,4 +18,5 @@ export class ContratoModel {
     email: string;
     barrio: string;
     barriocobro: string;
+    formaPago :string;
 }

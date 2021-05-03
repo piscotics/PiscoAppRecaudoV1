@@ -1,6 +1,7 @@
 <app-header titulo="actualizar datos"></app-header>
 
 <ion-content>
+    <form [formGroup]="dispatchOrderForm" novalidate>
     <app-datos-contrato [contrato]="contrato" [modo]="modoVisualizarContrato"></app-datos-contrato>
 
 
@@ -45,8 +46,8 @@
         <ion-row class="ion-align-items-center">
             <ion-col size="4">Departamento</ion-col>
             <ion-col size="8">
-                <ion-select cancelText="Cancelar" placeholder="Seleccione un Departamento" [value]="contrato.departamento" (ionChange)="actualizardpto($event)">
-                    <ion-select-option *ngFor="let dpto of departamento">{{ dpto }}</ion-select-option>
+                <ion-select   #selectDpto cancelText="Cancelar" placeholder="Seleccione un Departamento"   (ionChange)="actualizardpto($event)" [value]="nvoDpto">
+                    <ion-select-option *ngFor="let dpto of departamento" [value]="dpto" >{{ dpto }}</ion-select-option>
                 </ion-select>
             </ion-col>
         </ion-row>
@@ -55,8 +56,8 @@
         <ion-row class="ion-align-items-center">
             <ion-col size="4">Ciudad</ion-col>
             <ion-col size="8">
-                <ion-select cancelText="Cancelar" placeholder="Seleccione un Municipio" [value]="contrato.ciudad" (ionChange)="actualizarmuni($event)">
-                    <ion-select-option *ngFor="let muni of municipio">{{ muni }}</ion-select-option>
+                <ion-select #selectMunicipio cancelText="Cancelar" placeholder="Seleccione un Municipio" [value]="nvoCiudad" (ionChange)="actualizarmuni($event)">
+                    <ion-select-option *ngFor="let muni of municipio" [value]="muni" >{{ muni }}</ion-select-option>
                 </ion-select>
             </ion-col>
         </ion-row>
@@ -81,9 +82,14 @@
         <ion-row class="ion-align-items-center">
             <ion-col size="4">Departamento Cobro</ion-col>
             <ion-col size="8">
-                <ion-select cancelText="Cancelar" placeholder="Seleccione Departamento Cobro" [value]="contrato.departamentocobro" (ionChange)="actualizardptocobro($event)">
-                    <ion-select-option *ngFor="let dpto of departamento">{{ dpto }}</ion-select-option>
+
+              
+
+                <ion-select  #selectDptoCobro cancelText="Cancelar"  placeholder="Seleccione Departamento Cobro" [value]="nvoDptoCobro" (ionChange)="actualizardptocobro($event)">
+                    <ion-select-option *ngFor="let dpto of departamento" [value]="dpto">{{ dpto }}</ion-select-option>
                 </ion-select>
+
+
             </ion-col>
         </ion-row>
 
@@ -91,8 +97,8 @@
         <ion-row class="ion-align-items-center">
             <ion-col size="4">Ciudad Cobro</ion-col>
             <ion-col size="8">
-                <ion-select cancelText="Cancelar" placeholder="Seleccione Ciudad de Cobro" [value]="contrato.ciudadcobro" (ionChange)="actualizarmunicobro($event)">
-                    <ion-select-option *ngFor="let muni of municipiocobro">{{ muni }}</ion-select-option>
+                <ion-select #selectMunicipioCobro cancelText="Cancelar" placeholder="Seleccione Ciudad de Cobro" [value]="nvoCiudadCobro" (ionChange)="actualizarmunicobro($event)">
+                    <ion-select-option *ngFor="let muni of municipiocobro" [value]="muni">{{ muni }}</ion-select-option>
                 </ion-select>
             </ion-col>
         </ion-row>
@@ -122,4 +128,5 @@
         </ion-row>
     </ion-grid>
 
+    </form>
 </ion-content>

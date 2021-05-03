@@ -40,6 +40,9 @@
     "cordova-plugin-nativestorage": {
       "PACKAGE_NAME": "recaudos.app"
     },
+    "cordova-plugin-network-information": {
+      "PACKAGE_NAME": "recaudos.app"
+    },
     "cordova-plugin-printer": {
       "ANDROID_SUPPORT_V4_VERSION": "28.+",
       "PACKAGE_NAME": "recaudos.app"
@@ -61,9 +64,6 @@
     },
     "cordova.plugins.diagnostic": {
       "ANDROID_SUPPORT_VERSION": "28.+",
-      "PACKAGE_NAME": "recaudos.app"
-    },
-    "cordova-plugin-network-information": {
       "PACKAGE_NAME": "recaudos.app"
     }
   },

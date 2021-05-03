@@ -260,6 +260,7 @@ var ContratoService = /** @class */ (function () {
             var configHelper = new _helpers_config_helper__WEBPACK_IMPORTED_MODULE_4__["ConfigHelper"](_this.config);
             _this.http.get(configHelper.getApiUrl() + "/contrato/departamentos")
                 .subscribe(function (result) {
+                console.log(JSON.stringify(result));
                 resolve(result);
             }, function (error) {
                 console.log(JSON.stringify(error));
@@ -397,6 +398,8 @@ var ContratoService = /** @class */ (function () {
     };
     ContratoService.prototype.actualizarContrato = function (contrato) {
         var _this = this;
+        console.log("los datos del contrato son");
+        console.log(contrato);
         return new Promise(function (resolve, reject) {
             var configHelper = new _helpers_config_helper__WEBPACK_IMPORTED_MODULE_4__["ConfigHelper"](_this.config);
             var httpOptions = {

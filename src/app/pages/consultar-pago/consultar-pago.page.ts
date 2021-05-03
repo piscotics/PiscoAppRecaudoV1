@@ -100,6 +100,8 @@ export class ConsultarPagoPage implements OnInit {
       this.pago.VlrDctoPago = res.VlrDctoPago;
       this.pago.VlrIva = res.VlrIva;
       this.pago.VlrSaldo = res.VlrSaldo;
+      this.pago.FormaPago = res.FormaPago;
+      console.log("la forma de pago es " +  this.pago.FormaPago)
 
       }, err=>{
       this.alert.create({
