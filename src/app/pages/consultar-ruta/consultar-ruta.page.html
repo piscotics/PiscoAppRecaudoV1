@@ -17,7 +17,18 @@
         </ion-row>
     </div>
     <div>
-        
+        <ion-grid>
+            <ion-row class="md5" *ngFor="let ruta of rutas">
+                <ion-card>
+                    <ion-card-content>
+                        {{ruta}}
+                    </ion-card-content>
+                </ion-card>
+                <!-- <ion-col>
+                <label *ngFor="let item of items">
+            </ion-col> -->
+            </ion-row>
+        </ion-grid>
     </div>
 
 </ion-content>

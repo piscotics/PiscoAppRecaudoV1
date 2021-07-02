@@ -19,6 +19,7 @@ export class BeneficiariosComponent implements OnInit {
   
   ionViewWillEnter() {
     this.beneficiarios = this.navParams.get('beneficiarios');
+   
   }
 
 

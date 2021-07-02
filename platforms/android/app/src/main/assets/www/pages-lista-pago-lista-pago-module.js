@@ -13,9 +13,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
 /* harmony import */ var _raw_loader_lista_pago_page_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./lista-pago.page.html */ "ZsME");
 /* harmony import */ var _lista_pago_page_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./lista-pago.page.scss */ "iGg2");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var src_app_services_sesion_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/sesion.service */ "PbBf");
-/* harmony import */ var _services_pagos_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../services/pagos.service */ "tDkB");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ "ofXK");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var src_app_services_sesion_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/services/sesion.service */ "PbBf");
+/* harmony import */ var _services_pagos_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../services/pagos.service */ "tDkB");
+
 
 
 
@@ -23,9 +25,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var ListaPagoPage = /** @class */ (function () {
-    function ListaPagoPage(sesionService, pagoservice) {
+    function ListaPagoPage(sesionService, pagoservice, datePipe) {
         this.sesionService = sesionService;
         this.pagoservice = pagoservice;
+        this.datePipe = datePipe;
         this.textoBusqueda = new Date();
         this.sesionLocal = null;
     }
@@ -41,23 +44,25 @@ var ListaPagoPage = /** @class */ (function () {
             return;
         }
         this.sesionLocal = this.sesionService.sesionLocal;
-        this.pagoservice.lstPagos(this.textoBusqueda, this.sesionLocal.sesionUsuario.USERNAME)
+        this.pagoservice.lstPagos(this.datePipe.transform(this.textoBusqueda, "yyyy-MM-dd"), this.sesionLocal.sesionUsuario.USERNAME)
             .then(function (lspagos) {
             _this.pagos = lspagos;
         });
     };
     ListaPagoPage.ctorParameters = function () { return [
-        { type: src_app_services_sesion_service__WEBPACK_IMPORTED_MODULE_4__["SesionService"] },
-        { type: _services_pagos_service__WEBPACK_IMPORTED_MODULE_5__["PagosService"] }
+        { type: src_app_services_sesion_service__WEBPACK_IMPORTED_MODULE_5__["SesionService"] },
+        { type: _services_pagos_service__WEBPACK_IMPORTED_MODULE_6__["PagosService"] },
+        { type: _angular_common__WEBPACK_IMPORTED_MODULE_3__["DatePipe"] }
     ]; };
     ListaPagoPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["Component"])({
             selector: 'app-lista-pago',
             template: _raw_loader_lista_pago_page_html__WEBPACK_IMPORTED_MODULE_1__["default"],
             styles: [_lista_pago_page_scss__WEBPACK_IMPORTED_MODULE_2__["default"]]
         }),
-        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_services_sesion_service__WEBPACK_IMPORTED_MODULE_4__["SesionService"],
-            _services_pagos_service__WEBPACK_IMPORTED_MODULE_5__["PagosService"]])
+        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_services_sesion_service__WEBPACK_IMPORTED_MODULE_5__["SesionService"],
+            _services_pagos_service__WEBPACK_IMPORTED_MODULE_6__["PagosService"],
+            _angular_common__WEBPACK_IMPORTED_MODULE_3__["DatePipe"]])
     ], ListaPagoPage);
     return ListaPagoPage;
 }());
@@ -107,7 +112,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "ofXK");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "3Pt+");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "tyNb");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "P4DM");
 /* harmony import */ var _lista_pago_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./lista-pago.page */ "2V8n");
 
 

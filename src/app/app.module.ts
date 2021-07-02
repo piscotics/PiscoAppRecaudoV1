@@ -6,7 +6,7 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { HttpClientModule } from '@angular/common/http';
 
 // regionalización español colombia
-import { registerLocaleData } from '@angular/common';
+import { DatePipe, registerLocaleData } from '@angular/common';
 import localCo from '@angular/common/locales/es-CO';
 
 
@@ -37,7 +37,7 @@ import { TasksService } from './services/tasks-service.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginPage } from './pages/login/login.page';
 import { OfflineService } from './services/offline.service';
-
+import { Network } from '@ionic-native/network/ngx';
 @NgModule({
   declarations: [AppComponent,LoginPage],
   entryComponents: [
@@ -67,7 +67,9 @@ import { OfflineService } from './services/offline.service';
     PrintService,
     BluetoothSerial,
     TasksService,
+    DatePipe,
     SQLite,
+    Network,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     { provide: LOCALE_ID, useValue: 'es-CO' }
   ],

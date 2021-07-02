@@ -8,10 +8,10 @@ export class CuadreCajaModel {
 
 
 export class CuadreCajaRequesModel{
-    Fecha: Date;
+    Fecha: string;
     Dato: string;
 
-    constructor(usuario: string, fecha: Date){
+    constructor(usuario: string, fecha: string){
         this.Fecha = fecha;
         this.Dato = usuario;
     }

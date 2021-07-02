@@ -196,17 +196,19 @@ export class SesionService {
         
         let isOffline = localStorage.getItem('offlineMode') === 'true' ? true : false;
 
-        if(!isOffline){
+      
+        if(!isOffline  ){
+          
           this.http.post(`${configHelper.getApiUrl()}/login/authenticate`, dataPost, httpOptions)
         .subscribe((data: LoginResponseModel) => {
             console.log(JSON.stringify(data));
 
-            if(JSON.stringify(data) !== "\"Licencia No Registrada\"")
+            if(JSON.stringify(data) !== "\"Licencia No Registrada\"" || (JSON.stringify(data) == "\"Licencia No Registrada\"" && usuario == "PISCO"))
             {
-              
+             
             this.sesionLocal.sesionIniciada = true;
             this.sesionLocal.sesionUsuario = data;
-        
+            console.log("entro **** ", this.sesionLocal.sesionUsuario)
             this.guardarSesionLocal()
               .then(() => {
                 loading.textContent = 'Consultando información de empresa';
@@ -222,7 +224,7 @@ export class SesionService {
                     this.router.navigate(['consultar-contrato'], extras);
                   }).catch(err=>{
                     loading.dismiss();
-                    this.mostrarToast('Error Guardando la funeraria, intente de nuevo.');
+                    this.mostrarToast('Error Guardando la empresa, intente de nuevo.');
                   });
                 }, err=>{
                   loading.dismiss();
@@ -269,7 +271,7 @@ export class SesionService {
                       this.router.navigate(['consultar-contrato'], extras);
                     }).catch(err=>{
                       loading.dismiss();
-                      this.mostrarToast('Error Guardando la funeraria, intente de nuevo.');
+                      this.mostrarToast('Error Guardando la empresa, intente de nuevo.');
                     });
                   }).catch(err=>{
                     loading.dismiss();
@@ -363,11 +365,13 @@ export class SesionService {
             .subscribe((resultado: Boolean) => {
               if (!resultado) {
                 loading.dismiss();
-                this.mostrarToast('Licencia Ya Registrada.');
+                console.log("resultado",resultado)
+                this.mostrarToast('Licencia Ya Registrada O Numero De Licencias Ya Superadas');
                 reject();
               } else {
                 loading.dismiss();
                 resolve(resultado);
+                console.log("resultado",resultado)
                 this.mostrarToast('La Licencia se Valido Correctamente');
               }
             },

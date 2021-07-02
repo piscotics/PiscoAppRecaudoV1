@@ -1,32 +1,32 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[0],{
 
-/***/ "dUtr":
-/*!*********************************************************************!*\
-  !*** ./node_modules/@ionic/core/dist/esm/ion-action-sheet.entry.js ***!
-  \*********************************************************************/
+/***/ "F9aY":
+/*!**********************************************************************!*\
+  !*** ../node_modules/@ionic/core/dist/esm/ion-action-sheet.entry.js ***!
+  \**********************************************************************/
 /*! exports provided: ion_action_sheet */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_action_sheet", function() { return ActionSheet; });
-/* harmony import */ var D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/defineProperty */ "rePB");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ "o0o1");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator */ "HaE+");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/classCallCheck */ "1OyB");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createClass */ "vuIU");
-/* harmony import */ var _index_92848855_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./index-92848855.js */ "sxy2");
-/* harmony import */ var _ionic_global_23e7365a_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ionic-global-23e7365a.js */ "N4tN");
-/* harmony import */ var _helpers_47d562d2_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./helpers-47d562d2.js */ "9t5z");
-/* harmony import */ var _animation_239bd3e5_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./animation-239bd3e5.js */ "L1bk");
-/* harmony import */ var _gesture_controller_89173521_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./gesture-controller-89173521.js */ "rxGk");
-/* harmony import */ var _index_eea61379_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./index-eea61379.js */ "ItpF");
-/* harmony import */ var _hardware_back_button_7b6ede21_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./hardware-back-button-7b6ede21.js */ "x/Nk");
-/* harmony import */ var _overlays_d577c227_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./overlays-d577c227.js */ "xG4I");
-/* harmony import */ var _haptic_7b8ba70a_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./haptic-7b8ba70a.js */ "2c9M");
-/* harmony import */ var _button_active_5da929d4_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./button-active-5da929d4.js */ "U/uv");
-/* harmony import */ var _theme_5641d27f_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./theme-5641d27f.js */ "sPtc");
+/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../node_modules/@babel/runtime/helpers/esm/defineProperty */ "mK0O");
+/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../node_modules/@babel/runtime/regenerator */ "NthX");
+/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../node_modules/@babel/runtime/helpers/esm/asyncToGenerator */ "eijD");
+/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../node_modules/@babel/runtime/helpers/esm/classCallCheck */ "hisu");
+/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../node_modules/@babel/runtime/helpers/esm/createClass */ "yBJb");
+/* harmony import */ var _index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./index-e806d1f6.js */ "OVRr");
+/* harmony import */ var _ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ionic-global-9d5c8ee3.js */ "rAwY");
+/* harmony import */ var _helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./helpers-90f46169.js */ "Ij9o");
+/* harmony import */ var _animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./animation-54fe0237.js */ "uxFI");
+/* harmony import */ var _gesture_controller_31cb6bb9_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./gesture-controller-31cb6bb9.js */ "rDQ0");
+/* harmony import */ var _index_f49d994d_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./index-f49d994d.js */ "8ciA");
+/* harmony import */ var _hardware_back_button_4a6b37fb_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./hardware-back-button-4a6b37fb.js */ "A64e");
+/* harmony import */ var _overlays_12c20431_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./overlays-12c20431.js */ "zr4j");
+/* harmony import */ var _haptic_27b3f981_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./haptic-27b3f981.js */ "ApiU");
+/* harmony import */ var _button_active_a6787d69_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./button-active-a6787d69.js */ "0dxY");
+/* harmony import */ var _theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./theme-ff3fc52f.js */ "akMd");
 
 
 
@@ -48,9 +48,9 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 var iosEnterAnimation = function iosEnterAnimation(baseEl) {
-  var baseAnimation = Object(_animation_239bd3e5_js__WEBPACK_IMPORTED_MODULE_8__["c"])();
-  var backdropAnimation = Object(_animation_239bd3e5_js__WEBPACK_IMPORTED_MODULE_8__["c"])();
-  var wrapperAnimation = Object(_animation_239bd3e5_js__WEBPACK_IMPORTED_MODULE_8__["c"])();
+  var baseAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])();
+  var backdropAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])();
+  var wrapperAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])();
   backdropAnimation.addElement(baseEl.querySelector('ion-backdrop')).fromTo('opacity', 0.01, 'var(--backdrop-opacity)').beforeStyles({
     'pointer-events': 'none'
   }).afterClearStyles(['pointer-events']);
@@ -63,9 +63,9 @@ var iosEnterAnimation = function iosEnterAnimation(baseEl) {
 
 
 var iosLeaveAnimation = function iosLeaveAnimation(baseEl) {
-  var baseAnimation = Object(_animation_239bd3e5_js__WEBPACK_IMPORTED_MODULE_8__["c"])();
-  var backdropAnimation = Object(_animation_239bd3e5_js__WEBPACK_IMPORTED_MODULE_8__["c"])();
-  var wrapperAnimation = Object(_animation_239bd3e5_js__WEBPACK_IMPORTED_MODULE_8__["c"])();
+  var baseAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])();
+  var backdropAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])();
+  var wrapperAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])();
   backdropAnimation.addElement(baseEl.querySelector('ion-backdrop')).fromTo('opacity', 'var(--backdrop-opacity)', 0);
   wrapperAnimation.addElement(baseEl.querySelector('.action-sheet-wrapper')).fromTo('transform', 'translateY(0%)', 'translateY(100%)');
   return baseAnimation.addElement(baseEl).easing('cubic-bezier(.36,.66,.04,1)').duration(450).addAnimation([backdropAnimation, wrapperAnimation]);
@@ -76,9 +76,9 @@ var iosLeaveAnimation = function iosLeaveAnimation(baseEl) {
 
 
 var mdEnterAnimation = function mdEnterAnimation(baseEl) {
-  var baseAnimation = Object(_animation_239bd3e5_js__WEBPACK_IMPORTED_MODULE_8__["c"])();
-  var backdropAnimation = Object(_animation_239bd3e5_js__WEBPACK_IMPORTED_MODULE_8__["c"])();
-  var wrapperAnimation = Object(_animation_239bd3e5_js__WEBPACK_IMPORTED_MODULE_8__["c"])();
+  var baseAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])();
+  var backdropAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])();
+  var wrapperAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])();
   backdropAnimation.addElement(baseEl.querySelector('ion-backdrop')).fromTo('opacity', 0.01, 'var(--backdrop-opacity)').beforeStyles({
     'pointer-events': 'none'
   }).afterClearStyles(['pointer-events']);
@@ -91,9 +91,9 @@ var mdEnterAnimation = function mdEnterAnimation(baseEl) {
 
 
 var mdLeaveAnimation = function mdLeaveAnimation(baseEl) {
-  var baseAnimation = Object(_animation_239bd3e5_js__WEBPACK_IMPORTED_MODULE_8__["c"])();
-  var backdropAnimation = Object(_animation_239bd3e5_js__WEBPACK_IMPORTED_MODULE_8__["c"])();
-  var wrapperAnimation = Object(_animation_239bd3e5_js__WEBPACK_IMPORTED_MODULE_8__["c"])();
+  var baseAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])();
+  var backdropAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])();
+  var wrapperAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])();
   backdropAnimation.addElement(baseEl.querySelector('ion-backdrop')).fromTo('opacity', 'var(--backdrop-opacity)', 0);
   wrapperAnimation.addElement(baseEl.querySelector('.action-sheet-wrapper')).fromTo('transform', 'translateY(0%)', 'translateY(100%)');
   return baseAnimation.addElement(baseEl).easing('cubic-bezier(.36,.66,.04,1)').duration(450).addAnimation([backdropAnimation, wrapperAnimation]);
@@ -106,13 +106,13 @@ var ActionSheet = /*#__PURE__*/function () {
   function ActionSheet(hostRef) {
     var _this = this;
 
-    Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__["default"])(this, ActionSheet);
+    Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__["default"])(this, ActionSheet);
 
-    Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["r"])(this, hostRef);
-    this.didPresent = Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionActionSheetDidPresent", 7);
-    this.willPresent = Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionActionSheetWillPresent", 7);
-    this.willDismiss = Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionActionSheetWillDismiss", 7);
-    this.didDismiss = Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionActionSheetDidDismiss", 7);
+    Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["r"])(this, hostRef);
+    this.didPresent = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionActionSheetDidPresent", 7);
+    this.willPresent = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionActionSheetWillPresent", 7);
+    this.willDismiss = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionActionSheetWillDismiss", 7);
+    this.didDismiss = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionActionSheetDidDismiss", 7);
     this.presented = false;
     /**
      * If `true`, the keyboard will be automatically dismissed when the overlay is presented.
@@ -143,13 +143,13 @@ var ActionSheet = /*#__PURE__*/function () {
     this.animated = true;
 
     this.onBackdropTap = function () {
-      _this.dismiss(undefined, _overlays_d577c227_js__WEBPACK_IMPORTED_MODULE_12__["B"]);
+      _this.dismiss(undefined, _overlays_12c20431_js__WEBPACK_IMPORTED_MODULE_12__["B"]);
     };
 
     this.dispatchCancelHandler = function (ev) {
       var role = ev.detail.role;
 
-      if (Object(_overlays_d577c227_js__WEBPACK_IMPORTED_MODULE_12__["i"])(role)) {
+      if (Object(_overlays_12c20431_js__WEBPACK_IMPORTED_MODULE_12__["i"])(role)) {
         var cancelButton = _this.getButtons().find(function (b) {
           return b.role === 'cancel';
         });
@@ -163,15 +163,15 @@ var ActionSheet = /*#__PURE__*/function () {
    */
 
 
-  Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__["default"])(ActionSheet, [{
+  Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__["default"])(ActionSheet, [{
     key: "present",
     value: function present() {
-      return Object(_overlays_d577c227_js__WEBPACK_IMPORTED_MODULE_12__["d"])(this, 'actionSheetEnter', iosEnterAnimation, mdEnterAnimation);
+      return Object(_overlays_12c20431_js__WEBPACK_IMPORTED_MODULE_12__["d"])(this, 'actionSheetEnter', iosEnterAnimation, mdEnterAnimation);
     }
   }, {
     key: "connectedCallback",
     value: function connectedCallback() {
-      Object(_overlays_d577c227_js__WEBPACK_IMPORTED_MODULE_12__["e"])(this.el);
+      Object(_overlays_12c20431_js__WEBPACK_IMPORTED_MODULE_12__["e"])(this.el);
     }
     /**
      * Dismiss the action sheet overlay after it has been presented.
@@ -186,7 +186,7 @@ var ActionSheet = /*#__PURE__*/function () {
   }, {
     key: "dismiss",
     value: function dismiss(data, role) {
-      return Object(_overlays_d577c227_js__WEBPACK_IMPORTED_MODULE_12__["f"])(this, data, role, 'actionSheetLeave', iosLeaveAnimation, mdLeaveAnimation);
+      return Object(_overlays_12c20431_js__WEBPACK_IMPORTED_MODULE_12__["f"])(this, data, role, 'actionSheetLeave', iosLeaveAnimation, mdLeaveAnimation);
     }
     /**
      * Returns a promise that resolves when the action sheet did dismiss.
@@ -195,7 +195,7 @@ var ActionSheet = /*#__PURE__*/function () {
   }, {
     key: "onDidDismiss",
     value: function onDidDismiss() {
-      return Object(_overlays_d577c227_js__WEBPACK_IMPORTED_MODULE_12__["g"])(this.el, 'ionActionSheetDidDismiss');
+      return Object(_overlays_12c20431_js__WEBPACK_IMPORTED_MODULE_12__["g"])(this.el, 'ionActionSheetDidDismiss');
     }
     /**
      * Returns a promise that resolves when the action sheet will dismiss.
@@ -205,20 +205,20 @@ var ActionSheet = /*#__PURE__*/function () {
   }, {
     key: "onWillDismiss",
     value: function onWillDismiss() {
-      return Object(_overlays_d577c227_js__WEBPACK_IMPORTED_MODULE_12__["g"])(this.el, 'ionActionSheetWillDismiss');
+      return Object(_overlays_12c20431_js__WEBPACK_IMPORTED_MODULE_12__["g"])(this.el, 'ionActionSheetWillDismiss');
     }
   }, {
     key: "buttonClick",
     value: function () {
-      var _buttonClick = Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee(button) {
+      var _buttonClick = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee(button) {
         var role, shouldDismiss;
-        return D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee$(_context) {
+        return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
                 role = button.role;
 
-                if (!Object(_overlays_d577c227_js__WEBPACK_IMPORTED_MODULE_12__["i"])(role)) {
+                if (!Object(_overlays_12c20431_js__WEBPACK_IMPORTED_MODULE_12__["i"])(role)) {
                   _context.next = 3;
                   break;
                 }
@@ -259,9 +259,9 @@ var ActionSheet = /*#__PURE__*/function () {
   }, {
     key: "callButtonHandler",
     value: function () {
-      var _callButtonHandler = Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee2(button) {
+      var _callButtonHandler = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee2(button) {
         var rtn;
-        return D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee2$(_context2) {
+        return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
@@ -271,7 +271,7 @@ var ActionSheet = /*#__PURE__*/function () {
                 }
 
                 _context2.next = 3;
-                return Object(_overlays_d577c227_js__WEBPACK_IMPORTED_MODULE_12__["s"])(button.handler);
+                return Object(_overlays_12c20431_js__WEBPACK_IMPORTED_MODULE_12__["s"])(button.handler);
 
               case 3:
                 rtn = _context2.sent;
@@ -331,15 +331,15 @@ var ActionSheet = /*#__PURE__*/function () {
       var groupEl = this.groupEl,
           wrapperEl = this.wrapperEl;
 
-      if (this.gesture || Object(_ionic_global_23e7365a_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this) === 'md' || !wrapperEl || !groupEl) {
+      if (this.gesture || Object(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this) === 'md' || !wrapperEl || !groupEl) {
         return;
       }
 
-      Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["f"])(function () {
+      Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["f"])(function () {
         var isScrollable = groupEl.scrollHeight > groupEl.clientHeight;
 
         if (!isScrollable) {
-          _this2.gesture = Object(_button_active_5da929d4_js__WEBPACK_IMPORTED_MODULE_14__["c"])(wrapperEl, function (refEl) {
+          _this2.gesture = Object(_button_active_a6787d69_js__WEBPACK_IMPORTED_MODULE_14__["c"])(wrapperEl, function (refEl) {
             return refEl.classList.contains('action-sheet-button');
           });
 
@@ -352,7 +352,7 @@ var ActionSheet = /*#__PURE__*/function () {
     value: function render() {
       var _this3 = this;
 
-      var mode = Object(_ionic_global_23e7365a_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this);
+      var mode = Object(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this);
       var allButtons = this.getButtons();
       var cancelButton = allButtons.find(function (b) {
         return b.role === 'cancel';
@@ -360,75 +360,75 @@ var ActionSheet = /*#__PURE__*/function () {
       var buttons = allButtons.filter(function (b) {
         return b.role !== 'cancel';
       });
-      return Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["H"], {
+      return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["H"], {
         role: "dialog",
         "aria-modal": "true",
         tabindex: "-1",
         style: {
           zIndex: "".concat(20000 + this.overlayIndex)
         },
-        class: Object.assign(Object.assign(Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])({}, mode, true), Object(_theme_5641d27f_js__WEBPACK_IMPORTED_MODULE_15__["g"])(this.cssClass)), {
+        class: Object.assign(Object.assign(Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])({}, mode, true), Object(_theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_15__["g"])(this.cssClass)), {
           'action-sheet-translucent': this.translucent
         }),
         onIonActionSheetWillDismiss: this.dispatchCancelHandler,
         onIonBackdropTap: this.onBackdropTap
-      }, Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])("ion-backdrop", {
+      }, Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("ion-backdrop", {
         tappable: this.backdropDismiss
-      }), Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+      }), Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
         tabindex: "0"
-      }), Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+      }), Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
         class: "action-sheet-wrapper ion-overlay-wrapper",
         role: "dialog",
         ref: function ref(el) {
           return _this3.wrapperEl = el;
         }
-      }, Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+      }, Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
         class: "action-sheet-container"
-      }, Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+      }, Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
         class: "action-sheet-group",
         ref: function ref(el) {
           return _this3.groupEl = el;
         }
-      }, this.header !== undefined && Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+      }, this.header !== undefined && Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
         class: "action-sheet-title"
-      }, this.header, this.subHeader && Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+      }, this.header, this.subHeader && Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
         class: "action-sheet-sub-title"
       }, this.subHeader)), buttons.map(function (b) {
-        return Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])("button", {
+        return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("button", {
           type: "button",
           class: buttonClass(b),
           onClick: function onClick() {
             return _this3.buttonClick(b);
           }
-        }, Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])("span", {
+        }, Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("span", {
           class: "action-sheet-button-inner"
-        }, b.icon && Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])("ion-icon", {
+        }, b.icon && Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("ion-icon", {
           icon: b.icon,
           lazy: false,
           class: "action-sheet-icon"
-        }), b.text), mode === 'md' && Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])("ion-ripple-effect", null));
-      })), cancelButton && Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+        }), b.text), mode === 'md' && Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("ion-ripple-effect", null));
+      })), cancelButton && Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
         class: "action-sheet-group action-sheet-group-cancel"
-      }, Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])("button", {
+      }, Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("button", {
         type: "button",
         class: buttonClass(cancelButton),
         onClick: function onClick() {
           return _this3.buttonClick(cancelButton);
         }
-      }, Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])("span", {
+      }, Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("span", {
         class: "action-sheet-button-inner"
-      }, cancelButton.icon && Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])("ion-icon", {
+      }, cancelButton.icon && Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("ion-icon", {
         icon: cancelButton.icon,
         lazy: false,
         class: "action-sheet-icon"
-      }), cancelButton.text), mode === 'md' && Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])("ion-ripple-effect", null))))), Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+      }), cancelButton.text), mode === 'md' && Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("ion-ripple-effect", null))))), Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
         tabindex: "0"
       }));
     }
   }, {
     key: "el",
     get: function get() {
-      return Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_5__["i"])(this);
+      return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["i"])(this);
     }
   }]);
 
@@ -436,11 +436,11 @@ var ActionSheet = /*#__PURE__*/function () {
 }();
 
 var buttonClass = function buttonClass(button) {
-  return Object.assign(Object(D_Recaudooffline_V_1_0_1_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])({
+  return Object.assign(Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])({
     'action-sheet-button': true,
     'ion-activatable': true,
     'ion-focusable': true
-  }, "action-sheet-".concat(button.role), button.role !== undefined), Object(_theme_5641d27f_js__WEBPACK_IMPORTED_MODULE_15__["g"])(button.cssClass));
+  }, "action-sheet-".concat(button.role), button.role !== undefined), Object(_theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_15__["g"])(button.cssClass));
 };
 
 ActionSheet.style = {

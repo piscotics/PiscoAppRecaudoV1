@@ -1,4 +1,9 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { SesionLocalModel } from 'src/app/models/sesion-local.model';
+import { PagosService } from 'src/app/services/pagos.service';
+import { RutasService } from 'src/app/services/rutas.service';
+import { SesionService } from 'src/app/services/sesion.service';
 import { ConsultarRutaModel } from '../../models/consultar-ruta.model';
 @Component({
   selector: 'app-consultar-ruta',
@@ -8,7 +13,12 @@ import { ConsultarRutaModel } from '../../models/consultar-ruta.model';
 export class ConsultarRutaPage implements OnInit {
   textoBusqueda = new Date();
   consultarRuta: ConsultarRutaModel = null;
-  constructor() { }
+  sesionLocal: SesionLocalModel = null;
+  rutas: string[];
+
+  constructor( private sesionService: SesionService,
+    private rutaservice: RutasService,
+    private datePipe: DatePipe) { }
 
   ngOnInit() {
   }
@@ -21,6 +31,13 @@ export class ConsultarRutaPage implements OnInit {
       alert('Por favor ingresa un criterio de búsqueda');
       return;
     }
+    
+    this.sesionLocal = this.sesionService.sesionLocal;
+    
+    this.rutaservice.lstRutas(this.datePipe.transform(this.textoBusqueda,"yyyy-MM-dd"), this.sesionLocal.sesionUsuario.USERNAME)
+           .then((lsrutas: string[]) => {
+              this.rutas = lsrutas;
+          });
   }
 
 }

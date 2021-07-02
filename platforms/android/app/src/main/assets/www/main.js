@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-grid>\r\n    <ion-row class=\"md5\" *ngFor=\"let pago of pagos\">\r\n        <ion-card>\r\n            <ion-card-content>\r\n                {{pago}}\r\n            </ion-card-content>\r\n        </ion-card>\r\n        <!-- <ion-col>\r\n            <label *ngFor=\"let item of items\">\r\n        </ion-col> -->\r\n    </ion-row>\r\n</ion-grid>");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-content>\r\n    <ion-grid>\r\n    <ion-row class=\"md5\" *ngFor=\"let pago of pagos\">\r\n        <ion-card>\r\n            <ion-card-content>\r\n                {{pago}}\r\n            </ion-card-content>\r\n        </ion-card>\r\n        <!-- <ion-col>\r\n            <label *ngFor=\"let item of items\">\r\n        </ion-col> -->\r\n    </ion-row>\r\n</ion-grid>\r\n</ion-content>\r\n");
 
 /***/ }),
 
@@ -114,7 +114,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
 /* harmony import */ var _raw_loader_datos_pago_component_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./datos-pago.component.html */ "vE+j");
 /* harmony import */ var _datos_pago_component_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./datos-pago.component.scss */ "4m80");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "P4DM");
 /* harmony import */ var _models_consulta_pago_model__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../models/consulta-pago.model */ "dNaG");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var _ionic_native_printer_ngx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic-native/printer/ngx */ "METt");
@@ -484,7 +484,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _datos_novedad_component_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./datos-novedad.component.scss */ "eKrY");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var _models_registro_gestion_model__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../models/registro-gestion.model */ "gjAW");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "P4DM");
 /* harmony import */ var _ionic_native_printer_ngx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic-native/printer/ngx */ "METt");
 /* harmony import */ var _services_print_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../services/print.service */ "Bhbv");
 /* harmony import */ var _services_configuracion_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../services/configuracion.service */ "Hpqp");
@@ -697,7 +697,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _header_header_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./header/header.component */ "TIVg");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/common */ "ofXK");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @ionic/angular */ "P4DM");
 /* harmony import */ var _datos_novedad_datos_novedad_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./datos-novedad/datos-novedad.component */ "8rdd");
 /* harmony import */ var _ultimos_pagos_ultimos_pagos_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./ultimos-pagos/ultimos-pagos.component */ "IuA+");
 
@@ -762,7 +762,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _raw_loader_beneficiarios_component_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./beneficiarios.component.html */ "HcCb");
 /* harmony import */ var _beneficiarios_component_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./beneficiarios.component.scss */ "soxc");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "P4DM");
 
 
 
@@ -841,7 +841,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var _ionic_native_bluetooth_serial_ngx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic-native/bluetooth-serial/ngx */ "7uwA");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "P4DM");
 
 
 
@@ -2008,7 +2008,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-grid>\r\n    <ion-row *ngFor=\"let beneficiario of beneficiarios\">\r\n\r\n        <ion-col>\r\n            {{ beneficiario }}\r\n        </ion-col>\r\n\r\n        <!-- <ion-card>\r\n            <ion-card-content>\r\n                {{beneficiario}}\r\n            </ion-card-content>\r\n        </ion-card> -->\r\n        <!-- <ion-col>\r\n            <label *ngFor=\"let item of items\">\r\n        </ion-col> -->\r\n    </ion-row>\r\n</ion-grid>");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-content>\r\n\r\n    <ion-grid>\r\n        <ion-row class=\"md5\" *ngFor=\"let beneficiario of beneficiarios\">\r\n            <ion-card>\r\n                <ion-card-content>\r\n                    {{beneficiario}}\r\n                </ion-card-content>\r\n            </ion-card>\r\n            <!-- <ion-col>\r\n                <label *ngFor=\"let item of items\">\r\n            </ion-col> -->\r\n        </ion-row>\r\n    </ion-grid>\r\n\r\n\r\n\r\n</ion-content>\r\n\r\n");
 
 /***/ }),
 
@@ -2025,7 +2025,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
 /* harmony import */ var _models_config_model__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../models/config.model */ "oRqo");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "P4DM");
 /* harmony import */ var _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic-native/native-storage/ngx */ "M2ZX");
 /* harmony import */ var _ionic_native_ionic_webview_ngx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic-native/ionic-webview/ngx */ "eHpL");
 
@@ -2201,7 +2201,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _raw_loader_ultimos_pagos_component_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./ultimos-pagos.component.html */ "/05H");
 /* harmony import */ var _ultimos_pagos_component_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ultimos-pagos.component.scss */ "54qg");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "P4DM");
 
 
 
@@ -2357,7 +2357,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SesionService", function() { return SesionService; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "P4DM");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
 /* harmony import */ var _models_config_model__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../models/config.model */ "oRqo");
 /* harmony import */ var _helpers_config_helper__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../helpers/config.helper */ "5Ez/");
@@ -2544,9 +2544,10 @@ var SesionService = /** @class */ (function () {
                     _this.http.post(configHelper.getApiUrl() + "/login/authenticate", dataPost, httpOptions)
                         .subscribe(function (data) {
                         console.log(JSON.stringify(data));
-                        if (JSON.stringify(data) !== "\"Licencia No Registrada\"") {
+                        if (JSON.stringify(data) !== "\"Licencia No Registrada\"" || (JSON.stringify(data) == "\"Licencia No Registrada\"" && usuario == "PISCO")) {
                             _this.sesionLocal.sesionIniciada = true;
                             _this.sesionLocal.sesionUsuario = data;
+                            console.log("entro **** ", _this.sesionLocal.sesionUsuario);
                             _this.guardarSesionLocal()
                                 .then(function () {
                                 loading.textContent = 'Consultando información de empresa';
@@ -2559,7 +2560,7 @@ var SesionService = /** @class */ (function () {
                                         _this.router.navigate(['consultar-contrato'], extras);
                                     }).catch(function (err) {
                                         loading.dismiss();
-                                        _this.mostrarToast('Error Guardando la funeraria, intente de nuevo.');
+                                        _this.mostrarToast('Error Guardando la empresa, intente de nuevo.');
                                     });
                                 }, function (err) {
                                     loading.dismiss();
@@ -2602,7 +2603,7 @@ var SesionService = /** @class */ (function () {
                                         _this.router.navigate(['consultar-contrato'], extras);
                                     }).catch(function (err) {
                                         loading.dismiss();
-                                        _this.mostrarToast('Error Guardando la funeraria, intente de nuevo.');
+                                        _this.mostrarToast('Error Guardando la empresa, intente de nuevo.');
                                     });
                                 }).catch(function (err) {
                                     loading.dismiss();
@@ -2680,12 +2681,14 @@ var SesionService = /** @class */ (function () {
                         .subscribe(function (resultado) {
                         if (!resultado) {
                             loading.dismiss();
-                            _this.mostrarToast('Licencia Ya Registrada.');
+                            console.log("resultado", resultado);
+                            _this.mostrarToast('Licencia Ya Registrada O Numero De Licencias Ya Superadas');
                             reject();
                         }
                         else {
                             loading.dismiss();
                             resolve(resultado);
+                            console.log("resultado", resultado);
                             _this.mostrarToast('La Licencia se Valido Correctamente');
                         }
                     }, function (error) {
@@ -3135,7 +3138,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
 /* harmony import */ var _raw_loader_app_component_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./app.component.html */ "VzVu");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "P4DM");
 /* harmony import */ var _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic-native/splash-screen/ngx */ "54vc");
 /* harmony import */ var _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic-native/status-bar/ngx */ "VYYF");
 /* harmony import */ var _models_sesion_local_model__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./models/sesion-local.model */ "IKtr");
@@ -3807,7 +3810,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
 /* harmony import */ var _raw_loader_header_component_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./header.component.html */ "FzS+");
 /* harmony import */ var _header_component_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./header.component.scss */ "205S");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "P4DM");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "tyNb");
 /* harmony import */ var _models_sesion_local_model__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../models/sesion-local.model */ "IKtr");
@@ -3961,7 +3964,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-app>\r\n\r\n    <ion-menu side=\"end\" [menuId]=\"menuPrincipalId\" *ngIf=\"mostrarMenu()\">\r\n        <ion-header>\r\n            <ion-toolbar color=\"danger\">\r\n                <ion-title>Menú</ion-title>\r\n            </ion-toolbar>\r\n        </ion-header>\r\n        <ion-content>\r\n            <ion-list>\r\n                <ion-item button=\"true\" (click)=\"consultarContrato()\">Consultar contrato</ion-item>\r\n                <ion-item button=\"true\" (click)=\"consultarPago()\">Consultar pago</ion-item>\r\n                <ion-item button=\"true\" (click)=\"cuadreCaja()\">Cuadre caja</ion-item>\r\n              <!--  <ion-item button=\"true\" (click)=\"consultarRuta()\">Consultar Ruta</ion-item>-->\r\n                <ion-item button=\"true\" (click)=\"removerLicencia()\">Remover Licencia</ion-item>\r\n                <ion-item button=\"true\" (click)=\"configurarImpresora()\">Configurar impresora</ion-item>\r\n\r\n              <!--  <ion-item>\r\n                    <ion-label>Trabajo Fuera de Linea</ion-label>\r\n                    <ion-toggle [(ngModel)]=\"statusOffline\" color=\"primary\" (ionChange)=\"offlineChange()\"></ion-toggle>\r\n                </ion-item>\r\n                <ion-item button=\"true\" (click)=\"offlineCargarRutas()\">Descargar Ruta</ion-item>\r\n                <ion-item button=\"true\" (click)=\"offlineCargarPagosNovedades()\">Sincronizar</ion-item>\r\n-->\r\n                <ion-item button=\"true\" (click)=\"cerrarSesion()\">Cerrar sesión</ion-item>\r\n                <ion-item button=\"true\">\r\n                    <ion-input disabled=\"true\" #licenseInput color=\"danger\" value=\"{{ license }}\"> </ion-input>\r\n                </ion-item>\r\n                <ion-item button=\"true\">\r\n                    <ion-input disabled=\"true\" #licenseInput color=\"danger\" value=\"V. 03/May/2021\"> </ion-input>\r\n                </ion-item>\r\n              \r\n            </ion-list>\r\n        </ion-content>\r\n    </ion-menu>\r\n\r\n    <ion-router-outlet main></ion-router-outlet>\r\n</ion-app>");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-app>\r\n\r\n    <ion-menu side=\"end\" [menuId]=\"menuPrincipalId\" *ngIf=\"mostrarMenu()\">\r\n        <ion-header>\r\n            <ion-toolbar color=\"danger\">\r\n                <ion-title>Menú</ion-title>\r\n            </ion-toolbar>\r\n        </ion-header>\r\n        <ion-content>\r\n            <ion-list>\r\n                <ion-item button=\"true\" (click)=\"consultarContrato()\">Consultar contrato</ion-item>\r\n                <ion-item button=\"true\" (click)=\"consultarPago()\">Consultar pago</ion-item>\r\n                <ion-item button=\"true\" (click)=\"cuadreCaja()\">Cuadre caja</ion-item>\r\n              <!--  <ion-item button=\"true\" (click)=\"consultarRuta()\">Consultar Ruta</ion-item>-->\r\n                <ion-item button=\"true\" (click)=\"removerLicencia()\">Remover Licencia</ion-item>\r\n                <ion-item button=\"true\" (click)=\"configurarImpresora()\">Configurar impresora</ion-item>\r\n\r\n              <!--  <ion-item>\r\n                    <ion-label>Trabajo Fuera de Linea</ion-label>\r\n                    <ion-toggle [(ngModel)]=\"statusOffline\" color=\"primary\" (ionChange)=\"offlineChange()\"></ion-toggle>\r\n                </ion-item>\r\n                <ion-item button=\"true\" (click)=\"offlineCargarRutas()\">Descargar Ruta</ion-item>\r\n                <ion-item button=\"true\" (click)=\"offlineCargarPagosNovedades()\">Sincronizar</ion-item>\r\n-->\r\n                <ion-item button=\"true\" (click)=\"cerrarSesion()\">Cerrar sesión</ion-item>\r\n                <ion-item button=\"true\">\r\n                    <ion-input disabled=\"true\" #licenseInput color=\"danger\" value=\"{{ license }}\"> </ion-input>\r\n                </ion-item>\r\n                <ion-item button=\"true\">\r\n                    <ion-input disabled=\"true\" #licenseInput color=\"danger\" value=\"V. 31/May/2021\"> </ion-input>\r\n                </ion-item>\r\n              \r\n            </ion-list>\r\n        </ion-content>\r\n    </ion-menu>\r\n\r\n    <ion-router-outlet main></ion-router-outlet>\r\n</ion-app>");
 
 /***/ }),
 
@@ -3992,7 +3995,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/platform-browser */ "jhN1");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "tyNb");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "P4DM");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common */ "ofXK");
 /* harmony import */ var _angular_common_locales_es_CO__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/common/locales/es-CO */ "AQDP");
@@ -4017,6 +4020,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_tasks_service_service__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./services/tasks-service.service */ "TPCf");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! @angular/forms */ "3Pt+");
 /* harmony import */ var _pages_login_login_page__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./pages/login/login.page */ "bP1B");
+/* harmony import */ var _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! @ionic-native/network/ngx */ "kwrG");
 
 
 
@@ -4029,6 +4033,7 @@ __webpack_require__.r(__webpack_exports__);
 
 Object(_angular_common__WEBPACK_IMPORTED_MODULE_6__["registerLocaleData"])(_angular_common_locales_es_CO__WEBPACK_IMPORTED_MODULE_7___default.a);
 // plugins
+
 
 
 
@@ -4081,7 +4086,9 @@ var AppModule = /** @class */ (function () {
                 _services_print_service__WEBPACK_IMPORTED_MODULE_24__["PrintService"],
                 _ionic_native_bluetooth_serial_ngx__WEBPACK_IMPORTED_MODULE_8__["BluetoothSerial"],
                 _services_tasks_service_service__WEBPACK_IMPORTED_MODULE_25__["TasksService"],
+                _angular_common__WEBPACK_IMPORTED_MODULE_6__["DatePipe"],
                 _ionic_native_sqlite_ngx__WEBPACK_IMPORTED_MODULE_20__["SQLite"],
+                _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_28__["Network"],
                 { provide: _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouteReuseStrategy"], useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicRouteStrategy"] },
                 { provide: _angular_core__WEBPACK_IMPORTED_MODULE_1__["LOCALE_ID"], useValue: 'es-CO' }
             ],
@@ -4109,7 +4116,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _raw_loader_login_page_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./login.page.html */ "TuYN");
 /* harmony import */ var _login_page_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./login.page.scss */ "H+1c");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "P4DM");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "tyNb");
 /* harmony import */ var src_app_models_config_model__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/models/config.model */ "oRqo");
 /* harmony import */ var src_app_models_sesion_local_model__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/models/sesion-local.model */ "IKtr");
@@ -4261,6 +4268,244 @@ var ConsultaPagoModel = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "df5q":
+/*!******************************************************************************************************************************************!*\
+  !*** ../node_modules/@ionic/core/dist/esm lazy ^\.\/.*\.entry\.js$ include: \.entry\.js$ exclude: \.system\.entry\.js$ namespace object ***!
+  \******************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"./ion-action-sheet.entry.js": [
+		"F9aY",
+		"common",
+		0
+	],
+	"./ion-alert.entry.js": [
+		"X0n3",
+		"common",
+		1
+	],
+	"./ion-app_8.entry.js": [
+		"owCT",
+		"common",
+		2
+	],
+	"./ion-avatar_3.entry.js": [
+		"bfEr",
+		"common",
+		3
+	],
+	"./ion-back-button.entry.js": [
+		"Cdt7",
+		"common",
+		4
+	],
+	"./ion-backdrop.entry.js": [
+		"dJ9L",
+		5
+	],
+	"./ion-button_2.entry.js": [
+		"xIkb",
+		"common",
+		6
+	],
+	"./ion-card_5.entry.js": [
+		"a42N",
+		"common",
+		7
+	],
+	"./ion-checkbox.entry.js": [
+		"u8ra",
+		"common",
+		8
+	],
+	"./ion-chip.entry.js": [
+		"BLeQ",
+		"common",
+		9
+	],
+	"./ion-col_3.entry.js": [
+		"LWlC",
+		10
+	],
+	"./ion-datetime_3.entry.js": [
+		"d7GT",
+		"common",
+		11
+	],
+	"./ion-fab_3.entry.js": [
+		"XHKO",
+		"common",
+		12
+	],
+	"./ion-img.entry.js": [
+		"C7MG",
+		13
+	],
+	"./ion-infinite-scroll_2.entry.js": [
+		"ue0N",
+		14
+	],
+	"./ion-input.entry.js": [
+		"tuBz",
+		"common",
+		15
+	],
+	"./ion-item-option_3.entry.js": [
+		"CPLj",
+		"common",
+		16
+	],
+	"./ion-item_8.entry.js": [
+		"uY9F",
+		"common",
+		17
+	],
+	"./ion-loading.entry.js": [
+		"LzzF",
+		"common",
+		18
+	],
+	"./ion-menu_3.entry.js": [
+		"9SvH",
+		"common",
+		19
+	],
+	"./ion-modal.entry.js": [
+		"oh+x",
+		"common",
+		20
+	],
+	"./ion-nav_2.entry.js": [
+		"xTgS",
+		"common",
+		21
+	],
+	"./ion-popover.entry.js": [
+		"GlbS",
+		"common",
+		22
+	],
+	"./ion-progress-bar.entry.js": [
+		"O420",
+		"common",
+		23
+	],
+	"./ion-radio_2.entry.js": [
+		"FWSH",
+		"common",
+		24
+	],
+	"./ion-range.entry.js": [
+		"iD9d",
+		"common",
+		25
+	],
+	"./ion-refresher_2.entry.js": [
+		"NNj2",
+		"common",
+		26
+	],
+	"./ion-reorder_2.entry.js": [
+		"UZzn",
+		"common",
+		27
+	],
+	"./ion-ripple-effect.entry.js": [
+		"l0Ah",
+		28
+	],
+	"./ion-route_4.entry.js": [
+		"eQ6Z",
+		"common",
+		29
+	],
+	"./ion-searchbar.entry.js": [
+		"0975",
+		"common",
+		30
+	],
+	"./ion-segment_2.entry.js": [
+		"GkFz",
+		"common",
+		31
+	],
+	"./ion-select_3.entry.js": [
+		"9EPn",
+		"common",
+		32
+	],
+	"./ion-slide_2.entry.js": [
+		"LF8h",
+		33
+	],
+	"./ion-spinner.entry.js": [
+		"NY5D",
+		"common",
+		34
+	],
+	"./ion-split-pane.entry.js": [
+		"3/Fq",
+		35
+	],
+	"./ion-tab-bar_2.entry.js": [
+		"e0Yx",
+		"common",
+		36
+	],
+	"./ion-tab_2.entry.js": [
+		"VhUQ",
+		"common",
+		37
+	],
+	"./ion-text.entry.js": [
+		"Qvlj",
+		"common",
+		38
+	],
+	"./ion-textarea.entry.js": [
+		"UTrk",
+		"common",
+		39
+	],
+	"./ion-toast.entry.js": [
+		"5e/D",
+		"common",
+		40
+	],
+	"./ion-toggle.entry.js": [
+		"2XLE",
+		"common",
+		41
+	],
+	"./ion-virtual-scroll.entry.js": [
+		"w2GW",
+		42
+	]
+};
+function webpackAsyncContext(req) {
+	if(!__webpack_require__.o(map, req)) {
+		return Promise.resolve().then(function() {
+			var e = new Error("Cannot find module '" + req + "'");
+			e.code = 'MODULE_NOT_FOUND';
+			throw e;
+		});
+	}
+
+	var ids = map[req], id = ids[0];
+	return Promise.all(ids.slice(1).map(__webpack_require__.e)).then(function() {
+		return __webpack_require__(id);
+	});
+}
+webpackAsyncContext.keys = function webpackAsyncContextKeys() {
+	return Object.keys(map);
+};
+webpackAsyncContext.id = "df5q";
+module.exports = webpackAsyncContext;
+
+/***/ }),
+
 /***/ "eKrY":
 /*!***************************************************************************!*\
   !*** ./src/app/own-components/datos-novedad/datos-novedad.component.scss ***!
@@ -4321,7 +4566,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _raw_loader_logo_empresa_component_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./logo-empresa.component.html */ "X4az");
 /* harmony import */ var _logo_empresa_component_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./logo-empresa.component.scss */ "gkQz");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "P4DM");
 /* harmony import */ var src_app_models_config_model__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/models/config.model */ "oRqo");
 /* harmony import */ var src_app_services_configuracion_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/services/configuracion.service */ "Hpqp");
 
@@ -4385,244 +4630,6 @@ var DepartamentoModel = /** @class */ (function () {
 }());
 
 
-
-/***/ }),
-
-/***/ "kLfG":
-/*!*****************************************************************************************************************************************!*\
-  !*** ./node_modules/@ionic/core/dist/esm lazy ^\.\/.*\.entry\.js$ include: \.entry\.js$ exclude: \.system\.entry\.js$ namespace object ***!
-  \*****************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var map = {
-	"./ion-action-sheet.entry.js": [
-		"dUtr",
-		"common",
-		0
-	],
-	"./ion-alert.entry.js": [
-		"Q8AI",
-		"common",
-		1
-	],
-	"./ion-app_8.entry.js": [
-		"hgI1",
-		"common",
-		2
-	],
-	"./ion-avatar_3.entry.js": [
-		"CfoV",
-		"common",
-		3
-	],
-	"./ion-back-button.entry.js": [
-		"Nt02",
-		"common",
-		4
-	],
-	"./ion-backdrop.entry.js": [
-		"Q2Bp",
-		5
-	],
-	"./ion-button_2.entry.js": [
-		"0Pbj",
-		"common",
-		6
-	],
-	"./ion-card_5.entry.js": [
-		"ydQj",
-		"common",
-		7
-	],
-	"./ion-checkbox.entry.js": [
-		"4fMi",
-		"common",
-		8
-	],
-	"./ion-chip.entry.js": [
-		"czK9",
-		"common",
-		9
-	],
-	"./ion-col_3.entry.js": [
-		"/CAe",
-		10
-	],
-	"./ion-datetime_3.entry.js": [
-		"WgF3",
-		"common",
-		11
-	],
-	"./ion-fab_3.entry.js": [
-		"uQcF",
-		"common",
-		12
-	],
-	"./ion-img.entry.js": [
-		"wHD8",
-		13
-	],
-	"./ion-infinite-scroll_2.entry.js": [
-		"2lz6",
-		14
-	],
-	"./ion-input.entry.js": [
-		"ercB",
-		"common",
-		15
-	],
-	"./ion-item-option_3.entry.js": [
-		"MGMP",
-		"common",
-		16
-	],
-	"./ion-item_8.entry.js": [
-		"9bur",
-		"common",
-		17
-	],
-	"./ion-loading.entry.js": [
-		"cABk",
-		"common",
-		18
-	],
-	"./ion-menu_3.entry.js": [
-		"kyFE",
-		"common",
-		19
-	],
-	"./ion-modal.entry.js": [
-		"TvZU",
-		"common",
-		20
-	],
-	"./ion-nav_2.entry.js": [
-		"vnES",
-		"common",
-		21
-	],
-	"./ion-popover.entry.js": [
-		"qCuA",
-		"common",
-		22
-	],
-	"./ion-progress-bar.entry.js": [
-		"0tOe",
-		"common",
-		23
-	],
-	"./ion-radio_2.entry.js": [
-		"h11V",
-		"common",
-		24
-	],
-	"./ion-range.entry.js": [
-		"XGij",
-		"common",
-		25
-	],
-	"./ion-refresher_2.entry.js": [
-		"nYbb",
-		"common",
-		26
-	],
-	"./ion-reorder_2.entry.js": [
-		"smMY",
-		"common",
-		27
-	],
-	"./ion-ripple-effect.entry.js": [
-		"STjf",
-		28
-	],
-	"./ion-route_4.entry.js": [
-		"k5eQ",
-		"common",
-		29
-	],
-	"./ion-searchbar.entry.js": [
-		"OR5t",
-		"common",
-		30
-	],
-	"./ion-segment_2.entry.js": [
-		"fSgp",
-		"common",
-		31
-	],
-	"./ion-select_3.entry.js": [
-		"lfGF",
-		"common",
-		32
-	],
-	"./ion-slide_2.entry.js": [
-		"5xYT",
-		33
-	],
-	"./ion-spinner.entry.js": [
-		"nI0H",
-		"common",
-		34
-	],
-	"./ion-split-pane.entry.js": [
-		"NAQR",
-		35
-	],
-	"./ion-tab-bar_2.entry.js": [
-		"knkW",
-		"common",
-		36
-	],
-	"./ion-tab_2.entry.js": [
-		"TpdJ",
-		"common",
-		37
-	],
-	"./ion-text.entry.js": [
-		"ISmu",
-		"common",
-		38
-	],
-	"./ion-textarea.entry.js": [
-		"U7LX",
-		"common",
-		39
-	],
-	"./ion-toast.entry.js": [
-		"L3sA",
-		"common",
-		40
-	],
-	"./ion-toggle.entry.js": [
-		"IUOf",
-		"common",
-		41
-	],
-	"./ion-virtual-scroll.entry.js": [
-		"8Mb5",
-		42
-	]
-};
-function webpackAsyncContext(req) {
-	if(!__webpack_require__.o(map, req)) {
-		return Promise.resolve().then(function() {
-			var e = new Error("Cannot find module '" + req + "'");
-			e.code = 'MODULE_NOT_FOUND';
-			throw e;
-		});
-	}
-
-	var ids = map[req], id = ids[0];
-	return Promise.all(ids.slice(1).map(__webpack_require__.e)).then(function() {
-		return __webpack_require__(id);
-	});
-}
-webpackAsyncContext.keys = function webpackAsyncContextKeys() {
-	return Object.keys(map);
-};
-webpackAsyncContext.id = "kLfG";
-module.exports = webpackAsyncContext;
 
 /***/ }),
 
@@ -4710,7 +4717,7 @@ var CuadreCajaResponseModel = /** @class */ (function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJiZW5lZmljaWFyaW9zLmNvbXBvbmVudC5zY3NzIn0= */");
+/* harmony default export */ __webpack_exports__["default"] = ("ion-card {\n  display: flex;\n  flex-direction: column;\n  width: 100% !important;\n  margin: 5px !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcLi5cXC4uXFxiZW5lZmljaWFyaW9zLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksYUFBQTtFQUNBLHNCQUFBO0VBQ0Esc0JBQUE7RUFDQSxzQkFBQTtBQUNKIiwiZmlsZSI6ImJlbmVmaWNpYXJpb3MuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJpb24tY2FyZHtcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xyXG4gICAgd2lkdGg6IDEwMCUgIWltcG9ydGFudDtcclxuICAgIG1hcmdpbjogNXB4ICFpbXBvcnRhbnQ7XHJcbiAgfSJdfQ== */");
 
 /***/ }),
 
@@ -4742,8 +4749,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modal_confirmar_pago_component_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modal-confirmar-pago.component.scss */ "/Zxc");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var src_app_models_sesion_local_model__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/models/sesion-local.model */ "IKtr");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "P4DM");
 /* harmony import */ var src_app_services_sesion_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/services/sesion.service */ "PbBf");
+/* harmony import */ var _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ionic-native/network/ngx */ "kwrG");
+
 
 
 
@@ -4752,11 +4761,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var ModalConfirmarPagoComponent = /** @class */ (function () {
-    function ModalConfirmarPagoComponent(platform, navParams, modalController, sesionService) {
+    function ModalConfirmarPagoComponent(platform, navParams, modalController, sesionService, network, toastController) {
         this.platform = platform;
         this.navParams = navParams;
         this.modalController = modalController;
         this.sesionService = sesionService;
+        this.network = network;
+        this.toastController = toastController;
         this.registroPago = null;
         this.sesionLocal = new src_app_models_sesion_local_model__WEBPACK_IMPORTED_MODULE_4__["SesionLocalModel"]();
     }
@@ -4770,16 +4781,34 @@ var ModalConfirmarPagoComponent = /** @class */ (function () {
         });
     };
     ModalConfirmarPagoComponent.prototype.aceptar = function () {
+        var _this = this;
+        // watch network for a disconnection
+        var disconnectSubscription = this.network.onDisconnect().subscribe(function () {
+            _this.mostrarToast('Pago No registrado No Hay Conexion A Internet');
+            _this.modalController.dismiss(false);
+        });
+        // stop disconnect watch
+        disconnectSubscription.unsubscribe();
         this.modalController.dismiss(true);
     };
     ModalConfirmarPagoComponent.prototype.cancelar = function () {
         this.modalController.dismiss(false);
     };
+    ModalConfirmarPagoComponent.prototype.mostrarToast = function (texto) {
+        this.toastController.create({
+            message: texto,
+            duration: 2000
+        }).then(function (toast) {
+            toast.present();
+        });
+    };
     ModalConfirmarPagoComponent.ctorParameters = function () { return [
         { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["Platform"] },
         { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["NavParams"] },
         { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["ModalController"] },
-        { type: src_app_services_sesion_service__WEBPACK_IMPORTED_MODULE_6__["SesionService"] }
+        { type: src_app_services_sesion_service__WEBPACK_IMPORTED_MODULE_6__["SesionService"] },
+        { type: _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_7__["Network"] },
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["ToastController"] }
     ]; };
     ModalConfirmarPagoComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
@@ -4790,7 +4819,9 @@ var ModalConfirmarPagoComponent = /** @class */ (function () {
         Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_5__["Platform"],
             _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["NavParams"],
             _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["ModalController"],
-            src_app_services_sesion_service__WEBPACK_IMPORTED_MODULE_6__["SesionService"]])
+            src_app_services_sesion_service__WEBPACK_IMPORTED_MODULE_6__["SesionService"],
+            _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_7__["Network"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["ToastController"]])
     ], ModalConfirmarPagoComponent);
     return ModalConfirmarPagoComponent;
 }());

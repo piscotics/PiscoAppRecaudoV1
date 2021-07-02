@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { SesionLocalModel } from 'src/app/models/sesion-local.model';
 import { SesionService } from 'src/app/services/sesion.service';
@@ -14,7 +15,8 @@ export class ListaPagoPage implements OnInit {
   pagos: string[];
   sesionLocal: SesionLocalModel = null;
   constructor( private sesionService: SesionService,
-               private pagoservice: PagosService) { }
+               private pagoservice: PagosService,
+               private datePipe: DatePipe) { }
 
   ngOnInit() {
   }
@@ -34,11 +36,13 @@ export class ListaPagoPage implements OnInit {
 
     this.sesionLocal = this.sesionService.sesionLocal;
     
-    this.pagoservice.lstPagos(this.textoBusqueda, this.sesionLocal.sesionUsuario.USERNAME)
+    this.pagoservice.lstPagos(this.datePipe.transform(this.textoBusqueda,"yyyy-MM-dd"), this.sesionLocal.sesionUsuario.USERNAME)
            .then((lspagos: string[]) => {
               this.pagos = lspagos;
           });
     }
+
+    
 
 
 }

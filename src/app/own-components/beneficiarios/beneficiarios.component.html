@@ -1,17 +1,19 @@
-<ion-grid>
-    <ion-row *ngFor="let beneficiario of beneficiarios">
+<ion-content>
 
-        <ion-col>
-            {{ beneficiario }}
-        </ion-col>
+    <ion-grid>
+        <ion-row class="md5" *ngFor="let beneficiario of beneficiarios">
+            <ion-card>
+                <ion-card-content>
+                    {{beneficiario}}
+                </ion-card-content>
+            </ion-card>
+            <!-- <ion-col>
+                <label *ngFor="let item of items">
+            </ion-col> -->
+        </ion-row>
+    </ion-grid>
 
-        <!-- <ion-card>
-            <ion-card-content>
-                {{beneficiario}}
-            </ion-card-content>
-        </ion-card> -->
-        <!-- <ion-col>
-            <label *ngFor="let item of items">
-        </ion-col> -->
-    </ion-row>
-</ion-grid>
+
+
+</ion-content>
+

@@ -79,7 +79,7 @@ export class PagosService {
     });
   }
 
-  cuadreCaja(fecha: Date, usuario: string) {
+  cuadreCaja(fecha: string, usuario: string) {
     return new Promise((resolve, reject) => {
       let isOffline = localStorage.getItem('offlineMode') === 'true' ? true : false;
 
@@ -129,7 +129,7 @@ export class PagosService {
     });
   }
 
-  lstPagos(fecha: Date, usuario: string) {
+  lstPagos(fecha: string, usuario: string) {
     return new Promise((resolve, reject) => {
 
       this.loadingController.create({
@@ -164,7 +164,7 @@ export class PagosService {
     });
   }
 
-
+ 
   prepararRegistroPago(registroPago: RegistrarpagoModel) {
     return new Promise((resolve, reject) => {
 
@@ -403,6 +403,7 @@ export class PagosService {
               duration: 30000
             }).then((loading) => {
               loading.present();
+              console.log("los datos del pago son:", pago)
               this.http.post(`${configHelper.getApiUrl()}/pago/create`, pago, httpOptions)
               //this.http.post('http://localhost:5008/api/pago/create', pago, httpOptions)
                 .subscribe((result: PagoResponseModel) => {

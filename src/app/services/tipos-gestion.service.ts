@@ -97,6 +97,7 @@ export class TiposGestionService {
           }).then((loading) => {
 
             loading.present();
+            console.log(gestion);
             this.http.post(`${configHelper.getApiUrl()}/pago/insertNove`, gestion, httpOptions)
               .subscribe((result: number) => {
                 if (result === -1) {
@@ -150,7 +151,7 @@ export class TiposGestionService {
         reject();
         return;
       }
-
+ 
 
       if (!this.platform.is('android')) {
         gestionModel.Posx = '';

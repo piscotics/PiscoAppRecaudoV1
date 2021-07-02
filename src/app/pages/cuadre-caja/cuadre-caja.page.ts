@@ -7,6 +7,7 @@ import { ToastController, LoadingController } from '@ionic/angular';
 import { PrintService } from '../../services/print.service';
 import { ConfiguracionService } from '../../services/configuracion.service';
 import * as moment from 'moment';
+import { DatePipe } from '@angular/common';
 
 
 @Component({
@@ -27,7 +28,8 @@ export class CuadreCajaPage {
     private print: PrintService,
     private loading: LoadingController,
     private config: ConfiguracionService,
-    private sesion: SesionService
+    private sesion: SesionService,
+    private datePipe: DatePipe
     ) { }
   
   cambiofecha( event )
@@ -44,7 +46,7 @@ export class CuadreCajaPage {
 
     this.sesionLocal = this.sesionService.sesionLocal;
     
-    this.pagoservice.cuadreCaja(this.textoBusqueda, this.sesionLocal.sesionUsuario.USERNAME)
+    this.pagoservice.cuadreCaja(this.datePipe.transform(this.textoBusqueda,"yyyy-MM-dd"), this.sesionLocal.sesionUsuario.USERNAME)
            .then((cuadrecajaresponse: CuadreCajaResponseModel) => {
             
             const cuadreCaja = new CuadreCajaModel();

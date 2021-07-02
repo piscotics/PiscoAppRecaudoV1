@@ -17,11 +17,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _models_cuadre_caja_model__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../models/cuadre-caja.model */ "qDQK");
 /* harmony import */ var _services_pagos_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../services/pagos.service */ "tDkB");
 /* harmony import */ var src_app_services_sesion_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/services/sesion.service */ "PbBf");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ionic/angular */ "P4DM");
 /* harmony import */ var _services_print_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../services/print.service */ "Bhbv");
 /* harmony import */ var _services_configuracion_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../services/configuracion.service */ "Hpqp");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! moment */ "wd/R");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/common */ "ofXK");
+
 
 
 
@@ -34,7 +36,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var CuadreCajaPage = /** @class */ (function () {
-    function CuadreCajaPage(pagoservice, sesionService, toastController, print, loading, config, sesion) {
+    function CuadreCajaPage(pagoservice, sesionService, toastController, print, loading, config, sesion, datePipe) {
         this.pagoservice = pagoservice;
         this.sesionService = sesionService;
         this.toastController = toastController;
@@ -42,6 +44,7 @@ var CuadreCajaPage = /** @class */ (function () {
         this.loading = loading;
         this.config = config;
         this.sesion = sesion;
+        this.datePipe = datePipe;
         this.textoBusqueda = new Date();
         this.cuadreCaja = null;
         this.sesionLocal = null;
@@ -56,7 +59,7 @@ var CuadreCajaPage = /** @class */ (function () {
             return;
         }
         this.sesionLocal = this.sesionService.sesionLocal;
-        this.pagoservice.cuadreCaja(this.textoBusqueda, this.sesionLocal.sesionUsuario.USERNAME)
+        this.pagoservice.cuadreCaja(this.datePipe.transform(this.textoBusqueda, "yyyy-MM-dd"), this.sesionLocal.sesionUsuario.USERNAME)
             .then(function (cuadrecajaresponse) {
             var cuadreCaja = new _models_cuadre_caja_model__WEBPACK_IMPORTED_MODULE_4__["CuadreCajaModel"]();
             cuadreCaja.fecha = cuadrecajaresponse.FECHA;
@@ -149,7 +152,8 @@ var CuadreCajaPage = /** @class */ (function () {
         { type: _services_print_service__WEBPACK_IMPORTED_MODULE_8__["PrintService"] },
         { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_7__["LoadingController"] },
         { type: _services_configuracion_service__WEBPACK_IMPORTED_MODULE_9__["ConfiguracionService"] },
-        { type: src_app_services_sesion_service__WEBPACK_IMPORTED_MODULE_6__["SesionService"] }
+        { type: src_app_services_sesion_service__WEBPACK_IMPORTED_MODULE_6__["SesionService"] },
+        { type: _angular_common__WEBPACK_IMPORTED_MODULE_11__["DatePipe"] }
     ]; };
     CuadreCajaPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
@@ -163,7 +167,8 @@ var CuadreCajaPage = /** @class */ (function () {
             _services_print_service__WEBPACK_IMPORTED_MODULE_8__["PrintService"],
             _ionic_angular__WEBPACK_IMPORTED_MODULE_7__["LoadingController"],
             _services_configuracion_service__WEBPACK_IMPORTED_MODULE_9__["ConfiguracionService"],
-            src_app_services_sesion_service__WEBPACK_IMPORTED_MODULE_6__["SesionService"]])
+            src_app_services_sesion_service__WEBPACK_IMPORTED_MODULE_6__["SesionService"],
+            _angular_common__WEBPACK_IMPORTED_MODULE_11__["DatePipe"]])
     ], CuadreCajaPage);
     return CuadreCajaPage;
 }());
@@ -213,7 +218,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "ofXK");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "3Pt+");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "tyNb");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "P4DM");
 /* harmony import */ var _cuadre_caja_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./cuadre-caja.page */ "AO7N");
 /* harmony import */ var src_app_own_components_own_components_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/own-components/own-components.module */ "9FvA");
 

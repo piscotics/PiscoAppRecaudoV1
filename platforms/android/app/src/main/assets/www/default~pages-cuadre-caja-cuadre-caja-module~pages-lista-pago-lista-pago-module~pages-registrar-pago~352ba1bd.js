@@ -33,7 +33,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PagosService", function() { return PagosService; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "P4DM");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
 /* harmony import */ var _helpers_config_helper__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../helpers/config.helper */ "5Ez/");
 /* harmony import */ var _ionic_native_android_permissions_ngx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic-native/android-permissions/ngx */ "WOgW");
@@ -360,6 +360,7 @@ var PagosService = /** @class */ (function () {
                     duration: 30000
                 }).then(function (loading) {
                     loading.present();
+                    console.log("los datos del pago son:", pago);
                     _this.http.post(configHelper.getApiUrl() + "/pago/create", pago, httpOptions)
                         //this.http.post('http://localhost:5008/api/pago/create', pago, httpOptions)
                         .subscribe(function (result) {
