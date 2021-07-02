@@ -423,6 +423,8 @@ export class AppComponent implements OnInit, OnDestroy {
 
       let data = await this.GetRestBody('/posicion/lstRutas', dataPost);
 
+      console.log("la nueva consulta que envia es ", data)
+
       await this.ofline.sincronizarRutas(data) ;
 
       l.dismiss();

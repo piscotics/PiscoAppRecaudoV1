@@ -18,9 +18,7 @@ export class RutasService {
     private toastController: ToastController,
     private loadingController: LoadingController,
     private androidPermissions: AndroidPermissions,
-    private diagnostic: Diagnostic,
     private geolocation: Geolocation,
-    private device: Device,
     private configuracionService: ConfiguracionService,
     private offline: OfflineService) { }
 

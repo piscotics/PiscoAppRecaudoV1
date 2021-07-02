@@ -1,8 +1,7 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { SesionLocalModel } from 'src/app/models/sesion-local.model';
-import { PagosService } from 'src/app/services/pagos.service';
-import { RutasService } from 'src/app/services/rutas.service';
+import { OfflineService } from 'src/app/services/offline.service';
 import { SesionService } from 'src/app/services/sesion.service';
 import { ConsultarRutaModel } from '../../models/consultar-ruta.model';
 @Component({
@@ -14,11 +13,12 @@ export class ConsultarRutaPage implements OnInit {
   textoBusqueda = new Date();
   consultarRuta: ConsultarRutaModel = null;
   sesionLocal: SesionLocalModel = null;
-  rutas: string[];
+  rutas:any;
 
   constructor( private sesionService: SesionService,
-    private rutaservice: RutasService,
-    private datePipe: DatePipe) { }
+    private ofline: OfflineService,
+    private offline: OfflineService
+    ) { }
 
   ngOnInit() {
   }
@@ -33,11 +33,19 @@ export class ConsultarRutaPage implements OnInit {
     }
     
     this.sesionLocal = this.sesionService.sesionLocal;
-    
-    this.rutaservice.lstRutas(this.datePipe.transform(this.textoBusqueda,"yyyy-MM-dd"), this.sesionLocal.sesionUsuario.USERNAME)
+    this.offline.createDatabase().then(res => {
+        this.offline.getConsultarRutas("001C","Sn").then((res:string[]) => {
+          this.rutas = JSON.stringify( res);
+          console.log("las rutas son:***********", this.rutas)
+        });
+    });
+
+  
+
+   /*  this.rutaservice.lstRutas(this.datePipe.transform(this.textoBusqueda,"yyyy-MM-dd"), this.sesionLocal.sesionUsuario.USERNAME)
            .then((lsrutas: string[]) => {
               this.rutas = lsrutas;
-          });
+          }); */
   }
 
 }

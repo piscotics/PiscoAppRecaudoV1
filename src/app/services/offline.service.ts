@@ -122,18 +122,21 @@ export class OfflineService {
     }
   }
 
-  public async getConsultarRutas(fechar,estado) {
+  public async getConsultarRutas(idcobrador,estado) {
 
     
 
     try
     {
-      let data = await this.db.executeSql("SELECT PAGOHASTA FROM RUTAS WHERE FECHAR = ? AND ESTADO = ? ", [fechar,estado]);
+     
+      let data = await this.db.executeSql("SELECT IDCONTRATO,CEDULA, TITULAR, PAGOHASTA FROM RUTAS WHERE IDCOBRADOR = ? AND ESTADO = ? ", [idcobrador,estado]);
+      console.log("la consulta a ejecutar es ", data)
       if(data.rows.length > 0){
         let todos = [];
         for (let i = 0; i < data.rows.length ; i++) {
           
           todos.push(data.rows.item(i));
+    
         }
         return todos;
       }
