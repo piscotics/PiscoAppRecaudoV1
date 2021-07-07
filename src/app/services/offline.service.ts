@@ -60,7 +60,7 @@ export class OfflineService {
     'POSTFECHADODIA SMALLINT, INDICE SMALLINT, CUOTA FLOAT, PENDIENTE SMALLINT, ESTADOCONTRATO TEXT, FECHAR TEXT, ' +
     'BASEDATOS TEXT, EMPRESA TEXT, NIT TEXT, DIRECCIONCOBRO TEXT, BOXCONTRATANTE TEXT, VALORCARTERA FLOAT, VALORSEGURO FLOAT, ' + 
     // tslint:disable-next-line: max-line-length
-    'CELULAR TEXT, PAGOHASTA TEXT, DEPTOC TEXT, MPIOC TEXT, BARRIOC TEXT, MOTIVO TEXT, FECHAPROGRAMADA TEXT, CODBARRIO TEXT, COBERTURA TEXT, ULTIMOSPAGOS TEXT, BENEFICIARIOS TEXT)';
+    'CELULAR TEXT, PAGOHASTA TEXT, DEPTOC TEXT, MPIOC TEXT, BARRIOC TEXT, MOTIVO TEXT, FECHAPROGRAMADA TEXT, CODBARRIO TEXT, COBERTURA TEXT, ULTIMOSPAGOS TEXT, BENEFICIARIOS TEXT, BANDERA INTEGER)';
     await this.db.executeSql(sql, []);
 
    
@@ -106,14 +106,14 @@ export class OfflineService {
       let sql = 'INSERT INTO RUTAS (USUARIO, IDCOBRADOR, IDCONTRATO,CEDULA, TITULAR, DIRECCION , ' + 
       'TELEFONO, CIUDAD, DIACOBRO1, DIACOBRO2, ESTADO, NOVEDAD, POSTFECHADODIA, INDICE, CUOTA, PENDIENTE, ESTADOCONTRATO, FECHAR, ' +
       'BASEDATOS, EMPRESA, NIT, DIRECCIONCOBRO, BOXCONTRATANTE, VALORCARTERA, VALORSEGURO,' + 
-      'CELULAR, PAGOHASTA, DEPTOC, MPIOC, BARRIOC, MOTIVO, FECHAPROGRAMADA, CODBARRIO, COBERTURA,ULTIMOSPAGOS, BENEFICIARIOS) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?, ?, ?)'
+      'CELULAR, PAGOHASTA, DEPTOC, MPIOC, BARRIOC, MOTIVO, FECHAPROGRAMADA, CODBARRIO, COBERTURA,ULTIMOSPAGOS, BENEFICIARIOS,BANDERA) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?, ?, ?,?)'
 
 
       for(let d of data){
         await this.db.executeSql(sql, [d.USUARIO, d.IDCOBRADOR, d.IDCONTRATO, d.CEDULA, d.TITULAR, d.DIRECCION, d.TELEFONO, d.CIUDAD, 
           d.DIACOBRO1, d.DIACOBRO2, d.ESTADO, d.NOVEDAD, d.POSTFECHADODIA, d.INDICE, d.CUOTA, d.PENDIENTE, d.ESTADOCONTRATO, d.FECHAR, 
           d.BASEDATOS, d.EMPRESA, d.NIT, d.DIRECCIONCOBRO, d.BOXCONTRATANTE, d.VALORCARTERA, d.VALORSEGURO, d.CELULAR, d.PAGOHASTA, 
-          d.DEPTOC, d.MPIOC, d.BARRIOC, d.MOTIVO, d.FECHAPROGRAMADA, d.CODBARRIO, d.COBERTURA, d.ULTIMOSPAGOS, d.BENEFICIARIOS]);
+          d.DEPTOC, d.MPIOC, d.BARRIOC, d.MOTIVO, d.FECHAPROGRAMADA, d.CODBARRIO, d.COBERTURA, d.ULTIMOSPAGOS, d.BENEFICIARIOS,0 ]);
       }
 
     }catch(ex)
@@ -122,14 +122,14 @@ export class OfflineService {
     }
   }
 
-  public async getConsultarRutas(idcobrador,estado) {
+  public async getConsultarRutas(fechar,idcobrador,estado ) {
 
     
 
     try
     {
-     
-      let data = await this.db.executeSql("SELECT IDCONTRATO,CEDULA, TITULAR, PAGOHASTA FROM RUTAS WHERE IDCOBRADOR = ? AND ESTADO = ? ", [idcobrador,estado]);
+     console.log("los datos que se envian son",fechar,idcobrador,estado)
+      let data = await this.db.executeSql("SELECT IDCONTRATO,CEDULA, TITULAR, PAGOHASTA, DIRECCION, TELEFONO, ESTADO FROM RUTAS WHERE FECHAR = ? AND IDCOBRADOR = ? AND ESTADO = ? ", [fechar+"T00:00:00",idcobrador,estado]);
       console.log("la consulta a ejecutar es ", data)
       if(data.rows.length > 0){
         let todos = [];
@@ -201,6 +201,8 @@ export class OfflineService {
   }
 
   public async guardarPagosLocal(d) {
+
+    
     try
     {
       let id = 0;
@@ -209,8 +211,15 @@ export class OfflineService {
         id =  row.insertId.toString();
       });
       
-     
-
+       //cambiar el estado de la ruta local
+        try
+        {
+          // tslint:disable-next-line: max-line-length
+          let data = await this.db.executeSql('UPDATE RUTAS SET  ESTADO = ?  WHERE IDCONTRATO = ? AND CEDULA = ?', ['Pago' , d.IDCONTRATO, d.IDPERSONA]);
+        } catch(ex){
+          throw ex;
+        }
+    
 
       return id;
 
@@ -218,6 +227,11 @@ export class OfflineService {
     {
       throw ex;
     }
+
+    
+   
+
+
   }
 
   public async guardarNovedadLocal(d) {
@@ -231,6 +245,16 @@ export class OfflineService {
     {
       throw ex;
     }
+
+    //cambia el estado de la ruta local
+    try
+    {
+      // tslint:disable-next-line: max-line-length
+      let data = await this.db.executeSql('UPDATE RUTAS SET  ESTADO = ?  WHERE IDCONTRATO = ? AND CEDULA = ?', ['Novedad' , d.IDCONTRATO, d.IDPERSONA]);
+    } catch(ex){
+      throw ex;
+    }
+
   }
 
   public async sincronizarNovedades(data) {

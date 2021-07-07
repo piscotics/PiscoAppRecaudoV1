@@ -186,12 +186,20 @@ export class TiposGestionService {
                   gestionModel.Posy = String(resp.coords.longitude);
 
                   // Mostrar modal de confirmación
+                  console.log("gestion paso gps ", gestionModel)
+
                   resolve(gestionModel);
 
                 }).catch((error) => {
                   loading.dismiss();
-                  this.mostrarToastSimple('Error obteniendo la geolocalización, intente de nuevo');
+                  
+                  gestionModel.Posx = "";
+                  gestionModel.Posy = "";
+                  console.log("gestion error gps ", gestionModel)
                   resolve(gestionModel);
+
+                  this.mostrarToastSimple('Error obteniendo la geolocalización, intente de nuevo');
+                  
                   reject();
                 });
 

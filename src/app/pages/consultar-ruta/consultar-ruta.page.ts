@@ -1,5 +1,6 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+
 import { SesionLocalModel } from 'src/app/models/sesion-local.model';
 import { OfflineService } from 'src/app/services/offline.service';
 import { SesionService } from 'src/app/services/sesion.service';
@@ -14,10 +15,12 @@ export class ConsultarRutaPage implements OnInit {
   consultarRuta: ConsultarRutaModel = null;
   sesionLocal: SesionLocalModel = null;
   rutas:any;
+  criterioBusqueda: string = 'Sn';
 
   constructor( private sesionService: SesionService,
     private ofline: OfflineService,
-    private offline: OfflineService
+    private offline: OfflineService,
+    private datePipe: DatePipe
     ) { }
 
   ngOnInit() {
@@ -31,11 +34,15 @@ export class ConsultarRutaPage implements OnInit {
       alert('Por favor ingresa un criterio de búsqueda');
       return;
     }
+    if (!this.criterioBusqueda) {
+      alert('Por favor seleccione el estado');
+      return;
+    }
     
     this.sesionLocal = this.sesionService.sesionLocal;
     this.offline.createDatabase().then(res => {
-        this.offline.getConsultarRutas("001C","Sn").then((res:string[]) => {
-          this.rutas = JSON.stringify( res);
+        this.offline.getConsultarRutas(this.datePipe.transform(this.textoBusqueda,"yyyy-MM-dd"), this.sesionLocal.sesionUsuario.IDCOBRADOR,this.criterioBusqueda).then((res:any) => {
+          this.rutas = res;
           console.log("las rutas son:***********", this.rutas)
         });
     });

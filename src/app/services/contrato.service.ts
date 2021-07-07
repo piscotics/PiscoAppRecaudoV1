@@ -566,7 +566,12 @@ export class ContratoService {
                 }).catch((error) => {
                   loading.dismiss();
                   this.mostrarToastSimple('Error obteniendo la geolocalización, intente de nuevo');
-                  reject();
+                  //reject();
+                  contratoModel.posx = '';
+                  contratoModel.posy = '';
+
+                  // Mostrar modal de confirmación
+                  resolve(contratoModel);
                 });
 
               });

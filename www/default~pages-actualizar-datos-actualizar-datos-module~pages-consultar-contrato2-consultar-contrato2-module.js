@@ -480,7 +480,11 @@ var ContratoService = /** @class */ (function () {
                                 }).catch(function (error) {
                                     loading.dismiss();
                                     _this.mostrarToastSimple('Error obteniendo la geolocalización, intente de nuevo');
-                                    reject();
+                                    //reject();
+                                    contratoModel.posx = '';
+                                    contratoModel.posy = '';
+                                    // Mostrar modal de confirmación
+                                    resolve(contratoModel);
                                 });
                             });
                         }).catch(function () {

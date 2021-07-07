@@ -33,7 +33,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   backButtonSubscription: Subscription;
   mostrandoConfirmacionCerrarApp: boolean = false;
-
+  msg : string ='';
   sesionLocal: SesionLocalModel = new SesionLocalModel();
   menuPrincipalId: string = 'menuPrincipal';
   license: string = '';
@@ -63,6 +63,7 @@ export class AppComponent implements OnInit, OnDestroy {
   ) {
     this.initializeApp();
     this.statusOffline = localStorage.getItem('offlineMode') === 'true' ? true : false;
+    this.msg = localStorage.getItem('existeRuta')
 
     this.router.events.subscribe(event=>{
       if(event instanceof NavigationEnd){
@@ -356,14 +357,14 @@ export class AppComponent implements OnInit, OnDestroy {
 
       await this.ofline.createTables();
 
-      l.message = "Sincronizando Licencias";
+      l.message = "Cargando Licencias";
 
       let data = await this.GetRest('/login/licenceslocale');
 
       await this.ofline.sincronizarLicencias(data);
 
 
-      l.message = "Sincronizando Usuarios";
+      l.message = "Cargando Usuarios";
 
       data = await this.GetRest('/login/userlocale');
 
@@ -372,19 +373,15 @@ export class AppComponent implements OnInit, OnDestroy {
 
       //await this.ofline.loginOffline("1005", "1005");
 
-      l.message = "Sincronizando Empresas";
+      l.message = "Cargando Informacion Empresa";
 
       data = await this.GetRest('/pago/funeraria');
 
       await this.ofline.sincronizarEmpresas(data);
 
-
-      
-      
-
       l.dismiss();
       
-      alert('Información sincronizada satisfactoriamente'); 
+      alert('Modo Fuera De Linea Exitoso'); 
       
       
 
@@ -408,6 +405,8 @@ export class AppComponent implements OnInit, OnDestroy {
 
     try
     {
+      this.msg ='Ruta cargada satisfactoriamente';
+
       await l.present();
 
       //sincroniza las rutas
@@ -415,15 +414,38 @@ export class AppComponent implements OnInit, OnDestroy {
 
       await this.ofline.createDatabase();
 
-      l.message = "Creando Tablas Locales";
+      l.message = "Creando Tabla De Rutas";
 
       await this.ofline.createTablesRutas();
       
-      l.message = 'Sincronizando Rutas';
+      //************************************************* */
 
-      let data = await this.GetRestBody('/posicion/lstRutas', dataPost);
+      l.message = "Creando Tabla Pagos/Novedades";
 
-      console.log("la nueva consulta que envia es ", data)
+      await this.ofline.createTablesPgosNovedad();
+
+     //sincronizamos  tipo novedad 
+     
+      l.message = 'Cargando Tipos Novedades';
+
+      let data = await this.GetRest('/contrato/tipoNovedad');
+
+      await this.ofline.SincronizarListaNovedades(data);
+
+     //*********************************************************** */
+      
+      l.message = 'Cargando Rutas';
+
+      data = await this.GetRestBody('/posicion/lstRutas', dataPost);
+
+
+      console.log("los datos de la ruta ", data)
+
+      if (data == '')
+      {
+        this.msg = 'Ruta No Encontrada';
+      }
+      
 
       await this.ofline.sincronizarRutas(data) ;
 
@@ -431,7 +453,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
       //sincroniza las formas de pago 
 
-      l.message = "Sincronizando Formas de Pago";
+      l.message = "Cargando Formas de Pago";
 
       data = await this.GetRest('/pago/TiposPagos');
 
@@ -439,7 +461,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
       l.dismiss();
       
-      alert('Ruta sincronizada satisfactoriamente'); 
+      alert(this.msg); 
 
     }catch(ex)
     {
@@ -459,23 +481,6 @@ export class AppComponent implements OnInit, OnDestroy {
     try
     {
       await l.present();
-
-      //sincroniza las novedades
-      l.message = "Creando Base de Datos";
-
-      await this.ofline.createDatabase();
-
-      l.message = "Creando Tablas Locales";
-
-      await this.ofline.createTablesPgosNovedad();
-
-      l.message = 'Sincronizando Lista Novedades';
-
-      let data = await this.GetRest('/contrato/tipoNovedad');
-
-      await this.ofline.SincronizarListaNovedades(data);
-
-      l.dismiss();
 
       // sincroniza los pagos
 
@@ -533,7 +538,7 @@ export class AppComponent implements OnInit, OnDestroy {
   offlineChange(){
     this.alertController.create({
       header: 'Trabajo Fuera de Linea',
-      message: !this.statusOffline ? 'Si desactiva el modo "Trabajo Fuera de Linea" la aplicación no tendrá en cuenta la información local, ¿Desea continuar?': 'Si activa el modo "Trabajo Fuera de Linea" la aplicación sincronizará la información en la base de datos local, ¿Desea continuar?',
+      message: !this.statusOffline ? 'Si desactiva el modo "Trabajo Fuera de Linea" la aplicación no tendrá en cuenta la información local, ¿Desea continuar?': 'Si activa el modo "Trabajo Fuera de Linea" debe cargar una ruta, ¿Desea continuar?',
       buttons:[
         { 
           text: 'Si', role: 'accept', handler: ()=>{
@@ -546,6 +551,8 @@ export class AppComponent implements OnInit, OnDestroy {
               });
             }
             localStorage.setItem('offlineMode', this.statusOffline ? 'true' : 'false');
+            localStorage.setItem('existeRuta', 'Ruta cargada satisfactoriamente');
+
           }
         },
         {
@@ -564,8 +571,8 @@ export class AppComponent implements OnInit, OnDestroy {
   // utiiza el metodo sincronico para cargar rutas
   offlineCargarRutas(){
     this.alertController.create({
-      header: 'Sincronizar Rutas',
-      message: 'Esta Seguro De Sincronizar Las Rutas, ¿Desea continuar?',
+      header: 'Cargar Ruta',
+      message: 'Esta Seguro De Cargar La Ruta, ¿Desea continuar?',
       buttons:[
         { 
           text: 'Si', role: 'accept', handler: ()=>{
@@ -592,7 +599,7 @@ export class AppComponent implements OnInit, OnDestroy {
   offlineCargarPagosNovedades(){
     this.alertController.create({
       header: 'Sincronizar Rutas',
-      message: 'Esta Seguro De Sincronizar Los Pagos Y Novedades, ¿Desea continuar?',
+      message: 'Esta Seguro Que Desea Sincronizar Los Pagos Y Novedades, ¿Desea continuar?',
       buttons:[
         { 
           text: 'Si', role: 'accept', handler: ()=>{

@@ -1237,7 +1237,7 @@ var OfflineService = /** @class */ (function () {
                             'POSTFECHADODIA SMALLINT, INDICE SMALLINT, CUOTA FLOAT, PENDIENTE SMALLINT, ESTADOCONTRATO TEXT, FECHAR TEXT, ' +
                             'BASEDATOS TEXT, EMPRESA TEXT, NIT TEXT, DIRECCIONCOBRO TEXT, BOXCONTRATANTE TEXT, VALORCARTERA FLOAT, VALORSEGURO FLOAT, ' +
                             // tslint:disable-next-line: max-line-length
-                            'CELULAR TEXT, PAGOHASTA TEXT, DEPTOC TEXT, MPIOC TEXT, BARRIOC TEXT, MOTIVO TEXT, FECHAPROGRAMADA TEXT, CODBARRIO TEXT, COBERTURA TEXT, ULTIMOSPAGOS TEXT, BENEFICIARIOS TEXT)';
+                            'CELULAR TEXT, PAGOHASTA TEXT, DEPTOC TEXT, MPIOC TEXT, BARRIOC TEXT, MOTIVO TEXT, FECHAPROGRAMADA TEXT, CODBARRIO TEXT, COBERTURA TEXT, ULTIMOSPAGOS TEXT, BENEFICIARIOS TEXT, BANDERA INTEGER)';
                         return [4 /*yield*/, this.db.executeSql(sql, [])];
                     case 2:
                         _a.sent();
@@ -1303,7 +1303,7 @@ var OfflineService = /** @class */ (function () {
                         sql = 'INSERT INTO RUTAS (USUARIO, IDCOBRADOR, IDCONTRATO,CEDULA, TITULAR, DIRECCION , ' +
                             'TELEFONO, CIUDAD, DIACOBRO1, DIACOBRO2, ESTADO, NOVEDAD, POSTFECHADODIA, INDICE, CUOTA, PENDIENTE, ESTADOCONTRATO, FECHAR, ' +
                             'BASEDATOS, EMPRESA, NIT, DIRECCIONCOBRO, BOXCONTRATANTE, VALORCARTERA, VALORSEGURO,' +
-                            'CELULAR, PAGOHASTA, DEPTOC, MPIOC, BARRIOC, MOTIVO, FECHAPROGRAMADA, CODBARRIO, COBERTURA,ULTIMOSPAGOS, BENEFICIARIOS) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?, ?, ?)';
+                            'CELULAR, PAGOHASTA, DEPTOC, MPIOC, BARRIOC, MOTIVO, FECHAPROGRAMADA, CODBARRIO, COBERTURA,ULTIMOSPAGOS, BENEFICIARIOS,BANDERA) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?, ?, ?,?)';
                         _i = 0, data_1 = data;
                         _a.label = 2;
                     case 2:
@@ -1312,7 +1312,7 @@ var OfflineService = /** @class */ (function () {
                         return [4 /*yield*/, this.db.executeSql(sql, [d.USUARIO, d.IDCOBRADOR, d.IDCONTRATO, d.CEDULA, d.TITULAR, d.DIRECCION, d.TELEFONO, d.CIUDAD,
                                 d.DIACOBRO1, d.DIACOBRO2, d.ESTADO, d.NOVEDAD, d.POSTFECHADODIA, d.INDICE, d.CUOTA, d.PENDIENTE, d.ESTADOCONTRATO, d.FECHAR,
                                 d.BASEDATOS, d.EMPRESA, d.NIT, d.DIRECCIONCOBRO, d.BOXCONTRATANTE, d.VALORCARTERA, d.VALORSEGURO, d.CELULAR, d.PAGOHASTA,
-                                d.DEPTOC, d.MPIOC, d.BARRIOC, d.MOTIVO, d.FECHAPROGRAMADA, d.CODBARRIO, d.COBERTURA, d.ULTIMOSPAGOS, d.BENEFICIARIOS])];
+                                d.DEPTOC, d.MPIOC, d.BARRIOC, d.MOTIVO, d.FECHAPROGRAMADA, d.CODBARRIO, d.COBERTURA, d.ULTIMOSPAGOS, d.BENEFICIARIOS, 0])];
                     case 3:
                         _a.sent();
                         _a.label = 4;
@@ -1328,14 +1328,15 @@ var OfflineService = /** @class */ (function () {
             });
         });
     };
-    OfflineService.prototype.getConsultarRutas = function (idcobrador, estado) {
+    OfflineService.prototype.getConsultarRutas = function (fechar, idcobrador, estado) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
             var data, todos, i, ex_3;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, this.db.executeSql("SELECT IDCONTRATO,CEDULA, TITULAR, PAGOHASTA FROM RUTAS WHERE IDCOBRADOR = ? AND ESTADO = ? ", [idcobrador, estado])];
+                        console.log("los datos que se envian son", fechar, idcobrador, estado);
+                        return [4 /*yield*/, this.db.executeSql("SELECT IDCONTRATO,CEDULA, TITULAR, PAGOHASTA, DIRECCION, TELEFONO, ESTADO FROM RUTAS WHERE FECHAR = ? AND IDCOBRADOR = ? AND ESTADO = ? ", [fechar + "T00:00:00", idcobrador, estado])];
                     case 1:
                         data = _a.sent();
                         console.log("la consulta a ejecutar es ", data);
@@ -1456,11 +1457,11 @@ var OfflineService = /** @class */ (function () {
     };
     OfflineService.prototype.guardarPagosLocal = function (d) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var id_1, sql, ex_7;
+            var id_1, sql, data, ex_7, ex_8;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        _a.trys.push([0, 2, , 3]);
+                        _a.trys.push([0, 6, , 7]);
                         id_1 = 0;
                         sql = 'INSERT INTO PAGOS (IDCONTRATO, IDPERSONA, VALOR, DESCUENTO, CANTIDADCUOTAS, MAQUINA, USUARIO, OBSERVACIONES, CUOTAMENSUAL, ESTADO, FORMAPAGO, FECHAPAGOR, POSX, POSY, TITULAR) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
                         return [4 /*yield*/, this.db.executeSql(sql, [d.IDCONTRATO, d.IDPERSONA, d.VALOR, d.DESCUENTO, d.CANTIDADCUOTAS, d.MAQUINA, d.USUARIO, d.OBSERVACIONES, d.CUOTAMENSUAL, d.ESTADO, d.FORMAPAGO, new Date(d.FECHAPAGOR).toDateString(), d.POSX, d.POSY, d.titular]).then(function (row) {
@@ -1468,18 +1469,28 @@ var OfflineService = /** @class */ (function () {
                             })];
                     case 1:
                         _a.sent();
-                        return [2 /*return*/, id_1];
+                        _a.label = 2;
                     case 2:
+                        _a.trys.push([2, 4, , 5]);
+                        return [4 /*yield*/, this.db.executeSql('UPDATE RUTAS SET  ESTADO = ?  WHERE IDCONTRATO = ? AND CEDULA = ?', ['Pago', d.IDCONTRATO, d.IDPERSONA])];
+                    case 3:
+                        data = _a.sent();
+                        return [3 /*break*/, 5];
+                    case 4:
                         ex_7 = _a.sent();
                         throw ex_7;
-                    case 3: return [2 /*return*/];
+                    case 5: return [2 /*return*/, id_1];
+                    case 6:
+                        ex_8 = _a.sent();
+                        throw ex_8;
+                    case 7: return [2 /*return*/];
                 }
             });
         });
     };
     OfflineService.prototype.guardarNovedadLocal = function (d) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var sql, ex_8;
+            var sql, ex_9, data, ex_10;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1492,16 +1503,25 @@ var OfflineService = /** @class */ (function () {
                         _a.sent();
                         return [3 /*break*/, 3];
                     case 2:
-                        ex_8 = _a.sent();
-                        throw ex_8;
-                    case 3: return [2 /*return*/];
+                        ex_9 = _a.sent();
+                        throw ex_9;
+                    case 3:
+                        _a.trys.push([3, 5, , 6]);
+                        return [4 /*yield*/, this.db.executeSql('UPDATE RUTAS SET  ESTADO = ?  WHERE IDCONTRATO = ? AND CEDULA = ?', ['Novedad', d.IDCONTRATO, d.IDPERSONA])];
+                    case 4:
+                        data = _a.sent();
+                        return [3 /*break*/, 6];
+                    case 5:
+                        ex_10 = _a.sent();
+                        throw ex_10;
+                    case 6: return [2 /*return*/];
                 }
             });
         });
     };
     OfflineService.prototype.sincronizarNovedades = function (data) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var sql, _i, data_5, d, ex_9;
+            var sql, _i, data_5, d, ex_11;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1524,8 +1544,8 @@ var OfflineService = /** @class */ (function () {
                         return [3 /*break*/, 2];
                     case 5: return [3 /*break*/, 7];
                     case 6:
-                        ex_9 = _a.sent();
-                        throw ex_9;
+                        ex_11 = _a.sent();
+                        throw ex_11;
                     case 7: return [2 /*return*/];
                 }
             });
@@ -1533,7 +1553,7 @@ var OfflineService = /** @class */ (function () {
     };
     OfflineService.prototype.sincronizarEmpresas = function (d) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var sql, ex_10;
+            var sql, ex_12;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1547,8 +1567,8 @@ var OfflineService = /** @class */ (function () {
                         _a.sent();
                         return [3 /*break*/, 4];
                     case 3:
-                        ex_10 = _a.sent();
-                        throw ex_10;
+                        ex_12 = _a.sent();
+                        throw ex_12;
                     case 4: return [2 /*return*/];
                 }
             });
@@ -1556,7 +1576,7 @@ var OfflineService = /** @class */ (function () {
     };
     OfflineService.prototype.sincronizarFormaPago = function (data) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var sql, _i, data_6, d, ex_11;
+            var sql, _i, data_6, d, ex_13;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1579,8 +1599,8 @@ var OfflineService = /** @class */ (function () {
                         return [3 /*break*/, 2];
                     case 5: return [3 /*break*/, 7];
                     case 6:
-                        ex_11 = _a.sent();
-                        throw ex_11;
+                        ex_13 = _a.sent();
+                        throw ex_13;
                     case 7: return [2 /*return*/];
                 }
             });
@@ -1588,7 +1608,7 @@ var OfflineService = /** @class */ (function () {
     };
     OfflineService.prototype.SincronizarListaNovedades = function (data) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var sql, _i, data_7, d, ex_12;
+            var sql, _i, data_7, d, ex_14;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1611,8 +1631,8 @@ var OfflineService = /** @class */ (function () {
                         return [3 /*break*/, 2];
                     case 5: return [3 /*break*/, 7];
                     case 6:
-                        ex_12 = _a.sent();
-                        throw ex_12;
+                        ex_14 = _a.sent();
+                        throw ex_14;
                     case 7: return [2 /*return*/];
                 }
             });
@@ -1620,7 +1640,7 @@ var OfflineService = /** @class */ (function () {
     };
     OfflineService.prototype.loginOffline = function (usuario, contrasena) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var res, data, ex_13;
+            var res, data, ex_15;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1637,8 +1657,8 @@ var OfflineService = /** @class */ (function () {
                         }
                         return [3 /*break*/, 3];
                     case 2:
-                        ex_13 = _a.sent();
-                        throw ex_13;
+                        ex_15 = _a.sent();
+                        throw ex_15;
                     case 3: return [2 /*return*/];
                 }
             });
@@ -1646,7 +1666,7 @@ var OfflineService = /** @class */ (function () {
     };
     OfflineService.prototype.getInfoEmpresa = function () {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var data, ex_14;
+            var data, ex_16;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1662,8 +1682,8 @@ var OfflineService = /** @class */ (function () {
                         }
                         return [3 /*break*/, 3];
                     case 2:
-                        ex_14 = _a.sent();
-                        throw ex_14;
+                        ex_16 = _a.sent();
+                        throw ex_16;
                     case 3: return [2 /*return*/];
                 }
             });
@@ -1671,7 +1691,7 @@ var OfflineService = /** @class */ (function () {
     };
     OfflineService.prototype.getPagoHasta = function (contrato) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var data, ex_15;
+            var data, ex_17;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1684,8 +1704,8 @@ var OfflineService = /** @class */ (function () {
                         }
                         return [3 /*break*/, 3];
                     case 2:
-                        ex_15 = _a.sent();
-                        throw ex_15;
+                        ex_17 = _a.sent();
+                        throw ex_17;
                     case 3: return [2 /*return*/];
                 }
             });
@@ -1693,7 +1713,7 @@ var OfflineService = /** @class */ (function () {
     };
     OfflineService.prototype.updatePagoHasta = function (Pagohasta, contrato) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var data, ex_16;
+            var data, ex_18;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1703,8 +1723,8 @@ var OfflineService = /** @class */ (function () {
                         data = _a.sent();
                         return [3 /*break*/, 3];
                     case 2:
-                        ex_16 = _a.sent();
-                        throw ex_16;
+                        ex_18 = _a.sent();
+                        throw ex_18;
                     case 3: return [2 /*return*/];
                 }
             });
@@ -1712,7 +1732,7 @@ var OfflineService = /** @class */ (function () {
     };
     OfflineService.prototype.getInfoContrato = function (contrato) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var data, ex_17;
+            var data, ex_19;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1728,8 +1748,8 @@ var OfflineService = /** @class */ (function () {
                         }
                         return [3 /*break*/, 3];
                     case 2:
-                        ex_17 = _a.sent();
-                        throw ex_17;
+                        ex_19 = _a.sent();
+                        throw ex_19;
                     case 3: return [2 /*return*/];
                 }
             });
@@ -1737,7 +1757,7 @@ var OfflineService = /** @class */ (function () {
     };
     OfflineService.prototype.getInfoCedula = function (cedula) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var data, todos, i, ex_18;
+            var data, todos, i, ex_20;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1757,8 +1777,8 @@ var OfflineService = /** @class */ (function () {
                         }
                         return [3 /*break*/, 3];
                     case 2:
-                        ex_18 = _a.sent();
-                        throw ex_18;
+                        ex_20 = _a.sent();
+                        throw ex_20;
                     case 3: return [2 /*return*/];
                 }
             });
@@ -1766,7 +1786,7 @@ var OfflineService = /** @class */ (function () {
     };
     OfflineService.prototype.getBeneficiarios = function (contrato) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var data, bene, ex_19;
+            var data, bene, ex_21;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1783,8 +1803,8 @@ var OfflineService = /** @class */ (function () {
                         }
                         return [3 /*break*/, 3];
                     case 2:
-                        ex_19 = _a.sent();
-                        throw ex_19;
+                        ex_21 = _a.sent();
+                        throw ex_21;
                     case 3: return [2 /*return*/];
                 }
             });
@@ -1792,7 +1812,7 @@ var OfflineService = /** @class */ (function () {
     };
     OfflineService.prototype.getUltimospagos = function (contrato) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var data, pagos, ex_20;
+            var data, pagos, ex_22;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1809,8 +1829,8 @@ var OfflineService = /** @class */ (function () {
                         }
                         return [3 /*break*/, 3];
                     case 2:
-                        ex_20 = _a.sent();
-                        throw ex_20;
+                        ex_22 = _a.sent();
+                        throw ex_22;
                     case 3: return [2 /*return*/];
                 }
             });
@@ -1818,7 +1838,7 @@ var OfflineService = /** @class */ (function () {
     };
     OfflineService.prototype.getFormaPago = function () {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var data, todos, i, ex_21;
+            var data, todos, i, ex_23;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1838,61 +1858,6 @@ var OfflineService = /** @class */ (function () {
                         }
                         return [3 /*break*/, 3];
                     case 2:
-                        ex_21 = _a.sent();
-                        throw ex_21;
-                    case 3: return [2 /*return*/];
-                }
-            });
-        });
-    };
-    OfflineService.prototype.getNovedades = function () {
-        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var data, todos, i, ex_22;
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, this.db.executeSql("SELECT * FROM TIPONOVEDAD ", [])];
-                    case 1:
-                        data = _a.sent();
-                        if (data.rows.length > 0) {
-                            todos = [];
-                            for (i = 0; i < data.rows.length; i++) {
-                                todos.push(data.rows.item(i));
-                            }
-                            return [2 /*return*/, todos];
-                        }
-                        else {
-                            return [2 /*return*/, []];
-                        }
-                        return [3 /*break*/, 3];
-                    case 2:
-                        ex_22 = _a.sent();
-                        throw ex_22;
-                    case 3: return [2 /*return*/];
-                }
-            });
-        });
-    };
-    OfflineService.prototype.getCuadreCaja = function (usuario, fecha) {
-        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var m, data, ex_23;
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        _a.trys.push([0, 2, , 3]);
-                        m = new Date(fecha);
-                        return [4 /*yield*/, this.db.executeSql("SELECT ? AS FECHA ,COUNT(P.IDCONTRATO) AS CANTIDADPAGOS , IFNULL(SUM(P.VALOR) - SUM(P.DESCUENTO), 0) AS VALORPAGOS , 0 AS CANTIDADANULADOS, (SELECT COUNT(N.CONTRATO ) FROM NOVEDAD N WHERE N.FECHA >= ? ) AS CANTIDADNOVEDADES FROM PAGOS P WHERE P.FECHAPAGOR >= ?   ", [fecha, new Date(fecha).toDateString(), new Date(fecha).toDateString()])];
-                    case 1:
-                        data = _a.sent();
-                        if (data.rows.length > 0) {
-                            return [2 /*return*/, data.rows.item(0)];
-                        }
-                        else {
-                            return [2 /*return*/, []];
-                        }
-                        return [3 /*break*/, 3];
-                    case 2:
                         ex_23 = _a.sent();
                         throw ex_23;
                     case 3: return [2 /*return*/];
@@ -1900,14 +1865,14 @@ var OfflineService = /** @class */ (function () {
             });
         });
     };
-    OfflineService.prototype.getListapago = function () {
+    OfflineService.prototype.getNovedades = function () {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
             var data, todos, i, ex_24;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, this.db.executeSql("SELECT * FROM PAGOS", [])];
+                        return [4 /*yield*/, this.db.executeSql("SELECT * FROM TIPONOVEDAD ", [])];
                     case 1:
                         data = _a.sent();
                         if (data.rows.length > 0) {
@@ -1929,9 +1894,64 @@ var OfflineService = /** @class */ (function () {
             });
         });
     };
+    OfflineService.prototype.getCuadreCaja = function (usuario, fecha) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
+            var m, data, ex_25;
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        m = new Date(fecha);
+                        return [4 /*yield*/, this.db.executeSql("SELECT ? AS FECHA ,COUNT(P.IDCONTRATO) AS CANTIDADPAGOS , IFNULL(SUM(P.VALOR) - SUM(P.DESCUENTO), 0) AS VALORPAGOS , 0 AS CANTIDADANULADOS, (SELECT COUNT(N.CONTRATO ) FROM NOVEDAD N WHERE N.FECHA >= ? ) AS CANTIDADNOVEDADES FROM PAGOS P WHERE P.FECHAPAGOR >= ?   ", [fecha, new Date(fecha).toDateString(), new Date(fecha).toDateString()])];
+                    case 1:
+                        data = _a.sent();
+                        if (data.rows.length > 0) {
+                            return [2 /*return*/, data.rows.item(0)];
+                        }
+                        else {
+                            return [2 /*return*/, []];
+                        }
+                        return [3 /*break*/, 3];
+                    case 2:
+                        ex_25 = _a.sent();
+                        throw ex_25;
+                    case 3: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    OfflineService.prototype.getListapago = function () {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
+            var data, todos, i, ex_26;
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        return [4 /*yield*/, this.db.executeSql("SELECT * FROM PAGOS", [])];
+                    case 1:
+                        data = _a.sent();
+                        if (data.rows.length > 0) {
+                            todos = [];
+                            for (i = 0; i < data.rows.length; i++) {
+                                todos.push(data.rows.item(i));
+                            }
+                            return [2 /*return*/, todos];
+                        }
+                        else {
+                            return [2 /*return*/, []];
+                        }
+                        return [3 /*break*/, 3];
+                    case 2:
+                        ex_26 = _a.sent();
+                        throw ex_26;
+                    case 3: return [2 /*return*/];
+                }
+            });
+        });
+    };
     OfflineService.prototype.getListaNovedades = function () {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var data, todos, i, ex_25;
+            var data, todos, i, ex_27;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1951,8 +1971,8 @@ var OfflineService = /** @class */ (function () {
                         }
                         return [3 /*break*/, 3];
                     case 2:
-                        ex_25 = _a.sent();
-                        throw ex_25;
+                        ex_27 = _a.sent();
+                        throw ex_27;
                     case 3: return [2 /*return*/];
                 }
             });
@@ -3199,11 +3219,13 @@ var AppComponent = /** @class */ (function () {
         this.http = http;
         this.navCtrl = navCtrl;
         this.mostrandoConfirmacionCerrarApp = false;
+        this.msg = '';
         this.sesionLocal = new _models_sesion_local_model__WEBPACK_IMPORTED_MODULE_6__["SesionLocalModel"]();
         this.menuPrincipalId = 'menuPrincipal';
         this.license = '';
         this.initializeApp();
         this.statusOffline = localStorage.getItem('offlineMode') === 'true' ? true : false;
+        this.msg = localStorage.getItem('existeRuta');
         this.router.events.subscribe(function (event) {
             if (event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_9__["NavigationEnd"]) {
                 try {
@@ -3481,14 +3503,14 @@ var AppComponent = /** @class */ (function () {
                         return [4 /*yield*/, this.ofline.createTables()];
                     case 5:
                         _a.sent();
-                        l.message = "Sincronizando Licencias";
+                        l.message = "Cargando Licencias";
                         return [4 /*yield*/, this.GetRest('/login/licenceslocale')];
                     case 6:
                         data = _a.sent();
                         return [4 /*yield*/, this.ofline.sincronizarLicencias(data)];
                     case 7:
                         _a.sent();
-                        l.message = "Sincronizando Usuarios";
+                        l.message = "Cargando Usuarios";
                         return [4 /*yield*/, this.GetRest('/login/userlocale')];
                     case 8:
                         data = _a.sent();
@@ -3496,7 +3518,7 @@ var AppComponent = /** @class */ (function () {
                     case 9:
                         _a.sent();
                         //await this.ofline.loginOffline("1005", "1005");
-                        l.message = "Sincronizando Empresas";
+                        l.message = "Cargando Informacion Empresa";
                         return [4 /*yield*/, this.GetRest('/pago/funeraria')];
                     case 10:
                         data = _a.sent();
@@ -3504,7 +3526,7 @@ var AppComponent = /** @class */ (function () {
                     case 11:
                         _a.sent();
                         l.dismiss();
-                        alert('Información sincronizada satisfactoriamente');
+                        alert('Modo Fuera De Linea Exitoso');
                         return [3 /*break*/, 13];
                     case 12:
                         ex_1 = _a.sent();
@@ -3532,7 +3554,8 @@ var AppComponent = /** @class */ (function () {
                         l = _a.sent();
                         _a.label = 2;
                     case 2:
-                        _a.trys.push([2, 10, , 11]);
+                        _a.trys.push([2, 13, , 14]);
+                        this.msg = 'Ruta cargada satisfactoriamente';
                         return [4 /*yield*/, l.present()];
                     case 3:
                         _a.sent();
@@ -3541,36 +3564,53 @@ var AppComponent = /** @class */ (function () {
                         return [4 /*yield*/, this.ofline.createDatabase()];
                     case 4:
                         _a.sent();
-                        l.message = "Creando Tablas Locales";
+                        l.message = "Creando Tabla De Rutas";
                         return [4 /*yield*/, this.ofline.createTablesRutas()];
                     case 5:
                         _a.sent();
-                        l.message = 'Sincronizando Rutas';
-                        return [4 /*yield*/, this.GetRestBody('/posicion/lstRutas', dataPost)];
+                        //************************************************* */
+                        l.message = "Creando Tabla Pagos/Novedades";
+                        return [4 /*yield*/, this.ofline.createTablesPgosNovedad()];
                     case 6:
-                        data = _a.sent();
-                        console.log("la nueva consulta que envia es ", data);
-                        return [4 /*yield*/, this.ofline.sincronizarRutas(data)];
+                        _a.sent();
+                        //sincronizamos  tipo novedad 
+                        l.message = 'Cargando Tipos Novedades';
+                        return [4 /*yield*/, this.GetRest('/contrato/tipoNovedad')];
                     case 7:
+                        data = _a.sent();
+                        return [4 /*yield*/, this.ofline.SincronizarListaNovedades(data)];
+                    case 8:
+                        _a.sent();
+                        //*********************************************************** */
+                        l.message = 'Cargando Rutas';
+                        return [4 /*yield*/, this.GetRestBody('/posicion/lstRutas', dataPost)];
+                    case 9:
+                        data = _a.sent();
+                        console.log("los datos de la ruta ", data);
+                        if (data == '') {
+                            this.msg = 'Ruta No Encontrada';
+                        }
+                        return [4 /*yield*/, this.ofline.sincronizarRutas(data)];
+                    case 10:
                         _a.sent();
                         l.dismiss();
                         //sincroniza las formas de pago 
-                        l.message = "Sincronizando Formas de Pago";
+                        l.message = "Cargando Formas de Pago";
                         return [4 /*yield*/, this.GetRest('/pago/TiposPagos')];
-                    case 8:
+                    case 11:
                         data = _a.sent();
                         return [4 /*yield*/, this.ofline.sincronizarFormaPago(data)];
-                    case 9:
+                    case 12:
                         _a.sent();
                         l.dismiss();
-                        alert('Ruta sincronizada satisfactoriamente');
-                        return [3 /*break*/, 11];
-                    case 10:
+                        alert(this.msg);
+                        return [3 /*break*/, 14];
+                    case 13:
                         ex_2 = _a.sent();
                         alert(ex_2.message);
                         l.dismiss();
-                        return [3 /*break*/, 11];
-                    case 11: return [2 /*return*/];
+                        return [3 /*break*/, 14];
+                    case 14: return [2 /*return*/];
                 }
             });
         });
@@ -3578,7 +3618,7 @@ var AppComponent = /** @class */ (function () {
     //metodo para sincronizar las novedades y los pagos 
     AppComponent.prototype.sincronizar = function () {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var l, data, ex_3;
+            var l, ex_3;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.loading.create({
@@ -3589,41 +3629,24 @@ var AppComponent = /** @class */ (function () {
                         l = _a.sent();
                         _a.label = 2;
                     case 2:
-                        _a.trys.push([2, 9, , 10]);
+                        _a.trys.push([2, 5, , 6]);
                         return [4 /*yield*/, l.present()];
                     case 3:
                         _a.sent();
-                        //sincroniza las novedades
-                        l.message = "Creando Base de Datos";
-                        return [4 /*yield*/, this.ofline.createDatabase()];
-                    case 4:
-                        _a.sent();
-                        l.message = "Creando Tablas Locales";
-                        return [4 /*yield*/, this.ofline.createTablesPgosNovedad()];
-                    case 5:
-                        _a.sent();
-                        l.message = 'Sincronizando Lista Novedades';
-                        return [4 /*yield*/, this.GetRest('/contrato/tipoNovedad')];
-                    case 6:
-                        data = _a.sent();
-                        return [4 /*yield*/, this.ofline.SincronizarListaNovedades(data)];
-                    case 7:
-                        _a.sent();
-                        l.dismiss();
                         // sincroniza los pagos
                         l.message = 'Sincronizando Pagos';
                         return [4 /*yield*/, this.CargarPagosBdLocal()];
-                    case 8:
+                    case 4:
                         _a.sent();
                         l.dismiss();
                         alert('Informacíon sincronizada satisfactoriamente');
-                        return [3 /*break*/, 10];
-                    case 9:
+                        return [3 /*break*/, 6];
+                    case 5:
                         ex_3 = _a.sent();
                         alert(ex_3.message);
                         l.dismiss();
-                        return [3 /*break*/, 10];
-                    case 10: return [2 /*return*/];
+                        return [3 /*break*/, 6];
+                    case 6: return [2 /*return*/];
                 }
             });
         });
@@ -3668,7 +3691,7 @@ var AppComponent = /** @class */ (function () {
         var _this = this;
         this.alertController.create({
             header: 'Trabajo Fuera de Linea',
-            message: !this.statusOffline ? 'Si desactiva el modo "Trabajo Fuera de Linea" la aplicación no tendrá en cuenta la información local, ¿Desea continuar?' : 'Si activa el modo "Trabajo Fuera de Linea" la aplicación sincronizará la información en la base de datos local, ¿Desea continuar?',
+            message: !this.statusOffline ? 'Si desactiva el modo "Trabajo Fuera de Linea" la aplicación no tendrá en cuenta la información local, ¿Desea continuar?' : 'Si activa el modo "Trabajo Fuera de Linea" debe cargar una ruta, ¿Desea continuar?',
             buttons: [
                 {
                     text: 'Si', role: 'accept',
@@ -3680,6 +3703,7 @@ var AppComponent = /** @class */ (function () {
                             });
                         }
                         localStorage.setItem('offlineMode', _this.statusOffline ? 'true' : 'false');
+                        localStorage.setItem('existeRuta', 'Ruta cargada satisfactoriamente');
                     }
                 },
                 {
@@ -3698,8 +3722,8 @@ var AppComponent = /** @class */ (function () {
     AppComponent.prototype.offlineCargarRutas = function () {
         var _this = this;
         this.alertController.create({
-            header: 'Sincronizar Rutas',
-            message: 'Esta Seguro De Sincronizar Las Rutas, ¿Desea continuar?',
+            header: 'Cargar Ruta',
+            message: 'Esta Seguro De Cargar La Ruta, ¿Desea continuar?',
             buttons: [
                 {
                     text: 'Si', role: 'accept',
@@ -3725,7 +3749,7 @@ var AppComponent = /** @class */ (function () {
         var _this = this;
         this.alertController.create({
             header: 'Sincronizar Rutas',
-            message: 'Esta Seguro De Sincronizar Los Pagos Y Novedades, ¿Desea continuar?',
+            message: 'Esta Seguro Que Desea Sincronizar Los Pagos Y Novedades, ¿Desea continuar?',
             buttons: [
                 {
                     text: 'Si', role: 'accept',
@@ -3966,7 +3990,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-app>\r\n\r\n    <ion-menu side=\"end\" [menuId]=\"menuPrincipalId\" *ngIf=\"mostrarMenu()\">\r\n        <ion-header>\r\n            <ion-toolbar color=\"danger\">\r\n                <ion-title>Menú</ion-title>\r\n            </ion-toolbar>\r\n        </ion-header>\r\n        <ion-content>\r\n            <ion-list>\r\n                <ion-item button=\"true\" (click)=\"consultarContrato()\">Consultar contrato</ion-item>\r\n                <ion-item button=\"true\" (click)=\"consultarPago()\">Consultar pago</ion-item>\r\n                <ion-item button=\"true\" (click)=\"cuadreCaja()\">Cuadre caja</ion-item>\r\n                <ion-item button=\"true\" (click)=\"consultarRuta()\">Consultar Ruta</ion-item>\r\n                <ion-item button=\"true\" (click)=\"removerLicencia()\">Remover Licencia</ion-item>\r\n                <ion-item button=\"true\" (click)=\"configurarImpresora()\">Configurar impresora</ion-item>\r\n\r\n              <!--  <ion-item>\r\n                    <ion-label>Trabajo Fuera de Linea</ion-label>\r\n                    <ion-toggle [(ngModel)]=\"statusOffline\" color=\"primary\" (ionChange)=\"offlineChange()\"></ion-toggle>\r\n                </ion-item>-->\r\n\r\n                \r\n                <ion-item button=\"true\" (click)=\"offlineCargarRutas()\">Descargar Ruta</ion-item>\r\n                <ion-item button=\"true\" (click)=\"offlineCargarPagosNovedades()\">Sincronizar</ion-item>\r\n\r\n                <ion-item button=\"true\" (click)=\"cerrarSesion()\">Cerrar sesión</ion-item>\r\n                <ion-item button=\"true\">\r\n                    <ion-input disabled=\"true\" #licenseInput color=\"danger\" value=\"{{ license }}\"> </ion-input>\r\n                </ion-item>\r\n                <ion-item button=\"true\">\r\n                    <ion-input disabled=\"true\" #licenseInput color=\"danger\" value=\"V. 31/May/2021\"> </ion-input>\r\n                </ion-item>\r\n              \r\n            </ion-list>\r\n        </ion-content>\r\n    </ion-menu>\r\n\r\n    <ion-router-outlet main></ion-router-outlet>\r\n</ion-app>");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-app>\r\n\r\n    <ion-menu side=\"end\" [menuId]=\"menuPrincipalId\" *ngIf=\"mostrarMenu()\">\r\n        <ion-header>\r\n            <ion-toolbar color=\"danger\">\r\n                <ion-title>Menú</ion-title>\r\n            </ion-toolbar>\r\n        </ion-header>\r\n        <ion-content>\r\n            <ion-list>\r\n                <ion-item button=\"true\" (click)=\"consultarContrato()\">Consultar contrato</ion-item>\r\n                <ion-item button=\"true\" (click)=\"consultarPago()\">Consultar pago</ion-item>\r\n                <ion-item button=\"true\" (click)=\"cuadreCaja()\">Cuadre caja</ion-item>\r\n                <ion-item button=\"true\" (click)=\"consultarRuta()\">Consultar Ruta</ion-item>\r\n                <ion-item button=\"true\" (click)=\"removerLicencia()\">Remover Licencia</ion-item>\r\n                <ion-item button=\"true\" (click)=\"configurarImpresora()\">Configurar impresora</ion-item>\r\n\r\n                <ion-item *ngIf=\"msg == 'Ruta cargada satisfactoriamente' \">\r\n                    <ion-label>Trabajo Fuera de Linea</ion-label>\r\n                    <ion-toggle [(ngModel)]=\"statusOffline\" color=\"primary\" (ionChange)=\"offlineChange()\"></ion-toggle>\r\n                </ion-item>\r\n\r\n                \r\n                <ion-item button=\"true\" (click)=\"offlineCargarRutas()\">Cargar Ruta</ion-item>\r\n                <ion-item  *ngIf=\"msg == 'Ruta cargada satisfactoriamente' \" button=\"true\" (click)=\"offlineCargarPagosNovedades()\">Sincronizar</ion-item>\r\n\r\n                <ion-item button=\"true\" (click)=\"cerrarSesion()\">Cerrar sesión</ion-item>\r\n                <ion-item button=\"true\">\r\n                    <ion-input disabled=\"true\" #licenseInput color=\"danger\" value=\"{{ license }}\"> </ion-input>\r\n                </ion-item>\r\n                <ion-item button=\"true\">\r\n                    <ion-input disabled=\"true\" #licenseInput color=\"danger\" value=\"V. 06/Jul/2021\"> </ion-input>\r\n                </ion-item>\r\n              \r\n            </ion-list>\r\n        </ion-content>\r\n    </ion-menu>\r\n\r\n    <ion-router-outlet main></ion-router-outlet>\r\n</ion-app>");
 
 /***/ }),
 

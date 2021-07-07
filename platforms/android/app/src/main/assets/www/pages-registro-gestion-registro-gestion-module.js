@@ -326,11 +326,15 @@ var TiposGestionService = /** @class */ (function () {
                                     gestionModel.Posx = String(resp.coords.latitude);
                                     gestionModel.Posy = String(resp.coords.longitude);
                                     // Mostrar modal de confirmación
+                                    console.log("gestion paso gps ", gestionModel);
                                     resolve(gestionModel);
                                 }).catch(function (error) {
                                     loading.dismiss();
-                                    _this.mostrarToastSimple('Error obteniendo la geolocalización, intente de nuevo');
+                                    gestionModel.Posx = "";
+                                    gestionModel.Posy = "";
+                                    console.log("gestion error gps ", gestionModel);
                                     resolve(gestionModel);
+                                    _this.mostrarToastSimple('Error obteniendo la geolocalización, intente de nuevo');
                                     reject();
                                 });
                             });

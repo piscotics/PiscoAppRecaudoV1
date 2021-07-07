@@ -2,9 +2,19 @@
 <ion-content>
     <div>
         <ion-row class="ion-align-items-center">
-            <ion-col size="4">Criterio</ion-col>
+            <ion-col size="4">Fecha</ion-col>
             <ion-col size="8">
                 <ion-datetime displayFormat="YYYY MM DD" value="{{ textoBusqueda | date:'yyyy-MM-dd'}}" (ionChange)="cambiofecha($event)" cancelText="Cancelar"></ion-datetime>
+            </ion-col>
+        </ion-row>
+        <ion-row class="ion-align-items-center">
+            <ion-col size="4">Estado</ion-col>
+            <ion-col size="8">
+                <ion-select #selectCriterio cancelText="Cancelar" placeholder="Seleccione El Estado" [value]="criterioBusqueda" (ionChange)="criterioBusqueda = selectCriterio.value">
+                    <ion-select-option value="Sn">Sn</ion-select-option>
+                    <ion-select-option value="Pago">Pago</ion-select-option>
+                    <ion-select-option value="Novedad">Novedad</ion-select-option>
+                </ion-select>
             </ion-col>
         </ion-row>
         <ion-row class="ion-margin-top">
@@ -17,18 +27,26 @@
         </ion-row>
     </div>
     <div>
-        <ion-grid>
-            <ion-row class="md5" *ngFor="let ruta of rutas">
-                <ion-card>
+       <!--  <ion-grid>
+            <ion-row class="md5" > -->
+                <ion-card *ngFor="let ruta of rutas">
+                    <ion-card-header>
+                        <ion-card-title>  Contrato:  {{ruta.IDCONTRATO}}</ion-card-title>
+                      </ion-card-header>
                     <ion-card-content>
-                        {{ruta}}
+                       <ion-item text-wrap>Cedula:  {{ruta.CEDULA}}</ion-item>
+                       <ion-item text-wrap>Titular:  {{ruta.TITULAR}}</ion-item>
+                       <ion-item text-wrap>Direccion:  {{ruta.DIRECCION}}</ion-item>
+                       <ion-item text-wrap >Telefono:  {{ruta.TELEFONO}}</ion-item>
+                       <ion-item text-wrap>Pago Hasta:  {{ruta.PAGOHASTA | date :  "yyyy-MM-dd"}}</ion-item>
+                       <ion-item text-wrap >Estado: <b> {{ruta.ESTADO}}</b></ion-item>
                     </ion-card-content>
                 </ion-card>
                 <!-- <ion-col>
                 <label *ngFor="let item of items">
             </ion-col> -->
-            </ion-row>
-        </ion-grid>
+            <!-- </ion-row>
+        </ion-grid> -->
     </div>
 
 </ion-content>
