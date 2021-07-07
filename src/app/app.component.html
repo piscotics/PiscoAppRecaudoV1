@@ -21,7 +21,7 @@
                 </ion-item>
 
                 
-                <ion-item button="true" (click)="offlineCargarRutas()">Cargar Ruta</ion-item>
+                <ion-item button="true" *ngIf="statusOffline == false" (click)="offlineCargarRutas()">Cargar Ruta</ion-item>
                 <ion-item  *ngIf="msg == 'Ruta cargada satisfactoriamente' " button="true" (click)="offlineCargarPagosNovedades()">Sincronizar</ion-item>
 
                 <ion-item button="true" (click)="cerrarSesion()">Cerrar sesión</ion-item>

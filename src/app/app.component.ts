@@ -444,6 +444,8 @@ export class AppComponent implements OnInit, OnDestroy {
       if (data == '')
       {
         this.msg = 'Ruta No Encontrada';
+      }else{
+        localStorage.setItem('existeRuta', 'Ruta cargada satisfactoriamente');
       }
       
 
