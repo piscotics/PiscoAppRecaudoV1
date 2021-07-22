@@ -5,6 +5,9 @@ import { SQLiteObject, SQLite } from '@ionic-native/sqlite/ngx';
   providedIn: 'root'
 })
 export class OfflineService {
+
+  
+  
   db: SQLiteObject;
   constructor(public sqlite: SQLite) { 
   }
@@ -48,6 +51,28 @@ export class OfflineService {
    
   }
 
+  //si hay pagos sin sincronizar retorna true 
+  public async comprobarEstadoPagosNovedad(): Promise<boolean> {
+    try
+    {
+      console.log("ejecuto el metodo cat pagos sincronizados")
+      let data = await this.db.executeSql("SELECT * FROM PAGOS WHERE SINCRONIZAR = 0", [] );
+      //let res = await this.db.executeSql("SELECT * FROM PAGOS WHERE SINCRONIZAR = 0")
+      console.log("pagos sincronizados", data)
+      if(data.rows.length > 0){
+        console.log("cat pagos sincronizados encontro")
+        return true;
+      }else{
+        console.log("cat pagos sincronizados no encontro")
+        return false;
+      }
+    }catch(ex){
+      console.log("err pagos sincronizados", ex)
+      return false;
+      
+    }
+  }
+
   public async createTablesRutas(){
     let sql = "";
 
@@ -60,7 +85,7 @@ export class OfflineService {
     'POSTFECHADODIA SMALLINT, INDICE SMALLINT, CUOTA FLOAT, PENDIENTE SMALLINT, ESTADOCONTRATO TEXT, FECHAR TEXT, ' +
     'BASEDATOS TEXT, EMPRESA TEXT, NIT TEXT, DIRECCIONCOBRO TEXT, BOXCONTRATANTE TEXT, VALORCARTERA FLOAT, VALORSEGURO FLOAT, ' + 
     // tslint:disable-next-line: max-line-length
-    'CELULAR TEXT, PAGOHASTA TEXT, DEPTOC TEXT, MPIOC TEXT, BARRIOC TEXT, MOTIVO TEXT, FECHAPROGRAMADA TEXT, CODBARRIO TEXT, COBERTURA TEXT, ULTIMOSPAGOS TEXT, BENEFICIARIOS TEXT, BANDERA INTEGER)';
+    'CELULAR TEXT, PAGOHASTA TEXT, DEPTOC TEXT, MPIOC TEXT, BARRIOC TEXT, MOTIVO TEXT, FECHAPROGRAMADA TEXT, CODBARRIO TEXT, COBERTURA TEXT, ULTIMOSPAGOS TEXT, BENEFICIARIOS TEXT, BANDERA INTEGER,FECHAAFILIACION TEXT,PLAN TEXT)';
     await this.db.executeSql(sql, []);
 
    
@@ -82,13 +107,13 @@ export class OfflineService {
     sql = 'DROP TABLE IF EXISTS PAGOS';
     await this.db.executeSql(sql, []);
 
-    sql = 'CREATE TABLE IF NOT EXISTS PAGOS (ID INTEGER PRIMARY KEY AUTOINCREMENT, IDCONTRATO TEXT, IDPERSONA TEXT, VALOR FLOAT, DESCUENTO FLOAT, CANTIDADCUOTAS FLOAT, MAQUINA TEXT, USUARIO TEXT, OBSERVACIONES TEXT, CUOTAMENSUAL FLOAT, ESTADO TEXT, FORMAPAGO TEXT, FECHAPAGOR TEXT, POSX TEXT, POSY TEXT, TITULAR TEXT)';
+    sql = 'CREATE TABLE IF NOT EXISTS PAGOS (ID INTEGER PRIMARY KEY AUTOINCREMENT, IDCONTRATO TEXT, IDPERSONA TEXT, VALOR FLOAT, DESCUENTO FLOAT, CANTIDADCUOTAS FLOAT, MAQUINA TEXT, USUARIO TEXT, OBSERVACIONES TEXT, CUOTAMENSUAL FLOAT, ESTADO TEXT, FORMAPAGO TEXT, FECHAPAGOR TEXT, POSX TEXT, POSY TEXT, TITULAR TEXT,  SINCRONIZAR TEXT)';
     await this.db.executeSql(sql, []);
 
     sql = 'DROP TABLE IF EXISTS NOVEDAD';
     await this.db.executeSql(sql, []);
 
-    sql = 'CREATE TABLE IF NOT EXISTS NOVEDAD (ID INTEGER PRIMARY KEY AUTOINCREMENT ,CONTRATO TEXT , FECHA TEXT , NOVEDAD INTEGER, DIAPOST INTEGER, USUARIO TEXT, IDCOBRADOR TEXT, MODULO TEXT, TRANSAC INTEGER, FECHAPROGRAMADA TEXT, POSX TEXT, POSY TEXT, OBSERVACIONES TEXT)';
+    sql = 'CREATE TABLE IF NOT EXISTS NOVEDAD (ID INTEGER PRIMARY KEY AUTOINCREMENT ,CONTRATO TEXT , FECHA TEXT , NOVEDAD INTEGER, DIAPOST INTEGER, USUARIO TEXT, IDCOBRADOR TEXT, MODULO TEXT, TRANSAC INTEGER, FECHAPROGRAMADA TEXT, POSX TEXT, POSY TEXT, OBSERVACIONES TEXT,  SINCRONIZAR TEXT)';
     await this.db.executeSql(sql, []);
 
     sql = 'DROP TABLE IF EXISTS TIPONOVEDAD';
@@ -106,14 +131,14 @@ export class OfflineService {
       let sql = 'INSERT INTO RUTAS (USUARIO, IDCOBRADOR, IDCONTRATO,CEDULA, TITULAR, DIRECCION , ' + 
       'TELEFONO, CIUDAD, DIACOBRO1, DIACOBRO2, ESTADO, NOVEDAD, POSTFECHADODIA, INDICE, CUOTA, PENDIENTE, ESTADOCONTRATO, FECHAR, ' +
       'BASEDATOS, EMPRESA, NIT, DIRECCIONCOBRO, BOXCONTRATANTE, VALORCARTERA, VALORSEGURO,' + 
-      'CELULAR, PAGOHASTA, DEPTOC, MPIOC, BARRIOC, MOTIVO, FECHAPROGRAMADA, CODBARRIO, COBERTURA,ULTIMOSPAGOS, BENEFICIARIOS,BANDERA) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?, ?, ?,?)'
+      'CELULAR, PAGOHASTA, DEPTOC, MPIOC, BARRIOC, MOTIVO, FECHAPROGRAMADA, CODBARRIO, COBERTURA,ULTIMOSPAGOS, BENEFICIARIOS,BANDERA,FECHAAFILIACION,PLAN) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?, ?, ?,?,?,?)'
 
 
       for(let d of data){
         await this.db.executeSql(sql, [d.USUARIO, d.IDCOBRADOR, d.IDCONTRATO, d.CEDULA, d.TITULAR, d.DIRECCION, d.TELEFONO, d.CIUDAD, 
           d.DIACOBRO1, d.DIACOBRO2, d.ESTADO, d.NOVEDAD, d.POSTFECHADODIA, d.INDICE, d.CUOTA, d.PENDIENTE, d.ESTADOCONTRATO, d.FECHAR, 
           d.BASEDATOS, d.EMPRESA, d.NIT, d.DIRECCIONCOBRO, d.BOXCONTRATANTE, d.VALORCARTERA, d.VALORSEGURO, d.CELULAR, d.PAGOHASTA, 
-          d.DEPTOC, d.MPIOC, d.BARRIOC, d.MOTIVO, d.FECHAPROGRAMADA, d.CODBARRIO, d.COBERTURA, d.ULTIMOSPAGOS, d.BENEFICIARIOS,0 ]);
+          d.DEPTOC, d.MPIOC, d.BARRIOC, d.MOTIVO, d.FECHAPROGRAMADA, d.CODBARRIO, d.COBERTURA, d.ULTIMOSPAGOS, d.BENEFICIARIOS,0, d.FECHAAFILIACION,d.PLAN ]);
       }
 
     }catch(ex)
@@ -122,14 +147,45 @@ export class OfflineService {
     }
   }
 
-  public async getConsultarRutas(fechar,idcobrador,estado ) {
-
+  public async getConsultarPagos(NroPago: string) { 
+    try
+    {
+     console.log("los datos que se envian son",NroPago)
+     let data;
+      data = await this.db.executeSql("SELECT IDCONTRATO, IDPERSONA, VALOR, DESCUENTO, CANTIDADCUOTAS, MAQUINA, USUARIO, OBSERVACIONES, CUOTAMENSUAL, ESTADO, FORMAPAGO, FECHAPAGOR, POSX, POSY, TITULAR, SINCRONIZAR FROM PAGOS R  WHERE  R.ID = ? ", [NroPago]);
+      console.log("la consulta a ejecutar es ", data)
+      if(data.rows.length > 0){
+        let todos = [];
+        for (let i = 0; i < data.rows.length ; i++) {
+          
+          todos.push(data.rows.item(i));
     
+        }
+        return todos;
+      }
+      else{
+        return [];
+      }
+    } catch(ex){
+      throw ex;
+    }
+  }
+
+  public async getConsultarRutas(fechar,idcobrador,estado ) {
 
     try
     {
      console.log("los datos que se envian son",fechar,idcobrador,estado)
-      let data = await this.db.executeSql("SELECT IDCONTRATO,CEDULA, TITULAR, PAGOHASTA, DIRECCION, TELEFONO, ESTADO FROM RUTAS WHERE FECHAR = ? AND IDCOBRADOR = ? AND ESTADO = ? ", [fechar+"T00:00:00",idcobrador,estado]);
+     let data;
+
+     if(estado == "Sn"){
+       data = await this.db.executeSql("SELECT R.IDCONTRATO,R.CEDULA, R.TITULAR, R.PAGOHASTA, R.DIRECCION, R.TELEFONO, R.ESTADO FROM RUTAS R  WHERE R.FECHAR = ? AND R.IDCOBRADOR = ? AND R.ESTADO = ? ", [fechar+"T00:00:00",idcobrador,estado]);
+     }else   if(estado == "Pago"){
+       data = await this.db.executeSql("SELECT R.IDCONTRATO,R.CEDULA, R.TITULAR, R.PAGOHASTA, R.DIRECCION, R.TELEFONO, R.ESTADO, P.VALOR FROM RUTAS R LEFT JOIN PAGOS P ON P.IDCONTRATO = R.IDCONTRATO  WHERE R.FECHAR = ? AND R.IDCOBRADOR = ? AND R.ESTADO = ? ", [fechar+"T00:00:00",idcobrador,estado]);
+     }else   if(estado == "Novedad"){
+       data = await this.db.executeSql("SELECT R.IDCONTRATO,R.CEDULA, R.TITULAR, R.PAGOHASTA, R.DIRECCION, R.TELEFONO, R.ESTADO,  T.NOVEDAD NOVEDADES, N.OBSERVACIONES  FROM RUTAS R LEFT JOIN NOVEDAD N ON R.IDCONTRATO = N.CONTRATO INNER JOIN TIPONOVEDAD T ON T.Idnovedad = N.NOVEDAD WHERE R.FECHAR = ? AND R.IDCOBRADOR = ? AND R.ESTADO = ? ", [fechar+"T00:00:00",idcobrador,estado]);
+     }
+
       console.log("la consulta a ejecutar es ", data)
       if(data.rows.length > 0){
         let todos = [];
@@ -206,8 +262,8 @@ export class OfflineService {
     try
     {
       let id = 0;
-        let sql = 'INSERT INTO PAGOS (IDCONTRATO, IDPERSONA, VALOR, DESCUENTO, CANTIDADCUOTAS, MAQUINA, USUARIO, OBSERVACIONES, CUOTAMENSUAL, ESTADO, FORMAPAGO, FECHAPAGOR, POSX, POSY, TITULAR) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
-        await this.db.executeSql(sql, [d.IDCONTRATO, d.IDPERSONA, d.VALOR, d.DESCUENTO, d.CANTIDADCUOTAS, d.MAQUINA, d.USUARIO, d.OBSERVACIONES, d.CUOTAMENSUAL, d.ESTADO, d.FORMAPAGO,new Date(d.FECHAPAGOR).toDateString(), d.POSX, d.POSY, d.titular]).then((row: any) => {
+        let sql = 'INSERT INTO PAGOS (IDCONTRATO, IDPERSONA, VALOR, DESCUENTO, CANTIDADCUOTAS, MAQUINA, USUARIO, OBSERVACIONES, CUOTAMENSUAL, ESTADO, FORMAPAGO, FECHAPAGOR, POSX, POSY, TITULAR, SINCRONIZAR) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
+        await this.db.executeSql(sql, [d.IDCONTRATO, d.IDPERSONA, d.VALOR, d.DESCUENTO, d.CANTIDADCUOTAS, d.MAQUINA, d.USUARIO, d.OBSERVACIONES, d.CUOTAMENSUAL, d.ESTADO, d.FORMAPAGO,new Date(d.FECHAPAGOR).toDateString(), d.POSX, d.POSY, d.titular,0]).then((row: any) => {
         id =  row.insertId.toString();
       });
       
@@ -228,32 +284,57 @@ export class OfflineService {
       throw ex;
     }
 
-    
-   
 
+  }
 
+  public async actualizarSincronizadoPago(IDCONTRATO: string, IDPERSONA: string) {
+    //cambiar el sincronizado a 1
+    try
+    {
+      // tslint:disable-next-line: max-line-length
+      let data = await this.db.executeSql('UPDATE PAGOS SET SINCRONIZAR = 1  WHERE IDCONTRATO = ? AND IDPERSONA = ?', [ IDCONTRATO, IDPERSONA]);
+    } catch(ex){
+      throw ex;
+    }
+  }
+  public async actualizarSincronizadoNovedad(IDCONTRATO: string) {
+    //cambiar el estado de la ruta local
+    try
+    {
+      // tslint:disable-next-line: max-line-length
+      let data = await this.db.executeSql('UPDATE NOVEDAD SET SINCRONIZAR = 1  WHERE CONTRATO = ? AND IDPERSONA = ?', [ IDCONTRATO]);
+    } catch(ex){
+      throw ex;
+    }
   }
 
   public async guardarNovedadLocal(d) {
     try
     {
+
+      console.log("va a guardar la novedad local")
+
       // tslint:disable-next-line: max-line-length
-      let sql = 'INSERT INTO NOVEDAD(CONTRATO, NOVEDAD, DIAPOST, USUARIO, IDCOBRADOR, MODULO, TRANSAC, FECHAPROGRAMADA, POSX, POSY,OBSERVACIONES,  FECHA) VALUES(?,?,?,?,?,?,?,?,?,?,?, ?)';
+      let sql = 'INSERT INTO NOVEDAD(CONTRATO, NOVEDAD, DIAPOST, USUARIO, IDCOBRADOR, MODULO, TRANSAC, FECHAPROGRAMADA, POSX, POSY,OBSERVACIONES,  FECHA, SINCRONIZAR) VALUES(?,?,?,?,?,?,?,?,?,?,?, ?,?)';
       // tslint:disable-next-line: max-line-length
-      await this.db.executeSql(sql, [d.Contrato, d.Novedad, d.Diapos, d.Usuario, d.IdCobrador, d.Modulo, d.Transac, d.Fechaprogramada, d.Posx, d.Posy, d.Observaciones ,  new Date().toDateString()]);
+      await this.db.executeSql(sql, [d.Contrato, d.Novedad, d.Diapos, d.Usuario, d.IdCobrador, d.Modulo, d.Transac, d.Fechaprogramada, d.Posx, d.Posy, d.Observaciones ,  new Date().toDateString(), 0]);
+   
+     //cambiar el estado de la ruta local
+      try
+      {
+        console.log("va a cambiar la ruta a novedad",  d.Contrato)
+        let data = await this.db.executeSql('UPDATE RUTAS SET  ESTADO = ?  WHERE IDCONTRATO = ? ', ['Novedad' , d.Contrato]);
+      } catch(ex){
+        console.log("error estado ruta novedad")
+        throw ex;
+      }
+   
     }catch(ex)
     {
       throw ex;
     }
 
-    //cambia el estado de la ruta local
-    try
-    {
-      // tslint:disable-next-line: max-line-length
-      let data = await this.db.executeSql('UPDATE RUTAS SET  ESTADO = ?  WHERE IDCONTRATO = ? AND CEDULA = ?', ['Novedad' , d.IDCONTRATO, d.IDPERSONA]);
-    } catch(ex){
-      throw ex;
-    }
+   
 
   }
 
@@ -502,7 +583,7 @@ export class OfflineService {
   public async getListapago(){
     try
     {
-      let data = await this.db.executeSql("SELECT * FROM PAGOS", [] );
+      let data = await this.db.executeSql("SELECT * FROM PAGOS WHERE SINCRONIZAR = 0", [] );
       if(data.rows.length > 0){
         let todos = [];
         for (let i = 0; i < data.rows.length ; i++) {
@@ -523,7 +604,7 @@ export class OfflineService {
   public async getListaNovedades(){
     try
     {
-      let data = await this.db.executeSql("SELECT * FROM NOVEDAD", [] );
+      let data = await this.db.executeSql("SELECT * FROM NOVEDAD WHERE SINCRONIZAR = 0", [] );
       if(data.rows.length > 0){
         let todos = [];
         for (let i = 0; i < data.rows.length ; i++) {

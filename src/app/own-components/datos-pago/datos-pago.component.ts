@@ -40,8 +40,12 @@ export class DatosPagoComponent implements OnInit {
      * 1) Se crea la cadena para el cuerpo del pos.
      */
      moment.locale('es');
+     //el dato apelllido retorna el tipo de documento en el api lo especificaron mal
      const tipodoc  = this.sesion.sesionLocal.sesionUsuario.APELLIDOS;
-     const cobrador = this.sesion.sesionLocal.sesionUsuario.NOMBRES;
+     console.log("el apellido del cobrador es",this.sesion.sesionLocal.sesionUsuario.APELLIDOS)
+     //el dato nombre retorna nombre y apellidos del cobrador se especifico mal en el api
+     const cobrador = this.sesion.sesionLocal.sesionUsuario.NOMBRES ;
+     console.log("el nombre es", this.sesion.sesionLocal.sesionUsuario.NOMBRES)
 
      this.loading.create({
        message: 'Obteniendo configuración de impresora'
@@ -86,13 +90,18 @@ export class DatosPagoComponent implements OnInit {
             printBody += this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
             
 
-            printBody += tipodoc + ':';
-            printBody += this.print.PosCommand.LF;
-            printBody += this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
+           
             if(this.pago.NumeroDocumento !== undefined)
             {
-              printBody += this.pago.NumeroDocumento;
+              printBody += tipodoc+ ': ' + this.pago.NumeroDocumento;
+              printBody += this.print.PosCommand.LF;
+              printBody += this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
             }
+           /*  }else{
+              printBody += tipodoc + ': ' ;
+              printBody += this.print.PosCommand.LF;
+              printBody += this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
+            } */
             printBody += this.print.PosCommand.LF;
 
 
@@ -109,21 +118,17 @@ export class DatosPagoComponent implements OnInit {
             if(this.pago.Departamento !== null &&  this.pago.Departamento !== undefined)
             {
               printBody += this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
-              printBody += 'Departamento:';
+              printBody += 'Dpto: '+ this.pago.Departamento;;
               printBody += this.print.PosCommand.LF;
-              printBody += this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
-              printBody += this.pago.Departamento;
-              printBody += this.print.PosCommand.LF;
+             
             }
 
             if(this.pago.Ciudad !== null && this.pago.Ciudad !== undefined)
             {
               printBody += this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
-              printBody += 'Ciudad:';
+              printBody += 'Ciudad: ' +  this.pago.Ciudad;
               printBody += this.print.PosCommand.LF;
-              printBody += this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
-              printBody += this.pago.Ciudad;
-              printBody += this.print.PosCommand.LF;
+              
             }
 
 
@@ -136,10 +141,7 @@ export class DatosPagoComponent implements OnInit {
             printBody += this.print.PosCommand.LF;
             
             printBody += this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
-            printBody += 'Cedula:';
-            printBody += this.print.PosCommand.LF;
-            printBody += this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
-            printBody += this.pago.Cedula;
+            printBody += 'Cedula: ' +  this.pago.Cedula;
             printBody += this.print.PosCommand.LF;
 
             printBody += this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
@@ -214,20 +216,14 @@ export class DatosPagoComponent implements OnInit {
             if(this.pago.VlrDctoPago !== null)
             {
               printBody += this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
-              printBody += 'Descuento Contrato:';
-              printBody += this.print.PosCommand.LF;
-              printBody += this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
-              printBody += this.pago.VlrDctoPago;
+              printBody += 'Dcto: ' + this.pago.VlrDctoPago;;
               printBody += this.print.PosCommand.LF;
             }
 
             printBody += this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
-            printBody += 'Forma De Pago:';
-            printBody += this.print.PosCommand.LF;
-            printBody += this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
-            printBody += this.pago.FormaPago;
-            printBody += this.print.PosCommand.LF;
+            printBody += 'Forma De Pago: ' + this.pago.FormaPago;
             
+            printBody += this.print.PosCommand.LF;
 
             if(this.pago.VlrIva !== null)
             {
@@ -267,10 +263,7 @@ export class DatosPagoComponent implements OnInit {
             }
 
             printBody += this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
-            printBody += 'Usuario:';
-            printBody += this.print.PosCommand.LF;
-            printBody += this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
-            printBody += this.pago.Usuario;
+            printBody += 'Usuario: ' + this.pago.Usuario;;
             printBody += this.print.PosCommand.LF;
 
             printBody += '_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _';

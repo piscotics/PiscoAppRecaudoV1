@@ -37,6 +37,7 @@ export class AppComponent implements OnInit, OnDestroy {
   sesionLocal: SesionLocalModel = new SesionLocalModel();
   menuPrincipalId: string = 'menuPrincipal';
   license: string = '';
+  sincronizaPagosNovedad : boolean;
 
   statusOffline: boolean;
 
@@ -56,7 +57,7 @@ export class AppComponent implements OnInit, OnDestroy {
     private alert: AlertController,
     private sqlite: SQLite,
     private device: Device,
-    private ofline: OfflineService,
+    private ofline:  OfflineService,
     private loading: LoadingController,
     private http: HttpClient,
     private navCtrl: NavController
@@ -396,6 +397,46 @@ export class AppComponent implements OnInit, OnDestroy {
   //metodo para sincronizar las rutas de la bd 
   async cargarRuta(){
 
+        //se pregunta si desea cargar la ruta nuevamente ya que hay pagos sin sincronizar 
+        console.log("llego a cargar ruta nuevo metodo")
+      this.ofline.createDatabase().then(res => {
+        
+        this.ofline.comprobarEstadoPagosNovedad().then((result)=>{
+          this.sincronizaPagosNovedad = result;
+          console.log("llego a cargar ruta nuevo metodo resultado ", result)
+          if( this.sincronizaPagosNovedad  == true){
+    
+            this.alertController.create({
+              header: 'Nueva Ruta',
+              message: 'ya cuenta con una ruta cargada con datos no sincronizados, al continuar el proceso se elimina la ruta actual , ¿Desea continuar?',
+              buttons:[
+                { 
+                  text: 'Si', role: 'accept', handler: ()=>{
+                    this.cargarRutas();
+        
+                  }
+                },
+                {
+                 
+                  text: 'No', role: 'cancel', handler: ()=>{ 
+                   
+                    this.alertController.dismiss();
+                  }
+                }
+              ]
+            }).then(a=>{
+              a.present();
+            })
+          }else{
+            this.cargarRutas();
+          }
+         });   
+        }); 
+
+  }
+
+  public async cargarRutas(){
+
     const dataPost = new CuadreCajaRequesModel(this.sesionLocal.sesionUsuario.IDCOBRADOR, null);
 
     let l = await this.loading.create({
@@ -405,6 +446,9 @@ export class AppComponent implements OnInit, OnDestroy {
 
     try
     {
+
+
+
       this.msg ='Ruta cargada satisfactoriamente';
 
       await l.present();
@@ -508,7 +552,14 @@ export class AppComponent implements OnInit, OnDestroy {
           for (var _i = 0; _i < datapagos.length; _i++) 
           {
             var item = datapagos[_i];
-            this.GetRestBody('/pago/create', item);
+            try
+            {
+              this.GetRestBody('/pago/create', item);
+              //pasa el estado del pago a sincronizado 1
+              this.ofline.actualizarSincronizadoPago(item.IDCONTRATO,item.IDPERSONA);
+            } catch(ex){
+              throw ex;
+            }
           }
       }
     });
@@ -530,7 +581,15 @@ export class AppComponent implements OnInit, OnDestroy {
           gestiondata.Posx = itemnovedad.POSX;
           gestiondata.Posy = itemnovedad.POSY;
           gestiondata.Observaciones = itemnovedad.OBSERVACIONES;
-          this.GetRestBody('/pago/insertNove', gestiondata);
+          
+          try
+          {
+            this.GetRestBody('/pago/insertNove', gestiondata);
+            //pasa el estado de la novedad a sincronizado 1
+            this.ofline.actualizarSincronizadoNovedad(itemnovedad.IDCONTRATO);
+          } catch(ex){
+            throw ex;
+          }
         }
         
       }

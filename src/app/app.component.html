@@ -22,14 +22,14 @@
 
                 
                 <ion-item button="true" *ngIf="statusOffline == false" (click)="offlineCargarRutas()">Cargar Ruta</ion-item>
-                <ion-item  *ngIf="msg == 'Ruta cargada satisfactoriamente' " button="true" (click)="offlineCargarPagosNovedades()">Sincronizar</ion-item>
+                <ion-item  *ngIf="msg == 'Ruta cargada satisfactoriamente' && statusOffline == false" button="true" (click)="offlineCargarPagosNovedades()">Sincronizar</ion-item>
 
                 <ion-item button="true" (click)="cerrarSesion()">Cerrar sesión</ion-item>
                 <ion-item button="true">
                     <ion-input disabled="true" #licenseInput color="danger" value="{{ license }}"> </ion-input>
                 </ion-item>
                 <ion-item button="true">
-                    <ion-input disabled="true" #licenseInput color="danger" value="V. 06/Jul/2021"> </ion-input>
+                    <ion-input disabled="true" #licenseInput color="danger" value="V. 15/Jul/2021"> </ion-input>
                 </ion-item>
               
             </ion-list>

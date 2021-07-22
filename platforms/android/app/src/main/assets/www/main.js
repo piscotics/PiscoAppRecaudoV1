@@ -156,8 +156,12 @@ var DatosPagoComponent = /** @class */ (function () {
          * 1) Se crea la cadena para el cuerpo del pos.
          */
         moment__WEBPACK_IMPORTED_MODULE_10__["locale"]('es');
+        //el dato apelllido retorna el tipo de documento en el api lo especificaron mal
         var tipodoc = this.sesion.sesionLocal.sesionUsuario.APELLIDOS;
+        console.log("el apellido del cobrador es", this.sesion.sesionLocal.sesionUsuario.APELLIDOS);
+        //el dato nombre retorna nombre y apellidos del cobrador se especifico mal en el api
         var cobrador = this.sesion.sesionLocal.sesionUsuario.NOMBRES;
+        console.log("el nombre es", this.sesion.sesionLocal.sesionUsuario.NOMBRES);
         this.loading.create({
             message: 'Obteniendo configuración de impresora'
         }).then(function (loading) {
@@ -190,12 +194,16 @@ var DatosPagoComponent = /** @class */ (function () {
                     printBody += '_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _';
                     printBody += _this.print.PosCommand.LF;
                     printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
-                    printBody += tipodoc + ':';
-                    printBody += _this.print.PosCommand.LF;
-                    printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
                     if (_this.pago.NumeroDocumento !== undefined) {
-                        printBody += _this.pago.NumeroDocumento;
+                        printBody += tipodoc + ': ' + _this.pago.NumeroDocumento;
+                        printBody += _this.print.PosCommand.LF;
+                        printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
                     }
+                    /*  }else{
+                       printBody += tipodoc + ': ' ;
+                       printBody += this.print.PosCommand.LF;
+                       printBody += this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
+                     } */
                     printBody += _this.print.PosCommand.LF;
                     printBody += '_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _';
                     printBody += _this.print.PosCommand.LF;
@@ -207,18 +215,13 @@ var DatosPagoComponent = /** @class */ (function () {
                     printBody += _this.print.PosCommand.LF;
                     if (_this.pago.Departamento !== null && _this.pago.Departamento !== undefined) {
                         printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
-                        printBody += 'Departamento:';
-                        printBody += _this.print.PosCommand.LF;
-                        printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
-                        printBody += _this.pago.Departamento;
+                        printBody += 'Dpto: ' + _this.pago.Departamento;
+                        ;
                         printBody += _this.print.PosCommand.LF;
                     }
                     if (_this.pago.Ciudad !== null && _this.pago.Ciudad !== undefined) {
                         printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
-                        printBody += 'Ciudad:';
-                        printBody += _this.print.PosCommand.LF;
-                        printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
-                        printBody += _this.pago.Ciudad;
+                        printBody += 'Ciudad: ' + _this.pago.Ciudad;
                         printBody += _this.print.PosCommand.LF;
                     }
                     printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
@@ -228,10 +231,7 @@ var DatosPagoComponent = /** @class */ (function () {
                     printBody += _this.pago.Nombre;
                     printBody += _this.print.PosCommand.LF;
                     printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
-                    printBody += 'Cedula:';
-                    printBody += _this.print.PosCommand.LF;
-                    printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
-                    printBody += _this.pago.Cedula;
+                    printBody += 'Cedula: ' + _this.pago.Cedula;
                     printBody += _this.print.PosCommand.LF;
                     printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
                     printBody += _this.print.mapTextColumn('Fecha Pago:', 'Total:');
@@ -288,17 +288,12 @@ var DatosPagoComponent = /** @class */ (function () {
                     }
                     if (_this.pago.VlrDctoPago !== null) {
                         printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
-                        printBody += 'Descuento Contrato:';
-                        printBody += _this.print.PosCommand.LF;
-                        printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
-                        printBody += _this.pago.VlrDctoPago;
+                        printBody += 'Dcto: ' + _this.pago.VlrDctoPago;
+                        ;
                         printBody += _this.print.PosCommand.LF;
                     }
                     printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
-                    printBody += 'Forma De Pago:';
-                    printBody += _this.print.PosCommand.LF;
-                    printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
-                    printBody += _this.pago.FormaPago;
+                    printBody += 'Forma De Pago: ' + _this.pago.FormaPago;
                     printBody += _this.print.PosCommand.LF;
                     if (_this.pago.VlrIva !== null) {
                         printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
@@ -331,10 +326,8 @@ var DatosPagoComponent = /** @class */ (function () {
                         printBody += _this.print.PosCommand.LF;
                     }
                     printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
-                    printBody += 'Usuario:';
-                    printBody += _this.print.PosCommand.LF;
-                    printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
-                    printBody += _this.pago.Usuario;
+                    printBody += 'Usuario: ' + _this.pago.Usuario;
+                    ;
                     printBody += _this.print.PosCommand.LF;
                     printBody += '_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _';
                     printBody += _this.print.PosCommand.LF;
@@ -1220,6 +1213,38 @@ var OfflineService = /** @class */ (function () {
             });
         });
     };
+    //si hay pagos sin sincronizar retorna true 
+    OfflineService.prototype.comprobarEstadoPagosNovedad = function () {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
+            var data, ex_2;
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        console.log("ejecuto el metodo cat pagos sincronizados");
+                        return [4 /*yield*/, this.db.executeSql("SELECT * FROM PAGOS WHERE SINCRONIZAR = 0", [])];
+                    case 1:
+                        data = _a.sent();
+                        //let res = await this.db.executeSql("SELECT * FROM PAGOS WHERE SINCRONIZAR = 0")
+                        console.log("pagos sincronizados", data);
+                        if (data.rows.length > 0) {
+                            console.log("cat pagos sincronizados encontro");
+                            return [2 /*return*/, true];
+                        }
+                        else {
+                            console.log("cat pagos sincronizados no encontro");
+                            return [2 /*return*/, false];
+                        }
+                        return [3 /*break*/, 3];
+                    case 2:
+                        ex_2 = _a.sent();
+                        console.log("err pagos sincronizados", ex_2);
+                        return [2 /*return*/, false];
+                    case 3: return [2 /*return*/];
+                }
+            });
+        });
+    };
     OfflineService.prototype.createTablesRutas = function () {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
             var sql;
@@ -1237,7 +1262,7 @@ var OfflineService = /** @class */ (function () {
                             'POSTFECHADODIA SMALLINT, INDICE SMALLINT, CUOTA FLOAT, PENDIENTE SMALLINT, ESTADOCONTRATO TEXT, FECHAR TEXT, ' +
                             'BASEDATOS TEXT, EMPRESA TEXT, NIT TEXT, DIRECCIONCOBRO TEXT, BOXCONTRATANTE TEXT, VALORCARTERA FLOAT, VALORSEGURO FLOAT, ' +
                             // tslint:disable-next-line: max-line-length
-                            'CELULAR TEXT, PAGOHASTA TEXT, DEPTOC TEXT, MPIOC TEXT, BARRIOC TEXT, MOTIVO TEXT, FECHAPROGRAMADA TEXT, CODBARRIO TEXT, COBERTURA TEXT, ULTIMOSPAGOS TEXT, BENEFICIARIOS TEXT, BANDERA INTEGER)';
+                            'CELULAR TEXT, PAGOHASTA TEXT, DEPTOC TEXT, MPIOC TEXT, BARRIOC TEXT, MOTIVO TEXT, FECHAPROGRAMADA TEXT, CODBARRIO TEXT, COBERTURA TEXT, ULTIMOSPAGOS TEXT, BENEFICIARIOS TEXT, BANDERA INTEGER,FECHAAFILIACION TEXT,PLAN TEXT)';
                         return [4 /*yield*/, this.db.executeSql(sql, [])];
                     case 2:
                         _a.sent();
@@ -1265,7 +1290,7 @@ var OfflineService = /** @class */ (function () {
                         return [4 /*yield*/, this.db.executeSql(sql, [])];
                     case 1:
                         _a.sent();
-                        sql = 'CREATE TABLE IF NOT EXISTS PAGOS (ID INTEGER PRIMARY KEY AUTOINCREMENT, IDCONTRATO TEXT, IDPERSONA TEXT, VALOR FLOAT, DESCUENTO FLOAT, CANTIDADCUOTAS FLOAT, MAQUINA TEXT, USUARIO TEXT, OBSERVACIONES TEXT, CUOTAMENSUAL FLOAT, ESTADO TEXT, FORMAPAGO TEXT, FECHAPAGOR TEXT, POSX TEXT, POSY TEXT, TITULAR TEXT)';
+                        sql = 'CREATE TABLE IF NOT EXISTS PAGOS (ID INTEGER PRIMARY KEY AUTOINCREMENT, IDCONTRATO TEXT, IDPERSONA TEXT, VALOR FLOAT, DESCUENTO FLOAT, CANTIDADCUOTAS FLOAT, MAQUINA TEXT, USUARIO TEXT, OBSERVACIONES TEXT, CUOTAMENSUAL FLOAT, ESTADO TEXT, FORMAPAGO TEXT, FECHAPAGOR TEXT, POSX TEXT, POSY TEXT, TITULAR TEXT,  SINCRONIZAR TEXT)';
                         return [4 /*yield*/, this.db.executeSql(sql, [])];
                     case 2:
                         _a.sent();
@@ -1273,7 +1298,7 @@ var OfflineService = /** @class */ (function () {
                         return [4 /*yield*/, this.db.executeSql(sql, [])];
                     case 3:
                         _a.sent();
-                        sql = 'CREATE TABLE IF NOT EXISTS NOVEDAD (ID INTEGER PRIMARY KEY AUTOINCREMENT ,CONTRATO TEXT , FECHA TEXT , NOVEDAD INTEGER, DIAPOST INTEGER, USUARIO TEXT, IDCOBRADOR TEXT, MODULO TEXT, TRANSAC INTEGER, FECHAPROGRAMADA TEXT, POSX TEXT, POSY TEXT, OBSERVACIONES TEXT)';
+                        sql = 'CREATE TABLE IF NOT EXISTS NOVEDAD (ID INTEGER PRIMARY KEY AUTOINCREMENT ,CONTRATO TEXT , FECHA TEXT , NOVEDAD INTEGER, DIAPOST INTEGER, USUARIO TEXT, IDCOBRADOR TEXT, MODULO TEXT, TRANSAC INTEGER, FECHAPROGRAMADA TEXT, POSX TEXT, POSY TEXT, OBSERVACIONES TEXT,  SINCRONIZAR TEXT)';
                         return [4 /*yield*/, this.db.executeSql(sql, [])];
                     case 4:
                         _a.sent();
@@ -1292,7 +1317,7 @@ var OfflineService = /** @class */ (function () {
     };
     OfflineService.prototype.sincronizarRutas = function (data) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var sql, _i, data_1, d, ex_2;
+            var sql, _i, data_1, d, ex_3;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1303,7 +1328,7 @@ var OfflineService = /** @class */ (function () {
                         sql = 'INSERT INTO RUTAS (USUARIO, IDCOBRADOR, IDCONTRATO,CEDULA, TITULAR, DIRECCION , ' +
                             'TELEFONO, CIUDAD, DIACOBRO1, DIACOBRO2, ESTADO, NOVEDAD, POSTFECHADODIA, INDICE, CUOTA, PENDIENTE, ESTADOCONTRATO, FECHAR, ' +
                             'BASEDATOS, EMPRESA, NIT, DIRECCIONCOBRO, BOXCONTRATANTE, VALORCARTERA, VALORSEGURO,' +
-                            'CELULAR, PAGOHASTA, DEPTOC, MPIOC, BARRIOC, MOTIVO, FECHAPROGRAMADA, CODBARRIO, COBERTURA,ULTIMOSPAGOS, BENEFICIARIOS,BANDERA) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?, ?, ?,?)';
+                            'CELULAR, PAGOHASTA, DEPTOC, MPIOC, BARRIOC, MOTIVO, FECHAPROGRAMADA, CODBARRIO, COBERTURA,ULTIMOSPAGOS, BENEFICIARIOS,BANDERA,FECHAAFILIACION,PLAN) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?, ?, ?,?,?,?)';
                         _i = 0, data_1 = data;
                         _a.label = 2;
                     case 2:
@@ -1312,7 +1337,7 @@ var OfflineService = /** @class */ (function () {
                         return [4 /*yield*/, this.db.executeSql(sql, [d.USUARIO, d.IDCOBRADOR, d.IDCONTRATO, d.CEDULA, d.TITULAR, d.DIRECCION, d.TELEFONO, d.CIUDAD,
                                 d.DIACOBRO1, d.DIACOBRO2, d.ESTADO, d.NOVEDAD, d.POSTFECHADODIA, d.INDICE, d.CUOTA, d.PENDIENTE, d.ESTADOCONTRATO, d.FECHAR,
                                 d.BASEDATOS, d.EMPRESA, d.NIT, d.DIRECCIONCOBRO, d.BOXCONTRATANTE, d.VALORCARTERA, d.VALORSEGURO, d.CELULAR, d.PAGOHASTA,
-                                d.DEPTOC, d.MPIOC, d.BARRIOC, d.MOTIVO, d.FECHAPROGRAMADA, d.CODBARRIO, d.COBERTURA, d.ULTIMOSPAGOS, d.BENEFICIARIOS, 0])];
+                                d.DEPTOC, d.MPIOC, d.BARRIOC, d.MOTIVO, d.FECHAPROGRAMADA, d.CODBARRIO, d.COBERTURA, d.ULTIMOSPAGOS, d.BENEFICIARIOS, 0, d.FECHAAFILIACION, d.PLAN])];
                     case 3:
                         _a.sent();
                         _a.label = 4;
@@ -1321,22 +1346,23 @@ var OfflineService = /** @class */ (function () {
                         return [3 /*break*/, 2];
                     case 5: return [3 /*break*/, 7];
                     case 6:
-                        ex_2 = _a.sent();
-                        throw ex_2;
+                        ex_3 = _a.sent();
+                        throw ex_3;
                     case 7: return [2 /*return*/];
                 }
             });
         });
     };
-    OfflineService.prototype.getConsultarRutas = function (fechar, idcobrador, estado) {
+    OfflineService.prototype.getConsultarPagos = function (NroPago) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var data, todos, i, ex_3;
+            var data, todos, i, ex_4;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
-                        console.log("los datos que se envian son", fechar, idcobrador, estado);
-                        return [4 /*yield*/, this.db.executeSql("SELECT IDCONTRATO,CEDULA, TITULAR, PAGOHASTA, DIRECCION, TELEFONO, ESTADO FROM RUTAS WHERE FECHAR = ? AND IDCOBRADOR = ? AND ESTADO = ? ", [fechar + "T00:00:00", idcobrador, estado])];
+                        console.log("los datos que se envian son", NroPago);
+                        data = void 0;
+                        return [4 /*yield*/, this.db.executeSql("SELECT IDCONTRATO, IDPERSONA, VALOR, DESCUENTO, CANTIDADCUOTAS, MAQUINA, USUARIO, OBSERVACIONES, CUOTAMENSUAL, ESTADO, FORMAPAGO, FECHAPAGOR, POSX, POSY, TITULAR, SINCRONIZAR FROM PAGOS R  WHERE  R.ID = ? ", [NroPago])];
                     case 1:
                         data = _a.sent();
                         console.log("la consulta a ejecutar es ", data);
@@ -1352,16 +1378,63 @@ var OfflineService = /** @class */ (function () {
                         }
                         return [3 /*break*/, 3];
                     case 2:
-                        ex_3 = _a.sent();
-                        throw ex_3;
+                        ex_4 = _a.sent();
+                        throw ex_4;
                     case 3: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    OfflineService.prototype.getConsultarRutas = function (fechar, idcobrador, estado) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
+            var data, todos, i, ex_5;
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 7, , 8]);
+                        console.log("los datos que se envian son", fechar, idcobrador, estado);
+                        data = void 0;
+                        if (!(estado == "Sn")) return [3 /*break*/, 2];
+                        return [4 /*yield*/, this.db.executeSql("SELECT R.IDCONTRATO,R.CEDULA, R.TITULAR, R.PAGOHASTA, R.DIRECCION, R.TELEFONO, R.ESTADO FROM RUTAS R  WHERE R.FECHAR = ? AND R.IDCOBRADOR = ? AND R.ESTADO = ? ", [fechar + "T00:00:00", idcobrador, estado])];
+                    case 1:
+                        data = _a.sent();
+                        return [3 /*break*/, 6];
+                    case 2:
+                        if (!(estado == "Pago")) return [3 /*break*/, 4];
+                        return [4 /*yield*/, this.db.executeSql("SELECT R.IDCONTRATO,R.CEDULA, R.TITULAR, R.PAGOHASTA, R.DIRECCION, R.TELEFONO, R.ESTADO, P.VALOR FROM RUTAS R LEFT JOIN PAGOS P ON P.IDCONTRATO = R.IDCONTRATO  WHERE R.FECHAR = ? AND R.IDCOBRADOR = ? AND R.ESTADO = ? ", [fechar + "T00:00:00", idcobrador, estado])];
+                    case 3:
+                        data = _a.sent();
+                        return [3 /*break*/, 6];
+                    case 4:
+                        if (!(estado == "Novedad")) return [3 /*break*/, 6];
+                        return [4 /*yield*/, this.db.executeSql("SELECT R.IDCONTRATO,R.CEDULA, R.TITULAR, R.PAGOHASTA, R.DIRECCION, R.TELEFONO, R.ESTADO,  T.NOVEDAD NOVEDADES, N.OBSERVACIONES  FROM RUTAS R LEFT JOIN NOVEDAD N ON R.IDCONTRATO = N.CONTRATO INNER JOIN TIPONOVEDAD T ON T.Idnovedad = N.NOVEDAD WHERE R.FECHAR = ? AND R.IDCOBRADOR = ? AND R.ESTADO = ? ", [fechar + "T00:00:00", idcobrador, estado])];
+                    case 5:
+                        data = _a.sent();
+                        _a.label = 6;
+                    case 6:
+                        console.log("la consulta a ejecutar es ", data);
+                        if (data.rows.length > 0) {
+                            todos = [];
+                            for (i = 0; i < data.rows.length; i++) {
+                                todos.push(data.rows.item(i));
+                            }
+                            return [2 /*return*/, todos];
+                        }
+                        else {
+                            return [2 /*return*/, []];
+                        }
+                        return [3 /*break*/, 8];
+                    case 7:
+                        ex_5 = _a.sent();
+                        throw ex_5;
+                    case 8: return [2 /*return*/];
                 }
             });
         });
     };
     OfflineService.prototype.sincronizarLicencias = function (data) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var sql, _i, data_2, d, ex_4;
+            var sql, _i, data_2, d, ex_6;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1384,8 +1457,8 @@ var OfflineService = /** @class */ (function () {
                         return [3 /*break*/, 2];
                     case 5: return [3 /*break*/, 7];
                     case 6:
-                        ex_4 = _a.sent();
-                        throw ex_4;
+                        ex_6 = _a.sent();
+                        throw ex_6;
                     case 7: return [2 /*return*/];
                 }
             });
@@ -1393,7 +1466,7 @@ var OfflineService = /** @class */ (function () {
     };
     OfflineService.prototype.sincronizarUsuarios = function (data) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var sql, _i, data_3, d, ex_5;
+            var sql, _i, data_3, d, ex_7;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1416,8 +1489,8 @@ var OfflineService = /** @class */ (function () {
                         return [3 /*break*/, 2];
                     case 5: return [3 /*break*/, 7];
                     case 6:
-                        ex_5 = _a.sent();
-                        throw ex_5;
+                        ex_7 = _a.sent();
+                        throw ex_7;
                     case 7: return [2 /*return*/];
                 }
             });
@@ -1425,7 +1498,7 @@ var OfflineService = /** @class */ (function () {
     };
     OfflineService.prototype.sincronizarPagos = function (data) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var sql, _i, data_4, d, ex_6;
+            var sql, _i, data_4, d, ex_8;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1448,8 +1521,8 @@ var OfflineService = /** @class */ (function () {
                         return [3 /*break*/, 2];
                     case 5: return [3 /*break*/, 7];
                     case 6:
-                        ex_6 = _a.sent();
-                        throw ex_6;
+                        ex_8 = _a.sent();
+                        throw ex_8;
                     case 7: return [2 /*return*/];
                 }
             });
@@ -1457,14 +1530,14 @@ var OfflineService = /** @class */ (function () {
     };
     OfflineService.prototype.guardarPagosLocal = function (d) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var id_1, sql, data, ex_7, ex_8;
+            var id_1, sql, data, ex_9, ex_10;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 6, , 7]);
                         id_1 = 0;
-                        sql = 'INSERT INTO PAGOS (IDCONTRATO, IDPERSONA, VALOR, DESCUENTO, CANTIDADCUOTAS, MAQUINA, USUARIO, OBSERVACIONES, CUOTAMENSUAL, ESTADO, FORMAPAGO, FECHAPAGOR, POSX, POSY, TITULAR) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
-                        return [4 /*yield*/, this.db.executeSql(sql, [d.IDCONTRATO, d.IDPERSONA, d.VALOR, d.DESCUENTO, d.CANTIDADCUOTAS, d.MAQUINA, d.USUARIO, d.OBSERVACIONES, d.CUOTAMENSUAL, d.ESTADO, d.FORMAPAGO, new Date(d.FECHAPAGOR).toDateString(), d.POSX, d.POSY, d.titular]).then(function (row) {
+                        sql = 'INSERT INTO PAGOS (IDCONTRATO, IDPERSONA, VALOR, DESCUENTO, CANTIDADCUOTAS, MAQUINA, USUARIO, OBSERVACIONES, CUOTAMENSUAL, ESTADO, FORMAPAGO, FECHAPAGOR, POSX, POSY, TITULAR, SINCRONIZAR) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
+                        return [4 /*yield*/, this.db.executeSql(sql, [d.IDCONTRATO, d.IDPERSONA, d.VALOR, d.DESCUENTO, d.CANTIDADCUOTAS, d.MAQUINA, d.USUARIO, d.OBSERVACIONES, d.CUOTAMENSUAL, d.ESTADO, d.FORMAPAGO, new Date(d.FECHAPAGOR).toDateString(), d.POSX, d.POSY, d.titular, 0]).then(function (row) {
                                 id_1 = row.insertId.toString();
                             })];
                     case 1:
@@ -1477,51 +1550,93 @@ var OfflineService = /** @class */ (function () {
                         data = _a.sent();
                         return [3 /*break*/, 5];
                     case 4:
-                        ex_7 = _a.sent();
-                        throw ex_7;
+                        ex_9 = _a.sent();
+                        throw ex_9;
                     case 5: return [2 /*return*/, id_1];
                     case 6:
-                        ex_8 = _a.sent();
-                        throw ex_8;
+                        ex_10 = _a.sent();
+                        throw ex_10;
                     case 7: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    OfflineService.prototype.actualizarSincronizadoPago = function (IDCONTRATO, IDPERSONA) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
+            var data, ex_11;
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        return [4 /*yield*/, this.db.executeSql('UPDATE PAGOS SET SINCRONIZAR = 1  WHERE IDCONTRATO = ? AND IDPERSONA = ?', [IDCONTRATO, IDPERSONA])];
+                    case 1:
+                        data = _a.sent();
+                        return [3 /*break*/, 3];
+                    case 2:
+                        ex_11 = _a.sent();
+                        throw ex_11;
+                    case 3: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    OfflineService.prototype.actualizarSincronizadoNovedad = function (IDCONTRATO) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
+            var data, ex_12;
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        return [4 /*yield*/, this.db.executeSql('UPDATE NOVEDAD SET SINCRONIZAR = 1  WHERE CONTRATO = ? AND IDPERSONA = ?', [IDCONTRATO])];
+                    case 1:
+                        data = _a.sent();
+                        return [3 /*break*/, 3];
+                    case 2:
+                        ex_12 = _a.sent();
+                        throw ex_12;
+                    case 3: return [2 /*return*/];
                 }
             });
         });
     };
     OfflineService.prototype.guardarNovedadLocal = function (d) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var sql, ex_9, data, ex_10;
+            var sql, data, ex_13, ex_14;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        _a.trys.push([0, 2, , 3]);
-                        sql = 'INSERT INTO NOVEDAD(CONTRATO, NOVEDAD, DIAPOST, USUARIO, IDCOBRADOR, MODULO, TRANSAC, FECHAPROGRAMADA, POSX, POSY,OBSERVACIONES,  FECHA) VALUES(?,?,?,?,?,?,?,?,?,?,?, ?)';
+                        _a.trys.push([0, 6, , 7]);
+                        console.log("va a guardar la novedad local");
+                        sql = 'INSERT INTO NOVEDAD(CONTRATO, NOVEDAD, DIAPOST, USUARIO, IDCOBRADOR, MODULO, TRANSAC, FECHAPROGRAMADA, POSX, POSY,OBSERVACIONES,  FECHA, SINCRONIZAR) VALUES(?,?,?,?,?,?,?,?,?,?,?, ?,?)';
                         // tslint:disable-next-line: max-line-length
-                        return [4 /*yield*/, this.db.executeSql(sql, [d.Contrato, d.Novedad, d.Diapos, d.Usuario, d.IdCobrador, d.Modulo, d.Transac, d.Fechaprogramada, d.Posx, d.Posy, d.Observaciones, new Date().toDateString()])];
+                        return [4 /*yield*/, this.db.executeSql(sql, [d.Contrato, d.Novedad, d.Diapos, d.Usuario, d.IdCobrador, d.Modulo, d.Transac, d.Fechaprogramada, d.Posx, d.Posy, d.Observaciones, new Date().toDateString(), 0])];
                     case 1:
                         // tslint:disable-next-line: max-line-length
                         _a.sent();
-                        return [3 /*break*/, 3];
+                        _a.label = 2;
                     case 2:
-                        ex_9 = _a.sent();
-                        throw ex_9;
+                        _a.trys.push([2, 4, , 5]);
+                        console.log("va a cambiar la ruta a novedad", d.Contrato);
+                        return [4 /*yield*/, this.db.executeSql('UPDATE RUTAS SET  ESTADO = ?  WHERE IDCONTRATO = ? ', ['Novedad', d.Contrato])];
                     case 3:
-                        _a.trys.push([3, 5, , 6]);
-                        return [4 /*yield*/, this.db.executeSql('UPDATE RUTAS SET  ESTADO = ?  WHERE IDCONTRATO = ? AND CEDULA = ?', ['Novedad', d.IDCONTRATO, d.IDPERSONA])];
-                    case 4:
                         data = _a.sent();
-                        return [3 /*break*/, 6];
-                    case 5:
-                        ex_10 = _a.sent();
-                        throw ex_10;
-                    case 6: return [2 /*return*/];
+                        return [3 /*break*/, 5];
+                    case 4:
+                        ex_13 = _a.sent();
+                        console.log("error estado ruta novedad");
+                        throw ex_13;
+                    case 5: return [3 /*break*/, 7];
+                    case 6:
+                        ex_14 = _a.sent();
+                        throw ex_14;
+                    case 7: return [2 /*return*/];
                 }
             });
         });
     };
     OfflineService.prototype.sincronizarNovedades = function (data) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var sql, _i, data_5, d, ex_11;
+            var sql, _i, data_5, d, ex_15;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1544,8 +1659,8 @@ var OfflineService = /** @class */ (function () {
                         return [3 /*break*/, 2];
                     case 5: return [3 /*break*/, 7];
                     case 6:
-                        ex_11 = _a.sent();
-                        throw ex_11;
+                        ex_15 = _a.sent();
+                        throw ex_15;
                     case 7: return [2 /*return*/];
                 }
             });
@@ -1553,7 +1668,7 @@ var OfflineService = /** @class */ (function () {
     };
     OfflineService.prototype.sincronizarEmpresas = function (d) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var sql, ex_12;
+            var sql, ex_16;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1567,8 +1682,8 @@ var OfflineService = /** @class */ (function () {
                         _a.sent();
                         return [3 /*break*/, 4];
                     case 3:
-                        ex_12 = _a.sent();
-                        throw ex_12;
+                        ex_16 = _a.sent();
+                        throw ex_16;
                     case 4: return [2 /*return*/];
                 }
             });
@@ -1576,7 +1691,7 @@ var OfflineService = /** @class */ (function () {
     };
     OfflineService.prototype.sincronizarFormaPago = function (data) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var sql, _i, data_6, d, ex_13;
+            var sql, _i, data_6, d, ex_17;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1599,8 +1714,8 @@ var OfflineService = /** @class */ (function () {
                         return [3 /*break*/, 2];
                     case 5: return [3 /*break*/, 7];
                     case 6:
-                        ex_13 = _a.sent();
-                        throw ex_13;
+                        ex_17 = _a.sent();
+                        throw ex_17;
                     case 7: return [2 /*return*/];
                 }
             });
@@ -1608,7 +1723,7 @@ var OfflineService = /** @class */ (function () {
     };
     OfflineService.prototype.SincronizarListaNovedades = function (data) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var sql, _i, data_7, d, ex_14;
+            var sql, _i, data_7, d, ex_18;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1631,8 +1746,8 @@ var OfflineService = /** @class */ (function () {
                         return [3 /*break*/, 2];
                     case 5: return [3 /*break*/, 7];
                     case 6:
-                        ex_14 = _a.sent();
-                        throw ex_14;
+                        ex_18 = _a.sent();
+                        throw ex_18;
                     case 7: return [2 /*return*/];
                 }
             });
@@ -1640,7 +1755,7 @@ var OfflineService = /** @class */ (function () {
     };
     OfflineService.prototype.loginOffline = function (usuario, contrasena) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var res, data, ex_15;
+            var res, data, ex_19;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1657,8 +1772,8 @@ var OfflineService = /** @class */ (function () {
                         }
                         return [3 /*break*/, 3];
                     case 2:
-                        ex_15 = _a.sent();
-                        throw ex_15;
+                        ex_19 = _a.sent();
+                        throw ex_19;
                     case 3: return [2 /*return*/];
                 }
             });
@@ -1666,7 +1781,7 @@ var OfflineService = /** @class */ (function () {
     };
     OfflineService.prototype.getInfoEmpresa = function () {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var data, ex_16;
+            var data, ex_20;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1682,8 +1797,8 @@ var OfflineService = /** @class */ (function () {
                         }
                         return [3 /*break*/, 3];
                     case 2:
-                        ex_16 = _a.sent();
-                        throw ex_16;
+                        ex_20 = _a.sent();
+                        throw ex_20;
                     case 3: return [2 /*return*/];
                 }
             });
@@ -1691,7 +1806,7 @@ var OfflineService = /** @class */ (function () {
     };
     OfflineService.prototype.getPagoHasta = function (contrato) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var data, ex_17;
+            var data, ex_21;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1704,8 +1819,8 @@ var OfflineService = /** @class */ (function () {
                         }
                         return [3 /*break*/, 3];
                     case 2:
-                        ex_17 = _a.sent();
-                        throw ex_17;
+                        ex_21 = _a.sent();
+                        throw ex_21;
                     case 3: return [2 /*return*/];
                 }
             });
@@ -1713,7 +1828,7 @@ var OfflineService = /** @class */ (function () {
     };
     OfflineService.prototype.updatePagoHasta = function (Pagohasta, contrato) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var data, ex_18;
+            var data, ex_22;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1723,8 +1838,8 @@ var OfflineService = /** @class */ (function () {
                         data = _a.sent();
                         return [3 /*break*/, 3];
                     case 2:
-                        ex_18 = _a.sent();
-                        throw ex_18;
+                        ex_22 = _a.sent();
+                        throw ex_22;
                     case 3: return [2 /*return*/];
                 }
             });
@@ -1732,7 +1847,7 @@ var OfflineService = /** @class */ (function () {
     };
     OfflineService.prototype.getInfoContrato = function (contrato) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var data, ex_19;
+            var data, ex_23;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1748,116 +1863,6 @@ var OfflineService = /** @class */ (function () {
                         }
                         return [3 /*break*/, 3];
                     case 2:
-                        ex_19 = _a.sent();
-                        throw ex_19;
-                    case 3: return [2 /*return*/];
-                }
-            });
-        });
-    };
-    OfflineService.prototype.getInfoCedula = function (cedula) {
-        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var data, todos, i, ex_20;
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, this.db.executeSql("SELECT * FROM RUTAS WHERE CEDULA = ? ", [cedula])];
-                    case 1:
-                        data = _a.sent();
-                        if (data.rows.length > 0) {
-                            todos = [];
-                            for (i = 0; i < data.rows.length; i++) {
-                                todos.push(data.rows.item(i));
-                            }
-                            return [2 /*return*/, todos];
-                        }
-                        else {
-                            return [2 /*return*/, []];
-                        }
-                        return [3 /*break*/, 3];
-                    case 2:
-                        ex_20 = _a.sent();
-                        throw ex_20;
-                    case 3: return [2 /*return*/];
-                }
-            });
-        });
-    };
-    OfflineService.prototype.getBeneficiarios = function (contrato) {
-        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var data, bene, ex_21;
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, this.db.executeSql("SELECT BENEFICIARIOS FROM RUTAS WHERE IDCONTRATO = ? ", [contrato])];
-                    case 1:
-                        data = _a.sent();
-                        if (data.rows.length > 0) {
-                            bene = data.rows.item(0).BENEFICIARIOS.toString().split('*');
-                            return [2 /*return*/, bene];
-                        }
-                        else {
-                            return [2 /*return*/, {}];
-                        }
-                        return [3 /*break*/, 3];
-                    case 2:
-                        ex_21 = _a.sent();
-                        throw ex_21;
-                    case 3: return [2 /*return*/];
-                }
-            });
-        });
-    };
-    OfflineService.prototype.getUltimospagos = function (contrato) {
-        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var data, pagos, ex_22;
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, this.db.executeSql("SELECT ULTIMOSPAGOS FROM RUTAS WHERE IDCONTRATO = ? ", [contrato])];
-                    case 1:
-                        data = _a.sent();
-                        if (data.rows.length > 0) {
-                            pagos = data.rows.item(0).ULTIMOSPAGOS.toString().split('*');
-                            return [2 /*return*/, pagos];
-                        }
-                        else {
-                            return [2 /*return*/, {}];
-                        }
-                        return [3 /*break*/, 3];
-                    case 2:
-                        ex_22 = _a.sent();
-                        throw ex_22;
-                    case 3: return [2 /*return*/];
-                }
-            });
-        });
-    };
-    OfflineService.prototype.getFormaPago = function () {
-        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var data, todos, i, ex_23;
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, this.db.executeSql("SELECT * FROM FORMAPAGO ", [])];
-                    case 1:
-                        data = _a.sent();
-                        if (data.rows.length > 0) {
-                            todos = [];
-                            for (i = 0; i < data.rows.length; i++) {
-                                todos.push(data.rows.item(i));
-                            }
-                            return [2 /*return*/, todos];
-                        }
-                        else {
-                            return [2 /*return*/, []];
-                        }
-                        return [3 /*break*/, 3];
-                    case 2:
                         ex_23 = _a.sent();
                         throw ex_23;
                     case 3: return [2 /*return*/];
@@ -1865,14 +1870,14 @@ var OfflineService = /** @class */ (function () {
             });
         });
     };
-    OfflineService.prototype.getNovedades = function () {
+    OfflineService.prototype.getInfoCedula = function (cedula) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
             var data, todos, i, ex_24;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, this.db.executeSql("SELECT * FROM TIPONOVEDAD ", [])];
+                        return [4 /*yield*/, this.db.executeSql("SELECT * FROM RUTAS WHERE CEDULA = ? ", [cedula])];
                     case 1:
                         data = _a.sent();
                         if (data.rows.length > 0) {
@@ -1894,22 +1899,22 @@ var OfflineService = /** @class */ (function () {
             });
         });
     };
-    OfflineService.prototype.getCuadreCaja = function (usuario, fecha) {
+    OfflineService.prototype.getBeneficiarios = function (contrato) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var m, data, ex_25;
+            var data, bene, ex_25;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
-                        m = new Date(fecha);
-                        return [4 /*yield*/, this.db.executeSql("SELECT ? AS FECHA ,COUNT(P.IDCONTRATO) AS CANTIDADPAGOS , IFNULL(SUM(P.VALOR) - SUM(P.DESCUENTO), 0) AS VALORPAGOS , 0 AS CANTIDADANULADOS, (SELECT COUNT(N.CONTRATO ) FROM NOVEDAD N WHERE N.FECHA >= ? ) AS CANTIDADNOVEDADES FROM PAGOS P WHERE P.FECHAPAGOR >= ?   ", [fecha, new Date(fecha).toDateString(), new Date(fecha).toDateString()])];
+                        return [4 /*yield*/, this.db.executeSql("SELECT BENEFICIARIOS FROM RUTAS WHERE IDCONTRATO = ? ", [contrato])];
                     case 1:
                         data = _a.sent();
                         if (data.rows.length > 0) {
-                            return [2 /*return*/, data.rows.item(0)];
+                            bene = data.rows.item(0).BENEFICIARIOS.toString().split('*');
+                            return [2 /*return*/, bene];
                         }
                         else {
-                            return [2 /*return*/, []];
+                            return [2 /*return*/, {}];
                         }
                         return [3 /*break*/, 3];
                     case 2:
@@ -1920,25 +1925,22 @@ var OfflineService = /** @class */ (function () {
             });
         });
     };
-    OfflineService.prototype.getListapago = function () {
+    OfflineService.prototype.getUltimospagos = function (contrato) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var data, todos, i, ex_26;
+            var data, pagos, ex_26;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, this.db.executeSql("SELECT * FROM PAGOS", [])];
+                        return [4 /*yield*/, this.db.executeSql("SELECT ULTIMOSPAGOS FROM RUTAS WHERE IDCONTRATO = ? ", [contrato])];
                     case 1:
                         data = _a.sent();
                         if (data.rows.length > 0) {
-                            todos = [];
-                            for (i = 0; i < data.rows.length; i++) {
-                                todos.push(data.rows.item(i));
-                            }
-                            return [2 /*return*/, todos];
+                            pagos = data.rows.item(0).ULTIMOSPAGOS.toString().split('*');
+                            return [2 /*return*/, pagos];
                         }
                         else {
-                            return [2 /*return*/, []];
+                            return [2 /*return*/, {}];
                         }
                         return [3 /*break*/, 3];
                     case 2:
@@ -1949,14 +1951,14 @@ var OfflineService = /** @class */ (function () {
             });
         });
     };
-    OfflineService.prototype.getListaNovedades = function () {
+    OfflineService.prototype.getFormaPago = function () {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
             var data, todos, i, ex_27;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, this.db.executeSql("SELECT * FROM NOVEDAD", [])];
+                        return [4 /*yield*/, this.db.executeSql("SELECT * FROM FORMAPAGO ", [])];
                     case 1:
                         data = _a.sent();
                         if (data.rows.length > 0) {
@@ -1973,6 +1975,119 @@ var OfflineService = /** @class */ (function () {
                     case 2:
                         ex_27 = _a.sent();
                         throw ex_27;
+                    case 3: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    OfflineService.prototype.getNovedades = function () {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
+            var data, todos, i, ex_28;
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        return [4 /*yield*/, this.db.executeSql("SELECT * FROM TIPONOVEDAD ", [])];
+                    case 1:
+                        data = _a.sent();
+                        if (data.rows.length > 0) {
+                            todos = [];
+                            for (i = 0; i < data.rows.length; i++) {
+                                todos.push(data.rows.item(i));
+                            }
+                            return [2 /*return*/, todos];
+                        }
+                        else {
+                            return [2 /*return*/, []];
+                        }
+                        return [3 /*break*/, 3];
+                    case 2:
+                        ex_28 = _a.sent();
+                        throw ex_28;
+                    case 3: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    OfflineService.prototype.getCuadreCaja = function (usuario, fecha) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
+            var m, data, ex_29;
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        m = new Date(fecha);
+                        return [4 /*yield*/, this.db.executeSql("SELECT ? AS FECHA ,COUNT(P.IDCONTRATO) AS CANTIDADPAGOS , IFNULL(SUM(P.VALOR) - SUM(P.DESCUENTO), 0) AS VALORPAGOS , 0 AS CANTIDADANULADOS, (SELECT COUNT(N.CONTRATO ) FROM NOVEDAD N WHERE N.FECHA >= ? ) AS CANTIDADNOVEDADES FROM PAGOS P WHERE P.FECHAPAGOR >= ?   ", [fecha, new Date(fecha).toDateString(), new Date(fecha).toDateString()])];
+                    case 1:
+                        data = _a.sent();
+                        if (data.rows.length > 0) {
+                            return [2 /*return*/, data.rows.item(0)];
+                        }
+                        else {
+                            return [2 /*return*/, []];
+                        }
+                        return [3 /*break*/, 3];
+                    case 2:
+                        ex_29 = _a.sent();
+                        throw ex_29;
+                    case 3: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    OfflineService.prototype.getListapago = function () {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
+            var data, todos, i, ex_30;
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        return [4 /*yield*/, this.db.executeSql("SELECT * FROM PAGOS WHERE SINCRONIZAR = 0", [])];
+                    case 1:
+                        data = _a.sent();
+                        if (data.rows.length > 0) {
+                            todos = [];
+                            for (i = 0; i < data.rows.length; i++) {
+                                todos.push(data.rows.item(i));
+                            }
+                            return [2 /*return*/, todos];
+                        }
+                        else {
+                            return [2 /*return*/, []];
+                        }
+                        return [3 /*break*/, 3];
+                    case 2:
+                        ex_30 = _a.sent();
+                        throw ex_30;
+                    case 3: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    OfflineService.prototype.getListaNovedades = function () {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
+            var data, todos, i, ex_31;
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        return [4 /*yield*/, this.db.executeSql("SELECT * FROM NOVEDAD WHERE SINCRONIZAR = 0", [])];
+                    case 1:
+                        data = _a.sent();
+                        if (data.rows.length > 0) {
+                            todos = [];
+                            for (i = 0; i < data.rows.length; i++) {
+                                todos.push(data.rows.item(i));
+                            }
+                            return [2 /*return*/, todos];
+                        }
+                        else {
+                            return [2 /*return*/, []];
+                        }
+                        return [3 /*break*/, 3];
+                    case 2:
+                        ex_31 = _a.sent();
+                        throw ex_31;
                     case 3: return [2 /*return*/];
                 }
             });
@@ -2016,7 +2131,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJsb2dpbi5wYWdlLnNjc3MifQ== */");
+/* harmony default export */ __webpack_exports__["default"] = (".grid1 {\n  height: 100%;\n  padding: 10px;\n}\n\n.contaier-login {\n  position: absolute !important;\n  z-index: 2;\n  width: 90%;\n  margin-top: 30px;\n  padding: 0px;\n  background: #FFFFFF;\n  border-radius: 5px;\n  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.75);\n}\n\n.row3 {\n  height: 10%;\n}\n\n.row4 {\n  height: 30%;\n  z-index: 1;\n}\n\nion-button {\n  margin-top: 5px;\n  margin-bottom: 15px;\n}\n\nion-slide {\n  width: 100%;\n  height: 100%;\n  position: absolute !important;\n  top: 0px !important;\n}\n\n.imglogo {\n  display: flex;\n  width: 10%;\n  height: 10%;\n  justify-content: center;\n  align-items: center;\n}\n\nion-content.background {\n  --background: url(/assets/img/background.png) 0 0/100% 100% no-repeat;\n  background-size: cover;\n  top: 0;\n  left: 0;\n  bottom: 0;\n  right: 0;\n  position: absolute !important;\n  z-index: -1;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcLi5cXC4uXFxsb2dpbi5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBRUE7RUFDSSxZQUFBO0VBQ0EsYUFBQTtBQURKOztBQUlFO0VBQ0UsNkJBQUE7RUFDQSxVQUFBO0VBQ0EsVUFBQTtFQUNBLGdCQUFBO0VBQ0EsWUFBQTtFQUNBLG1CQUFBO0VBQ0Esa0JBQUE7RUFHQSxnREFBQTtBQURKOztBQU9FO0VBQ0UsV0FBQTtBQUpKOztBQU1FO0VBQ0UsV0FBQTtFQUNBLFVBQUE7QUFISjs7QUFPRTtFQUNFLGVBQUE7RUFDQSxtQkFBQTtBQUpKOztBQU9FO0VBQ0UsV0FBQTtFQUNBLFlBQUE7RUFDQSw2QkFBQTtFQUNBLG1CQUFBO0FBSko7O0FBT0U7RUFDRSxhQUFBO0VBQ0EsVUFBQTtFQUNBLFdBQUE7RUFDQSx1QkFBQTtFQUNDLG1CQUFBO0FBSkw7O0FBU0U7RUFDRSxxRUFBQTtFQUNBLHNCQUFBO0VBQ0EsTUFBQTtFQUNBLE9BQUE7RUFDQSxTQUFBO0VBQ0EsUUFBQTtFQUNBLDZCQUFBO0VBQ0EsV0FBQTtBQU5KIiwiZmlsZSI6ImxvZ2luLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIlxyXG5cclxuLmdyaWQxIHtcclxuICAgIGhlaWdodDogMTAwJTtcclxuICAgIHBhZGRpbmc6IDEwcHg7XHJcbiAgfVxyXG4gIFxyXG4gIC5jb250YWllci1sb2dpbiB7XHJcbiAgICBwb3NpdGlvbjogYWJzb2x1dGUgIWltcG9ydGFudDtcclxuICAgIHotaW5kZXg6IDI7XHJcbiAgICB3aWR0aDogOTAlO1xyXG4gICAgbWFyZ2luLXRvcDogMzBweDtcclxuICAgIHBhZGRpbmc6IDBweDtcclxuICAgIGJhY2tncm91bmQ6ICNGRkZGRkY7XHJcbiAgICBib3JkZXItcmFkaXVzOiA1cHg7XHJcbiAgICAtd2Via2l0LWJveC1zaGFkb3c6IDBweCAwcHggMTBweCAxcHggcmdiYSgwLCAwLCAwLCAwLjc1KTtcclxuICAgIC1tb3otYm94LXNoYWRvdzogMHB4IDBweCAxMHB4IDFweCByZ2JhKDAsIDAsIDAsIDAuNzUpO1xyXG4gICAgYm94LXNoYWRvdzogMHB4IDBweCAxMHB4IDFweCByZ2JhKDAsIDAsIDAsIDAuNzUpO1xyXG4gICBcclxuICB9XHJcbiAgXHJcbiAgXHJcbiAgXHJcbiAgLnJvdzMge1xyXG4gICAgaGVpZ2h0OiAxMCU7XHJcbiAgfVxyXG4gIC5yb3c0IHtcclxuICAgIGhlaWdodDogMzAlO1xyXG4gICAgei1pbmRleDogMTtcclxuICB9XHJcbiAgXHJcbiAgXHJcbiAgaW9uLWJ1dHRvbiB7XHJcbiAgICBtYXJnaW4tdG9wOiA1cHg7XHJcbiAgICBtYXJnaW4tYm90dG9tOiAxNXB4O1xyXG4gIH1cclxuICBcclxuICBpb24tc2xpZGUge1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbiAgICBoZWlnaHQ6IDEwMCU7XHJcbiAgICBwb3NpdGlvbjogYWJzb2x1dGUgIWltcG9ydGFudDtcclxuICAgIHRvcDogMHB4ICFpbXBvcnRhbnQ7XHJcbiAgfVxyXG4gIFxyXG4gIC5pbWdsb2dvIHtcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICB3aWR0aDogMTAlO1xyXG4gICAgaGVpZ2h0OiAxMCU7XHJcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICAgICBhbGlnbi1pdGVtczogY2VudGVyOyAvL3RoaXMgb25seSBpZiB5b3Ugd2FudCB0byB2ZXJ0aWNhbCBhbGlnbiBpdCB0byB0aGUgY2VudGVyIHRvb1xyXG4gICAgIFxyXG4gIH1cclxuICBcclxuICAvLyBzdHlsZSBmb3IgYXV0aCBwYWdlc1xyXG4gIGlvbi1jb250ZW50LmJhY2tncm91bmR7XHJcbiAgICAtLWJhY2tncm91bmQ6IHVybCgvYXNzZXRzL2ltZy9iYWNrZ3JvdW5kLnBuZykgMCAwLzEwMCUgMTAwJSBuby1yZXBlYXQ7XHJcbiAgICBiYWNrZ3JvdW5kLXNpemU6IGNvdmVyO1xyXG4gICAgdG9wOiAwO1xyXG4gICAgbGVmdDogMDtcclxuICAgIGJvdHRvbTogMDtcclxuICAgIHJpZ2h0OiAwO1xyXG4gICAgcG9zaXRpb246IGFic29sdXRlICFpbXBvcnRhbnQ7XHJcbiAgICB6LWluZGV4OiAtMTtcclxuICB9XHJcbiAgXHJcbiAgICJdfQ== */");
 
 /***/ }),
 
@@ -3541,6 +3656,47 @@ var AppComponent = /** @class */ (function () {
     //metodo para sincronizar las rutas de la bd 
     AppComponent.prototype.cargarRuta = function () {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
+            var _this = this;
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
+                //se pregunta si desea cargar la ruta nuevamente ya que hay pagos sin sincronizar 
+                console.log("llego a cargar ruta nuevo metodo");
+                this.ofline.createDatabase().then(function (res) {
+                    _this.ofline.comprobarEstadoPagosNovedad().then(function (result) {
+                        _this.sincronizaPagosNovedad = result;
+                        console.log("llego a cargar ruta nuevo metodo resultado ", result);
+                        if (_this.sincronizaPagosNovedad == true) {
+                            _this.alertController.create({
+                                header: 'Nueva Ruta',
+                                message: 'ya cuenta con una ruta cargada con datos no sincronizados, al continuar el proceso se elimina la ruta actual , ¿Desea continuar?',
+                                buttons: [
+                                    {
+                                        text: 'Si', role: 'accept',
+                                        handler: function () {
+                                            _this.cargarRutas();
+                                        }
+                                    },
+                                    {
+                                        text: 'No', role: 'cancel',
+                                        handler: function () {
+                                            _this.alertController.dismiss();
+                                        }
+                                    }
+                                ]
+                            }).then(function (a) {
+                                a.present();
+                            });
+                        }
+                        else {
+                            _this.cargarRutas();
+                        }
+                    });
+                });
+                return [2 /*return*/];
+            });
+        });
+    };
+    AppComponent.prototype.cargarRutas = function () {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
             var dataPost, l, data, ex_2;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
@@ -3662,7 +3818,14 @@ var AppComponent = /** @class */ (function () {
                     if (datapagos.length > 0) {
                         for (var _i = 0; _i < datapagos.length; _i++) {
                             var item = datapagos[_i];
-                            _this.GetRestBody('/pago/create', item);
+                            try {
+                                _this.GetRestBody('/pago/create', item);
+                                //pasa el estado del pago a sincronizado 1
+                                _this.ofline.actualizarSincronizadoPago(item.IDCONTRATO, item.IDPERSONA);
+                            }
+                            catch (ex) {
+                                throw ex;
+                            }
                         }
                     }
                 });
@@ -3682,7 +3845,14 @@ var AppComponent = /** @class */ (function () {
                             gestiondata.Posx = itemnovedad.POSX;
                             gestiondata.Posy = itemnovedad.POSY;
                             gestiondata.Observaciones = itemnovedad.OBSERVACIONES;
-                            _this.GetRestBody('/pago/insertNove', gestiondata);
+                            try {
+                                _this.GetRestBody('/pago/insertNove', gestiondata);
+                                //pasa el estado de la novedad a sincronizado 1
+                                _this.ofline.actualizarSincronizadoNovedad(itemnovedad.IDCONTRATO);
+                            }
+                            catch (ex) {
+                                throw ex;
+                            }
                         }
                     }
                 });
@@ -3967,7 +4137,7 @@ var TasksService = /** @class */ (function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<app-header titulo=\"Login\"></app-header>\r\n\r\n\r\n\r\n<ion-content>\r\n  <ion-grid fixed>\r\n    <ion-row>\r\n      <ion-col>\r\n\r\n        <ion-thumbnail class=\"logo-empresa\">\r\n          <ion-img src=\"assets/img/App.png\"></ion-img>\r\n        </ion-thumbnail>\r\n\r\n      </ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"ion-align-items-center\">\r\n      <ion-col size=\"4\">Usuario</ion-col>\r\n      <ion-col size=\"8\">\r\n        <ion-input #userName autofocus=\"true\" placeholder=\"Ejemplo: juanrojas18\" type=\"text\" [value]=\"usuario\"\r\n          (ionChange)=\"usuario = userName.value\"></ion-input>\r\n      </ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"ion-align-items-center\">\r\n      <ion-col size=\"4\">Clave</ion-col>\r\n      <ion-col size=\"8\">\r\n        <ion-input #password type=\"password\" placeholder=\"ingrese la clave\" [value]=\"clave\"\r\n          (ionChange)=\"clave = password.value\"></ion-input>\r\n      </ion-col>\r\n    </ion-row>\r\n    \r\n    <ion-row class=\"ion-margin-top ion-text-center\">\r\n      <ion-col>\r\n        <ion-button color=\"danger\" (click)=\"iniciarSesion()\">\r\n          Ingresar\r\n        </ion-button>\r\n        <ion-button color=\"danger\" (click)=\"irAConfiguracion()\">\r\n          Configuración\r\n        </ion-button>\r\n      </ion-col>\r\n    </ion-row>\r\n    <ion-row>\r\n      <ion-col>\r\n\r\n        <app-logo-empresa></app-logo-empresa>\r\n\r\n      </ion-col>\r\n    </ion-row>\r\n\r\n  </ion-grid>\r\n\r\n</ion-content>");
+/* harmony default export */ __webpack_exports__["default"] = ("\r\n<ion-content padding class=\"background\">\r\n\r\n  <ion-grid class=\"grid1\">\r\n  \r\n    <ion-row class=\"row1\">\r\n      <ion-col >\r\n      \r\n      </ion-col>\r\n  </ion-row>\r\n  \r\n      <ion-row class=\"row2\">\r\n          <ion-col>\r\n  \r\n          </ion-col>\r\n      </ion-row>\r\n  \r\n  </ion-grid>\r\n  \r\n  <ion-slide>\r\n      <div class=\"contaier-login\">\r\n          <ion-grid>\r\n              \r\n              <ion-row>\r\n                \r\n                  <ion-col>\r\n                      <ion-list>\r\n                        <ion-row class=\"row4\">\r\n                          <ion-col class=\"imglogo\">\r\n                            <ion-img src=\"assets/img/App.png\"></ion-img>\r\n                          </ion-col>\r\n                        </ion-row>\r\n  \r\n                          <ion-item>\r\n\r\n                            <ion-label color=\"primary\" position=\"floating\">Usuario</ion-label>\r\n                            <!-- <ion-input autocorrect=\"on\" autofocus=\"on\" clearInput=\"true\" clearOnEdit=\"true\" color=\"primary\" inputmode=\"text\" placeholder=\"Enter your name\" required=\"true\"></ion-input>\r\n                         -->\r\n                              \r\n                              <ion-input #userName autofocus=\"true\" placeholder=\"Ingresa Tu Usuario\" clearInput=\"true\" clearOnEdit=\"true\" color=\"danger\" type=\"text\" [value]=\"usuario\"\r\n                                (ionChange)=\"usuario = userName.value\"></ion-input>\r\n\r\n          \r\n                          </ion-item>\r\n                          <ion-item>\r\n                            <ion-label color=\"primary\" position=\"floating\">Clave</ion-label>\r\n                         \r\n                            \r\n\r\n                            <ion-input  #password type=\"password\" placeholder=\"Ingresa Tu Clave\" clearInput=\"true\" clearOnEdit=\"true\" color=\"danger\" [value]=\"clave\"\r\n                              (ionChange)=\"clave = password.value\"></ion-input>\r\n                        </ion-item>\r\n  \r\n                      </ion-list>\r\n                      \r\n                  </ion-col>\r\n              </ion-row>\r\n              <ion-row>\r\n                  <ion-col>\r\n                    <div id=\"recaptcha-container\"></div>\r\n                      <ion-button style=\"border-radius: 10%;\" color=\"danger\" fill=\"solid\" expand=\"full\" (click)=\"iniciarSesion()\">\r\n                        Ingresar\r\n                      </ion-button>\r\n                  </ion-col>\r\n              </ion-row>\r\n              <ion-row class=\"row3\" >\r\n                <ion-col class=\"img-container\">\r\n                    <ion-label  (click)=\"irAConfiguracion()\" color=\"danger\">\r\n                        <h3>Configuración</h3>\r\n                        \r\n                    </ion-label>\r\n              \r\n                    \r\n                </ion-col>\r\n              </ion-row> \r\n             \r\n          </ion-grid>\r\n          \r\n      </div>\r\n     \r\n    \r\n      \r\n  </ion-slide>\r\n  \r\n</ion-content>\r\n\r\n\r\n");
 
 /***/ }),
 
@@ -3993,7 +4163,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-app>\r\n\r\n    <ion-menu side=\"end\" [menuId]=\"menuPrincipalId\" *ngIf=\"mostrarMenu()\">\r\n        <ion-header>\r\n            <ion-toolbar color=\"danger\">\r\n                <ion-title>Menú</ion-title>\r\n            </ion-toolbar>\r\n        </ion-header>\r\n        <ion-content>\r\n            <ion-list>\r\n                <ion-item button=\"true\" (click)=\"consultarContrato()\">Consultar contrato</ion-item>\r\n                <ion-item button=\"true\" (click)=\"consultarPago()\">Consultar pago</ion-item>\r\n                <ion-item button=\"true\" (click)=\"cuadreCaja()\">Cuadre caja</ion-item>\r\n                <ion-item button=\"true\" (click)=\"consultarRuta()\">Consultar Ruta</ion-item>\r\n                <ion-item button=\"true\" (click)=\"removerLicencia()\">Remover Licencia</ion-item>\r\n                <ion-item button=\"true\" (click)=\"configurarImpresora()\">Configurar impresora</ion-item>\r\n\r\n                <ion-item *ngIf=\"msg == 'Ruta cargada satisfactoriamente' \">\r\n                    <ion-label>Trabajo Fuera de Linea</ion-label>\r\n                    <ion-toggle [(ngModel)]=\"statusOffline\" color=\"primary\" (ionChange)=\"offlineChange()\"></ion-toggle>\r\n                </ion-item>\r\n\r\n                \r\n                <ion-item button=\"true\" *ngIf=\"statusOffline == false\" (click)=\"offlineCargarRutas()\">Cargar Ruta</ion-item>\r\n                <ion-item  *ngIf=\"msg == 'Ruta cargada satisfactoriamente' \" button=\"true\" (click)=\"offlineCargarPagosNovedades()\">Sincronizar</ion-item>\r\n\r\n                <ion-item button=\"true\" (click)=\"cerrarSesion()\">Cerrar sesión</ion-item>\r\n                <ion-item button=\"true\">\r\n                    <ion-input disabled=\"true\" #licenseInput color=\"danger\" value=\"{{ license }}\"> </ion-input>\r\n                </ion-item>\r\n                <ion-item button=\"true\">\r\n                    <ion-input disabled=\"true\" #licenseInput color=\"danger\" value=\"V. 06/Jul/2021\"> </ion-input>\r\n                </ion-item>\r\n              \r\n            </ion-list>\r\n        </ion-content>\r\n    </ion-menu>\r\n\r\n    <ion-router-outlet main></ion-router-outlet>\r\n</ion-app>");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-app>\r\n\r\n    <ion-menu side=\"end\" [menuId]=\"menuPrincipalId\" *ngIf=\"mostrarMenu()\">\r\n        <ion-header>\r\n            <ion-toolbar color=\"danger\">\r\n                <ion-title>Menú</ion-title>\r\n            </ion-toolbar>\r\n        </ion-header>\r\n        <ion-content>\r\n            <ion-list>\r\n                <ion-item button=\"true\" (click)=\"consultarContrato()\">Consultar contrato</ion-item>\r\n                <ion-item button=\"true\" (click)=\"consultarPago()\">Consultar pago</ion-item>\r\n                <ion-item button=\"true\" (click)=\"cuadreCaja()\">Cuadre caja</ion-item>\r\n                <ion-item button=\"true\" (click)=\"consultarRuta()\">Consultar Ruta</ion-item>\r\n                <ion-item button=\"true\" (click)=\"removerLicencia()\">Remover Licencia</ion-item>\r\n                <ion-item button=\"true\" (click)=\"configurarImpresora()\">Configurar impresora</ion-item>\r\n\r\n                <ion-item *ngIf=\"msg == 'Ruta cargada satisfactoriamente' \">\r\n                    <ion-label>Trabajo Fuera de Linea</ion-label>\r\n                    <ion-toggle [(ngModel)]=\"statusOffline\" color=\"primary\" (ionChange)=\"offlineChange()\"></ion-toggle>\r\n                </ion-item>\r\n\r\n                \r\n                <ion-item button=\"true\" *ngIf=\"statusOffline == false\" (click)=\"offlineCargarRutas()\">Cargar Ruta</ion-item>\r\n                <ion-item  *ngIf=\"msg == 'Ruta cargada satisfactoriamente' && statusOffline == false\" button=\"true\" (click)=\"offlineCargarPagosNovedades()\">Sincronizar</ion-item>\r\n\r\n                <ion-item button=\"true\" (click)=\"cerrarSesion()\">Cerrar sesión</ion-item>\r\n                <ion-item button=\"true\">\r\n                    <ion-input disabled=\"true\" #licenseInput color=\"danger\" value=\"{{ license }}\"> </ion-input>\r\n                </ion-item>\r\n                <ion-item button=\"true\">\r\n                    <ion-input disabled=\"true\" #licenseInput color=\"danger\" value=\"V. 15/Jul/2021\"> </ion-input>\r\n                </ion-item>\r\n              \r\n            </ion-list>\r\n        </ion-content>\r\n    </ion-menu>\r\n\r\n    <ion-router-outlet main></ion-router-outlet>\r\n</ion-app>");
 
 /***/ }),
 
@@ -4289,6 +4459,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ConsultaPagoModel", function() { return ConsultaPagoModel; });
 var ConsultaPagoModel = /** @class */ (function () {
     function ConsultaPagoModel() {
+        this.Observaciones = '';
     }
     return ConsultaPagoModel;
 }());
@@ -4868,7 +5039,7 @@ var ModalConfirmarPagoComponent = /** @class */ (function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"ion-padding\">\r\n    <h5 class=\"semi-titulo\">Datos del pago</h5>\r\n</div>\r\n<ion-grid fixed>\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Contrato</ion-col>\r\n        <ion-col size=\"4\">\r\n            <ion-text color=\"danger\">\r\n                <span>{{ pago.Contrato }}</span>\r\n            </ion-text>\r\n        </ion-col>\r\n    </ion-row>\r\n\r\n\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">\r\n            Cuota\r\n        </ion-col>\r\n        <ion-col size=\"8\">\r\n            <ion-text color=\"danger\">\r\n                <span>{{ pago.Cuota | currency:'COP':'symbol-narrow':'4.2-2' }}</span>\r\n            </ion-text>\r\n        </ion-col>\r\n    </ion-row>\r\n\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Cédula</ion-col>\r\n        <ion-col size=\"8\">\r\n            <ion-text color=\"danger\">\r\n                <span>{{ pago.Cedula }}</span>\r\n            </ion-text>\r\n        </ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Nombre</ion-col>\r\n        <ion-col size=\"8\">\r\n            <ion-text color=\"danger\">\r\n                <span>{{ pago.Nombre }}</span>\r\n            </ion-text>\r\n        </ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Fecha Pago</ion-col>\r\n        <ion-col size=\"8\"><span class=\"ion-text-capitalize\">{{ pago.FechaPago | date:'MMMM dd yyyy':'':'es-Co' }}</span>\r\n        </ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Total</ion-col>\r\n        <ion-col size=\"8\">\r\n            <ion-text color=\"danger\">\r\n                <span>{{ pago.Total | currency:'COP':'symbol-narrow':'4.2-2' }}</span>\r\n            </ion-text>\r\n        </ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Forma De Pago</ion-col>\r\n        <ion-col size=\"8\"><span>{{ pago.FormaPago }}</span></ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Pago Hasta</ion-col>\r\n        <ion-col size=\"8\"><span class=\"ion-text-capitalize\">{{ pago.PagoHasta | date:'MMMM dd yyyy':'':'es-Co' }}</span>\r\n        </ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Nro Doc</ion-col>\r\n        <ion-col size=\"8\">\r\n            <ion-text color=\"danger\">\r\n                <span>{{ pago.NumeroDocumento }}</span>\r\n            </ion-text>\r\n        </ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Usuario</ion-col>\r\n        <ion-col size=\"8\"><span>{{ pago.Usuario }}</span></ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Terminal</ion-col>\r\n        <ion-col size=\"8\"><span>{{ pago.Terminal }}</span></ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Observaciones</ion-col>\r\n        <ion-col size=\"8\">\r\n            <ion-textarea readonly rows=\"4\" [value]=\"pago.Observaciones\">\r\n            </ion-textarea>\r\n        </ion-col>\r\n    </ion-row>\r\n    <ion-row>\r\n        <ion-col size=\"12\">\r\n            <ion-button color=\"danger\" expand=\"block\" (click)=\"imprimir()\">\r\n                Imprimir\r\n            </ion-button>\r\n        </ion-col>\r\n    </ion-row>\r\n</ion-grid>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"ion-padding\">\r\n    <h5 class=\"semi-titulo\">Datos del pago</h5>\r\n</div>\r\n<ion-grid fixed>\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Contrato</ion-col>\r\n        <ion-col size=\"4\">\r\n            <ion-text color=\"danger\">\r\n                <span>{{ pago.Contrato }}</span>\r\n            </ion-text>\r\n        </ion-col>\r\n    </ion-row>\r\n\r\n\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">\r\n            Cuota\r\n        </ion-col>\r\n        <ion-col size=\"8\">\r\n            <ion-text color=\"danger\">\r\n                <span>{{ pago.Cuota | currency:'COP':'symbol-narrow':'4.2-2' }}</span>\r\n            </ion-text>\r\n        </ion-col>\r\n    </ion-row>\r\n\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Cédula</ion-col>\r\n        <ion-col size=\"8\">\r\n            <ion-text color=\"danger\">\r\n                <span>{{ pago.Cedula }}</span>\r\n            </ion-text>\r\n        </ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Nombre</ion-col>\r\n        <ion-col size=\"8\">\r\n            <ion-text color=\"danger\">\r\n                <span>{{ pago.Nombre }}</span>\r\n            </ion-text>\r\n        </ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Fecha Pago</ion-col>\r\n        <ion-col size=\"8\"><span class=\"ion-text-capitalize\">{{ pago.FechaPago | date:'MMMM dd yyyy':'':'es-Co' }}</span>\r\n        </ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Total</ion-col>\r\n        <ion-col size=\"8\">\r\n            <ion-text color=\"danger\">\r\n                <span>{{ pago.Total | currency:'COP':'symbol-narrow':'4.2-2' }}</span>\r\n            </ion-text>\r\n        </ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Forma De Pago</ion-col>\r\n        <ion-col size=\"8\"><span>{{ pago.FormaPago }}</span></ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Pago Hasta</ion-col>\r\n        <ion-col size=\"8\"><span class=\"ion-text-capitalize\">{{ pago.PagoHasta | date:'MMMM dd yyyy':'':'es-Co' }}</span>\r\n        </ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Nro Doc</ion-col>\r\n        <ion-col size=\"8\">\r\n            <ion-text color=\"danger\">\r\n                <span>{{ pago.NumeroDocumento }}</span>\r\n            </ion-text>\r\n        </ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Usuario</ion-col>\r\n        <ion-col size=\"8\"><span>{{ pago.Usuario }}</span></ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Terminal</ion-col>\r\n        <ion-col size=\"8\"><span>{{ pago.Terminal }}</span></ion-col>\r\n    </ion-row>\r\n\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Sincronizado</ion-col>\r\n        <ion-col size=\"8\"><span>{{ pago.Sincronizar }}</span></ion-col>\r\n    </ion-row>\r\n\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Observaciones</ion-col>\r\n        <ion-col size=\"8\">\r\n            <ion-textarea readonly rows=\"4\" [value]=\"pago.Observaciones\">\r\n            </ion-textarea>\r\n        </ion-col>\r\n    </ion-row>\r\n    <ion-row>\r\n        <ion-col size=\"12\">\r\n            <ion-button color=\"danger\" expand=\"block\" (click)=\"imprimir()\">\r\n                Imprimir\r\n            </ion-button>\r\n        </ion-col>\r\n    </ion-row>\r\n</ion-grid>");
 
 /***/ }),
 

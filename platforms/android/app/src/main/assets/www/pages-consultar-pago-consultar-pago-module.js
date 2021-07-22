@@ -100,6 +100,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _models_config_model__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../models/config.model */ "oRqo");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ionic/angular */ "P4DM");
 /* harmony import */ var _services_configuracion_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../services/configuracion.service */ "Hpqp");
+/* harmony import */ var src_app_services_offline_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/services/offline.service */ "DFAf");
+
 
 
 
@@ -111,15 +113,16 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var ConsultarPagoPage = /** @class */ (function () {
-    function ConsultarPagoPage(http, alert, configuracionService) {
+    function ConsultarPagoPage(http, alert, configuracionService, offline) {
         this.http = http;
         this.alert = alert;
         this.configuracionService = configuracionService;
+        this.offline = offline;
         this.pago = null;
         this.config = new _models_config_model__WEBPACK_IMPORTED_MODULE_7__["ConfigModel"]();
     }
     ConsultarPagoPage.prototype.ngOnInit = function () {
-        this.NroPago = '';
+        this.NroPago = "";
         var pago = new src_app_models_consulta_pago_model__WEBPACK_IMPORTED_MODULE_4__["ConsultaPagoModel"]();
         // pago.Contrato = 'IND485488';
         // pago.Cuota = 18560;
@@ -136,80 +139,122 @@ var ConsultarPagoPage = /** @class */ (function () {
     };
     ConsultarPagoPage.prototype.consultar = function () {
         var _this = this;
-        var configHelper = new _helpers_config_helper__WEBPACK_IMPORTED_MODULE_6__["ConfigHelper"](this.configuracionService.config);
-        var httpOptions = {
-            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpHeaders"]({
-                'Content-Type': 'application/json'
-            })
-        };
-        this.http.post(configHelper.getApiUrl() + "/pago/searchpago?NroPago=" + this.NroPago, {}, httpOptions).subscribe(function (res) {
-            _this.pago.Contrato = res.Contrato;
-            _this.pago.Cuota = res.Cuota;
-            _this.pago.Cedula = res.Cedula;
-            _this.pago.Nombre = res.Nombre;
-            _this.pago.FechaPago = res.FechaPago;
-            _this.pago.Total = res.Total;
-            if (res.PagoHasta !== null) {
-                _this.pago.PagoHasta = res.PagoHasta;
-                console.log('el pago consulta hasta es ' + _this.pago.PagoHasta);
-            }
-            else {
-                _this.pago.PagoHasta = null;
-            }
-            if (res.PagoDesde !== null) {
-                _this.pago.PagoDesde = res.PagoDesde;
-            }
-            else {
-                _this.pago.PagoDesde = null;
-            }
-            _this.pago.NumeroDocumento = res.NumeroDocumento;
-            _this.pago.Usuario = res.Usuario;
-            _this.pago.Terminal = res.Terminal;
-            _this.pago.Observaciones = res.Observaciones;
-            _this.pago.Concepto = res.Concepto;
-            if (res.PVisita !== null) {
-                _this.pago.PVisita = res.PVisita;
-            }
-            else {
-                _this.pago.PVisita = null;
-            }
-            _this.pago.Anulado = res.Anulado;
-            _this.pago.ValorLetras = res.Valorenletras;
-            _this.pago.Departamento = res.Departamento;
-            _this.pago.Ciudad = res.Municipio;
-            _this.pago.Vdesde = res.Vdesde;
-            _this.pago.VlrCto = res.VlrCto;
-            _this.pago.Vhasta = res.Vhasta;
-            _this.pago.VlrDctoPago = res.VlrDctoPago;
-            _this.pago.VlrIva = res.VlrIva;
-            _this.pago.VlrSaldo = res.VlrSaldo;
-            _this.pago.FormaPago = res.FormaPago;
-            console.log("la forma de pago es " + _this.pago.FormaPago);
-        }, function (err) {
-            _this.alert.create({
-                header: 'Error',
-                message: err.message,
-                buttons: ['Ok']
-            }).then(function (obj) {
-                obj.present();
+        this.statusOffline = localStorage.getItem("offlineMode") === "true" ? true : false;
+        if (this.statusOffline) {
+            this.offline.createDatabase().then(function (res) {
+                _this.offline.getConsultarPagos(_this.NroPago).then(function (res) {
+                    _this.pago.Contrato = res.IDCONTRATO;
+                    _this.pago.Cuota = res.CUOTAMENSUAL;
+                    _this.pago.Cedula = res.IDPERSONA;
+                    _this.pago.Nombre = res.TITULAR;
+                    _this.pago.FechaPago = res.FECHAPAGOR;
+                    _this.pago.Total = res.VALOR;
+                    _this.pago.Sincronizar = res.SINCRONIZAR;
+                    _this.pago.PagoHasta = null;
+                    _this.pago.PagoDesde = null;
+                    _this.pago.NumeroDocumento = res.NumeroDocumento;
+                    _this.pago.Usuario = res.USUARIO;
+                    _this.pago.Terminal = res.MAQUINA;
+                    _this.pago.Observaciones = res.OBSERVACIONES;
+                    _this.pago.Concepto = '';
+                    _this.pago.PVisita = null;
+                    _this.pago.Anulado = res.Anulado;
+                    _this.pago.ValorLetras = '';
+                    _this.pago.Departamento = '';
+                    _this.pago.Ciudad = '';
+                    _this.pago.Vdesde = '';
+                    _this.pago.VlrCto = 0;
+                    _this.pago.Vhasta = '';
+                    _this.pago.VlrDctoPago = res.DESCUENTO;
+                    _this.pago.VlrIva = 0;
+                    _this.pago.VlrSaldo = 0;
+                    _this.pago.FormaPago = res.FORMAPAGO;
+                    console.log("la forma de pago es " + _this.pago.FormaPago);
+                });
             });
-        });
+        }
+        else {
+            var configHelper = new _helpers_config_helper__WEBPACK_IMPORTED_MODULE_6__["ConfigHelper"](this.configuracionService.config);
+            var httpOptions = {
+                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpHeaders"]({
+                    "Content-Type": "application/json",
+                }),
+            };
+            this.http
+                .post(configHelper.getApiUrl() + "/pago/searchpago?NroPago=" + this.NroPago, {}, httpOptions)
+                .subscribe(function (res) {
+                _this.pago.Contrato = res.Contrato;
+                _this.pago.Cuota = res.Cuota;
+                _this.pago.Cedula = res.Cedula;
+                _this.pago.Nombre = res.Nombre;
+                _this.pago.FechaPago = res.FechaPago;
+                _this.pago.Total = res.Total;
+                if (res.PagoHasta !== null) {
+                    _this.pago.PagoHasta = res.PagoHasta;
+                    console.log("el pago consulta hasta es " + _this.pago.PagoHasta);
+                }
+                else {
+                    _this.pago.PagoHasta = null;
+                }
+                if (res.PagoDesde !== null) {
+                    _this.pago.PagoDesde = res.PagoDesde;
+                }
+                else {
+                    _this.pago.PagoDesde = null;
+                }
+                _this.pago.NumeroDocumento = res.NumeroDocumento;
+                _this.pago.Sincronizar = 1;
+                _this.pago.Usuario = res.Usuario;
+                _this.pago.Terminal = res.Terminal;
+                _this.pago.Observaciones = res.Observaciones;
+                _this.pago.Concepto = res.Concepto;
+                if (res.PVisita !== null) {
+                    _this.pago.PVisita = res.PVisita;
+                }
+                else {
+                    _this.pago.PVisita = null;
+                }
+                _this.pago.Anulado = res.Anulado;
+                _this.pago.ValorLetras = res.Valorenletras;
+                _this.pago.Departamento = res.Departamento;
+                _this.pago.Ciudad = res.Municipio;
+                _this.pago.Vdesde = res.Vdesde;
+                _this.pago.VlrCto = res.VlrCto;
+                _this.pago.Vhasta = res.Vhasta;
+                _this.pago.VlrDctoPago = res.VlrDctoPago;
+                _this.pago.VlrIva = res.VlrIva;
+                _this.pago.VlrSaldo = res.VlrSaldo;
+                _this.pago.FormaPago = res.FormaPago;
+                console.log("la forma de pago es " + _this.pago.FormaPago);
+            }, function (err) {
+                _this.alert
+                    .create({
+                    header: "Error",
+                    message: err.message,
+                    buttons: ["Ok"],
+                })
+                    .then(function (obj) {
+                    obj.present();
+                });
+            });
+        }
     };
-    ;
     ConsultarPagoPage.ctorParameters = function () { return [
         { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClient"] },
         { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_8__["AlertController"] },
-        { type: _services_configuracion_service__WEBPACK_IMPORTED_MODULE_9__["ConfiguracionService"] }
+        { type: _services_configuracion_service__WEBPACK_IMPORTED_MODULE_9__["ConfiguracionService"] },
+        { type: src_app_services_offline_service__WEBPACK_IMPORTED_MODULE_10__["OfflineService"] }
     ]; };
     ConsultarPagoPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
-            selector: 'app-consultar-pago',
+            selector: "app-consultar-pago",
             template: _raw_loader_consultar_pago_page_html__WEBPACK_IMPORTED_MODULE_1__["default"],
             styles: [_consultar_pago_page_scss__WEBPACK_IMPORTED_MODULE_2__["default"]]
         }),
         Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClient"],
             _ionic_angular__WEBPACK_IMPORTED_MODULE_8__["AlertController"],
-            _services_configuracion_service__WEBPACK_IMPORTED_MODULE_9__["ConfiguracionService"]])
+            _services_configuracion_service__WEBPACK_IMPORTED_MODULE_9__["ConfiguracionService"],
+            src_app_services_offline_service__WEBPACK_IMPORTED_MODULE_10__["OfflineService"]])
     ], ConsultarPagoPage);
     return ConsultarPagoPage;
 }());

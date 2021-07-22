@@ -1,58 +1,91 @@
 <app-header titulo="consultar contrato"></app-header>
 
 <ion-content>
-    <ion-grid fixed>
-        <ion-row class="ion-align-items-center">
-            <ion-col size="4">Buscar por</ion-col>
-            <ion-col size="8">
-                <ion-select #selectCriterio cancelText="Cancelar" placeholder="Seleccione Criterio Búsqueda" [value]="criterioBusqueda" (ionChange)="criterioBusqueda = selectCriterio.value">
-                    <ion-select-option value="CEDULA">Cédula</ion-select-option>
-                    <ion-select-option value="CONTRATO">Contrato</ion-select-option>
-                </ion-select>
-            </ion-col>
-        </ion-row>
-        <ion-row class="ion-align-items-center">
-            <ion-col size="4">Criterio</ion-col>
-            <ion-col size="8">
-                <ion-input #valueCriterio placeholder="Search" [value]="textoBusqueda" (ionChange)="textoBusqueda = valueCriterio.value"></ion-input>
-            </ion-col>
-        </ion-row>
-        <ion-row class="ion-margin-top">
-            <ion-col>
-                <ion-button color="danger" expand="block" (click)="consultarContrato()">
-                    Consultar Contrato
-                </ion-button>
-            </ion-col>
-        </ion-row>
-        <ion-row>
-            <ion-col>
-                <ion-button color="danger" expand="block" (click)="cuadrecaja()">
-                    Cuadre Caja
-                </ion-button>
-            </ion-col>
-        </ion-row>
-       <!-- <ion-row>
-            <ion-col>
-                <ion-button color="danger" expand="block" (click)="consultarruta()">
-                    Consultar Ruta
-                </ion-button>
-            </ion-col>
-        </ion-row>-->
+<div style="padding-left: 30px;padding-right: 30px;padding-top: 50px;">
+    <ion-item style="border-radius: 20px;" color="light" class="ion-text-center">        
+        <ion-icon name="search"></ion-icon>
+        <ion-label text-wrap>Ingresa Los Datos A Consultar</ion-label>
+      </ion-item>
+    <ion-card style="padding-bottom: 20px;padding-top: 20px;">
+       
+        <ion-item>
+            <ion-label color="primary" position="floating">Buscar Por</ion-label>
+               
+            <ion-select #selectCriterio cancelText="Cancelar" placeholder="Seleccione Criterio Búsqueda" [value]="criterioBusqueda" (ionChange)="criterioBusqueda = selectCriterio.value">
+                <ion-select-option value="CEDULA">Cédula</ion-select-option>
+                <ion-select-option value="CONTRATO">Contrato</ion-select-option>
+            </ion-select>
 
-        <ion-row>
-            <ion-col>
-                <ion-button *ngIf="!isOffline" color="danger" expand="block" (click)="listaPagos()">
-                    Lista Pagos
-                </ion-button>
-            </ion-col>
-        </ion-row>
+           
 
-        <!-- <ion-row>
-            <ion-col>
-                <ion-button color="danger" expand="block" (click)="actualizarDatosContacto()">
-                    Actualizar Datos Contacto
-                </ion-button>
-            </ion-col>
-        </ion-row> -->
-    </ion-grid>
+        </ion-item>
+        <ion-item style="padding-top: 20px;">
+            <ion-label color="primary" position="floating">Dato A Consultar</ion-label>
+                         
+            <ion-input #valueCriterio placeholder="Contrato O Cedula" [value]="textoBusqueda" (ionChange)="textoBusqueda = valueCriterio.value"></ion-input>
+
+        </ion-item>
+        <div style="padding-top: 20px;">
+            <ion-button style="padding-left: 20px; padding-right: 20px;" color="danger" expand="block" (click)="consultarContrato()">
+                Consultar Contrato
+            </ion-button>
+        </div>
+
+      
+    </ion-card>
+</div>
+
+
+<div style="padding-left: 30px;padding-right: 30px;padding-top: 30px;">
+    <ion-item style="border-radius: 20px;" color="light" class="ion-text-center">        
+        <ion-icon name="search"></ion-icon>
+        <ion-label text-wrap>Otras Operaciones</ion-label>
+      </ion-item>
+    <ion-card style="padding-bottom: 20px;padding-top: 20px;">
+       
+        
+        <div >
+          
+            <ion-button style="padding-left: 20px; padding-right: 20px;" color="danger" expand="block" (click)="cuadrecaja()">
+                Cuadre Caja
+            </ion-button>
+        </div>
+
+        <div style="padding-top: 20px;">
+          
+           
+            <ion-button style="padding-left: 20px; padding-right: 20px;" *ngIf="!isOffline" color="danger" expand="block" (click)="listaPagos()">
+                Lista Pagos
+            </ion-button>
+        </div>
+
+      
+    </ion-card>
+</div>
+
+
+
+  
 </ion-content>
+<!-- <ion-footer>
+    <ion-toolbar>
+      <button ion-button>
+        <ion-icon name="search"></ion-icon>
+        <ion-label text-wrap>Cuadre Caja</ion-label>
+
+        
+      </button>
+      <button ion-button>
+        <ion-icon name="search"></ion-icon>
+        <ion-label text-wrap>Listado Pagos</ion-label>
+
+      </button>
+
+      <button ion-button>
+        <ion-icon name="search"></ion-icon>
+        <ion-label text-wrap>Consulta Ruta</ion-label>
+
+      </button>
+     
+    </ion-toolbar>
+  </ion-footer> -->

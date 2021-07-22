@@ -80,7 +80,7 @@ var ListaPagoPage = /** @class */ (function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n    <ion-toolbar>\n        <ion-title>Lista Pagos</ion-title>\n    </ion-toolbar>\n</ion-header>\n\n<ion-content>\n    <div>\n        <ion-row class=\"ion-align-items-center\">\n            <ion-col size=\"4\">Criterio</ion-col>\n            <ion-col size=\"8\">\n                <ion-datetime displayFormat=\"YYYY MMM DD\" monthShortNames=\"Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre\" value=\"{{ textoBusqueda | date:'yyyy-MM-dd'}}\" (ionChange)=\"cambiofecha($event)\" cancelText=\"Cancelar\"></ion-datetime>\n            </ion-col>\n        </ion-row>\n        <ion-row class=\"ion-margin-top\">\n            <ion-col>\n                <ion-button color=\"danger\" expand=\"block\" (click)=\"consultarLstPagos()\">\n                    Consultar Lista Pagos\n                </ion-button>\n            </ion-col>\n        </ion-row>\n    </div>\n\n    <div>\n        <ion-grid>\n            <ion-row class=\"md5\" *ngFor=\"let pago of pagos\">\n                <ion-card>\n                    <ion-card-content>\n                        {{pago}}\n                    </ion-card-content>\n                </ion-card>\n                <!-- <ion-col>\n                <label *ngFor=\"let item of items\">\n            </ion-col> -->\n            </ion-row>\n        </ion-grid>\n    </div>\n</ion-content>");
+/* harmony default export */ __webpack_exports__["default"] = ("<!-- <ion-header>\n    <ion-toolbar>\n        <ion-title>Lista Pagos</ion-title>\n    </ion-toolbar>\n</ion-header> -->\n<app-header titulo=\"Lista Pagos\"></app-header>\n<ion-content>\n    <div>\n        <ion-row class=\"ion-align-items-center\">\n            <ion-col size=\"4\">Criterio</ion-col>\n            <ion-col size=\"8\">\n                <ion-datetime displayFormat=\"YYYY MMM DD\" monthShortNames=\"Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre\" value=\"{{ textoBusqueda | date:'yyyy-MM-dd'}}\" (ionChange)=\"cambiofecha($event)\" cancelText=\"Cancelar\"></ion-datetime>\n            </ion-col>\n        </ion-row>\n        <ion-row class=\"ion-margin-top\">\n            <ion-col>\n                <ion-button color=\"danger\" expand=\"block\" (click)=\"consultarLstPagos()\">\n                    Consultar Lista Pagos\n                </ion-button>\n            </ion-col>\n        </ion-row>\n    </div>\n\n    <div>\n        <ion-grid>\n            <ion-row class=\"md5\" *ngFor=\"let pago of pagos\">\n                <ion-card>\n                    <ion-card-content>\n                        {{pago}}\n                    </ion-card-content>\n                </ion-card>\n                <!-- <ion-col>\n                <label *ngFor=\"let item of items\">\n            </ion-col> -->\n            </ion-row>\n        </ion-grid>\n    </div>\n</ion-content>");
 
 /***/ }),
 
@@ -114,6 +114,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "tyNb");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "P4DM");
 /* harmony import */ var _lista_pago_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./lista-pago.page */ "2V8n");
+/* harmony import */ var src_app_own_components_own_components_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/own-components/own-components.module */ "9FvA");
+
 
 
 
@@ -136,7 +138,8 @@ var ListaPagoPageModule = /** @class */ (function () {
                 _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
                 _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"],
-                _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild(routes)
+                _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild(routes),
+                src_app_own_components_own_components_module__WEBPACK_IMPORTED_MODULE_7__["OwnComponentsModule"]
             ],
             declarations: [_lista_pago_page__WEBPACK_IMPORTED_MODULE_6__["ListaPagoPage"]]
         })

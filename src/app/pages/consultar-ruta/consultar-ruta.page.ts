@@ -1,5 +1,6 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { SesionLocalModel } from 'src/app/models/sesion-local.model';
 import { OfflineService } from 'src/app/services/offline.service';
@@ -20,10 +21,14 @@ export class ConsultarRutaPage implements OnInit {
   constructor( private sesionService: SesionService,
     private ofline: OfflineService,
     private offline: OfflineService,
-    private datePipe: DatePipe
+    private datePipe: DatePipe,
+    private router: Router
     ) { }
 
   ngOnInit() {
+  }
+  consultarCto(contrato : string){
+    this.router.navigate(['consultar-contrato2', 'CONTRATO',contrato]);
   }
   cambiofecha( event )
   {

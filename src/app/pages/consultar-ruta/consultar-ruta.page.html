@@ -32,6 +32,11 @@
                 <ion-card *ngFor="let ruta of rutas">
                     <ion-card-header>
                         <ion-card-title>  Contrato:  {{ruta.IDCONTRATO}}</ion-card-title>
+                        <div class="contentButtons">
+                            <img alt="" src="assets/img/buscar.png"
+                            (click)="consultarCto(ruta.IDCONTRATO)"
+                            class="btnAction top-3vw">
+                          </div>
                       </ion-card-header>
                     <ion-card-content>
                        <ion-item text-wrap>Cedula:  {{ruta.CEDULA}}</ion-item>
@@ -40,6 +45,10 @@
                        <ion-item text-wrap >Telefono:  {{ruta.TELEFONO}}</ion-item>
                        <ion-item text-wrap>Pago Hasta:  {{ruta.PAGOHASTA | date :  "yyyy-MM-dd"}}</ion-item>
                        <ion-item text-wrap >Estado: <b> {{ruta.ESTADO}}</b></ion-item>
+                       <ion-item *ngIf="ruta.ESTADO == 'Pago'" text-wrap >Valor Pago:  {{ruta.VALOR}}</ion-item>
+                       <ion-item *ngIf="ruta.ESTADO == 'Novedad'"  text-wrap >Tipo Novedad:  {{ruta.NOVEDADES}}</ion-item>
+                       <ion-item *ngIf="ruta.ESTADO == 'Novedad'" text-wrap >Novedad:  {{ruta.OBSERVACIONES}}</ion-item>
+
                     </ion-card-content>
                 </ion-card>
                 <!-- <ion-col>

@@ -10,7 +10,7 @@ export class ConsultaPagoModel {
     NumeroDocumento: string;
     Usuario: string;
     Terminal: string;
-    Observaciones: string;
+    Observaciones: string  ='';
     Concepto: string;
     Anulado: string;
     PVisita: string;
@@ -24,4 +24,5 @@ export class ConsultaPagoModel {
     VlrDctoPago: number;
     VlrIva: number;
     FormaPago : string;
+    Sincronizar : number; 
 }
