@@ -63,8 +63,14 @@ export class OfflineService {
         console.log("cat pagos sincronizados encontro")
         return true;
       }else{
-        console.log("cat pagos sincronizados no encontro")
-        return false;
+
+        let data2 = await this.db.executeSql("SELECT * FROM NOVEDAD WHERE SINCRONIZAR = 0", [] );
+        if(data2.rows.length > 0){
+          console.log("cat pagos sincronizados encontro")
+          return true;
+        }else{
+          return false;
+        }
       }
     }catch(ex){
       console.log("err pagos sincronizados", ex)
@@ -107,7 +113,7 @@ export class OfflineService {
     sql = 'DROP TABLE IF EXISTS PAGOS';
     await this.db.executeSql(sql, []);
 
-    sql = 'CREATE TABLE IF NOT EXISTS PAGOS (ID INTEGER PRIMARY KEY AUTOINCREMENT, IDCONTRATO TEXT, IDPERSONA TEXT, VALOR FLOAT, DESCUENTO FLOAT, CANTIDADCUOTAS FLOAT, MAQUINA TEXT, USUARIO TEXT, OBSERVACIONES TEXT, CUOTAMENSUAL FLOAT, ESTADO TEXT, FORMAPAGO TEXT, FECHAPAGOR TEXT, POSX TEXT, POSY TEXT, TITULAR TEXT,  SINCRONIZAR TEXT)';
+    sql = 'CREATE TABLE IF NOT EXISTS PAGOS (ID INTEGER PRIMARY KEY AUTOINCREMENT, IDCONTRATO TEXT, IDPERSONA TEXT, VALOR FLOAT, DESCUENTO FLOAT, CANTIDADCUOTAS FLOAT, MAQUINA TEXT, USUARIO TEXT, OBSERVACIONES TEXT, CUOTAMENSUAL FLOAT, ESTADO TEXT, FORMAPAGO TEXT, FECHAPAGOR TEXT, POSX TEXT, POSY TEXT, TITULAR TEXT,  SINCRONIZAR TEXT , NRORECIBO TEXT, PagoDesde TEXT, PagoHasta TEXT,ValorLetras TEXT )';
     await this.db.executeSql(sql, []);
 
     sql = 'DROP TABLE IF EXISTS NOVEDAD';
@@ -152,7 +158,7 @@ export class OfflineService {
     {
      console.log("los datos que se envian son",NroPago)
      let data;
-      data = await this.db.executeSql("SELECT IDCONTRATO, IDPERSONA, VALOR, DESCUENTO, CANTIDADCUOTAS, MAQUINA, USUARIO, OBSERVACIONES, CUOTAMENSUAL, ESTADO, FORMAPAGO, FECHAPAGOR, POSX, POSY, TITULAR, SINCRONIZAR FROM PAGOS R  WHERE  R.ID = ? ", [NroPago]);
+      data = await this.db.executeSql("SELECT IDCONTRATO, IDPERSONA, VALOR, DESCUENTO, CANTIDADCUOTAS, MAQUINA, USUARIO, OBSERVACIONES, CUOTAMENSUAL, ESTADO, FORMAPAGO, FECHAPAGOR, POSX, POSY, TITULAR, SINCRONIZAR, NRORECIBO NumeroDocumento, PagoDesde, PagoHasta,ValorLetras  FROM PAGOS R  WHERE  R.NRORECIBO = ? ", [NroPago]);
       console.log("la consulta a ejecutar es ", data)
       if(data.rows.length > 0){
         let todos = [];
@@ -171,19 +177,20 @@ export class OfflineService {
     }
   }
 
-  public async getConsultarRutas(fechar,idcobrador,estado ) {
+  public async getConsultarRutas(fechar,idcobrador,estado, sincronizado ) {
 
     try
     {
-     console.log("los datos que se envian son",fechar,idcobrador,estado)
+     console.log("los datos que se envian son",fechar,idcobrador,estado, sincronizado)
      let data;
 
      if(estado == "Sn"){
-       data = await this.db.executeSql("SELECT R.IDCONTRATO,R.CEDULA, R.TITULAR, R.PAGOHASTA, R.DIRECCION, R.TELEFONO, R.ESTADO FROM RUTAS R  WHERE R.FECHAR = ? AND R.IDCOBRADOR = ? AND R.ESTADO = ? ", [fechar+"T00:00:00",idcobrador,estado]);
+       data = await this.db.executeSql("SELECT R.IDCONTRATO,R.CEDULA, R.TITULAR, R.PAGOHASTA, R.DIRECCION, R.TELEFONO, R.ESTADO,R.CUOTA, R.VALORCARTERA  FROM RUTAS R  WHERE R.FECHAR = ? AND R.IDCOBRADOR = ? AND R.ESTADO = ? ", [fechar+"T00:00:00",idcobrador,estado]);
      }else   if(estado == "Pago"){
-       data = await this.db.executeSql("SELECT R.IDCONTRATO,R.CEDULA, R.TITULAR, R.PAGOHASTA, R.DIRECCION, R.TELEFONO, R.ESTADO, P.VALOR FROM RUTAS R LEFT JOIN PAGOS P ON P.IDCONTRATO = R.IDCONTRATO  WHERE R.FECHAR = ? AND R.IDCOBRADOR = ? AND R.ESTADO = ? ", [fechar+"T00:00:00",idcobrador,estado]);
+       data = await this.db.executeSql("SELECT R.IDCONTRATO,R.CEDULA, R.TITULAR, R.PAGOHASTA, R.DIRECCION, R.TELEFONO, R.ESTADO,R.CUOTA, R.VALORCARTERA, P.VALOR, P.SINCRONIZAR, P.DESCUENTO FROM RUTAS R LEFT JOIN PAGOS P ON P.IDCONTRATO = R.IDCONTRATO  WHERE R.FECHAR = ? AND R.IDCOBRADOR = ? AND R.ESTADO = ? AND P.SINCRONIZAR = ?  ", [fechar+"T00:00:00",idcobrador,estado, sincronizado]);
      }else   if(estado == "Novedad"){
-       data = await this.db.executeSql("SELECT R.IDCONTRATO,R.CEDULA, R.TITULAR, R.PAGOHASTA, R.DIRECCION, R.TELEFONO, R.ESTADO,  T.NOVEDAD NOVEDADES, N.OBSERVACIONES  FROM RUTAS R LEFT JOIN NOVEDAD N ON R.IDCONTRATO = N.CONTRATO INNER JOIN TIPONOVEDAD T ON T.Idnovedad = N.NOVEDAD WHERE R.FECHAR = ? AND R.IDCOBRADOR = ? AND R.ESTADO = ? ", [fechar+"T00:00:00",idcobrador,estado]);
+       console.log("si llego aqui a novedad")
+       data = await this.db.executeSql("SELECT R.IDCONTRATO,R.CEDULA, R.TITULAR, R.PAGOHASTA, R.DIRECCION, R.TELEFONO, R.ESTADO,R.CUOTA, R.VALORCARTERA,  T.NOVEDAD NOVEDADES, N.OBSERVACIONES, N.SINCRONIZAR  FROM RUTAS R INNER JOIN NOVEDAD N ON R.IDCONTRATO = N.CONTRATO INNER JOIN TIPONOVEDAD T ON T.Idnovedad = N.NOVEDAD WHERE R.FECHAR = ? AND R.IDCOBRADOR = ? AND R.ESTADO = ? AND N.SINCRONIZAR = ? ", [fechar+"T00:00:00",idcobrador,estado,sincronizado]);
      }
 
       console.log("la consulta a ejecutar es ", data)
@@ -258,12 +265,12 @@ export class OfflineService {
 
   public async guardarPagosLocal(d) {
 
-    
+    console.log("pago a almacenar",d)
     try
     {
       let id = 0;
-        let sql = 'INSERT INTO PAGOS (IDCONTRATO, IDPERSONA, VALOR, DESCUENTO, CANTIDADCUOTAS, MAQUINA, USUARIO, OBSERVACIONES, CUOTAMENSUAL, ESTADO, FORMAPAGO, FECHAPAGOR, POSX, POSY, TITULAR, SINCRONIZAR) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
-        await this.db.executeSql(sql, [d.IDCONTRATO, d.IDPERSONA, d.VALOR, d.DESCUENTO, d.CANTIDADCUOTAS, d.MAQUINA, d.USUARIO, d.OBSERVACIONES, d.CUOTAMENSUAL, d.ESTADO, d.FORMAPAGO,new Date(d.FECHAPAGOR).toDateString(), d.POSX, d.POSY, d.titular,0]).then((row: any) => {
+        let sql = 'INSERT INTO PAGOS (IDCONTRATO, IDPERSONA, VALOR, DESCUENTO, CANTIDADCUOTAS, MAQUINA, USUARIO, OBSERVACIONES, CUOTAMENSUAL, ESTADO, FORMAPAGO, FECHAPAGOR, POSX, POSY, TITULAR, SINCRONIZAR, NRORECIBO, PagoDesde, PagoHasta,ValorLetras ) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?, ?,?,?,?)';
+        await this.db.executeSql(sql, [d.IDCONTRATO, d.IDPERSONA, d.VALOR, d.DESCUENTO, d.CANTIDADCUOTAS, d.MAQUINA, d.USUARIO, d.OBSERVACIONES, d.CUOTAMENSUAL, d.ESTADO, d.FORMAPAGO,new Date(d.FECHAPAGOR).toDateString(), d.POSX, d.POSY, d.titular,0, d.NRORECIBO, d.PagoDesde, d.PagoHasta,d.ValorLetras]).then((row: any) => {
         id =  row.insertId.toString();
       });
       
@@ -297,12 +304,12 @@ export class OfflineService {
       throw ex;
     }
   }
-  public async actualizarSincronizadoNovedad(IDCONTRATO: string) {
+  public async actualizarSincronizadoNovedad(ID: string) {
     //cambiar el estado de la ruta local
     try
     {
       // tslint:disable-next-line: max-line-length
-      let data = await this.db.executeSql('UPDATE NOVEDAD SET SINCRONIZAR = 1  WHERE CONTRATO = ? AND IDPERSONA = ?', [ IDCONTRATO]);
+      let data = await this.db.executeSql('UPDATE NOVEDAD SET SINCRONIZAR = 1  WHERE ID = ?', [ ID]);
     } catch(ex){
       throw ex;
     }
@@ -457,6 +464,18 @@ export class OfflineService {
     }
   }
 
+  
+  public async fechasPagos(Pagodesde,Pagohasta, Nrorecibo)
+  {
+    try
+    {
+      // tslint:disable-next-line: max-line-length
+      let data = await this.db.executeSql('UPDATE PAGOS SET  PagoDesde  = ?, PagoHasta  = ?  WHERE  NRORECIBO  = ?', [new Date(Pagodesde).toDateString(),new Date(Pagohasta).toDateString() , Nrorecibo]);
+    } catch(ex){
+      throw ex;
+    }
+  }
+
 
   public async getInfoContrato(contrato){
     try
@@ -599,13 +618,13 @@ export class OfflineService {
       throw ex;
     }
   }
-
-
   public async getListaNovedades(){
     try
     {
-      let data = await this.db.executeSql("SELECT * FROM NOVEDAD WHERE SINCRONIZAR = 0", [] );
+      console.log("llego  a la consulta de la lista de novedades")
+      let data = await this.db.executeSql("SELECT * FROM NOVEDAD WHERE SINCRONIZAR = 0 ", [] );
       if(data.rows.length > 0){
+        console.log("la cantidad a sincronizar es:" + data.rows.length)
         let todos = [];
         for (let i = 0; i < data.rows.length ; i++) {
           
@@ -614,6 +633,7 @@ export class OfflineService {
         return todos;
       }
       else{
+        console.log("la cantidad a sincronizar es: 0" )
         return [];
       }
     } catch(ex){

@@ -29,8 +29,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ "ofXK");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "tyNb");
-/* harmony import */ var src_app_services_offline_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/services/offline.service */ "DFAf");
-/* harmony import */ var src_app_services_sesion_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/services/sesion.service */ "PbBf");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic/angular */ "P4DM");
+/* harmony import */ var src_app_services_offline_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/services/offline.service */ "DFAf");
+/* harmony import */ var src_app_services_sesion_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/services/sesion.service */ "PbBf");
+
 
 
 
@@ -40,21 +42,29 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var ConsultarRutaPage = /** @class */ (function () {
-    function ConsultarRutaPage(sesionService, ofline, offline, datePipe, router) {
+    function ConsultarRutaPage(sesionService, ofline, offline, datePipe, router, loadingController) {
         this.sesionService = sesionService;
         this.ofline = ofline;
         this.offline = offline;
         this.datePipe = datePipe;
         this.router = router;
+        this.loadingController = loadingController;
         this.textoBusqueda = new Date();
         this.consultarRuta = null;
         this.sesionLocal = null;
         this.criterioBusqueda = 'Sn';
+        this.criterioBusquedaSincronizado = '0';
     }
     ConsultarRutaPage.prototype.ngOnInit = function () {
     };
     ConsultarRutaPage.prototype.consultarCto = function (contrato) {
-        this.router.navigate(['consultar-contrato2', 'CONTRATO', contrato]);
+        var _this = this;
+        this.loadingController.create({
+            message: 'Consultando contrato',
+            duration: 30000
+        }).then(function (loading) {
+            _this.router.navigate(['consultar-contrato2', 'CONTRATO', contrato]);
+        });
     };
     ConsultarRutaPage.prototype.cambiofecha = function (event) {
         this.textoBusqueda = event.target.value;
@@ -69,9 +79,13 @@ var ConsultarRutaPage = /** @class */ (function () {
             alert('Por favor seleccione el estado');
             return;
         }
+        if (!this.criterioBusquedaSincronizado) {
+            alert('Por favor seleccione el estado sincronizado');
+            return;
+        }
         this.sesionLocal = this.sesionService.sesionLocal;
         this.offline.createDatabase().then(function (res) {
-            _this.offline.getConsultarRutas(_this.datePipe.transform(_this.textoBusqueda, "yyyy-MM-dd"), _this.sesionLocal.sesionUsuario.IDCOBRADOR, _this.criterioBusqueda).then(function (res) {
+            _this.offline.getConsultarRutas(_this.datePipe.transform(_this.textoBusqueda, "yyyy-MM-dd"), _this.sesionLocal.sesionUsuario.IDCOBRADOR, _this.criterioBusqueda, _this.criterioBusquedaSincronizado).then(function (res) {
                 _this.rutas = res;
                 console.log("las rutas son:***********", _this.rutas);
             });
@@ -82,11 +96,12 @@ var ConsultarRutaPage = /** @class */ (function () {
                }); */
     };
     ConsultarRutaPage.ctorParameters = function () { return [
-        { type: src_app_services_sesion_service__WEBPACK_IMPORTED_MODULE_7__["SesionService"] },
-        { type: src_app_services_offline_service__WEBPACK_IMPORTED_MODULE_6__["OfflineService"] },
-        { type: src_app_services_offline_service__WEBPACK_IMPORTED_MODULE_6__["OfflineService"] },
+        { type: src_app_services_sesion_service__WEBPACK_IMPORTED_MODULE_8__["SesionService"] },
+        { type: src_app_services_offline_service__WEBPACK_IMPORTED_MODULE_7__["OfflineService"] },
+        { type: src_app_services_offline_service__WEBPACK_IMPORTED_MODULE_7__["OfflineService"] },
         { type: _angular_common__WEBPACK_IMPORTED_MODULE_3__["DatePipe"] },
-        { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"] }
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"] },
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["LoadingController"] }
     ]; };
     ConsultarRutaPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["Component"])({
@@ -94,11 +109,12 @@ var ConsultarRutaPage = /** @class */ (function () {
             template: _raw_loader_consultar_ruta_page_html__WEBPACK_IMPORTED_MODULE_1__["default"],
             styles: [_consultar_ruta_page_scss__WEBPACK_IMPORTED_MODULE_2__["default"]]
         }),
-        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_services_sesion_service__WEBPACK_IMPORTED_MODULE_7__["SesionService"],
-            src_app_services_offline_service__WEBPACK_IMPORTED_MODULE_6__["OfflineService"],
-            src_app_services_offline_service__WEBPACK_IMPORTED_MODULE_6__["OfflineService"],
+        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_services_sesion_service__WEBPACK_IMPORTED_MODULE_8__["SesionService"],
+            src_app_services_offline_service__WEBPACK_IMPORTED_MODULE_7__["OfflineService"],
+            src_app_services_offline_service__WEBPACK_IMPORTED_MODULE_7__["OfflineService"],
             _angular_common__WEBPACK_IMPORTED_MODULE_3__["DatePipe"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]])
+            _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["LoadingController"]])
     ], ConsultarRutaPage);
     return ConsultarRutaPage;
 }());
@@ -170,7 +186,7 @@ var ConsultarRutaPageModule = /** @class */ (function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<app-header titulo=\"Consultar Ruta\"></app-header>\n<ion-content>\n    <div>\n        <ion-row class=\"ion-align-items-center\">\n            <ion-col size=\"4\">Fecha</ion-col>\n            <ion-col size=\"8\">\n                <ion-datetime displayFormat=\"YYYY MM DD\" value=\"{{ textoBusqueda | date:'yyyy-MM-dd'}}\" (ionChange)=\"cambiofecha($event)\" cancelText=\"Cancelar\"></ion-datetime>\n            </ion-col>\n        </ion-row>\n        <ion-row class=\"ion-align-items-center\">\n            <ion-col size=\"4\">Estado</ion-col>\n            <ion-col size=\"8\">\n                <ion-select #selectCriterio cancelText=\"Cancelar\" placeholder=\"Seleccione El Estado\" [value]=\"criterioBusqueda\" (ionChange)=\"criterioBusqueda = selectCriterio.value\">\n                    <ion-select-option value=\"Sn\">Sn</ion-select-option>\n                    <ion-select-option value=\"Pago\">Pago</ion-select-option>\n                    <ion-select-option value=\"Novedad\">Novedad</ion-select-option>\n                </ion-select>\n            </ion-col>\n        </ion-row>\n        <ion-row class=\"ion-margin-top\">\n            <ion-col>\n                <ion-button color=\"danger\" expand=\"block\" (click)=\"consultar()\">\n                    Consultar Ruta\n                </ion-button>\n            </ion-col>\n           \n        </ion-row>\n    </div>\n    <div>\n       <!--  <ion-grid>\n            <ion-row class=\"md5\" > -->\n                <ion-card *ngFor=\"let ruta of rutas\">\n                    <ion-card-header>\n                        <ion-card-title>  Contrato:  {{ruta.IDCONTRATO}}</ion-card-title>\n                        <div class=\"contentButtons\">\n                            <img alt=\"\" src=\"assets/img/buscar.png\"\n                            (click)=\"consultarCto(ruta.IDCONTRATO)\"\n                            class=\"btnAction top-3vw\">\n                          </div>\n                      </ion-card-header>\n                    <ion-card-content>\n                       <ion-item text-wrap>Cedula:  {{ruta.CEDULA}}</ion-item>\n                       <ion-item text-wrap>Titular:  {{ruta.TITULAR}}</ion-item>\n                       <ion-item text-wrap>Direccion:  {{ruta.DIRECCION}}</ion-item>\n                       <ion-item text-wrap >Telefono:  {{ruta.TELEFONO}}</ion-item>\n                       <ion-item text-wrap>Pago Hasta:  {{ruta.PAGOHASTA | date :  \"yyyy-MM-dd\"}}</ion-item>\n                       <ion-item text-wrap >Estado: <b> {{ruta.ESTADO}}</b></ion-item>\n                       <ion-item *ngIf=\"ruta.ESTADO == 'Pago'\" text-wrap >Valor Pago:  {{ruta.VALOR}}</ion-item>\n                       <ion-item *ngIf=\"ruta.ESTADO == 'Novedad'\"  text-wrap >Tipo Novedad:  {{ruta.NOVEDADES}}</ion-item>\n                       <ion-item *ngIf=\"ruta.ESTADO == 'Novedad'\" text-wrap >Novedad:  {{ruta.OBSERVACIONES}}</ion-item>\n\n                    </ion-card-content>\n                </ion-card>\n                <!-- <ion-col>\n                <label *ngFor=\"let item of items\">\n            </ion-col> -->\n            <!-- </ion-row>\n        </ion-grid> -->\n    </div>\n\n</ion-content>");
+/* harmony default export */ __webpack_exports__["default"] = ("<app-header titulo=\"Consultar Ruta\"></app-header>\n<ion-content>\n    <div>\n        <ion-row class=\"ion-align-items-center\">\n            <ion-col size=\"4\">Fecha</ion-col>\n            <ion-col size=\"8\">\n                <ion-datetime displayFormat=\"YYYY MM DD\" value=\"{{ textoBusqueda | date:'yyyy-MM-dd'}}\" (ionChange)=\"cambiofecha($event)\" cancelText=\"Cancelar\"></ion-datetime>\n            </ion-col>\n        </ion-row>\n        <ion-row class=\"ion-align-items-center\">\n            <ion-col size=\"4\">Estado</ion-col>\n            <ion-col size=\"8\">\n                <ion-select #selectCriterio cancelText=\"Cancelar\" placeholder=\"Seleccione El Estado\" [value]=\"criterioBusqueda\" (ionChange)=\"criterioBusqueda = selectCriterio.value\">\n                    <ion-select-option value=\"Sn\">Sn</ion-select-option>\n                    <ion-select-option value=\"Pago\">Pago</ion-select-option>\n                    <ion-select-option value=\"Novedad\">Novedad</ion-select-option>\n                </ion-select>\n            </ion-col>\n        </ion-row>\n\n        <ion-row class=\"ion-align-items-center\" *ngIf=\"criterioBusqueda != 'Sn'\">\n            <ion-col size=\"4\">Sincronizado</ion-col>\n            <ion-col size=\"8\">\n                <ion-select #selectCriteriosincronizado cancelText=\"Cancelar\" placeholder=\"Sincronizado\" [value]=\"criterioBusquedaSincronizado\" (ionChange)=\"criterioBusquedaSincronizado = selectCriteriosincronizado.value\">\n                    <ion-select-option value=\"0\">No</ion-select-option>\n                    <ion-select-option value=\"1\">Si</ion-select-option>\n                </ion-select>\n            </ion-col>\n        </ion-row>\n\n        <ion-row class=\"ion-margin-top\">\n            <ion-col>\n                <ion-button color=\"danger\" expand=\"block\" (click)=\"consultar()\">\n                    Consultar Ruta\n                </ion-button>\n            </ion-col>\n           \n        </ion-row>\n    </div>\n    <div>\n       <!--  <ion-grid>\n            <ion-row class=\"md5\" > -->\n                <ion-card *ngFor=\"let ruta of rutas\" (click)=\"consultarCto(ruta.IDCONTRATO)\" >\n                    <ion-card-header>\n                        <ion-card-title>  Contrato:  {{ruta.IDCONTRATO}}</ion-card-title>\n                        <div class=\"contentButtons\">\n                            <img alt=\"\" src=\"assets/img/buscar.png\"\n                            (click)=\"consultarCto(ruta.IDCONTRATO)\"\n                            class=\"btnAction top-3vw\">\n                          </div>\n                      </ion-card-header>\n                    <ion-card-content>\n                       <ion-item text-wrap>Cedula:  {{ruta.CEDULA}}</ion-item>\n                       <ion-item text-wrap>Titular:  {{ruta.TITULAR}}</ion-item>\n                       <ion-item text-wrap>Direccion:  {{ruta.DIRECCION}}</ion-item>\n                       <ion-item text-wrap >Telefono:  {{ruta.TELEFONO}}</ion-item>\n                       <ion-item text-wrap>Pago Hasta:  {{ruta.PAGOHASTA | date :  \"yyyy-MM-dd\"}}</ion-item>\n                       <ion-item text-wrap >Cuota:  {{ruta.CUOTA}}</ion-item> \n                       <ion-item text-wrap >Cartera:  {{ruta.VALORCARTERA}}</ion-item> \n                       \n                       <ion-item text-wrap >Estado: <b> {{ruta.ESTADO}}</b></ion-item>\n                       <ion-item *ngIf=\"ruta.ESTADO == 'Pago'\" text-wrap >Valor Total:  {{ruta.VALOR}}</ion-item>\n                       <ion-item *ngIf=\"ruta.ESTADO == 'Pago'\" text-wrap >Valor Dcto:  {{ruta.DESCUENTO}}</ion-item>\n                       <ion-item *ngIf=\"ruta.ESTADO == 'Pago'\" text-wrap >Valor Pago:  {{ruta.VALOR - ruta.DESCUENTO}}</ion-item>\n                       <ion-item *ngIf=\"ruta.ESTADO == 'Novedad'\"  text-wrap >Tipo Novedad:  {{ruta.NOVEDADES}}</ion-item>\n                       <ion-item *ngIf=\"ruta.ESTADO == 'Novedad'\" text-wrap >Novedad:  {{ruta.OBSERVACIONES}}</ion-item>\n                       <ion-item *ngIf=\"ruta.ESTADO == 'Pago' && ruta.SINCRONIZAR == '1' \" text-wrap >Sincronizado:  Si</ion-item>\n                       <ion-item *ngIf=\"ruta.ESTADO == 'Pago' && ruta.SINCRONIZAR == '0' \" text-wrap >Sincronizado:  No</ion-item>\n                       <ion-item *ngIf=\"ruta.ESTADO == 'Novedad' && ruta.SINCRONIZAR == '1' \" text-wrap >Sincronizada:  Si</ion-item>\n                       <ion-item *ngIf=\"ruta.ESTADO == 'Novedad' && ruta.SINCRONIZAR == '0' \" text-wrap >Sincronizada:  No</ion-item>\n                       \n\n                    </ion-card-content>\n                </ion-card>\n                <!-- <ion-col>\n                <label *ngFor=\"let item of items\">\n            </ion-col> -->\n            <!-- </ion-row>\n        </ion-grid> -->\n    </div>\n\n</ion-content>");
 
 /***/ })
 

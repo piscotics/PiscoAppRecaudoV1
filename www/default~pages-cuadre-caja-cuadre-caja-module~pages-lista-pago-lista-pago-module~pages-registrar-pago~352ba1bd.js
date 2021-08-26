@@ -13,6 +13,7 @@ __webpack_require__.r(__webpack_exports__);
 // Informaciòn que retorna el servidor al inicar sesión
 var PagoResponseModel = /** @class */ (function () {
     function PagoResponseModel() {
+        this.DetallePago = '';
     }
     return PagoResponseModel;
 }());
@@ -76,6 +77,8 @@ var PagosService = /** @class */ (function () {
         this.configuracionService = configuracionService;
         this.offline = offline;
         this.config = new _models_config_model__WEBPACK_IMPORTED_MODULE_9__["ConfigModel"]();
+        this.ValorPorDia = 0;
+        this.DiasASumar = 0;
         this.config = this.configuracionService.config;
     }
     PagosService.prototype.cargarFormaPago = function () {
@@ -412,15 +415,27 @@ var PagosService = /** @class */ (function () {
                             obj.present();
                         });
                         _this.offline.getPagoHasta(pago.IDCONTRATO).then(function (res) {
-                            result_1.NroRecibo = resp;
+                            result_1.NroRecibo = pago.NRORECIBO; //resp; momentGGGG
                             result_1.VlrDctoPago = pago.DESCUENTO;
                             result_1.VlrIva = 0;
                             result_1.VlrCto = pago.VALOR;
                             //result.DetallePago = pago.OBSERVACIONES;
                             var fecha = new Date(res.PAGOHASTA);
                             result_1.Desde = fecha.toString();
-                            result_1.Hasta = new Date(new Date(res.PAGOHASTA).setMonth(new Date(res.PAGOHASTA).getMonth() + pago.CANTIDADCUOTAS)).toString();
+                            console.log("el pago**********************", pago);
+                            if (pago.CANTIDADCUOTAS == 0) {
+                                _this.DiasMes = new Date(fecha.getFullYear(), fecha.getMonth() + 1, 0);
+                                _this.ValorPorDia = (pago.CUOTAMENSUAL / _this.DiasMes.getDate());
+                                _this.DiasASumar = (pago.VALOR / _this.ValorPorDia);
+                                result_1.Hasta = new Date(new Date(res.PAGOHASTA).setDate(new Date(res.PAGOHASTA).getDate() + Math.round(_this.DiasASumar))).toString();
+                                console.log("los datos son DiasMes ", _this.DiasMes.getDate(), " ValorPorDia ", _this.ValorPorDia, "  DiasASumar ", Math.round(_this.DiasASumar), "  result.Hasta ", result_1.Hasta);
+                            }
+                            else {
+                                result_1.Hasta = new Date(new Date(res.PAGOHASTA).setMonth(new Date(res.PAGOHASTA).getMonth() + pago.CANTIDADCUOTAS)).toString();
+                            }
                             _this.offline.updatePagoHasta(result_1.Hasta, pago.IDCONTRATO).then(function () { });
+                            //actualiza las fechas del pago 
+                            _this.offline.fechasPagos(result_1.Desde, result_1.Hasta, result_1.NroRecibo).then(function () { });
                             resolve(result_1);
                         });
                         // resolve(result);

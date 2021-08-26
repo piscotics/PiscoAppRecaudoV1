@@ -24,6 +24,9 @@ import { ConsultarRutaRequesModel } from "./models/consultar-ruta.model";
 import { Device } from '@ionic-native/device/ngx';
 import { RegistrarpagoModel } from './models/registrar-pago.model';
 import { RegistroGestionModel } from './models/registro-gestion.model';
+import { Network } from '@ionic-native/network/ngx';
+import { exit } from 'process';
+
 
 @Component({
   selector: 'app-root',
@@ -38,8 +41,12 @@ export class AppComponent implements OnInit, OnDestroy {
   menuPrincipalId: string = 'menuPrincipal';
   license: string = '';
   sincronizaPagosNovedad : boolean;
-
+  ctoNovedad: string ='';
+  isConnected = false;
   statusOffline: boolean;
+  respuesta : string;
+  idNovedad : string;
+
 
   constructor(
     private platform: Platform,
@@ -60,7 +67,8 @@ export class AppComponent implements OnInit, OnDestroy {
     private ofline:  OfflineService,
     private loading: LoadingController,
     private http: HttpClient,
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    private network: Network
   ) {
     this.initializeApp();
     this.statusOffline = localStorage.getItem('offlineMode') === 'true' ? true : false;
@@ -314,23 +322,30 @@ export class AppComponent implements OnInit, OnDestroy {
  }
 
   GetRestBody(url, body): Promise<any>{
-
-    
-    return new Promise((resolve, reject)=>{
-      const httpOptions = {
-        headers: new HttpHeaders({
-          'Content-Type': 'application/json',
-        })
-      };
-
-      let configHelper = new ConfigHelper(this.configuracionService.config);
-      console.log(JSON.stringify(body))
-      this.http.post(`${configHelper.getApiUrl()}${url}`, body,  httpOptions ).subscribe(res=>{
-        resolve(res);
-      }, err=>{
-        reject(err);
+    try {
+      return new Promise((resolve, reject)=>{
+        const httpOptions = {
+          headers: new HttpHeaders({
+            'Content-Type': 'application/json',
+          })
+        };
+  
+        let configHelper = new ConfigHelper(this.configuracionService.config);
+        console.log(JSON.stringify(body))
+        this.http.post(`${configHelper.getApiUrl()}${url}`, body,  httpOptions ).subscribe(res=>{
+          resolve(res);
+          this.isConnected =true;
+        }, err=>{
+          this.isConnected =false;
+          reject(err);
+        });
       });
-    });
+    } catch (error) {
+      this.isConnected =false;
+      throw error;
+    }
+   
+    
   }
 
   
@@ -408,17 +423,17 @@ export class AppComponent implements OnInit, OnDestroy {
     
             this.alertController.create({
               header: 'Nueva Ruta',
-              message: 'ya cuenta con una ruta cargada con datos no sincronizados, al continuar el proceso se elimina la ruta actual , ¿Desea continuar?',
+              message: 'ya cuenta con una ruta cargada con datos no sincronizados, para continuar debe sincronizar los datos primero',
               buttons:[
-                { 
+                /* { 
                   text: 'Si', role: 'accept', handler: ()=>{
                     this.cargarRutas();
         
                   }
-                },
+                }, */
                 {
                  
-                  text: 'No', role: 'cancel', handler: ()=>{ 
+                  text: 'Ok', role: 'cancel', handler: ()=>{ 
                    
                     this.alertController.dismiss();
                   }
@@ -476,7 +491,34 @@ export class AppComponent implements OnInit, OnDestroy {
 
       await this.ofline.SincronizarListaNovedades(data);
 
-     //*********************************************************** */
+     //**************************nuevas ********************************* */
+     l.message = "Creando Tablas Locales";
+
+     await this.ofline.createTables();
+
+     l.message = "Cargando Licencias";
+
+     data = await this.GetRest('/login/licenceslocale');
+
+     await this.ofline.sincronizarLicencias(data);
+
+
+     l.message = "Cargando Usuarios";
+
+     data = await this.GetRest('/login/userlocale');
+
+     await this.ofline.sincronizarUsuarios(data);
+
+
+     //await this.ofline.loginOffline("1005", "1005");
+
+     l.message = "Cargando Informacion Empresa";
+
+     data = await this.GetRest('/pago/funeraria');
+
+     await this.ofline.sincronizarEmpresas(data);
+
+     //***************fin nuevas**************** */
       
       l.message = 'Cargando Rutas';
 
@@ -534,9 +576,18 @@ export class AppComponent implements OnInit, OnDestroy {
 
       await this.CargarPagosBdLocal();
 
+ // l.dismiss();
+
+      l.message = 'Sincronizando Novedades';
+
+      await this.CargarNovedadBdLocal();
+
       l.dismiss();
-      
-      alert('Informacíon sincronizada satisfactoriamente'); 
+      if(this.isConnected == true){
+        alert('Informacíon sincronizada satisfactoriamente'); 
+      }else{
+        alert('Informacíon no sincronizada');
+      }
 
     }catch(ex)
     {
@@ -546,30 +597,20 @@ export class AppComponent implements OnInit, OnDestroy {
 
   }
 
-  async CargarPagosBdLocal(){
-    this.ofline.getListapago().then((datapagos: RegistrarpagoModel[]) => {
-      if(datapagos.length> 0){
-          for (var _i = 0; _i < datapagos.length; _i++) 
-          {
-            var item = datapagos[_i];
-            try
-            {
-              this.GetRestBody('/pago/create', item);
-              //pasa el estado del pago a sincronizado 1
-              this.ofline.actualizarSincronizadoPago(item.IDCONTRATO,item.IDPERSONA);
-            } catch(ex){
-              throw ex;
-            }
-          }
-      }
-    });
+  async CargarNovedadBdLocal(){
 
+    console.log("llego a cargar nivedades a productiva")
     this.ofline.getListaNovedades().then((datanovedad: any[]) => {
+      console.log("Cant novedades encontradas" + datanovedad.length)
+      console.log("novedades encontradas" + datanovedad)
       if(datanovedad.length> 0){
         for (var _j = 0; _j < datanovedad.length; _j++) 
         {
           let gestiondata = new  RegistroGestionModel();
           var itemnovedad = datanovedad[_j];
+          this.ctoNovedad= itemnovedad.CONTRATO;
+          this.idNovedad  = itemnovedad.ID;
+          //gestiondata.ID = itemnovedad.ID;
           gestiondata.Contrato = itemnovedad.CONTRATO;
           gestiondata.Novedad = itemnovedad.NOVEDAD;
           gestiondata.Diapos = itemnovedad.DIAPOST;
@@ -584,9 +625,12 @@ export class AppComponent implements OnInit, OnDestroy {
           
           try
           {
+            console.log("novedad a guardar" + gestiondata)
             this.GetRestBody('/pago/insertNove', gestiondata);
-            //pasa el estado de la novedad a sincronizado 1
-            this.ofline.actualizarSincronizadoNovedad(itemnovedad.IDCONTRATO);
+            if(this.isConnected == true){
+              //pasa el estado de la novedad a sincronizado 1
+               this.ofline.actualizarSincronizadoNovedad(this.idNovedad);
+            }
           } catch(ex){
             throw ex;
           }
@@ -596,90 +640,139 @@ export class AppComponent implements OnInit, OnDestroy {
   });
   }
 
-  offlineChange(){
-    this.alertController.create({
-      header: 'Trabajo Fuera de Linea',
-      message: !this.statusOffline ? 'Si desactiva el modo "Trabajo Fuera de Linea" la aplicación no tendrá en cuenta la información local, ¿Desea continuar?': 'Si activa el modo "Trabajo Fuera de Linea" debe cargar una ruta, ¿Desea continuar?',
-      buttons:[
-        { 
-          text: 'Si', role: 'accept', handler: ()=>{
-            if(this.statusOffline)
+  async CargarPagosBdLocal(){
+    
+    this.ofline.getListapago().then((datapagos: RegistrarpagoModel[]) => {
+      if(datapagos.length> 0){
+          for (var _i = 0; _i < datapagos.length; _i++) 
+          {
+            var item = datapagos[_i];
+            try
             {
-              this.SincronizeData().then(res=>{
-  
-              }).catch(err=>{
-                this.statusOffline = !this.statusOffline;
-              });
-            }
-            localStorage.setItem('offlineMode', this.statusOffline ? 'true' : 'false');
-            localStorage.setItem('existeRuta', 'Ruta cargada satisfactoriamente');
+              console.log("llego a almacenar pagos productiva")
 
+               this.GetRestBody('/pago/create', item);
+             if(this.isConnected == true){
+                //pasa el estado del pago a sincronizado 1
+                this.ofline.actualizarSincronizadoPago(item.IDCONTRATO,item.IDPERSONA);
+             }
+            } catch(ex){
+              throw ex;
+            }
           }
-        },
-        {
-         
-          text: 'No', role: 'cancel', handler: ()=>{ 
-            this.statusOffline = false;
-            this.alertController.dismiss();
-          }
+      }
+    });
+
+  }
+
+  offlineChange(){
+
+console.log("statusOffline", this.statusOffline)
+console.log("localstore", localStorage.getItem('offlineMode'))
+      if( this.statusOffline === false ){
+           this.alertController.create({
+            header: 'Trabajo Fuera de Linea',
+            message: !this.statusOffline ? 'Si desactiva el modo "Trabajo Fuera de Linea" la aplicación no tendrá en cuenta la información local, ¿Desea continuar?': 'Si activa el modo "Trabajo Fuera de Linea" debe cargar una ruta, ¿Desea continuar?',
+            buttons:[
+              { 
+                text: 'Si', role: 'accept', handler: ()=>{
+                  
+                 // if(this.statusOffline)
+                  //{
+                   // this.SincronizeData().then(res=>{
+        
+                   // }).catch(err=>{
+                     // this.statusOffline = !this.statusOffline;
+                   // });
+                  //}
+                  localStorage.setItem('offlineMode', this.statusOffline ? 'true' : 'false');
+                  localStorage.setItem('existeRuta', 'Ruta cargada satisfactoriamente');
+
+                }
+              },
+              {
+              
+                text: 'No', role: 'cancel', handler: ()=>{ 
+                  this.statusOffline = false;
+                  this.alertController.dismiss();
+                }
+              }
+            ]
+          }).then(a=>{
+            a.present();
+          })
+        }else{
+          localStorage.setItem('offlineMode', this.statusOffline ? 'true' : 'false');
+          localStorage.setItem('existeRuta', 'Ruta cargada satisfactoriamente');
         }
-      ]
-    }).then(a=>{
-      a.present();
-    })
+    
   }
 
   // utiiza el metodo sincronico para cargar rutas
   offlineCargarRutas(){
-    this.alertController.create({
-      header: 'Cargar Ruta',
-      message: 'Esta Seguro De Cargar La Ruta, ¿Desea continuar?',
-      buttons:[
-        { 
-          text: 'Si', role: 'accept', handler: ()=>{
-           
-              this.cargarRuta().then(res=>{
+
   
-              }).catch(err=>{
-                
-              });
+      this.alertController.create({
+        header: 'Cargar Ruta',
+        message: 'Esta Seguro De Cargar La Ruta, ¿Desea continuar?',
+        buttons:[
+          { 
+            text: 'Si', role: 'accept', handler: ()=>{
+            
+              //carga la ruta
+                this.cargarRuta().then(res=>{
+    
+                }).catch(err=>{
+                  
+                });
+               
+
+            }
+          },
+          { 
+            text: 'No', role: 'cancel', handler: ()=>{ 
+              this.alertController.dismiss();
+            }
           }
-        },
-        { 
-          text: 'No', role: 'cancel', handler: ()=>{ 
-            this.alertController.dismiss();
-          }
-        }
-      ]
-    }).then(a=>{
-      a.present();
-    })
+        ]
+      }).then(a=>{
+        a.present();
+      })
+      
+    
+   
+
   }
 
   // utiiza el metodo sincronico para cargar pagos y novedades
   offlineCargarPagosNovedades(){
-    this.alertController.create({
-      header: 'Sincronizar Rutas',
-      message: 'Esta Seguro Que Desea Sincronizar Los Pagos Y Novedades, ¿Desea continuar?',
-      buttons:[
-        { 
-          text: 'Si', role: 'accept', handler: ()=>{
-           
-              this.sincronizar().then(res=>{
-  
-              }).catch(err=>{
-                
-              });
-          }
-        },
-        { 
-          text: 'No', role: 'cancel', handler: ()=>{ 
-            this.alertController.dismiss();
-          }
-        }
-      ]
-    }).then(a=>{
-      a.present();
-    })
+  //comprueba la conexion a internet
+   
+
+        this.alertController.create({
+          header: 'Sincronizar Rutas',
+          message: 'Esta Seguro Que Desea Sincronizar Los Pagos Y Novedades, ¿Desea continuar?',
+          buttons:[
+            { 
+              text: 'Si', role: 'accept', handler: ()=>{
+               
+                  this.sincronizar().then(res=>{
+      
+                  }).catch(err=>{
+                    
+                  });
+              }
+            },
+            { 
+              text: 'No', role: 'cancel', handler: ()=>{ 
+                this.alertController.dismiss();
+              }
+            }
+          ]
+        }).then(a=>{
+          a.present();
+        })
+
+   
   }
 }

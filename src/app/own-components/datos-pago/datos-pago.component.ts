@@ -93,7 +93,13 @@ export class DatosPagoComponent implements OnInit {
            
             if(this.pago.NumeroDocumento !== undefined)
             {
-              printBody += tipodoc+ ': ' + this.pago.NumeroDocumento;
+              let isOffline = localStorage.getItem('offlineMode') === 'true' ? true : false;
+
+              if(!isOffline){
+                  printBody += tipodoc+ ': ' + this.pago.NumeroDocumento;
+              }else{
+                  printBody += 'RECIBO'+ ': ' + this.pago.NumeroDocumento;
+              }
               printBody += this.print.PosCommand.LF;
               printBody += this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
             }

@@ -4,7 +4,7 @@ export class PagoResponseModel {
     Desde: string;
     Hasta: string;
     Concepto: string;
-    DetallePago: string;
+    DetallePago: string = '';
     Respuesta: string;
     Anulado: string;
     PVisita: string;

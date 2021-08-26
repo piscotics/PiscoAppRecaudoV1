@@ -81,13 +81,16 @@ export class RegistrarPagoPage implements OnInit {
         registroPago.VALOR = this.contrato.cuota;
         registroPago.PLAN = this.contrato.plan;
         registroPago.FORMAPAGO = this.contrato.formaPago;
+        registroPago.Departamento = this.contrato.departamento;
+        registroPago.Ciudad = this.contrato.ciudad;
+       
         this.registroPago = registroPago;
         
       }
 
       this.pagosService.cargarFormaPago().then((tipospagos: any[]) => {
         this.tipopago = tipospagos;
-        this.nvoFormaPago = this.tipopago[3].NombreTipoPago ;
+        this.nvoFormaPago = 'Efectivo';//this.tipopago[3].NombreTipoPago ;
 
         console.log("el tipo de pgo es " + this.nvoFormaPago ); //JSON.stringify(tipospagos[3].NombreTipoPago)
         
@@ -119,6 +122,8 @@ export class RegistrarPagoPage implements OnInit {
 
       //registroPago.FORMAPAGO = registroPago.FORMAPAGO;
       console.log(`Registro de pago a enviar al server: ${JSON.stringify(registroPago)}`);
+    
+
       this.modalController.create({
         component: ModalConfirmarPagoComponent,
         componentProps: {
@@ -138,6 +143,7 @@ export class RegistrarPagoPage implements OnInit {
                 replaceUrl: true
               };
               
+              console.log("la respuesta de pago a enviar al server:", respuesta);
               const registroBusqueda = new ConsultaPagoModel();
 
               registroBusqueda.Cedula = this.contrato.cedula;

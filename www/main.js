@@ -195,7 +195,13 @@ var DatosPagoComponent = /** @class */ (function () {
                     printBody += _this.print.PosCommand.LF;
                     printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
                     if (_this.pago.NumeroDocumento !== undefined) {
-                        printBody += tipodoc + ': ' + _this.pago.NumeroDocumento;
+                        var isOffline = localStorage.getItem('offlineMode') === 'true' ? true : false;
+                        if (!isOffline) {
+                            printBody += tipodoc + ': ' + _this.pago.NumeroDocumento;
+                        }
+                        else {
+                            printBody += 'RECIBO' + ': ' + _this.pago.NumeroDocumento;
+                        }
                         printBody += _this.print.PosCommand.LF;
                         printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
                     }
@@ -1216,31 +1222,37 @@ var OfflineService = /** @class */ (function () {
     //si hay pagos sin sincronizar retorna true 
     OfflineService.prototype.comprobarEstadoPagosNovedad = function () {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var data, ex_2;
+            var data, data2, ex_2;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        _a.trys.push([0, 2, , 3]);
+                        _a.trys.push([0, 5, , 6]);
                         console.log("ejecuto el metodo cat pagos sincronizados");
                         return [4 /*yield*/, this.db.executeSql("SELECT * FROM PAGOS WHERE SINCRONIZAR = 0", [])];
                     case 1:
                         data = _a.sent();
                         //let res = await this.db.executeSql("SELECT * FROM PAGOS WHERE SINCRONIZAR = 0")
                         console.log("pagos sincronizados", data);
-                        if (data.rows.length > 0) {
+                        if (!(data.rows.length > 0)) return [3 /*break*/, 2];
+                        console.log("cat pagos sincronizados encontro");
+                        return [2 /*return*/, true];
+                    case 2: return [4 /*yield*/, this.db.executeSql("SELECT * FROM NOVEDAD WHERE SINCRONIZAR = 0", [])];
+                    case 3:
+                        data2 = _a.sent();
+                        if (data2.rows.length > 0) {
                             console.log("cat pagos sincronizados encontro");
                             return [2 /*return*/, true];
                         }
                         else {
-                            console.log("cat pagos sincronizados no encontro");
                             return [2 /*return*/, false];
                         }
-                        return [3 /*break*/, 3];
-                    case 2:
+                        _a.label = 4;
+                    case 4: return [3 /*break*/, 6];
+                    case 5:
                         ex_2 = _a.sent();
                         console.log("err pagos sincronizados", ex_2);
                         return [2 /*return*/, false];
-                    case 3: return [2 /*return*/];
+                    case 6: return [2 /*return*/];
                 }
             });
         });
@@ -1290,7 +1302,7 @@ var OfflineService = /** @class */ (function () {
                         return [4 /*yield*/, this.db.executeSql(sql, [])];
                     case 1:
                         _a.sent();
-                        sql = 'CREATE TABLE IF NOT EXISTS PAGOS (ID INTEGER PRIMARY KEY AUTOINCREMENT, IDCONTRATO TEXT, IDPERSONA TEXT, VALOR FLOAT, DESCUENTO FLOAT, CANTIDADCUOTAS FLOAT, MAQUINA TEXT, USUARIO TEXT, OBSERVACIONES TEXT, CUOTAMENSUAL FLOAT, ESTADO TEXT, FORMAPAGO TEXT, FECHAPAGOR TEXT, POSX TEXT, POSY TEXT, TITULAR TEXT,  SINCRONIZAR TEXT)';
+                        sql = 'CREATE TABLE IF NOT EXISTS PAGOS (ID INTEGER PRIMARY KEY AUTOINCREMENT, IDCONTRATO TEXT, IDPERSONA TEXT, VALOR FLOAT, DESCUENTO FLOAT, CANTIDADCUOTAS FLOAT, MAQUINA TEXT, USUARIO TEXT, OBSERVACIONES TEXT, CUOTAMENSUAL FLOAT, ESTADO TEXT, FORMAPAGO TEXT, FECHAPAGOR TEXT, POSX TEXT, POSY TEXT, TITULAR TEXT,  SINCRONIZAR TEXT , NRORECIBO TEXT, PagoDesde TEXT, PagoHasta TEXT,ValorLetras TEXT )';
                         return [4 /*yield*/, this.db.executeSql(sql, [])];
                     case 2:
                         _a.sent();
@@ -1362,7 +1374,7 @@ var OfflineService = /** @class */ (function () {
                         _a.trys.push([0, 2, , 3]);
                         console.log("los datos que se envian son", NroPago);
                         data = void 0;
-                        return [4 /*yield*/, this.db.executeSql("SELECT IDCONTRATO, IDPERSONA, VALOR, DESCUENTO, CANTIDADCUOTAS, MAQUINA, USUARIO, OBSERVACIONES, CUOTAMENSUAL, ESTADO, FORMAPAGO, FECHAPAGOR, POSX, POSY, TITULAR, SINCRONIZAR FROM PAGOS R  WHERE  R.ID = ? ", [NroPago])];
+                        return [4 /*yield*/, this.db.executeSql("SELECT IDCONTRATO, IDPERSONA, VALOR, DESCUENTO, CANTIDADCUOTAS, MAQUINA, USUARIO, OBSERVACIONES, CUOTAMENSUAL, ESTADO, FORMAPAGO, FECHAPAGOR, POSX, POSY, TITULAR, SINCRONIZAR, NRORECIBO NumeroDocumento, PagoDesde, PagoHasta,ValorLetras  FROM PAGOS R  WHERE  R.NRORECIBO = ? ", [NroPago])];
                     case 1:
                         data = _a.sent();
                         console.log("la consulta a ejecutar es ", data);
@@ -1385,29 +1397,30 @@ var OfflineService = /** @class */ (function () {
             });
         });
     };
-    OfflineService.prototype.getConsultarRutas = function (fechar, idcobrador, estado) {
+    OfflineService.prototype.getConsultarRutas = function (fechar, idcobrador, estado, sincronizado) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
             var data, todos, i, ex_5;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 7, , 8]);
-                        console.log("los datos que se envian son", fechar, idcobrador, estado);
+                        console.log("los datos que se envian son", fechar, idcobrador, estado, sincronizado);
                         data = void 0;
                         if (!(estado == "Sn")) return [3 /*break*/, 2];
-                        return [4 /*yield*/, this.db.executeSql("SELECT R.IDCONTRATO,R.CEDULA, R.TITULAR, R.PAGOHASTA, R.DIRECCION, R.TELEFONO, R.ESTADO FROM RUTAS R  WHERE R.FECHAR = ? AND R.IDCOBRADOR = ? AND R.ESTADO = ? ", [fechar + "T00:00:00", idcobrador, estado])];
+                        return [4 /*yield*/, this.db.executeSql("SELECT R.IDCONTRATO,R.CEDULA, R.TITULAR, R.PAGOHASTA, R.DIRECCION, R.TELEFONO, R.ESTADO,R.CUOTA, R.VALORCARTERA  FROM RUTAS R  WHERE R.FECHAR = ? AND R.IDCOBRADOR = ? AND R.ESTADO = ? ", [fechar + "T00:00:00", idcobrador, estado])];
                     case 1:
                         data = _a.sent();
                         return [3 /*break*/, 6];
                     case 2:
                         if (!(estado == "Pago")) return [3 /*break*/, 4];
-                        return [4 /*yield*/, this.db.executeSql("SELECT R.IDCONTRATO,R.CEDULA, R.TITULAR, R.PAGOHASTA, R.DIRECCION, R.TELEFONO, R.ESTADO, P.VALOR FROM RUTAS R LEFT JOIN PAGOS P ON P.IDCONTRATO = R.IDCONTRATO  WHERE R.FECHAR = ? AND R.IDCOBRADOR = ? AND R.ESTADO = ? ", [fechar + "T00:00:00", idcobrador, estado])];
+                        return [4 /*yield*/, this.db.executeSql("SELECT R.IDCONTRATO,R.CEDULA, R.TITULAR, R.PAGOHASTA, R.DIRECCION, R.TELEFONO, R.ESTADO,R.CUOTA, R.VALORCARTERA, P.VALOR, P.SINCRONIZAR, P.DESCUENTO FROM RUTAS R LEFT JOIN PAGOS P ON P.IDCONTRATO = R.IDCONTRATO  WHERE R.FECHAR = ? AND R.IDCOBRADOR = ? AND R.ESTADO = ? AND P.SINCRONIZAR = ?  ", [fechar + "T00:00:00", idcobrador, estado, sincronizado])];
                     case 3:
                         data = _a.sent();
                         return [3 /*break*/, 6];
                     case 4:
                         if (!(estado == "Novedad")) return [3 /*break*/, 6];
-                        return [4 /*yield*/, this.db.executeSql("SELECT R.IDCONTRATO,R.CEDULA, R.TITULAR, R.PAGOHASTA, R.DIRECCION, R.TELEFONO, R.ESTADO,  T.NOVEDAD NOVEDADES, N.OBSERVACIONES  FROM RUTAS R LEFT JOIN NOVEDAD N ON R.IDCONTRATO = N.CONTRATO INNER JOIN TIPONOVEDAD T ON T.Idnovedad = N.NOVEDAD WHERE R.FECHAR = ? AND R.IDCOBRADOR = ? AND R.ESTADO = ? ", [fechar + "T00:00:00", idcobrador, estado])];
+                        console.log("si llego aqui a novedad");
+                        return [4 /*yield*/, this.db.executeSql("SELECT R.IDCONTRATO,R.CEDULA, R.TITULAR, R.PAGOHASTA, R.DIRECCION, R.TELEFONO, R.ESTADO,R.CUOTA, R.VALORCARTERA,  T.NOVEDAD NOVEDADES, N.OBSERVACIONES, N.SINCRONIZAR  FROM RUTAS R INNER JOIN NOVEDAD N ON R.IDCONTRATO = N.CONTRATO INNER JOIN TIPONOVEDAD T ON T.Idnovedad = N.NOVEDAD WHERE R.FECHAR = ? AND R.IDCOBRADOR = ? AND R.ESTADO = ? AND N.SINCRONIZAR = ? ", [fechar + "T00:00:00", idcobrador, estado, sincronizado])];
                     case 5:
                         data = _a.sent();
                         _a.label = 6;
@@ -1534,29 +1547,32 @@ var OfflineService = /** @class */ (function () {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        _a.trys.push([0, 6, , 7]);
+                        console.log("pago a almacenar", d);
+                        _a.label = 1;
+                    case 1:
+                        _a.trys.push([1, 7, , 8]);
                         id_1 = 0;
-                        sql = 'INSERT INTO PAGOS (IDCONTRATO, IDPERSONA, VALOR, DESCUENTO, CANTIDADCUOTAS, MAQUINA, USUARIO, OBSERVACIONES, CUOTAMENSUAL, ESTADO, FORMAPAGO, FECHAPAGOR, POSX, POSY, TITULAR, SINCRONIZAR) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
-                        return [4 /*yield*/, this.db.executeSql(sql, [d.IDCONTRATO, d.IDPERSONA, d.VALOR, d.DESCUENTO, d.CANTIDADCUOTAS, d.MAQUINA, d.USUARIO, d.OBSERVACIONES, d.CUOTAMENSUAL, d.ESTADO, d.FORMAPAGO, new Date(d.FECHAPAGOR).toDateString(), d.POSX, d.POSY, d.titular, 0]).then(function (row) {
+                        sql = 'INSERT INTO PAGOS (IDCONTRATO, IDPERSONA, VALOR, DESCUENTO, CANTIDADCUOTAS, MAQUINA, USUARIO, OBSERVACIONES, CUOTAMENSUAL, ESTADO, FORMAPAGO, FECHAPAGOR, POSX, POSY, TITULAR, SINCRONIZAR, NRORECIBO, PagoDesde, PagoHasta,ValorLetras ) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?, ?,?,?,?)';
+                        return [4 /*yield*/, this.db.executeSql(sql, [d.IDCONTRATO, d.IDPERSONA, d.VALOR, d.DESCUENTO, d.CANTIDADCUOTAS, d.MAQUINA, d.USUARIO, d.OBSERVACIONES, d.CUOTAMENSUAL, d.ESTADO, d.FORMAPAGO, new Date(d.FECHAPAGOR).toDateString(), d.POSX, d.POSY, d.titular, 0, d.NRORECIBO, d.PagoDesde, d.PagoHasta, d.ValorLetras]).then(function (row) {
                                 id_1 = row.insertId.toString();
                             })];
-                    case 1:
-                        _a.sent();
-                        _a.label = 2;
                     case 2:
-                        _a.trys.push([2, 4, , 5]);
-                        return [4 /*yield*/, this.db.executeSql('UPDATE RUTAS SET  ESTADO = ?  WHERE IDCONTRATO = ? AND CEDULA = ?', ['Pago', d.IDCONTRATO, d.IDPERSONA])];
+                        _a.sent();
+                        _a.label = 3;
                     case 3:
-                        data = _a.sent();
-                        return [3 /*break*/, 5];
+                        _a.trys.push([3, 5, , 6]);
+                        return [4 /*yield*/, this.db.executeSql('UPDATE RUTAS SET  ESTADO = ?  WHERE IDCONTRATO = ? AND CEDULA = ?', ['Pago', d.IDCONTRATO, d.IDPERSONA])];
                     case 4:
+                        data = _a.sent();
+                        return [3 /*break*/, 6];
+                    case 5:
                         ex_9 = _a.sent();
                         throw ex_9;
-                    case 5: return [2 /*return*/, id_1];
-                    case 6:
+                    case 6: return [2 /*return*/, id_1];
+                    case 7:
                         ex_10 = _a.sent();
                         throw ex_10;
-                    case 7: return [2 /*return*/];
+                    case 8: return [2 /*return*/];
                 }
             });
         });
@@ -1580,14 +1596,14 @@ var OfflineService = /** @class */ (function () {
             });
         });
     };
-    OfflineService.prototype.actualizarSincronizadoNovedad = function (IDCONTRATO) {
+    OfflineService.prototype.actualizarSincronizadoNovedad = function (ID) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
             var data, ex_12;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, this.db.executeSql('UPDATE NOVEDAD SET SINCRONIZAR = 1  WHERE CONTRATO = ? AND IDPERSONA = ?', [IDCONTRATO])];
+                        return [4 /*yield*/, this.db.executeSql('UPDATE NOVEDAD SET SINCRONIZAR = 1  WHERE ID = ?', [ID])];
                     case 1:
                         data = _a.sent();
                         return [3 /*break*/, 3];
@@ -1845,9 +1861,28 @@ var OfflineService = /** @class */ (function () {
             });
         });
     };
-    OfflineService.prototype.getInfoContrato = function (contrato) {
+    OfflineService.prototype.fechasPagos = function (Pagodesde, Pagohasta, Nrorecibo) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
             var data, ex_23;
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        return [4 /*yield*/, this.db.executeSql('UPDATE PAGOS SET  PagoDesde  = ?, PagoHasta  = ?  WHERE  NRORECIBO  = ?', [new Date(Pagodesde).toDateString(), new Date(Pagohasta).toDateString(), Nrorecibo])];
+                    case 1:
+                        data = _a.sent();
+                        return [3 /*break*/, 3];
+                    case 2:
+                        ex_23 = _a.sent();
+                        throw ex_23;
+                    case 3: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    OfflineService.prototype.getInfoContrato = function (contrato) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
+            var data, ex_24;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1863,8 +1898,8 @@ var OfflineService = /** @class */ (function () {
                         }
                         return [3 /*break*/, 3];
                     case 2:
-                        ex_23 = _a.sent();
-                        throw ex_23;
+                        ex_24 = _a.sent();
+                        throw ex_24;
                     case 3: return [2 /*return*/];
                 }
             });
@@ -1872,7 +1907,7 @@ var OfflineService = /** @class */ (function () {
     };
     OfflineService.prototype.getInfoCedula = function (cedula) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var data, todos, i, ex_24;
+            var data, todos, i, ex_25;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1892,8 +1927,8 @@ var OfflineService = /** @class */ (function () {
                         }
                         return [3 /*break*/, 3];
                     case 2:
-                        ex_24 = _a.sent();
-                        throw ex_24;
+                        ex_25 = _a.sent();
+                        throw ex_25;
                     case 3: return [2 /*return*/];
                 }
             });
@@ -1901,7 +1936,7 @@ var OfflineService = /** @class */ (function () {
     };
     OfflineService.prototype.getBeneficiarios = function (contrato) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var data, bene, ex_25;
+            var data, bene, ex_26;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1918,8 +1953,8 @@ var OfflineService = /** @class */ (function () {
                         }
                         return [3 /*break*/, 3];
                     case 2:
-                        ex_25 = _a.sent();
-                        throw ex_25;
+                        ex_26 = _a.sent();
+                        throw ex_26;
                     case 3: return [2 /*return*/];
                 }
             });
@@ -1927,7 +1962,7 @@ var OfflineService = /** @class */ (function () {
     };
     OfflineService.prototype.getUltimospagos = function (contrato) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var data, pagos, ex_26;
+            var data, pagos, ex_27;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1944,35 +1979,6 @@ var OfflineService = /** @class */ (function () {
                         }
                         return [3 /*break*/, 3];
                     case 2:
-                        ex_26 = _a.sent();
-                        throw ex_26;
-                    case 3: return [2 /*return*/];
-                }
-            });
-        });
-    };
-    OfflineService.prototype.getFormaPago = function () {
-        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var data, todos, i, ex_27;
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, this.db.executeSql("SELECT * FROM FORMAPAGO ", [])];
-                    case 1:
-                        data = _a.sent();
-                        if (data.rows.length > 0) {
-                            todos = [];
-                            for (i = 0; i < data.rows.length; i++) {
-                                todos.push(data.rows.item(i));
-                            }
-                            return [2 /*return*/, todos];
-                        }
-                        else {
-                            return [2 /*return*/, []];
-                        }
-                        return [3 /*break*/, 3];
-                    case 2:
                         ex_27 = _a.sent();
                         throw ex_27;
                     case 3: return [2 /*return*/];
@@ -1980,14 +1986,14 @@ var OfflineService = /** @class */ (function () {
             });
         });
     };
-    OfflineService.prototype.getNovedades = function () {
+    OfflineService.prototype.getFormaPago = function () {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
             var data, todos, i, ex_28;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, this.db.executeSql("SELECT * FROM TIPONOVEDAD ", [])];
+                        return [4 /*yield*/, this.db.executeSql("SELECT * FROM FORMAPAGO ", [])];
                     case 1:
                         data = _a.sent();
                         if (data.rows.length > 0) {
@@ -2009,9 +2015,38 @@ var OfflineService = /** @class */ (function () {
             });
         });
     };
+    OfflineService.prototype.getNovedades = function () {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
+            var data, todos, i, ex_29;
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        return [4 /*yield*/, this.db.executeSql("SELECT * FROM TIPONOVEDAD ", [])];
+                    case 1:
+                        data = _a.sent();
+                        if (data.rows.length > 0) {
+                            todos = [];
+                            for (i = 0; i < data.rows.length; i++) {
+                                todos.push(data.rows.item(i));
+                            }
+                            return [2 /*return*/, todos];
+                        }
+                        else {
+                            return [2 /*return*/, []];
+                        }
+                        return [3 /*break*/, 3];
+                    case 2:
+                        ex_29 = _a.sent();
+                        throw ex_29;
+                    case 3: return [2 /*return*/];
+                }
+            });
+        });
+    };
     OfflineService.prototype.getCuadreCaja = function (usuario, fecha) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var m, data, ex_29;
+            var m, data, ex_30;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -2028,8 +2063,8 @@ var OfflineService = /** @class */ (function () {
                         }
                         return [3 /*break*/, 3];
                     case 2:
-                        ex_29 = _a.sent();
-                        throw ex_29;
+                        ex_30 = _a.sent();
+                        throw ex_30;
                     case 3: return [2 /*return*/];
                 }
             });
@@ -2037,7 +2072,7 @@ var OfflineService = /** @class */ (function () {
     };
     OfflineService.prototype.getListapago = function () {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var data, todos, i, ex_30;
+            var data, todos, i, ex_31;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -2057,8 +2092,8 @@ var OfflineService = /** @class */ (function () {
                         }
                         return [3 /*break*/, 3];
                     case 2:
-                        ex_30 = _a.sent();
-                        throw ex_30;
+                        ex_31 = _a.sent();
+                        throw ex_31;
                     case 3: return [2 /*return*/];
                 }
             });
@@ -2066,15 +2101,17 @@ var OfflineService = /** @class */ (function () {
     };
     OfflineService.prototype.getListaNovedades = function () {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var data, todos, i, ex_31;
+            var data, todos, i, ex_32;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, this.db.executeSql("SELECT * FROM NOVEDAD WHERE SINCRONIZAR = 0", [])];
+                        console.log("llego  a la consulta de la lista de novedades");
+                        return [4 /*yield*/, this.db.executeSql("SELECT * FROM NOVEDAD WHERE SINCRONIZAR = 0 ", [])];
                     case 1:
                         data = _a.sent();
                         if (data.rows.length > 0) {
+                            console.log("la cantidad a sincronizar es:" + data.rows.length);
                             todos = [];
                             for (i = 0; i < data.rows.length; i++) {
                                 todos.push(data.rows.item(i));
@@ -2082,12 +2119,13 @@ var OfflineService = /** @class */ (function () {
                             return [2 /*return*/, todos];
                         }
                         else {
+                            console.log("la cantidad a sincronizar es: 0");
                             return [2 /*return*/, []];
                         }
                         return [3 /*break*/, 3];
                     case 2:
-                        ex_31 = _a.sent();
-                        throw ex_31;
+                        ex_32 = _a.sent();
+                        throw ex_32;
                     case 3: return [2 /*return*/];
                 }
             });
@@ -3290,6 +3328,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _models_cuadre_caja_model__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./models/cuadre-caja.model */ "qDQK");
 /* harmony import */ var _ionic_native_device_ngx__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @ionic-native/device/ngx */ "xS7M");
 /* harmony import */ var _models_registro_gestion_model__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./models/registro-gestion.model */ "gjAW");
+/* harmony import */ var _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @ionic-native/network/ngx */ "kwrG");
 
 
 
@@ -3311,8 +3350,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var AppComponent = /** @class */ (function () {
-    function AppComponent(platform, splashScreen, statusBar, router, menu, alertController, configService, sesionService, androidPermissions, print, configuracionService, toastController, alert, sqlite, device, ofline, loading, http, navCtrl) {
+    function AppComponent(platform, splashScreen, statusBar, router, menu, alertController, configService, sesionService, androidPermissions, print, configuracionService, toastController, alert, sqlite, device, ofline, loading, http, navCtrl, network) {
         var _this = this;
         this.platform = platform;
         this.splashScreen = splashScreen;
@@ -3333,11 +3373,14 @@ var AppComponent = /** @class */ (function () {
         this.loading = loading;
         this.http = http;
         this.navCtrl = navCtrl;
+        this.network = network;
         this.mostrandoConfirmacionCerrarApp = false;
         this.msg = '';
         this.sesionLocal = new _models_sesion_local_model__WEBPACK_IMPORTED_MODULE_6__["SesionLocalModel"]();
         this.menuPrincipalId = 'menuPrincipal';
         this.license = '';
+        this.ctoNovedad = '';
+        this.isConnected = false;
         this.initializeApp();
         this.statusOffline = localStorage.getItem('offlineMode') === 'true' ? true : false;
         this.msg = localStorage.getItem('existeRuta');
@@ -3576,20 +3619,28 @@ var AppComponent = /** @class */ (function () {
     };
     AppComponent.prototype.GetRestBody = function (url, body) {
         var _this = this;
-        return new Promise(function (resolve, reject) {
-            var httpOptions = {
-                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_14__["HttpHeaders"]({
-                    'Content-Type': 'application/json',
-                })
-            };
-            var configHelper = new _helpers_config_helper__WEBPACK_IMPORTED_MODULE_15__["ConfigHelper"](_this.configuracionService.config);
-            console.log(JSON.stringify(body));
-            _this.http.post("" + configHelper.getApiUrl() + url, body, httpOptions).subscribe(function (res) {
-                resolve(res);
-            }, function (err) {
-                reject(err);
+        try {
+            return new Promise(function (resolve, reject) {
+                var httpOptions = {
+                    headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_14__["HttpHeaders"]({
+                        'Content-Type': 'application/json',
+                    })
+                };
+                var configHelper = new _helpers_config_helper__WEBPACK_IMPORTED_MODULE_15__["ConfigHelper"](_this.configuracionService.config);
+                console.log(JSON.stringify(body));
+                _this.http.post("" + configHelper.getApiUrl() + url, body, httpOptions).subscribe(function (res) {
+                    resolve(res);
+                    _this.isConnected = true;
+                }, function (err) {
+                    _this.isConnected = false;
+                    reject(err);
+                });
             });
-        });
+        }
+        catch (error) {
+            this.isConnected = false;
+            throw error;
+        }
     };
     AppComponent.prototype.SincronizeData = function () {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
@@ -3667,16 +3718,16 @@ var AppComponent = /** @class */ (function () {
                         if (_this.sincronizaPagosNovedad == true) {
                             _this.alertController.create({
                                 header: 'Nueva Ruta',
-                                message: 'ya cuenta con una ruta cargada con datos no sincronizados, al continuar el proceso se elimina la ruta actual , ¿Desea continuar?',
+                                message: 'ya cuenta con una ruta cargada con datos no sincronizados, para continuar debe sincronizar los datos primero',
                                 buttons: [
+                                    /* {
+                                      text: 'Si', role: 'accept', handler: ()=>{
+                                        this.cargarRutas();
+                            
+                                      }
+                                    }, */
                                     {
-                                        text: 'Si', role: 'accept',
-                                        handler: function () {
-                                            _this.cargarRutas();
-                                        }
-                                    },
-                                    {
-                                        text: 'No', role: 'cancel',
+                                        text: 'Ok', role: 'cancel',
                                         handler: function () {
                                             _this.alertController.dismiss();
                                         }
@@ -3710,7 +3761,7 @@ var AppComponent = /** @class */ (function () {
                         l = _a.sent();
                         _a.label = 2;
                     case 2:
-                        _a.trys.push([2, 13, , 14]);
+                        _a.trys.push([2, 20, , 21]);
                         this.msg = 'Ruta cargada satisfactoriamente';
                         return [4 /*yield*/, l.present()];
                     case 3:
@@ -3737,10 +3788,37 @@ var AppComponent = /** @class */ (function () {
                         return [4 /*yield*/, this.ofline.SincronizarListaNovedades(data)];
                     case 8:
                         _a.sent();
-                        //*********************************************************** */
+                        //**************************nuevas ********************************* */
+                        l.message = "Creando Tablas Locales";
+                        return [4 /*yield*/, this.ofline.createTables()];
+                    case 9:
+                        _a.sent();
+                        l.message = "Cargando Licencias";
+                        return [4 /*yield*/, this.GetRest('/login/licenceslocale')];
+                    case 10:
+                        data = _a.sent();
+                        return [4 /*yield*/, this.ofline.sincronizarLicencias(data)];
+                    case 11:
+                        _a.sent();
+                        l.message = "Cargando Usuarios";
+                        return [4 /*yield*/, this.GetRest('/login/userlocale')];
+                    case 12:
+                        data = _a.sent();
+                        return [4 /*yield*/, this.ofline.sincronizarUsuarios(data)];
+                    case 13:
+                        _a.sent();
+                        //await this.ofline.loginOffline("1005", "1005");
+                        l.message = "Cargando Informacion Empresa";
+                        return [4 /*yield*/, this.GetRest('/pago/funeraria')];
+                    case 14:
+                        data = _a.sent();
+                        return [4 /*yield*/, this.ofline.sincronizarEmpresas(data)];
+                    case 15:
+                        _a.sent();
+                        //***************fin nuevas**************** */
                         l.message = 'Cargando Rutas';
                         return [4 /*yield*/, this.GetRestBody('/posicion/lstRutas', dataPost)];
-                    case 9:
+                    case 16:
                         data = _a.sent();
                         console.log("los datos de la ruta ", data);
                         if (data == '') {
@@ -3750,26 +3828,26 @@ var AppComponent = /** @class */ (function () {
                             localStorage.setItem('existeRuta', 'Ruta cargada satisfactoriamente');
                         }
                         return [4 /*yield*/, this.ofline.sincronizarRutas(data)];
-                    case 10:
+                    case 17:
                         _a.sent();
                         l.dismiss();
                         //sincroniza las formas de pago 
                         l.message = "Cargando Formas de Pago";
                         return [4 /*yield*/, this.GetRest('/pago/TiposPagos')];
-                    case 11:
+                    case 18:
                         data = _a.sent();
                         return [4 /*yield*/, this.ofline.sincronizarFormaPago(data)];
-                    case 12:
+                    case 19:
                         _a.sent();
                         l.dismiss();
                         alert(this.msg);
-                        return [3 /*break*/, 14];
-                    case 13:
+                        return [3 /*break*/, 21];
+                    case 20:
                         ex_2 = _a.sent();
                         alert(ex_2.message);
                         l.dismiss();
-                        return [3 /*break*/, 14];
-                    case 14: return [2 /*return*/];
+                        return [3 /*break*/, 21];
+                    case 21: return [2 /*return*/];
                 }
             });
         });
@@ -3788,7 +3866,7 @@ var AppComponent = /** @class */ (function () {
                         l = _a.sent();
                         _a.label = 2;
                     case 2:
-                        _a.trys.push([2, 5, , 6]);
+                        _a.trys.push([2, 6, , 7]);
                         return [4 /*yield*/, l.present()];
                     case 3:
                         _a.sent();
@@ -3797,43 +3875,44 @@ var AppComponent = /** @class */ (function () {
                         return [4 /*yield*/, this.CargarPagosBdLocal()];
                     case 4:
                         _a.sent();
-                        l.dismiss();
-                        alert('Informacíon sincronizada satisfactoriamente');
-                        return [3 /*break*/, 6];
+                        // l.dismiss();
+                        l.message = 'Sincronizando Novedades';
+                        return [4 /*yield*/, this.CargarNovedadBdLocal()];
                     case 5:
+                        _a.sent();
+                        l.dismiss();
+                        if (this.isConnected == true) {
+                            alert('Informacíon sincronizada satisfactoriamente');
+                        }
+                        else {
+                            alert('Informacíon no sincronizada');
+                        }
+                        return [3 /*break*/, 7];
+                    case 6:
                         ex_3 = _a.sent();
                         alert(ex_3.message);
                         l.dismiss();
-                        return [3 /*break*/, 6];
-                    case 6: return [2 /*return*/];
+                        return [3 /*break*/, 7];
+                    case 7: return [2 /*return*/];
                 }
             });
         });
     };
-    AppComponent.prototype.CargarPagosBdLocal = function () {
+    AppComponent.prototype.CargarNovedadBdLocal = function () {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
             var _this = this;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
-                this.ofline.getListapago().then(function (datapagos) {
-                    if (datapagos.length > 0) {
-                        for (var _i = 0; _i < datapagos.length; _i++) {
-                            var item = datapagos[_i];
-                            try {
-                                _this.GetRestBody('/pago/create', item);
-                                //pasa el estado del pago a sincronizado 1
-                                _this.ofline.actualizarSincronizadoPago(item.IDCONTRATO, item.IDPERSONA);
-                            }
-                            catch (ex) {
-                                throw ex;
-                            }
-                        }
-                    }
-                });
+                console.log("llego a cargar nivedades a productiva");
                 this.ofline.getListaNovedades().then(function (datanovedad) {
+                    console.log("Cant novedades encontradas" + datanovedad.length);
+                    console.log("novedades encontradas" + datanovedad);
                     if (datanovedad.length > 0) {
                         for (var _j = 0; _j < datanovedad.length; _j++) {
                             var gestiondata = new _models_registro_gestion_model__WEBPACK_IMPORTED_MODULE_18__["RegistroGestionModel"]();
                             var itemnovedad = datanovedad[_j];
+                            _this.ctoNovedad = itemnovedad.CONTRATO;
+                            _this.idNovedad = itemnovedad.ID;
+                            //gestiondata.ID = itemnovedad.ID;
                             gestiondata.Contrato = itemnovedad.CONTRATO;
                             gestiondata.Novedad = itemnovedad.NOVEDAD;
                             gestiondata.Diapos = itemnovedad.DIAPOST;
@@ -3846,9 +3925,38 @@ var AppComponent = /** @class */ (function () {
                             gestiondata.Posy = itemnovedad.POSY;
                             gestiondata.Observaciones = itemnovedad.OBSERVACIONES;
                             try {
+                                console.log("novedad a guardar" + gestiondata);
                                 _this.GetRestBody('/pago/insertNove', gestiondata);
-                                //pasa el estado de la novedad a sincronizado 1
-                                _this.ofline.actualizarSincronizadoNovedad(itemnovedad.IDCONTRATO);
+                                if (_this.isConnected == true) {
+                                    //pasa el estado de la novedad a sincronizado 1
+                                    _this.ofline.actualizarSincronizadoNovedad(_this.idNovedad);
+                                }
+                            }
+                            catch (ex) {
+                                throw ex;
+                            }
+                        }
+                    }
+                });
+                return [2 /*return*/];
+            });
+        });
+    };
+    AppComponent.prototype.CargarPagosBdLocal = function () {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
+            var _this = this;
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
+                this.ofline.getListapago().then(function (datapagos) {
+                    if (datapagos.length > 0) {
+                        for (var _i = 0; _i < datapagos.length; _i++) {
+                            var item = datapagos[_i];
+                            try {
+                                console.log("llego a almacenar pagos productiva");
+                                _this.GetRestBody('/pago/create', item);
+                                if (_this.isConnected == true) {
+                                    //pasa el estado del pago a sincronizado 1
+                                    _this.ofline.actualizarSincronizadoPago(item.IDCONTRATO, item.IDPERSONA);
+                                }
                             }
                             catch (ex) {
                                 throw ex;
@@ -3862,34 +3970,43 @@ var AppComponent = /** @class */ (function () {
     };
     AppComponent.prototype.offlineChange = function () {
         var _this = this;
-        this.alertController.create({
-            header: 'Trabajo Fuera de Linea',
-            message: !this.statusOffline ? 'Si desactiva el modo "Trabajo Fuera de Linea" la aplicación no tendrá en cuenta la información local, ¿Desea continuar?' : 'Si activa el modo "Trabajo Fuera de Linea" debe cargar una ruta, ¿Desea continuar?',
-            buttons: [
-                {
-                    text: 'Si', role: 'accept',
-                    handler: function () {
-                        if (_this.statusOffline) {
-                            _this.SincronizeData().then(function (res) {
-                            }).catch(function (err) {
-                                _this.statusOffline = !_this.statusOffline;
-                            });
+        console.log("statusOffline", this.statusOffline);
+        console.log("localstore", localStorage.getItem('offlineMode'));
+        if (this.statusOffline === false) {
+            this.alertController.create({
+                header: 'Trabajo Fuera de Linea',
+                message: !this.statusOffline ? 'Si desactiva el modo "Trabajo Fuera de Linea" la aplicación no tendrá en cuenta la información local, ¿Desea continuar?' : 'Si activa el modo "Trabajo Fuera de Linea" debe cargar una ruta, ¿Desea continuar?',
+                buttons: [
+                    {
+                        text: 'Si', role: 'accept',
+                        handler: function () {
+                            // if(this.statusOffline)
+                            //{
+                            // this.SincronizeData().then(res=>{
+                            // }).catch(err=>{
+                            // this.statusOffline = !this.statusOffline;
+                            // });
+                            //}
+                            localStorage.setItem('offlineMode', _this.statusOffline ? 'true' : 'false');
+                            localStorage.setItem('existeRuta', 'Ruta cargada satisfactoriamente');
                         }
-                        localStorage.setItem('offlineMode', _this.statusOffline ? 'true' : 'false');
-                        localStorage.setItem('existeRuta', 'Ruta cargada satisfactoriamente');
+                    },
+                    {
+                        text: 'No', role: 'cancel',
+                        handler: function () {
+                            _this.statusOffline = false;
+                            _this.alertController.dismiss();
+                        }
                     }
-                },
-                {
-                    text: 'No', role: 'cancel',
-                    handler: function () {
-                        _this.statusOffline = false;
-                        _this.alertController.dismiss();
-                    }
-                }
-            ]
-        }).then(function (a) {
-            a.present();
-        });
+                ]
+            }).then(function (a) {
+                a.present();
+            });
+        }
+        else {
+            localStorage.setItem('offlineMode', this.statusOffline ? 'true' : 'false');
+            localStorage.setItem('existeRuta', 'Ruta cargada satisfactoriamente');
+        }
     };
     // utiiza el metodo sincronico para cargar rutas
     AppComponent.prototype.offlineCargarRutas = function () {
@@ -3901,6 +4018,7 @@ var AppComponent = /** @class */ (function () {
                 {
                     text: 'Si', role: 'accept',
                     handler: function () {
+                        //carga la ruta
                         _this.cargarRuta().then(function (res) {
                         }).catch(function (err) {
                         });
@@ -3919,6 +4037,7 @@ var AppComponent = /** @class */ (function () {
     };
     // utiiza el metodo sincronico para cargar pagos y novedades
     AppComponent.prototype.offlineCargarPagosNovedades = function () {
+        //comprueba la conexion a internet
         var _this = this;
         this.alertController.create({
             header: 'Sincronizar Rutas',
@@ -3962,7 +4081,8 @@ var AppComponent = /** @class */ (function () {
         { type: _services_offline_service__WEBPACK_IMPORTED_MODULE_13__["OfflineService"] },
         { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["LoadingController"] },
         { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_14__["HttpClient"] },
-        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavController"] }
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavController"] },
+        { type: _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_19__["Network"] }
     ]; };
     AppComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
@@ -3987,7 +4107,8 @@ var AppComponent = /** @class */ (function () {
             _services_offline_service__WEBPACK_IMPORTED_MODULE_13__["OfflineService"],
             _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["LoadingController"],
             _angular_common_http__WEBPACK_IMPORTED_MODULE_14__["HttpClient"],
-            _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavController"]])
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavController"],
+            _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_19__["Network"]])
     ], AppComponent);
     return AppComponent;
 }());
@@ -4163,7 +4284,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-app>\r\n\r\n    <ion-menu side=\"end\" [menuId]=\"menuPrincipalId\" *ngIf=\"mostrarMenu()\">\r\n        <ion-header>\r\n            <ion-toolbar color=\"danger\">\r\n                <ion-title>Menú</ion-title>\r\n            </ion-toolbar>\r\n        </ion-header>\r\n        <ion-content>\r\n            <ion-list>\r\n                <ion-item button=\"true\" (click)=\"consultarContrato()\">Consultar contrato</ion-item>\r\n                <ion-item button=\"true\" (click)=\"consultarPago()\">Consultar pago</ion-item>\r\n                <ion-item button=\"true\" (click)=\"cuadreCaja()\">Cuadre caja</ion-item>\r\n                <ion-item button=\"true\" (click)=\"consultarRuta()\">Consultar Ruta</ion-item>\r\n                <ion-item button=\"true\" (click)=\"removerLicencia()\">Remover Licencia</ion-item>\r\n                <ion-item button=\"true\" (click)=\"configurarImpresora()\">Configurar impresora</ion-item>\r\n\r\n                <ion-item *ngIf=\"msg == 'Ruta cargada satisfactoriamente' \">\r\n                    <ion-label>Trabajo Fuera de Linea</ion-label>\r\n                    <ion-toggle [(ngModel)]=\"statusOffline\" color=\"primary\" (ionChange)=\"offlineChange()\"></ion-toggle>\r\n                </ion-item>\r\n\r\n                \r\n                <ion-item button=\"true\" *ngIf=\"statusOffline == false\" (click)=\"offlineCargarRutas()\">Cargar Ruta</ion-item>\r\n                <ion-item  *ngIf=\"msg == 'Ruta cargada satisfactoriamente' && statusOffline == false\" button=\"true\" (click)=\"offlineCargarPagosNovedades()\">Sincronizar</ion-item>\r\n\r\n                <ion-item button=\"true\" (click)=\"cerrarSesion()\">Cerrar sesión</ion-item>\r\n                <ion-item button=\"true\">\r\n                    <ion-input disabled=\"true\" #licenseInput color=\"danger\" value=\"{{ license }}\"> </ion-input>\r\n                </ion-item>\r\n                <ion-item button=\"true\">\r\n                    <ion-input disabled=\"true\" #licenseInput color=\"danger\" value=\"V. 15/Jul/2021\"> </ion-input>\r\n                </ion-item>\r\n              \r\n            </ion-list>\r\n        </ion-content>\r\n    </ion-menu>\r\n\r\n    <ion-router-outlet main></ion-router-outlet>\r\n</ion-app>");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-app>\r\n\r\n    <ion-menu side=\"end\" [menuId]=\"menuPrincipalId\" *ngIf=\"mostrarMenu()\">\r\n        <ion-header>\r\n            <ion-toolbar color=\"danger\">\r\n                <ion-title>Menú</ion-title>\r\n            </ion-toolbar>\r\n        </ion-header>\r\n        <ion-content>\r\n            <ion-list>\r\n                <ion-item button=\"true\" (click)=\"consultarContrato()\">Consultar contrato</ion-item>\r\n                <ion-item button=\"true\" (click)=\"consultarPago()\">Consultar pago</ion-item>\r\n                <ion-item button=\"true\" (click)=\"cuadreCaja()\">Cuadre caja</ion-item>\r\n                <ion-item button=\"true\" (click)=\"consultarRuta()\">Consultar Ruta</ion-item>\r\n                <ion-item button=\"true\" (click)=\"removerLicencia()\">Remover Licencia</ion-item>\r\n                <ion-item button=\"true\" (click)=\"configurarImpresora()\">Configurar impresora</ion-item>\r\n\r\n                <ion-item *ngIf=\"msg == 'Ruta cargada satisfactoriamente' \">\r\n                    <ion-label>Trabajo Fuera de Linea</ion-label>\r\n                    <ion-toggle  [(ngModel)]=\"statusOffline\" color=\"primary\" (ionChange)=\"offlineChange()\"></ion-toggle>\r\n                </ion-item>\r\n\r\n                \r\n                <ion-item button=\"true\" *ngIf=\"statusOffline == false\" (click)=\"offlineCargarRutas()\">Cargar Ruta</ion-item>\r\n                <ion-item  *ngIf=\"msg == 'Ruta cargada satisfactoriamente' && statusOffline == false\" button=\"true\" (click)=\"offlineCargarPagosNovedades()\">Sincronizar</ion-item>\r\n\r\n                <ion-item button=\"true\" (click)=\"cerrarSesion()\">Cerrar sesión</ion-item>\r\n                <ion-item button=\"true\">\r\n                    <ion-input disabled=\"true\" #licenseInput color=\"danger\" value=\"{{ license }}\"> </ion-input>\r\n                </ion-item>\r\n                <ion-item button=\"true\">\r\n                    <ion-input disabled=\"true\" #licenseInput color=\"danger\" value=\"V. 25/Ago/2021\"> </ion-input>\r\n                </ion-item>\r\n              \r\n            </ion-list>\r\n        </ion-content>\r\n    </ion-menu>\r\n\r\n    <ion-router-outlet main></ion-router-outlet>\r\n</ion-app>");
 
 /***/ }),
 

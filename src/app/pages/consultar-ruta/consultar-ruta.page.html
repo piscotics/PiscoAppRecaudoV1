@@ -17,6 +17,17 @@
                 </ion-select>
             </ion-col>
         </ion-row>
+
+        <ion-row class="ion-align-items-center" *ngIf="criterioBusqueda != 'Sn'">
+            <ion-col size="4">Sincronizado</ion-col>
+            <ion-col size="8">
+                <ion-select #selectCriteriosincronizado cancelText="Cancelar" placeholder="Sincronizado" [value]="criterioBusquedaSincronizado" (ionChange)="criterioBusquedaSincronizado = selectCriteriosincronizado.value">
+                    <ion-select-option value="0">No</ion-select-option>
+                    <ion-select-option value="1">Si</ion-select-option>
+                </ion-select>
+            </ion-col>
+        </ion-row>
+
         <ion-row class="ion-margin-top">
             <ion-col>
                 <ion-button color="danger" expand="block" (click)="consultar()">
@@ -29,7 +40,7 @@
     <div>
        <!--  <ion-grid>
             <ion-row class="md5" > -->
-                <ion-card *ngFor="let ruta of rutas">
+                <ion-card *ngFor="let ruta of rutas" (click)="consultarCto(ruta.IDCONTRATO)" >
                     <ion-card-header>
                         <ion-card-title>  Contrato:  {{ruta.IDCONTRATO}}</ion-card-title>
                         <div class="contentButtons">
@@ -44,10 +55,20 @@
                        <ion-item text-wrap>Direccion:  {{ruta.DIRECCION}}</ion-item>
                        <ion-item text-wrap >Telefono:  {{ruta.TELEFONO}}</ion-item>
                        <ion-item text-wrap>Pago Hasta:  {{ruta.PAGOHASTA | date :  "yyyy-MM-dd"}}</ion-item>
+                       <ion-item text-wrap >Cuota:  {{ruta.CUOTA}}</ion-item> 
+                       <ion-item text-wrap >Cartera:  {{ruta.VALORCARTERA}}</ion-item> 
+                       
                        <ion-item text-wrap >Estado: <b> {{ruta.ESTADO}}</b></ion-item>
-                       <ion-item *ngIf="ruta.ESTADO == 'Pago'" text-wrap >Valor Pago:  {{ruta.VALOR}}</ion-item>
+                       <ion-item *ngIf="ruta.ESTADO == 'Pago'" text-wrap >Valor Total:  {{ruta.VALOR}}</ion-item>
+                       <ion-item *ngIf="ruta.ESTADO == 'Pago'" text-wrap >Valor Dcto:  {{ruta.DESCUENTO}}</ion-item>
+                       <ion-item *ngIf="ruta.ESTADO == 'Pago'" text-wrap >Valor Pago:  {{ruta.VALOR - ruta.DESCUENTO}}</ion-item>
                        <ion-item *ngIf="ruta.ESTADO == 'Novedad'"  text-wrap >Tipo Novedad:  {{ruta.NOVEDADES}}</ion-item>
                        <ion-item *ngIf="ruta.ESTADO == 'Novedad'" text-wrap >Novedad:  {{ruta.OBSERVACIONES}}</ion-item>
+                       <ion-item *ngIf="ruta.ESTADO == 'Pago' && ruta.SINCRONIZAR == '1' " text-wrap >Sincronizado:  Si</ion-item>
+                       <ion-item *ngIf="ruta.ESTADO == 'Pago' && ruta.SINCRONIZAR == '0' " text-wrap >Sincronizado:  No</ion-item>
+                       <ion-item *ngIf="ruta.ESTADO == 'Novedad' && ruta.SINCRONIZAR == '1' " text-wrap >Sincronizada:  Si</ion-item>
+                       <ion-item *ngIf="ruta.ESTADO == 'Novedad' && ruta.SINCRONIZAR == '0' " text-wrap >Sincronizada:  No</ion-item>
+                       
 
                     </ion-card-content>
                 </ion-card>

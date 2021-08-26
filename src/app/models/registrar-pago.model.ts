@@ -1,3 +1,5 @@
+import * as moment from "moment";
+
 export class RegistrarpagoModel {
     IDCONTRATO: string;
     IDPERSONA: string;
@@ -6,7 +8,7 @@ export class RegistrarpagoModel {
     CANTIDADCUOTAS: number;
     MAQUINA: string;
     USUARIO: string;
-    OBSERVACIONES: string;
+    OBSERVACIONES: string ='';
     CUOTAMENSUAL: number;
     ESTADO: string;
     FORMAPAGO: string;
@@ -14,9 +16,13 @@ export class RegistrarpagoModel {
     POSX: string;
     POSY: string;
     PLAN: string;
-
+    NRORECIBO : string;
+    PagoDesde: string;
+    PagoHasta : string;
     titular: string;
-
+    Departamento: string;
+    Ciudad: string;
+    ValorLetras: string;
     constructor() {
         this.IDCONTRATO = '';
         this.IDPERSONA = '';
@@ -34,5 +40,13 @@ export class RegistrarpagoModel {
         this.POSY = '';
         this.titular = '';
         this.PLAN = '';
+        this.NRORECIBO = moment().format('YYYYMMDDhhmmss');
+        this.PagoDesde ='';
+        this.PagoHasta ='';
+        this.Departamento ='';
+        this.Ciudad ='';
+        this.ValorLetras ='';
+    
+
     }
 }

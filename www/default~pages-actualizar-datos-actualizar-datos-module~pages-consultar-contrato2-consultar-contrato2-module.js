@@ -77,6 +77,7 @@ var ContratoService = /** @class */ (function () {
                 params: params
             };
             var isOffline = localStorage.getItem('offlineMode') === 'true' ? true : false;
+            console.log("isOffline", isOffline);
             if (!isOffline) {
                 _this.loadingController.create({
                     message: 'Consultando contrato',

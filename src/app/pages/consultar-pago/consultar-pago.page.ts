@@ -48,56 +48,59 @@ export class ConsultarPagoPage implements OnInit {
   consultar() {
     this.statusOffline = localStorage.getItem("offlineMode") === "true" ? true : false;
 
+    console.log("el estado es ", this.statusOffline)
     if (this.statusOffline) {
-
+      console.log("entro 1 ")
       this.offline.createDatabase().then(res => {
-        this.offline.getConsultarPagos(this.NroPago).then((res:any) => {
-
+        console.log("entro 2 ")
+        this.offline.getConsultarPagos(this.NroPago).then((resPago:any) => {
+          console.log("entro 3 ", resPago," el contrato es", resPago[0].IDCONTRATO)
            
-          this.pago.Contrato = res.IDCONTRATO;
-            this.pago.Cuota = res.CUOTAMENSUAL;
-            this.pago.Cedula = res.IDPERSONA;
-            this.pago.Nombre = res.TITULAR;
-            this.pago.FechaPago = res.FECHAPAGOR;
-            this.pago.Total = res.VALOR;
+          this.pago.Contrato = resPago[0].IDCONTRATO;
+            this.pago.Cuota = resPago[0].CUOTAMENSUAL;
+            this.pago.Cedula = resPago[0].IDPERSONA;
+            this.pago.Nombre = resPago[0].TITULAR;
+            this.pago.FechaPago = resPago[0].FECHAPAGOR;
+            this.pago.Total = resPago[0].VALOR - resPago[0].DESCUENTO;
 
-           this.pago.Sincronizar = res.SINCRONIZAR;
+           this.pago.Sincronizar = resPago[0].SINCRONIZAR;
 
-            this.pago.PagoHasta = null;
+            this.pago.PagoHasta = resPago[0].PagoHasta;
             
             
-            this.pago.PagoDesde = null;
+            this.pago.PagoDesde = resPago[0].PagoDesde;
             
-            this.pago.NumeroDocumento = res.NumeroDocumento;
+            this.pago.NumeroDocumento = resPago[0].NumeroDocumento;
 
-            this.pago.Usuario = res.USUARIO;
-            this.pago.Terminal = res.MAQUINA;
-            this.pago.Observaciones = res.OBSERVACIONES;
-            this.pago.Concepto ='';
+            this.pago.Usuario = resPago[0].USUARIO;
+            this.pago.Terminal = resPago[0].MAQUINA;
+            this.pago.Observaciones = resPago[0].OBSERVACIONES;
+            this.pago.Concepto =resPago[0].Observaciones;
 
             
               this.pago.PVisita = null;
             
 
-            this.pago.Anulado = res.Anulado;
-            this.pago.ValorLetras = '';
-            this.pago.Departamento = '';
-            this.pago.Ciudad ='';
+            this.pago.Anulado = resPago[0].Anulado;
+           // this.pago.ValorLetras = resPago[0].ValorLetras;
+            this.pago.Departamento = resPago[0].Departamento;
+            this.pago.Ciudad =resPago[0].Ciudad;
 
-            this.pago.Vdesde ='';
-            this.pago.VlrCto = 0;
+          //  this.pago.Vdesde ='';
+            this.pago.VlrCto = resPago[0].CUOTAMENSUAL;
 
-            this.pago.Vhasta = '';
-            this.pago.VlrDctoPago = res.DESCUENTO;
+          //  this.pago.Vhasta = '';
+            this.pago.VlrDctoPago = resPago[0].DESCUENTO;
             this.pago.VlrIva = 0;
-            this.pago.VlrSaldo = 0;
-            this.pago.FormaPago = res.FORMAPAGO;
+           // this.pago.VlrSaldo = 0;
+            this.pago.FormaPago = resPago[0].FORMAPAGO;
             console.log("la forma de pago es " + this.pago.FormaPago);
         });
     });
 
 
     } else {
+      console.log("no entro 1 ")
       const configHelper = new ConfigHelper(this.configuracionService.config);
       const httpOptions = {
         headers: new HttpHeaders({

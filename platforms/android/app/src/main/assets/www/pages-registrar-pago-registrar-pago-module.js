@@ -84,11 +84,13 @@ var RegistrarPagoPage = /** @class */ (function () {
                 registroPago.VALOR = _this.contrato.cuota;
                 registroPago.PLAN = _this.contrato.plan;
                 registroPago.FORMAPAGO = _this.contrato.formaPago;
+                registroPago.Departamento = _this.contrato.departamento;
+                registroPago.Ciudad = _this.contrato.ciudad;
                 _this.registroPago = registroPago;
             }
             _this.pagosService.cargarFormaPago().then(function (tipospagos) {
                 _this.tipopago = tipospagos;
-                _this.nvoFormaPago = _this.tipopago[3].NombreTipoPago;
+                _this.nvoFormaPago = 'Efectivo'; //this.tipopago[3].NombreTipoPago ;
                 console.log("el tipo de pgo es " + _this.nvoFormaPago); //JSON.stringify(tipospagos[3].NombreTipoPago)
                 //this.ngTipoPago = JSON.stringify(tipospagos[3]); 
                 console.log(JSON.stringify(_this.tipopago));
@@ -128,6 +130,7 @@ var RegistrarPagoPage = /** @class */ (function () {
                             var extras = {
                                 replaceUrl: true
                             };
+                            console.log("la respuesta de pago a enviar al server:", respuesta);
                             var registroBusqueda = new src_app_models_consulta_pago_model__WEBPACK_IMPORTED_MODULE_10__["ConsultaPagoModel"]();
                             registroBusqueda.Cedula = _this.contrato.cedula;
                             registroBusqueda.Contrato = _this.registroPago.IDCONTRATO;
@@ -242,8 +245,12 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RegistrarpagoModel", function() { return RegistrarpagoModel; });
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! moment */ "wd/R");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
+
 var RegistrarpagoModel = /** @class */ (function () {
     function RegistrarpagoModel() {
+        this.OBSERVACIONES = '';
         this.IDCONTRATO = '';
         this.IDPERSONA = '';
         this.VALOR = 0;
@@ -260,6 +267,12 @@ var RegistrarpagoModel = /** @class */ (function () {
         this.POSY = '';
         this.titular = '';
         this.PLAN = '';
+        this.NRORECIBO = moment__WEBPACK_IMPORTED_MODULE_0__().format('YYYYMMDDhhmmss');
+        this.PagoDesde = '';
+        this.PagoHasta = '';
+        this.Departamento = '';
+        this.Ciudad = '';
+        this.ValorLetras = '';
     }
     return RegistrarpagoModel;
 }());

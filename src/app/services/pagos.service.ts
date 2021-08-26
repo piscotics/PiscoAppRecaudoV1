@@ -23,6 +23,7 @@ import { ConfiguracionService } from './configuracion.service';
 import { CuadreCajaRequesModel, CuadreCajaResponseModel } from '../models/cuadre-caja.model';
 import { PagoResponseModel } from '../models/responses/pago-response.model';
 import { OfflineService } from './offline.service';
+import * as moment from 'moment';
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +31,10 @@ import { OfflineService } from './offline.service';
 export class PagosService {
 
   config: ConfigModel = new ConfigModel();
+
+  DiasMes: Date;
+  ValorPorDia: number = 0;
+  DiasASumar : number = 0;
 
   constructor(
     private platform: Platform,
@@ -462,15 +467,31 @@ export class PagosService {
                     });
 
             this.offline.getPagoHasta(pago.IDCONTRATO).then((res: any) => {
-                              result.NroRecibo = resp;
+                              result.NroRecibo = pago.NRORECIBO; //resp; momentGGGG
                               result.VlrDctoPago = pago.DESCUENTO;
                               result.VlrIva = 0;
                               result.VlrCto = pago.VALOR;
                               //result.DetallePago = pago.OBSERVACIONES;
                               let fecha = new Date(res.PAGOHASTA);
                               result.Desde = fecha.toString();
-                              result.Hasta =  new Date(new Date(res.PAGOHASTA).setMonth(new Date(res.PAGOHASTA ).getMonth() + pago.CANTIDADCUOTAS)).toString();
+                              console.log("el pago**********************", pago)
+                              if( pago.CANTIDADCUOTAS == 0){
+
+                                this.DiasMes =   new Date(fecha.getFullYear(), fecha.getMonth() + 1, 0)
+                                this.ValorPorDia = (pago.CUOTAMENSUAL / this.DiasMes.getDate());
+                                this.DiasASumar = (pago.VALOR / this.ValorPorDia)
+                                
+                                result.Hasta =  new Date(new Date(res.PAGOHASTA).setDate(new Date(res.PAGOHASTA ).getDate() + Math.round(this.DiasASumar))).toString();
+                                console.log("los datos son DiasMes ", this.DiasMes.getDate() ," ValorPorDia ", this.ValorPorDia, "  DiasASumar ", Math.round(this.DiasASumar), "  result.Hasta ",  result.Hasta)
+
+                              }else{
+                                result.Hasta =  new Date(new Date(res.PAGOHASTA).setMonth(new Date(res.PAGOHASTA ).getMonth() + pago.CANTIDADCUOTAS)).toString();
+                              }
                               this.offline.updatePagoHasta(result.Hasta, pago.IDCONTRATO).then(() => {});
+                              //actualiza las fechas del pago 
+                              this.offline.fechasPagos(result.Desde ,result.Hasta, result.NroRecibo).then(() => {});
+                              
+                              
                               resolve(result);
                     });
 

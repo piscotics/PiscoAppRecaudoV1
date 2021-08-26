@@ -56,7 +56,7 @@ export class ContratoService {
       };
 
       let isOffline = localStorage.getItem('offlineMode') === 'true' ? true : false;
-
+      console.log("isOffline",isOffline)
       if(!isOffline){
 
         this.loadingController.create({

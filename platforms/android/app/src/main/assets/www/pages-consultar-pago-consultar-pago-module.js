@@ -76,7 +76,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<app-header titulo=\"consultar pago\"></app-header>\r\n\r\n<ion-content>\r\n  <ion-grid fixed class=\"ion-margin-top\">\r\n    <ion-row>\r\n      <ion-col size=\"5\">Nro de Recibo</ion-col>\r\n      <ion-col size=\"7\">\r\n        <ion-input type=\"text\" placeholder=\"Search\"  [(ngModel)]=\"NroPago\"></ion-input>\r\n      </ion-col>\r\n    </ion-row>\r\n    <ion-row>\r\n      <ion-col size=\"12\" class=\"ion-text-center\">\r\n        <ion-button color=\"danger\" (click)=\"consultar()\">\r\n          Consultar\r\n        </ion-button>\r\n      </ion-col>\r\n    </ion-row>\r\n  </ion-grid>\r\n  <app-datos-pago [pago]=\"pago\"></app-datos-pago>\r\n  \r\n</ion-content>");
+/* harmony default export */ __webpack_exports__["default"] = ("<app-header titulo=\"consultar pago\"></app-header>\r\n\r\n<ion-content>\r\n  <ion-grid fixed class=\"ion-margin-top\">\r\n    <ion-row>\r\n      <ion-col size=\"5\">Nro de Recibo</ion-col>\r\n      <ion-col size=\"7\">\r\n        <ion-input type=\"text\" placeholder=\"Numero de Recibo\"  [(ngModel)]=\"NroPago\"></ion-input>\r\n      </ion-col>\r\n    </ion-row>\r\n    <ion-row>\r\n      <ion-col size=\"12\" class=\"ion-text-center\">\r\n        <ion-button color=\"danger\" (click)=\"consultar()\">\r\n          Consultar\r\n        </ion-button>\r\n      </ion-col>\r\n    </ion-row>\r\n  </ion-grid>\r\n  <app-datos-pago [pago]=\"pago\"></app-datos-pago>\r\n  \r\n</ion-content>");
 
 /***/ }),
 
@@ -140,40 +140,45 @@ var ConsultarPagoPage = /** @class */ (function () {
     ConsultarPagoPage.prototype.consultar = function () {
         var _this = this;
         this.statusOffline = localStorage.getItem("offlineMode") === "true" ? true : false;
+        console.log("el estado es ", this.statusOffline);
         if (this.statusOffline) {
+            console.log("entro 1 ");
             this.offline.createDatabase().then(function (res) {
-                _this.offline.getConsultarPagos(_this.NroPago).then(function (res) {
-                    _this.pago.Contrato = res.IDCONTRATO;
-                    _this.pago.Cuota = res.CUOTAMENSUAL;
-                    _this.pago.Cedula = res.IDPERSONA;
-                    _this.pago.Nombre = res.TITULAR;
-                    _this.pago.FechaPago = res.FECHAPAGOR;
-                    _this.pago.Total = res.VALOR;
-                    _this.pago.Sincronizar = res.SINCRONIZAR;
-                    _this.pago.PagoHasta = null;
-                    _this.pago.PagoDesde = null;
-                    _this.pago.NumeroDocumento = res.NumeroDocumento;
-                    _this.pago.Usuario = res.USUARIO;
-                    _this.pago.Terminal = res.MAQUINA;
-                    _this.pago.Observaciones = res.OBSERVACIONES;
-                    _this.pago.Concepto = '';
+                console.log("entro 2 ");
+                _this.offline.getConsultarPagos(_this.NroPago).then(function (resPago) {
+                    console.log("entro 3 ", resPago, " el contrato es", resPago[0].IDCONTRATO);
+                    _this.pago.Contrato = resPago[0].IDCONTRATO;
+                    _this.pago.Cuota = resPago[0].CUOTAMENSUAL;
+                    _this.pago.Cedula = resPago[0].IDPERSONA;
+                    _this.pago.Nombre = resPago[0].TITULAR;
+                    _this.pago.FechaPago = resPago[0].FECHAPAGOR;
+                    _this.pago.Total = resPago[0].VALOR - resPago[0].DESCUENTO;
+                    _this.pago.Sincronizar = resPago[0].SINCRONIZAR;
+                    _this.pago.PagoHasta = resPago[0].PagoHasta;
+                    _this.pago.PagoDesde = resPago[0].PagoDesde;
+                    _this.pago.NumeroDocumento = resPago[0].NumeroDocumento;
+                    _this.pago.Usuario = resPago[0].USUARIO;
+                    _this.pago.Terminal = resPago[0].MAQUINA;
+                    _this.pago.Observaciones = resPago[0].OBSERVACIONES;
+                    _this.pago.Concepto = resPago[0].Observaciones;
                     _this.pago.PVisita = null;
-                    _this.pago.Anulado = res.Anulado;
-                    _this.pago.ValorLetras = '';
-                    _this.pago.Departamento = '';
-                    _this.pago.Ciudad = '';
-                    _this.pago.Vdesde = '';
-                    _this.pago.VlrCto = 0;
-                    _this.pago.Vhasta = '';
-                    _this.pago.VlrDctoPago = res.DESCUENTO;
+                    _this.pago.Anulado = resPago[0].Anulado;
+                    // this.pago.ValorLetras = resPago[0].ValorLetras;
+                    _this.pago.Departamento = resPago[0].Departamento;
+                    _this.pago.Ciudad = resPago[0].Ciudad;
+                    //  this.pago.Vdesde ='';
+                    _this.pago.VlrCto = resPago[0].CUOTAMENSUAL;
+                    //  this.pago.Vhasta = '';
+                    _this.pago.VlrDctoPago = resPago[0].DESCUENTO;
                     _this.pago.VlrIva = 0;
-                    _this.pago.VlrSaldo = 0;
-                    _this.pago.FormaPago = res.FORMAPAGO;
+                    // this.pago.VlrSaldo = 0;
+                    _this.pago.FormaPago = resPago[0].FORMAPAGO;
                     console.log("la forma de pago es " + _this.pago.FormaPago);
                 });
             });
         }
         else {
+            console.log("no entro 1 ");
             var configHelper = new _helpers_config_helper__WEBPACK_IMPORTED_MODULE_6__["ConfigHelper"](this.configuracionService.config);
             var httpOptions = {
                 headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpHeaders"]({
