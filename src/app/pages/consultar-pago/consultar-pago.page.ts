@@ -76,6 +76,7 @@ export class ConsultarPagoPage implements OnInit {
             this.pago.Terminal = resPago[0].MAQUINA;
             this.pago.Observaciones = resPago[0].OBSERVACIONES;
             this.pago.Concepto =resPago[0].Observaciones;
+            this.pago.NROREF =resPago[0].NROREF;
 
             
               this.pago.PVisita = null;
@@ -94,6 +95,8 @@ export class ConsultarPagoPage implements OnInit {
             this.pago.VlrIva = 0;
            // this.pago.VlrSaldo = 0;
             this.pago.FormaPago = resPago[0].FORMAPAGO;
+            this.pago.NROREF = resPago[0].NROREF;
+            
             console.log("la forma de pago es " + this.pago.FormaPago);
         });
     });
@@ -160,6 +163,8 @@ export class ConsultarPagoPage implements OnInit {
             this.pago.VlrIva = res.VlrIva;
             this.pago.VlrSaldo = res.VlrSaldo;
             this.pago.FormaPago = res.FormaPago;
+            this.pago.NROREF = res.NROREF;
+            
             console.log("la forma de pago es " + this.pago.FormaPago);
           },
           (err) => {

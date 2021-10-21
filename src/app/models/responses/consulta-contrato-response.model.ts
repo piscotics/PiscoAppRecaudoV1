@@ -22,4 +22,5 @@ export class ConsultaContratoResponseModel {
     Barrio: string;
     BarrioCobro: string;
     Email: string;
+    Nota1 : string;
 }

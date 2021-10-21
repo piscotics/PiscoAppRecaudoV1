@@ -172,6 +172,8 @@ export class RegistrarPagoPage implements OnInit {
               registroBusqueda.VlrDctoPago  = respuesta.VlrDctoPago;
               registroBusqueda.VlrIva = respuesta.VlrIva;
               registroBusqueda.FormaPago = registroPago.FORMAPAGO;
+              registroBusqueda.NROREF = registroPago.NROREF;
+              
               console.log("la forma de pago al guardar es :" + registroPago.FORMAPAGO)
 
 

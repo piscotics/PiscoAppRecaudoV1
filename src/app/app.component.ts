@@ -561,6 +561,9 @@ export class AppComponent implements OnInit, OnDestroy {
 
   //metodo para sincronizar las novedades y los pagos 
   async sincronizar(){
+
+    //  this.ofline.sendTest();
+
     let l = await this.loading.create({
       message: 'Sincronizando Novedades Y Pagos',
       backdropDismiss: false

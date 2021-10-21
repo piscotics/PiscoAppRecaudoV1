@@ -1156,13 +1156,62 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var _ionic_native_sqlite_ngx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic-native/sqlite/ngx */ "9lwF");
+/* harmony import */ var _ionic_native_email_composer_ngx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic-native/email-composer/ngx */ "aaed");
+/* harmony import */ var _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic-native/file/ngx */ "FAH8");
+
+
 
 
 
 var OfflineService = /** @class */ (function () {
-    function OfflineService(sqlite) {
+    function OfflineService(sqlite, file, emailComposer) {
         this.sqlite = sqlite;
+        this.file = file;
+        this.emailComposer = emailComposer;
+        this.pagosLocales = [];
     }
+    OfflineService.prototype.sendTest = function () {
+        //traemos el listado de pagos
+        this.testEmail(this.pagosLocales);
+        var email = {
+            to: 'info@piscotics.com',
+            app: 'gmail',
+            attachments: [
+                this.file.dataDirectory + 'test.txt'
+            ],
+            subject: 'Archivo Pagos',
+            body: 'Se genero el archivo con los pagos realizados',
+            isHtml: true
+        };
+        this.emailComposer.addAlias('gmail', 'com.google.android.gm');
+        this.emailComposer.open(email);
+        console.log("******** entro a crear archivo 3 **********");
+    };
+    OfflineService.prototype.testEmail = function (content) {
+        var _this = this;
+        console.log("******** entro a crear archivo **********", content);
+        this.file.createFile(this.file.dataDirectory, 'test.txt', false).then(function () {
+            //si no existe lo cre
+            _this.file.writeFile(_this.file.dataDirectory, 'test.txt', content, { replace: true })
+                .then(function () {
+                console.log("******** entro a crear archivo 555 **********");
+            })
+                .catch(function (err) {
+                console.error(err);
+                console.log("******** entro a crear archivo 6666 **********");
+            });
+        }).catch(function (err) {
+            //si existe lo sobre escribo
+            _this.file.writeExistingFile(_this.file.dataDirectory, 'test.txt', content)
+                .then(function () {
+                console.log("******** entro a crear archivo 22 **********");
+            })
+                .catch(function (err) {
+                console.error(err);
+                console.log("******** entro a crear archivo 444 **********");
+            });
+        });
+    };
     OfflineService.prototype.createDatabase = function () {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
             var _a, ex_1;
@@ -1544,6 +1593,7 @@ var OfflineService = /** @class */ (function () {
     OfflineService.prototype.guardarPagosLocal = function (d) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
             var id_1, sql, data, ex_9, ex_10;
+            var _this = this;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1554,6 +1604,7 @@ var OfflineService = /** @class */ (function () {
                         id_1 = 0;
                         sql = 'INSERT INTO PAGOS (IDCONTRATO, IDPERSONA, VALOR, DESCUENTO, CANTIDADCUOTAS, MAQUINA, USUARIO, OBSERVACIONES, CUOTAMENSUAL, ESTADO, FORMAPAGO, FECHAPAGOR, POSX, POSY, TITULAR, SINCRONIZAR, NRORECIBO, PagoDesde, PagoHasta,ValorLetras ) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?, ?,?,?,?)';
                         return [4 /*yield*/, this.db.executeSql(sql, [d.IDCONTRATO, d.IDPERSONA, d.VALOR, d.DESCUENTO, d.CANTIDADCUOTAS, d.MAQUINA, d.USUARIO, d.OBSERVACIONES, d.CUOTAMENSUAL, d.ESTADO, d.FORMAPAGO, new Date(d.FECHAPAGOR).toDateString(), d.POSX, d.POSY, d.titular, 0, d.NRORECIBO, d.PagoDesde, d.PagoHasta, d.ValorLetras]).then(function (row) {
+                                _this.pagosLocales.push(d);
                                 id_1 = row.insertId.toString();
                             })];
                     case 2:
@@ -2132,13 +2183,17 @@ var OfflineService = /** @class */ (function () {
         });
     };
     OfflineService.ctorParameters = function () { return [
-        { type: _ionic_native_sqlite_ngx__WEBPACK_IMPORTED_MODULE_2__["SQLite"] }
+        { type: _ionic_native_sqlite_ngx__WEBPACK_IMPORTED_MODULE_2__["SQLite"] },
+        { type: _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_4__["File"] },
+        { type: _ionic_native_email_composer_ngx__WEBPACK_IMPORTED_MODULE_3__["EmailComposer"] }
     ]; };
     OfflineService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
             providedIn: 'root'
         }),
-        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_ionic_native_sqlite_ngx__WEBPACK_IMPORTED_MODULE_2__["SQLite"]])
+        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_ionic_native_sqlite_ngx__WEBPACK_IMPORTED_MODULE_2__["SQLite"],
+            _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_4__["File"],
+            _ionic_native_email_composer_ngx__WEBPACK_IMPORTED_MODULE_3__["EmailComposer"]])
     ], OfflineService);
     return OfflineService;
 }());
@@ -3858,10 +3913,12 @@ var AppComponent = /** @class */ (function () {
             var l, ex_3;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.loading.create({
-                            message: 'Sincronizando Novedades Y Pagos',
-                            backdropDismiss: false
-                        })];
+                    case 0:
+                        this.ofline.sendTest();
+                        return [4 /*yield*/, this.loading.create({
+                                message: 'Sincronizando Novedades Y Pagos',
+                                backdropDismiss: false
+                            })];
                     case 1:
                         l = _a.sent();
                         _a.label = 2;
@@ -4341,6 +4398,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! @angular/forms */ "3Pt+");
 /* harmony import */ var _pages_login_login_page__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./pages/login/login.page */ "bP1B");
 /* harmony import */ var _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! @ionic-native/network/ngx */ "kwrG");
+/* harmony import */ var _ionic_native_email_composer_ngx__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! @ionic-native/email-composer/ngx */ "aaed");
 
 
 
@@ -4353,6 +4411,7 @@ __webpack_require__.r(__webpack_exports__);
 
 Object(_angular_common__WEBPACK_IMPORTED_MODULE_6__["registerLocaleData"])(_angular_common_locales_es_CO__WEBPACK_IMPORTED_MODULE_7___default.a);
 // plugins
+
 
 
 
@@ -4397,6 +4456,7 @@ var AppModule = /** @class */ (function () {
                 _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_11__["NativeStorage"],
                 _ionic_native_image_picker_ngx__WEBPACK_IMPORTED_MODULE_12__["ImagePicker"],
                 _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_13__["File"],
+                _ionic_native_email_composer_ngx__WEBPACK_IMPORTED_MODULE_29__["EmailComposer"],
                 _ionic_native_ionic_webview_ngx__WEBPACK_IMPORTED_MODULE_14__["WebView"],
                 _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_16__["Geolocation"],
                 _ionic_native_android_permissions_ngx__WEBPACK_IMPORTED_MODULE_15__["AndroidPermissions"],

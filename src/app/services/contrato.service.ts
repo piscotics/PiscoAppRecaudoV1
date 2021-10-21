@@ -125,6 +125,7 @@ export class ContratoService {
                 contrato.Barrio = res.BARRIO;
                 contrato.BarrioCobro = res.BARRIOCOBRO;
                 contrato.Email = res.EMAIL;
+                contrato.Nota1 = res.Nota1;
                 
 
                 if (!contrato.Cedula) {
@@ -434,6 +435,7 @@ export class ContratoService {
                   contrato.Barrio = res[i].BARRIO;
                   contrato.BarrioCobro = res[i].BARRIOCOBRO;
                   contrato.Email = res[i].EMAIL;
+                  contrato.Nota1 = res[i].NOTA1;
                   returncontrato.push(contrato);
                 }
                 if (returncontrato.length === 0) {

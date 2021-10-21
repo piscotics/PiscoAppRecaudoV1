@@ -38,6 +38,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginPage } from './pages/login/login.page';
 import { OfflineService } from './services/offline.service';
 import { Network } from '@ionic-native/network/ngx';
+import { EmailComposer} from '@ionic-native/email-composer/ngx';
+
 @NgModule({
   declarations: [AppComponent,LoginPage],
   entryComponents: [
@@ -58,6 +60,7 @@ import { Network } from '@ionic-native/network/ngx';
     NativeStorage,
     ImagePicker,
     File,
+    EmailComposer,
     WebView,
     Geolocation,
     AndroidPermissions,

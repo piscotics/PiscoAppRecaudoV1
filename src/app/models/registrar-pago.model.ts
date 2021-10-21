@@ -23,6 +23,7 @@ export class RegistrarpagoModel {
     Departamento: string;
     Ciudad: string;
     ValorLetras: string;
+    NROREF: string;
     constructor() {
         this.IDCONTRATO = '';
         this.IDPERSONA = '';
@@ -46,6 +47,7 @@ export class RegistrarpagoModel {
         this.Departamento ='';
         this.Ciudad ='';
         this.ValorLetras ='';
+        this.NROREF ='';
     
 
     }

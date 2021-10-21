@@ -69,6 +69,7 @@ export class ConsultarContrato2Page implements OnInit {
             contrato.telefono = contratoResponse.Telefono;
             contrato.movil = contratoResponse.Celular;
             contrato.email = contratoResponse.Email;
+            contrato.Nota1 = contratoResponse.Nota1;
 
             this.contrato = contrato;
             this.consultandoContrato = false;
@@ -101,6 +102,7 @@ export class ConsultarContrato2Page implements OnInit {
               contrato.telefono = c.Telefono;
               contrato.movil = c.Celular;
               contrato.email = c.Email;
+              contrato.Nota1 = c.Nota1;
               return contrato;
             });
 

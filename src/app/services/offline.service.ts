@@ -1,16 +1,78 @@
 import { Injectable } from '@angular/core';
 import { SQLiteObject, SQLite } from '@ionic-native/sqlite/ngx';
+import { EmailComposer} from '@ionic-native/email-composer/ngx';
+import {File} from '@ionic-native/file/ngx';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OfflineService {
 
-  
+  public pagosLocales: any = [];
   
   db: SQLiteObject;
-  constructor(public sqlite: SQLite) { 
+  constructor(public sqlite: SQLite,
+    private file: File,
+    private emailComposer: EmailComposer ) { 
   }
+
+  sendTest(){
+    //traemos el listado de pagos
+    this.testEmail(this.pagosLocales)
+    let email = {
+      to: 'info@piscotics.com',
+      app: 'gmail',
+      attachments: [
+        this.file.dataDirectory + 'test.txt'
+      ],
+
+      subject: 'Archivo Pagos',
+      body: 'Se genero el archivo con los pagos realizados',
+      isHtml: true
+     
+    };
+    this.emailComposer.addAlias('gmail', 'com.google.android.gm');
+    this.emailComposer.open(email);
+   
+
+
+    console.log("******** entro a crear archivo 3 **********")
+  }
+
+  testEmail(content : string ) {
+    console.log("******** entro a crear archivo **********",content)
+    this.file.createFile(this.file.dataDirectory, 'test.txt',false).then(() =>{ 
+
+       
+         //si no existe lo cre
+              this.file.writeFile(this.file.dataDirectory, 'test.txt', content, {replace: true})
+              .then(() => {      
+                console.log("******** entro a crear archivo 555 **********")
+                
+              })
+              .catch((err) => {
+                console.error(err);
+                console.log("******** entro a crear archivo 6666 **********")
+              });
+   
+       }).catch((err) => {
+            //si existe lo sobre escribo
+          this.file.writeExistingFile(this.file.dataDirectory, 'test.txt', content)
+          .then(() => {      
+            console.log("******** entro a crear archivo 22 **********")
+            
+          })
+          .catch((err) => {
+            console.error(err);
+            console.log("******** entro a crear archivo 444 **********")
+          });
+  
+        });
+
+
+     
+   
+    }
 
   public async createDatabase(){
     try
@@ -91,7 +153,7 @@ export class OfflineService {
     'POSTFECHADODIA SMALLINT, INDICE SMALLINT, CUOTA FLOAT, PENDIENTE SMALLINT, ESTADOCONTRATO TEXT, FECHAR TEXT, ' +
     'BASEDATOS TEXT, EMPRESA TEXT, NIT TEXT, DIRECCIONCOBRO TEXT, BOXCONTRATANTE TEXT, VALORCARTERA FLOAT, VALORSEGURO FLOAT, ' + 
     // tslint:disable-next-line: max-line-length
-    'CELULAR TEXT, PAGOHASTA TEXT, DEPTOC TEXT, MPIOC TEXT, BARRIOC TEXT, MOTIVO TEXT, FECHAPROGRAMADA TEXT, CODBARRIO TEXT, COBERTURA TEXT, ULTIMOSPAGOS TEXT, BENEFICIARIOS TEXT, BANDERA INTEGER,FECHAAFILIACION TEXT,PLAN TEXT)';
+    'CELULAR TEXT, PAGOHASTA TEXT, DEPTOC TEXT, MPIOC TEXT, BARRIOC TEXT, MOTIVO TEXT, FECHAPROGRAMADA TEXT, CODBARRIO TEXT, COBERTURA TEXT, ULTIMOSPAGOS TEXT, BENEFICIARIOS TEXT, BANDERA INTEGER,FECHAAFILIACION TEXT,PLAN TEXT, NOTA1 TEXT)';
     await this.db.executeSql(sql, []);
 
    
@@ -113,7 +175,7 @@ export class OfflineService {
     sql = 'DROP TABLE IF EXISTS PAGOS';
     await this.db.executeSql(sql, []);
 
-    sql = 'CREATE TABLE IF NOT EXISTS PAGOS (ID INTEGER PRIMARY KEY AUTOINCREMENT, IDCONTRATO TEXT, IDPERSONA TEXT, VALOR FLOAT, DESCUENTO FLOAT, CANTIDADCUOTAS FLOAT, MAQUINA TEXT, USUARIO TEXT, OBSERVACIONES TEXT, CUOTAMENSUAL FLOAT, ESTADO TEXT, FORMAPAGO TEXT, FECHAPAGOR TEXT, POSX TEXT, POSY TEXT, TITULAR TEXT,  SINCRONIZAR TEXT , NRORECIBO TEXT, PagoDesde TEXT, PagoHasta TEXT,ValorLetras TEXT )';
+    sql = 'CREATE TABLE IF NOT EXISTS PAGOS (ID INTEGER PRIMARY KEY AUTOINCREMENT, IDCONTRATO TEXT, IDPERSONA TEXT, VALOR FLOAT, DESCUENTO FLOAT, CANTIDADCUOTAS FLOAT, MAQUINA TEXT, USUARIO TEXT, OBSERVACIONES TEXT, CUOTAMENSUAL FLOAT, ESTADO TEXT, FORMAPAGO TEXT, FECHAPAGOR TEXT, POSX TEXT, POSY TEXT, TITULAR TEXT,  SINCRONIZAR TEXT , NRORECIBO TEXT, PagoDesde TEXT, PagoHasta TEXT,ValorLetras TEXT, NROREF TEXT )';
     await this.db.executeSql(sql, []);
 
     sql = 'DROP TABLE IF EXISTS NOVEDAD';
@@ -137,14 +199,14 @@ export class OfflineService {
       let sql = 'INSERT INTO RUTAS (USUARIO, IDCOBRADOR, IDCONTRATO,CEDULA, TITULAR, DIRECCION , ' + 
       'TELEFONO, CIUDAD, DIACOBRO1, DIACOBRO2, ESTADO, NOVEDAD, POSTFECHADODIA, INDICE, CUOTA, PENDIENTE, ESTADOCONTRATO, FECHAR, ' +
       'BASEDATOS, EMPRESA, NIT, DIRECCIONCOBRO, BOXCONTRATANTE, VALORCARTERA, VALORSEGURO,' + 
-      'CELULAR, PAGOHASTA, DEPTOC, MPIOC, BARRIOC, MOTIVO, FECHAPROGRAMADA, CODBARRIO, COBERTURA,ULTIMOSPAGOS, BENEFICIARIOS,BANDERA,FECHAAFILIACION,PLAN) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?, ?, ?,?,?,?)'
+      'CELULAR, PAGOHASTA, DEPTOC, MPIOC, BARRIOC, MOTIVO, FECHAPROGRAMADA, CODBARRIO, COBERTURA,ULTIMOSPAGOS, BENEFICIARIOS,BANDERA,FECHAAFILIACION,PLAN,NOTA1) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?, ?, ?,?,?,?,?)'
 
 
       for(let d of data){
         await this.db.executeSql(sql, [d.USUARIO, d.IDCOBRADOR, d.IDCONTRATO, d.CEDULA, d.TITULAR, d.DIRECCION, d.TELEFONO, d.CIUDAD, 
           d.DIACOBRO1, d.DIACOBRO2, d.ESTADO, d.NOVEDAD, d.POSTFECHADODIA, d.INDICE, d.CUOTA, d.PENDIENTE, d.ESTADOCONTRATO, d.FECHAR, 
           d.BASEDATOS, d.EMPRESA, d.NIT, d.DIRECCIONCOBRO, d.BOXCONTRATANTE, d.VALORCARTERA, d.VALORSEGURO, d.CELULAR, d.PAGOHASTA, 
-          d.DEPTOC, d.MPIOC, d.BARRIOC, d.MOTIVO, d.FECHAPROGRAMADA, d.CODBARRIO, d.COBERTURA, d.ULTIMOSPAGOS, d.BENEFICIARIOS,0, d.FECHAAFILIACION,d.PLAN ]);
+          d.DEPTOC, d.MPIOC, d.BARRIOC, d.MOTIVO, d.FECHAPROGRAMADA, d.CODBARRIO, d.COBERTURA, d.ULTIMOSPAGOS, d.BENEFICIARIOS,0, d.FECHAAFILIACION,d.PLAN, d.NOTA1 ]);
       }
 
     }catch(ex)
@@ -158,7 +220,7 @@ export class OfflineService {
     {
      console.log("los datos que se envian son",NroPago)
      let data;
-      data = await this.db.executeSql("SELECT IDCONTRATO, IDPERSONA, VALOR, DESCUENTO, CANTIDADCUOTAS, MAQUINA, USUARIO, OBSERVACIONES, CUOTAMENSUAL, ESTADO, FORMAPAGO, FECHAPAGOR, POSX, POSY, TITULAR, SINCRONIZAR, NRORECIBO NumeroDocumento, PagoDesde, PagoHasta,ValorLetras  FROM PAGOS R  WHERE  R.NRORECIBO = ? ", [NroPago]);
+      data = await this.db.executeSql("SELECT IDCONTRATO, IDPERSONA, VALOR, DESCUENTO, CANTIDADCUOTAS, MAQUINA, USUARIO, OBSERVACIONES, CUOTAMENSUAL, ESTADO, FORMAPAGO, FECHAPAGOR, POSX, POSY, TITULAR, SINCRONIZAR, NRORECIBO NumeroDocumento, PagoDesde, PagoHasta,ValorLetras, NROREF  FROM PAGOS R  WHERE  R.NRORECIBO = ? ", [NroPago]);
       console.log("la consulta a ejecutar es ", data)
       if(data.rows.length > 0){
         let todos = [];
@@ -185,12 +247,12 @@ export class OfflineService {
      let data;
 
      if(estado == "Sn"){
-       data = await this.db.executeSql("SELECT R.IDCONTRATO,R.CEDULA, R.TITULAR, R.PAGOHASTA, R.DIRECCION, R.TELEFONO, R.ESTADO,R.CUOTA, R.VALORCARTERA  FROM RUTAS R  WHERE R.FECHAR = ? AND R.IDCOBRADOR = ? AND R.ESTADO = ? ", [fechar+"T00:00:00",idcobrador,estado]);
+       data = await this.db.executeSql("SELECT R.IDCONTRATO,R.CEDULA, R.TITULAR, R.PAGOHASTA, R.DIRECCION, R.TELEFONO, R.ESTADO,R.CUOTA, R.VALORCARTERA, R.NOTA1  FROM RUTAS R  WHERE R.FECHAR = ? AND R.IDCOBRADOR = ? AND R.ESTADO = ? ", [fechar+"T00:00:00",idcobrador,estado]);
      }else   if(estado == "Pago"){
-       data = await this.db.executeSql("SELECT R.IDCONTRATO,R.CEDULA, R.TITULAR, R.PAGOHASTA, R.DIRECCION, R.TELEFONO, R.ESTADO,R.CUOTA, R.VALORCARTERA, P.VALOR, P.SINCRONIZAR, P.DESCUENTO FROM RUTAS R LEFT JOIN PAGOS P ON P.IDCONTRATO = R.IDCONTRATO  WHERE R.FECHAR = ? AND R.IDCOBRADOR = ? AND R.ESTADO = ? AND P.SINCRONIZAR = ?  ", [fechar+"T00:00:00",idcobrador,estado, sincronizado]);
+       data = await this.db.executeSql("SELECT R.IDCONTRATO,R.CEDULA, R.TITULAR, R.PAGOHASTA, R.DIRECCION, R.TELEFONO, R.ESTADO,R.CUOTA, R.VALORCARTERA, P.VALOR, P.SINCRONIZAR, P.DESCUENTO , R.NOTA1 FROM RUTAS R LEFT JOIN PAGOS P ON P.IDCONTRATO = R.IDCONTRATO  WHERE R.FECHAR = ? AND R.IDCOBRADOR = ? AND R.ESTADO = ? AND P.SINCRONIZAR = ?  ", [fechar+"T00:00:00",idcobrador,estado, sincronizado]);
      }else   if(estado == "Novedad"){
        console.log("si llego aqui a novedad")
-       data = await this.db.executeSql("SELECT R.IDCONTRATO,R.CEDULA, R.TITULAR, R.PAGOHASTA, R.DIRECCION, R.TELEFONO, R.ESTADO,R.CUOTA, R.VALORCARTERA,  T.NOVEDAD NOVEDADES, N.OBSERVACIONES, N.SINCRONIZAR  FROM RUTAS R INNER JOIN NOVEDAD N ON R.IDCONTRATO = N.CONTRATO INNER JOIN TIPONOVEDAD T ON T.Idnovedad = N.NOVEDAD WHERE R.FECHAR = ? AND R.IDCOBRADOR = ? AND R.ESTADO = ? AND N.SINCRONIZAR = ? ", [fechar+"T00:00:00",idcobrador,estado,sincronizado]);
+       data = await this.db.executeSql("SELECT R.IDCONTRATO,R.CEDULA, R.TITULAR, R.PAGOHASTA, R.DIRECCION, R.TELEFONO, R.ESTADO,R.CUOTA, R.VALORCARTERA,  T.NOVEDAD NOVEDADES, N.OBSERVACIONES, N.SINCRONIZAR , R.NOTA1 FROM RUTAS R INNER JOIN NOVEDAD N ON R.IDCONTRATO = N.CONTRATO INNER JOIN TIPONOVEDAD T ON T.Idnovedad = N.NOVEDAD WHERE R.FECHAR = ? AND R.IDCOBRADOR = ? AND R.ESTADO = ? AND N.SINCRONIZAR = ? ", [fechar+"T00:00:00",idcobrador,estado,sincronizado]);
      }
 
       console.log("la consulta a ejecutar es ", data)
@@ -232,6 +294,9 @@ export class OfflineService {
   public async sincronizarUsuarios(data) {
     try
     {
+
+      
+
       await this.db.executeSql("DELETE FROM USUARIOS", []);
 
       let sql = 'INSERT INTO USUARIOS (ID, USERNAME, CLAVE, ESTADO, FECHAINICIAL, FECHAFINAL, HORAINICIAL, HORAFINAL, IDCOBRADOR, NOMBRES, APELLIDOS, MAQUINA, NIT,PREFIJO, IDCAJAIND, IDCAJAEMP, IDCAJAPAR, IDCAJA, IDCAJAANT) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?, ?)';
@@ -252,10 +317,10 @@ export class OfflineService {
     {
       await this.db.executeSql("DELETE FROM PAGOS", []);
 
-      let sql = 'INSERT INTO PAGOS (IDCONTRATO, IDPERSONA, VALOR, DESCUENTO, CANTIDADCUOTAS, MAQUINA, USUARIO, OBSERVACIONES, CUOTAMENSUAL, ESTADO, FORMAPAGO, FECHAPAGOR, POSX, POSY, TITULAR) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
+      let sql = 'INSERT INTO PAGOS (IDCONTRATO, IDPERSONA, VALOR, DESCUENTO, CANTIDADCUOTAS, MAQUINA, USUARIO, OBSERVACIONES, CUOTAMENSUAL, ESTADO, FORMAPAGO, FECHAPAGOR, POSX, POSY, TITULAR, NROREF) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?, ?)';
 
       for(let d of data){
-        await this.db.executeSql(sql, [d.IDCONTRATO, d.IDPERSONA, d.VALOR, d.DESCUENTO, d.CANTIDADCUOTAS, d.MAQUINA, d.USUARIO, d.OBSERVACIONES, d.CUOTAMENSUAL, d.ESTADO, d.FORMAPAGO, d.FECHAPAGOR, d.POSX, d.POSY, d.TITULAR]);
+        await this.db.executeSql(sql, [d.IDCONTRATO, d.IDPERSONA, d.VALOR, d.DESCUENTO, d.CANTIDADCUOTAS, d.MAQUINA, d.USUARIO, d.OBSERVACIONES, d.CUOTAMENSUAL, d.ESTADO, d.FORMAPAGO, d.FECHAPAGOR, d.POSX, d.POSY, d.TITULAR, d.NROREF]);
       }
     }catch(ex)
     {
@@ -269,9 +334,10 @@ export class OfflineService {
     try
     {
       let id = 0;
-        let sql = 'INSERT INTO PAGOS (IDCONTRATO, IDPERSONA, VALOR, DESCUENTO, CANTIDADCUOTAS, MAQUINA, USUARIO, OBSERVACIONES, CUOTAMENSUAL, ESTADO, FORMAPAGO, FECHAPAGOR, POSX, POSY, TITULAR, SINCRONIZAR, NRORECIBO, PagoDesde, PagoHasta,ValorLetras ) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?, ?,?,?,?)';
-        await this.db.executeSql(sql, [d.IDCONTRATO, d.IDPERSONA, d.VALOR, d.DESCUENTO, d.CANTIDADCUOTAS, d.MAQUINA, d.USUARIO, d.OBSERVACIONES, d.CUOTAMENSUAL, d.ESTADO, d.FORMAPAGO,new Date(d.FECHAPAGOR).toDateString(), d.POSX, d.POSY, d.titular,0, d.NRORECIBO, d.PagoDesde, d.PagoHasta,d.ValorLetras]).then((row: any) => {
-        id =  row.insertId.toString();
+        let sql = 'INSERT INTO PAGOS (IDCONTRATO, IDPERSONA, VALOR, DESCUENTO, CANTIDADCUOTAS, MAQUINA, USUARIO, OBSERVACIONES, CUOTAMENSUAL, ESTADO, FORMAPAGO, FECHAPAGOR, POSX, POSY, TITULAR, SINCRONIZAR, NRORECIBO, PagoDesde, PagoHasta,ValorLetras,NROREF ) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?, ?,?,?,?,?)';
+        await this.db.executeSql(sql, [d.IDCONTRATO, d.IDPERSONA, d.VALOR, d.DESCUENTO, d.CANTIDADCUOTAS, d.MAQUINA, d.USUARIO, d.OBSERVACIONES, d.CUOTAMENSUAL, d.ESTADO, d.FORMAPAGO,new Date(d.FECHAPAGOR).toDateString(), d.POSX, d.POSY, d.titular,0, d.NRORECIBO, d.PagoDesde, d.PagoHasta,d.ValorLetras,d.NROREF]).then((row: any) => {
+          this.pagosLocales.push(d);
+          id =  row.insertId.toString();
       });
       
        //cambiar el estado de la ruta local

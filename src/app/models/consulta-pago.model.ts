@@ -25,4 +25,5 @@ export class ConsultaPagoModel {
     VlrIva: number;
     FormaPago : string;
     Sincronizar : number; 
+    NROREF : string;
 }
