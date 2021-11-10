@@ -46,7 +46,9 @@ export class AppComponent implements OnInit, OnDestroy {
   statusOffline: boolean;
   respuesta : string;
   idNovedad : string;
+  retorno : string;
 
+  db: SQLiteObject;
 
   constructor(
     private platform: Platform,
@@ -587,6 +589,8 @@ export class AppComponent implements OnInit, OnDestroy {
 
       l.dismiss();
       if(this.isConnected == true){
+        await delay(5000);
+
         alert('Informacíon sincronizada satisfactoriamente'); 
       }else{
         alert('Informacíon no sincronizada');
@@ -597,8 +601,13 @@ export class AppComponent implements OnInit, OnDestroy {
       alert(ex.message);
       l.dismiss();
     }
+    function delay(ms: number) {
+      return new Promise( resolve => setTimeout(resolve, ms) );
+    }
 
   }
+
+ 
 
   async CargarNovedadBdLocal(){
 
@@ -652,13 +661,35 @@ export class AppComponent implements OnInit, OnDestroy {
             var item = datapagos[_i];
             try
             {
-              console.log("llego a almacenar pagos productiva")
+             
+              
+              this.GetRestBody('/pago/create', item).then(res=>{
+             
 
-               this.GetRestBody('/pago/create', item);
-             if(this.isConnected == true){
-                //pasa el estado del pago a sincronizado 1
-                this.ofline.actualizarSincronizadoPago(item.IDCONTRATO,item.IDPERSONA);
-             }
+                console.log("llego a almacenar pagos productiva pruebas,",res)
+                console.log("llego a almacenar pagos productiva Respuesta ES:",res.Respuesta)
+                this.retorno=res.Respuesta;
+                if(this.isConnected == true){
+                  //pasa el estado del pago a sincronizado 1
+                  if(this.retorno == "Pago Registrado"){
+
+                    this.ofline.actualizarSincronizadoPago(res.IdContrato,res.IdPersona)
+                    //try
+                   // {
+                    //  let data = this.db.executeSql('UPDATE PAGOS SET SINCRONIZAR = 1  WHERE IDCONTRATO = ? AND IDPERSONA = ?', [ item.IDCONTRATO, item.IDPERSONA]);
+                    //} catch(ex){
+                     // throw ex;
+                    //}
+                  }
+               }
+
+              }).catch(err=>{
+                
+              });
+             
+              
+
+             
             } catch(ex){
               throw ex;
             }
@@ -760,7 +791,7 @@ console.log("localstore", localStorage.getItem('offlineMode'))
               text: 'Si', role: 'accept', handler: ()=>{
                
                   this.sincronizar().then(res=>{
-      
+                    
                   }).catch(err=>{
                     
                   });

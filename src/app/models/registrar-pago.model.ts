@@ -11,7 +11,7 @@ export class RegistrarpagoModel {
     OBSERVACIONES: string ='';
     CUOTAMENSUAL: number;
     ESTADO: string;
-    FORMAPAGO: string;
+    FORMAPAGO: string='Efectivo';
     FECHAPAGOR: string;
     POSX: string;
     POSY: string;
@@ -24,6 +24,7 @@ export class RegistrarpagoModel {
     Ciudad: string;
     ValorLetras: string;
     NROREF: string;
+    RESPUESTA: string;
     constructor() {
         this.IDCONTRATO = '';
         this.IDPERSONA = '';
@@ -48,6 +49,7 @@ export class RegistrarpagoModel {
         this.Ciudad ='';
         this.ValorLetras ='';
         this.NROREF ='';
+        this.RESPUESTA ='';
     
 
     }

@@ -20,7 +20,7 @@
             <ion-col size="5">Fecha reprogramación</ion-col>
             <ion-col size="7">
                 <ion-text color="danger">
-                    <ion-datetime displayFormat="YYYY MMM DD" monthShortNames="Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre" value="{{ textoBusqueda | date:'yyyy-MM-dd'}}" (ionChange)="cambiofecha($event)" cancelText="Cancelar"></ion-datetime>
+                    <ion-datetime displayFormat="YYYY MMM DD" monthShortNames="Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre" value="{{ textoBusqueda | date:'yyyy-MM-dd'}}" (ionChange)="cambiofecha($event)" cancelText="Cancelar" max="2050-12-31"></ion-datetime>
                 </ion-text>
             </ion-col>
         </ion-row>

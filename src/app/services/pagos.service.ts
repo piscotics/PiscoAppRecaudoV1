@@ -172,7 +172,7 @@ export class PagosService {
  
   prepararRegistroPago(registroPago: RegistrarpagoModel) {
     return new Promise((resolve, reject) => {
-
+      console.log('la forma de pago a validar', registroPago.FORMAPAGO)
       if (!registroPago.FORMAPAGO) {
         this.mostrarToastSimple('Por favor seleccione la forma de pago');
         reject();

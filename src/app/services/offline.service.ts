@@ -360,12 +360,13 @@ export class OfflineService {
 
   }
 
-  public async actualizarSincronizadoPago(IDCONTRATO: string, IDPERSONA: string) {
+  public  actualizarSincronizadoPago(IDCONTRATO: string, IDPERSONA: string) {
     //cambiar el sincronizado a 1
     try
     {
+      console.log("sincronizo el pago del cto",IDCONTRATO, IDPERSONA)
       // tslint:disable-next-line: max-line-length
-      let data = await this.db.executeSql('UPDATE PAGOS SET SINCRONIZAR = 1  WHERE IDCONTRATO = ? AND IDPERSONA = ?', [ IDCONTRATO, IDPERSONA]);
+      let data =  this.db.executeSql('UPDATE PAGOS SET SINCRONIZAR = 1  WHERE IDCONTRATO = ? AND IDPERSONA = ?', [ IDCONTRATO, IDPERSONA]);
     } catch(ex){
       throw ex;
     }
@@ -668,7 +669,7 @@ export class OfflineService {
   public async getListapago(){
     try
     {
-      let data = await this.db.executeSql("SELECT * FROM PAGOS WHERE SINCRONIZAR = 0", [] );
+      let data = await this.db.executeSql("SELECT * FROM PAGOS WHERE SINCRONIZAR = 0 ORDER BY ID ", [] );
       if(data.rows.length > 0){
         let todos = [];
         for (let i = 0; i < data.rows.length ; i++) {
@@ -688,7 +689,7 @@ export class OfflineService {
     try
     {
       console.log("llego  a la consulta de la lista de novedades")
-      let data = await this.db.executeSql("SELECT * FROM NOVEDAD WHERE SINCRONIZAR = 0 ", [] );
+      let data = await this.db.executeSql("SELECT * FROM NOVEDAD WHERE SINCRONIZAR = 0 ORDER BY ID ", [] );
       if(data.rows.length > 0){
         console.log("la cantidad a sincronizar es:" + data.rows.length)
         let todos = [];
