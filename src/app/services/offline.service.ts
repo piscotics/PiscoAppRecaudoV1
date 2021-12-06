@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { SQLiteObject, SQLite } from '@ionic-native/sqlite/ngx';
 import { EmailComposer} from '@ionic-native/email-composer/ngx';
 import {File} from '@ionic-native/file/ngx';
+import * as moment from 'moment';
+
 
 @Injectable({
   providedIn: 'root'
@@ -9,11 +11,12 @@ import {File} from '@ionic-native/file/ngx';
 export class OfflineService {
 
   public pagosLocales: any = [];
-  
+
   db: SQLiteObject;
   constructor(public sqlite: SQLite,
     private file: File,
-    private emailComposer: EmailComposer ) { 
+    private emailComposer: EmailComposer,
+    ) { 
   }
 
   sendTest(){
@@ -23,11 +26,11 @@ export class OfflineService {
       to: 'info@piscotics.com',
       app: 'gmail',
       attachments: [
-        this.file.dataDirectory + 'test.txt'
+        this.file.dataDirectory + 'pagos.txt'
       ],
 
-      subject: 'Archivo Pagos',
-      body: 'Se genero el archivo con los pagos realizados',
+      subject: 'Archivo Pagos Usuario ' ,
+      body: 'Se anexa el archivo con los pagos realizados en ' + moment().format('MMMM Do YYYY, h:mm:ss a') ,
       isHtml: true
      
     };
@@ -41,11 +44,11 @@ export class OfflineService {
 
   testEmail(content : string ) {
     console.log("******** entro a crear archivo **********",content)
-    this.file.createFile(this.file.dataDirectory, 'test.txt',false).then(() =>{ 
+    this.file.createFile(this.file.dataDirectory, 'pagos.txt',false).then(() =>{ 
 
        
          //si no existe lo cre
-              this.file.writeFile(this.file.dataDirectory, 'test.txt', content, {replace: true})
+              this.file.writeFile(this.file.dataDirectory, 'pagos.txt', content, {replace: true})
               .then(() => {      
                 console.log("******** entro a crear archivo 555 **********")
                 
@@ -57,7 +60,7 @@ export class OfflineService {
    
        }).catch((err) => {
             //si existe lo sobre escribo
-          this.file.writeExistingFile(this.file.dataDirectory, 'test.txt', content)
+          this.file.writeExistingFile(this.file.dataDirectory, 'pagos.txt', content)
           .then(() => {      
             console.log("******** entro a crear archivo 22 **********")
             
@@ -175,7 +178,7 @@ export class OfflineService {
     sql = 'DROP TABLE IF EXISTS PAGOS';
     await this.db.executeSql(sql, []);
 
-    sql = 'CREATE TABLE IF NOT EXISTS PAGOS (ID INTEGER PRIMARY KEY AUTOINCREMENT, IDCONTRATO TEXT, IDPERSONA TEXT, VALOR FLOAT, DESCUENTO FLOAT, CANTIDADCUOTAS FLOAT, MAQUINA TEXT, USUARIO TEXT, OBSERVACIONES TEXT, CUOTAMENSUAL FLOAT, ESTADO TEXT, FORMAPAGO TEXT, FECHAPAGOR TEXT, POSX TEXT, POSY TEXT, TITULAR TEXT,  SINCRONIZAR TEXT , NRORECIBO TEXT, PagoDesde TEXT, PagoHasta TEXT,ValorLetras TEXT, NROREF TEXT )';
+    sql = 'CREATE TABLE IF NOT EXISTS PAGOS (ID INTEGER PRIMARY KEY AUTOINCREMENT, IDCONTRATO TEXT, IDPERSONA TEXT, VALOR FLOAT, DESCUENTO FLOAT, CANTIDADCUOTAS FLOAT, MAQUINA TEXT, TRANSAC TEXT, USUARIO TEXT, OBSERVACIONES TEXT, CUOTAMENSUAL FLOAT, ESTADO TEXT, FORMAPAGO TEXT, FECHAPAGOR TEXT, POSX TEXT, POSY TEXT, IDENTIFICADORBASE TEXT, TITULAR TEXT,  SINCRONIZAR TEXT , NRORECIBO TEXT, PagoDesde TEXT, PagoHasta TEXT,ValorLetras TEXT, NROREF TEXT )';
     await this.db.executeSql(sql, []);
 
     sql = 'DROP TABLE IF EXISTS NOVEDAD';
@@ -334,8 +337,8 @@ export class OfflineService {
     try
     {
       let id = 0;
-        let sql = 'INSERT INTO PAGOS (IDCONTRATO, IDPERSONA, VALOR, DESCUENTO, CANTIDADCUOTAS, MAQUINA, USUARIO, OBSERVACIONES, CUOTAMENSUAL, ESTADO, FORMAPAGO, FECHAPAGOR, POSX, POSY, TITULAR, SINCRONIZAR, NRORECIBO, PagoDesde, PagoHasta,ValorLetras,NROREF ) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?, ?,?,?,?,?)';
-        await this.db.executeSql(sql, [d.IDCONTRATO, d.IDPERSONA, d.VALOR, d.DESCUENTO, d.CANTIDADCUOTAS, d.MAQUINA, d.USUARIO, d.OBSERVACIONES, d.CUOTAMENSUAL, d.ESTADO, d.FORMAPAGO,new Date(d.FECHAPAGOR).toDateString(), d.POSX, d.POSY, d.titular,0, d.NRORECIBO, d.PagoDesde, d.PagoHasta,d.ValorLetras,d.NROREF]).then((row: any) => {
+        let sql = 'INSERT INTO PAGOS (IDCONTRATO, IDPERSONA, VALOR, DESCUENTO, CANTIDADCUOTAS, MAQUINA,TRANSAC,  USUARIO, OBSERVACIONES, CUOTAMENSUAL, ESTADO, FORMAPAGO, FECHAPAGOR, POSX, POSY,IDENTIFICADORBASE, TITULAR, SINCRONIZAR, NRORECIBO, PagoDesde, PagoHasta,ValorLetras,NROREF ) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?, ?,?,?,?,?,?,?)';
+        await this.db.executeSql(sql, [d.IDCONTRATO, d.IDPERSONA, d.VALOR, d.DESCUENTO, d.CANTIDADCUOTAS, d.MAQUINA, d.TRANSAC,  d.USUARIO, d.OBSERVACIONES, d.CUOTAMENSUAL, d.ESTADO, d.FORMAPAGO,new Date(d.FECHAPAGOR).toDateString(), d.POSX, d.POSY,'OffLine', d.titular,0, d.NRORECIBO, d.PagoDesde, d.PagoHasta,d.ValorLetras,d.NROREF]).then((row: any) => {
           this.pagosLocales.push(d);
           id =  row.insertId.toString();
       });
@@ -669,7 +672,7 @@ export class OfflineService {
   public async getListapago(){
     try
     {
-      let data = await this.db.executeSql("SELECT * FROM PAGOS WHERE SINCRONIZAR = 0 ORDER BY ID ", [] );
+      let data = await this.db.executeSql("SELECT * FROM PAGOS WHERE SINCRONIZAR = 0 ORDER BY  TRANSAC ", [] );
       if(data.rows.length > 0){
         let todos = [];
         for (let i = 0; i < data.rows.length ; i++) {

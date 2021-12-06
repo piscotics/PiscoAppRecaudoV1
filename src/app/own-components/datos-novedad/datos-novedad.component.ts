@@ -128,6 +128,15 @@ export class DatosNovedadComponent implements OnInit {
             printBody += this.print.PosCommand.LF;
 
             printBody += this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
+            printBody += 'Nota:';
+            printBody += this.print.PosCommand.LF;
+            printBody += this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
+            printBody += this.gestion.Nota1 ;
+            printBody += this.print.PosCommand.LF;
+            printBody += '_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _';
+            printBody += this.print.PosCommand.LF;
+
+            printBody += this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
             printBody += 'Cobrador:';
             printBody += this.print.PosCommand.LF;
             printBody += this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;

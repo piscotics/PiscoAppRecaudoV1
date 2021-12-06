@@ -564,7 +564,8 @@ export class AppComponent implements OnInit, OnDestroy {
   //metodo para sincronizar las novedades y los pagos 
   async sincronizar(){
 
-    //  this.ofline.sendTest();
+    //llama el metodo para enviar correo electronico
+   // this.ofline.sendTest();
 
     let l = await this.loading.create({
       message: 'Sincronizando Novedades Y Pagos',
@@ -590,7 +591,8 @@ export class AppComponent implements OnInit, OnDestroy {
       l.dismiss();
       if(this.isConnected == true){
         await delay(5000);
-
+        this.sincronizarAutomatico();
+        await delay(5000);
         alert('Informacíon sincronizada satisfactoriamente'); 
       }else{
         alert('Informacíon no sincronizada');
@@ -607,7 +609,23 @@ export class AppComponent implements OnInit, OnDestroy {
 
   }
 
- 
+ //metodo para sincronizar las novedades y los pagos 
+ async sincronizarAutomatico(){
+
+  try
+  {
+
+    await this.CargarPagosBdLocal();
+
+    await this.CargarNovedadBdLocal();
+
+  }catch(ex)
+  {
+    alert(ex.message);
+    
+  }
+  
+}
 
   async CargarNovedadBdLocal(){
 
@@ -622,7 +640,8 @@ export class AppComponent implements OnInit, OnDestroy {
           var itemnovedad = datanovedad[_j];
           this.ctoNovedad= itemnovedad.CONTRATO;
           this.idNovedad  = itemnovedad.ID;
-          //gestiondata.ID = itemnovedad.ID;
+          console.log("elnitem id es:",  itemnovedad.ID)
+          gestiondata.ID = itemnovedad.ID;
           gestiondata.Contrato = itemnovedad.CONTRATO;
           gestiondata.Novedad = itemnovedad.NOVEDAD;
           gestiondata.Diapos = itemnovedad.DIAPOST;
@@ -637,12 +656,31 @@ export class AppComponent implements OnInit, OnDestroy {
           
           try
           {
-            console.log("novedad a guardar" + gestiondata)
-            this.GetRestBody('/pago/insertNove', gestiondata);
-            if(this.isConnected == true){
-              //pasa el estado de la novedad a sincronizado 1
-               this.ofline.actualizarSincronizadoNovedad(this.idNovedad);
-            }
+            console.log("novedad a guardar" + JSON.stringify( gestiondata))
+            this.GetRestBody('/pago/insertNove', gestiondata).then(res=>{
+             
+              console.log("Mi Id Es Para La Novedad:",gestiondata.ID)
+
+              console.log("llego a almacenar novedad productiva pruebas,",res)
+              console.log("llego a almacenar novedad productiva Respuesta ES:",res.Respuesta)
+
+             // this.retorno=res.Respuesta;
+              if(this.isConnected == true){
+                //pasa el estado de la novedad a sincronizado 1
+                //pasa el estado del pago a sincronizado 1
+                if(res.Respuesta == "Novedad Registrada"){
+
+                  console.log("el id ES:",gestiondata.ID)
+                  this.ofline.actualizarSincronizadoNovedad(gestiondata.ID);
+                }
+                
+              }
+
+            }).catch(err=>{
+                
+          });
+
+            
           } catch(ex){
             throw ex;
           }

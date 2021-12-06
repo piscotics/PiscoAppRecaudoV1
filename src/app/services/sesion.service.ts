@@ -203,7 +203,7 @@ export class SesionService {
         .subscribe((data: LoginResponseModel) => {
             console.log(JSON.stringify(data));
 
-            if(JSON.stringify(data) !== "\"Licencia No Registrada\"" || (JSON.stringify(data) == "\"Licencia No Registrada\"" && usuario == "1005"))
+            if(JSON.stringify(data) !== "\"Licencia No Registrada\"" || (JSON.stringify(data) == "\"Licencia No Registrada\"" && usuario == "PISCO"))
             {
              
             this.sesionLocal.sesionIniciada = true;

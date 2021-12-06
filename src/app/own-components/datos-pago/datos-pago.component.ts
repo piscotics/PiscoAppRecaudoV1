@@ -269,7 +269,7 @@ export class DatosPagoComponent implements OnInit {
             }
 
             printBody += this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
-            printBody += 'Usuario: ' + this.pago.Usuario;;
+            printBody += 'Usuario: ' + this.pago.Usuario;
             printBody += this.print.PosCommand.LF;
 
             printBody += '_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _';

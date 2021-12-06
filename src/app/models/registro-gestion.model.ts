@@ -1,4 +1,5 @@
 export class RegistroGestionModel {
+    ID : string;
     Contrato: string;
     Novedad: number;
     Diapos: number;
@@ -13,4 +14,5 @@ export class RegistroGestionModel {
     Titular: string;
     NovedadDesc: string;
     PagoHasta: string;
+    Nota1 : string;
 }

@@ -7,6 +7,7 @@ export class RegistrarpagoModel {
     DESCUENTO: number;
     CANTIDADCUOTAS: number;
     MAQUINA: string;
+    TRANSAC: string;
     USUARIO: string;
     OBSERVACIONES: string ='';
     CUOTAMENSUAL: number;
@@ -19,6 +20,7 @@ export class RegistrarpagoModel {
     NRORECIBO : string;
     PagoDesde: string;
     PagoHasta : string;
+    IDENTIFICADORBASE : string ;
     titular: string;
     Departamento: string;
     Ciudad: string;
@@ -32,6 +34,7 @@ export class RegistrarpagoModel {
         this.DESCUENTO = 0;
         this.CANTIDADCUOTAS = 1;
         this.MAQUINA = '';
+        this.TRANSAC =moment().format('YYYYMMDDhhmmss');
         this.USUARIO = '';
         this.OBSERVACIONES = '';
         this.CUOTAMENSUAL = 0;
@@ -40,6 +43,7 @@ export class RegistrarpagoModel {
         this.FECHAPAGOR = new Date().toISOString();
         this.POSX = '';
         this.POSY = '';
+        this.IDENTIFICADORBASE ='';
         this.titular = '';
         this.PLAN = '';
         this.NRORECIBO = moment().format('YYYYMMDDhhmmss');

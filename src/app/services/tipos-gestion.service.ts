@@ -26,6 +26,8 @@ import { ConfiguracionService } from './configuracion.service';
 
 export class TiposGestionService {
 
+  retorno : string;
+  isConnected = false;
 
 
   config: ConfigModel = new ConfigModel();
@@ -98,22 +100,23 @@ export class TiposGestionService {
 
             loading.present();
             console.log(gestion);
-            this.http.post(`${configHelper.getApiUrl()}/pago/insertNove`, gestion, httpOptions)
-              .subscribe((result: number) => {
-                if (result === -1) {
-                  this.mostrarAlerta('Ingreso Novedad' , 'No se pudo realizar la Novedad.');
+            this.GetRestBody('/pago/insertNove', gestion).then(res=>{
+              this.retorno=res.Respuesta;
+              if(this.retorno == "Novedad Registrada"){
+                  this.mostrarAlerta('Novedad' , this.retorno);
                   loading.dismiss();
-                } else {
-                  this.mostrarAlerta('Ingreso Novedad' , 'Novedad realizada correctamente.');
+                  resolve(res);
+              }else{
+                this.mostrarAlerta('Novedad' , this.retorno);
                   loading.dismiss();
-                  resolve(result);
-                }
+              }
+                
               },
                 (error: HttpErrorResponse) => {
 
                   loading.dismiss();
                   reject();
-                  this.mostrarToastSimple('Error realizando la novedad');
+                  this.mostrarToastSimple(this.retorno);
               });
 
           });
@@ -141,7 +144,32 @@ export class TiposGestionService {
     }
     });
   }
-
+  GetRestBody(url, body): Promise<any>{
+    try {
+      return new Promise((resolve, reject)=>{
+        const httpOptions = {
+          headers: new HttpHeaders({
+            'Content-Type': 'application/json',
+          })
+        };
+  
+        let configHelper = new ConfigHelper(this.configuracionService.config);
+        console.log(JSON.stringify(body))
+        this.http.post(`${configHelper.getApiUrl()}${url}`, body,  httpOptions ).subscribe(res=>{
+          resolve(res);
+          this.isConnected =true;
+        }, err=>{
+          this.isConnected =false;
+          reject(err);
+        });
+      });
+    } catch (error) {
+      this.isConnected =false;
+      throw error;
+    }
+   
+    
+  }
 
   prepararRegistroNovedad(gestionModel: RegistroGestionModel) {
     return new Promise((resolve, reject) => {

@@ -182,9 +182,11 @@ var PagosService = /** @class */ (function () {
         return new Promise(function (resolve, reject) {
             console.log('la forma de pago a validar', registroPago.FORMAPAGO);
             if (!registroPago.FORMAPAGO) {
-                _this.mostrarToastSimple('Por favor seleccione la forma de pago');
-                reject();
-                return;
+                // this.mostrarToastSimple('Por favor seleccione la forma de pago');
+                // reject();
+                //return;
+                registroPago.FORMAPAGO = 'Efectivo';
+                console.log('la forma de pago despues de validar', registroPago.FORMAPAGO);
             }
             if (!_this.platform.is('android')) {
                 resolve(registroPago);

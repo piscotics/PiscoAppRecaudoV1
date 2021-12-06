@@ -97,6 +97,7 @@ export class RegistroGestionPage implements OnInit {
       registro.NovedadDesc = this.tipogestionselect.Novedad;
       registro.PagoHasta = this.contrato.pagoHasta;
       registro.Titular = this.contrato.nombre;
+      registro.Nota1 = this.contrato.Nota1;
 
       this.tiposGestionService.registrarNovedad(registro)
          .then(() => {

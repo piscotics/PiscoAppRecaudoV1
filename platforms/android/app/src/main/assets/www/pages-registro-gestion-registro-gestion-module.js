@@ -110,6 +110,7 @@ var RegistroGestionPage = /** @class */ (function () {
             registro.NovedadDesc = _this.tipogestionselect.Novedad;
             registro.PagoHasta = _this.contrato.pagoHasta;
             registro.Titular = _this.contrato.nombre;
+            registro.Nota1 = _this.contrato.Nota1;
             _this.tiposGestionService.registrarNovedad(registro)
                 .then(function () {
                 _this.router.navigate(['registro-gestion2', JSON.stringify(registro)]);
@@ -196,6 +197,7 @@ var TiposGestionService = /** @class */ (function () {
         this.device = device;
         this.configuracionService = configuracionService;
         this.offline = offline;
+        this.isConnected = false;
         this.config = new _models_config_model__WEBPACK_IMPORTED_MODULE_5__["ConfigModel"]();
         this.mostrarAlerta = function (titulo, mensaje) {
             _this.alertController.create({
@@ -241,8 +243,8 @@ var TiposGestionService = /** @class */ (function () {
         return new Promise(function (resolve, reject) {
             var isOffline = localStorage.getItem('offlineMode') === 'true' ? true : false;
             if (!isOffline) {
-                var configHelper_1 = new _helpers_config_helper__WEBPACK_IMPORTED_MODULE_3__["ConfigHelper"](_this.config);
-                var httpOptions_1 = {
+                var configHelper = new _helpers_config_helper__WEBPACK_IMPORTED_MODULE_3__["ConfigHelper"](_this.config);
+                var httpOptions = {
                     headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
                         'Content-Type': 'application/json',
                     })
@@ -253,21 +255,21 @@ var TiposGestionService = /** @class */ (function () {
                 }).then(function (loading) {
                     loading.present();
                     console.log(gestion);
-                    _this.http.post(configHelper_1.getApiUrl() + "/pago/insertNove", gestion, httpOptions_1)
-                        .subscribe(function (result) {
-                        if (result === -1) {
-                            _this.mostrarAlerta('Ingreso Novedad', 'No se pudo realizar la Novedad.');
+                    _this.GetRestBody('/pago/insertNove', gestion).then(function (res) {
+                        _this.retorno = res.Respuesta;
+                        if (_this.retorno == "Novedad Registrada") {
+                            _this.mostrarAlerta('Novedad', _this.retorno);
                             loading.dismiss();
+                            resolve(res);
                         }
                         else {
-                            _this.mostrarAlerta('Ingreso Novedad', 'Novedad realizada correctamente.');
+                            _this.mostrarAlerta('Novedad', _this.retorno);
                             loading.dismiss();
-                            resolve(result);
                         }
                     }, function (error) {
                         loading.dismiss();
                         reject();
-                        _this.mostrarToastSimple('Error realizando la novedad');
+                        _this.mostrarToastSimple(_this.retorno);
                     });
                 });
             }
@@ -293,6 +295,31 @@ var TiposGestionService = /** @class */ (function () {
                 });
             }
         });
+    };
+    TiposGestionService.prototype.GetRestBody = function (url, body) {
+        var _this = this;
+        try {
+            return new Promise(function (resolve, reject) {
+                var httpOptions = {
+                    headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+                        'Content-Type': 'application/json',
+                    })
+                };
+                var configHelper = new _helpers_config_helper__WEBPACK_IMPORTED_MODULE_3__["ConfigHelper"](_this.configuracionService.config);
+                console.log(JSON.stringify(body));
+                _this.http.post("" + configHelper.getApiUrl() + url, body, httpOptions).subscribe(function (res) {
+                    resolve(res);
+                    _this.isConnected = true;
+                }, function (err) {
+                    _this.isConnected = false;
+                    reject(err);
+                });
+            });
+        }
+        catch (error) {
+            this.isConnected = false;
+            throw error;
+        }
     };
     TiposGestionService.prototype.prepararRegistroNovedad = function (gestionModel) {
         var _this = this;

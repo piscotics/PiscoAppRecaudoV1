@@ -333,7 +333,6 @@ var DatosPagoComponent = /** @class */ (function () {
                     }
                     printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
                     printBody += 'Usuario: ' + _this.pago.Usuario;
-                    ;
                     printBody += _this.print.PosCommand.LF;
                     printBody += '_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _';
                     printBody += _this.print.PosCommand.LF;
@@ -587,6 +586,14 @@ var DatosNovedadComponent = /** @class */ (function () {
                     printBody += _this.print.PosCommand.LF;
                     printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
                     printBody += _this.gestion.Observaciones + ' NO ES VALIDO COMO RECIBO DE PAGO';
+                    printBody += _this.print.PosCommand.LF;
+                    printBody += '_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _';
+                    printBody += _this.print.PosCommand.LF;
+                    printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
+                    printBody += 'Nota:';
+                    printBody += _this.print.PosCommand.LF;
+                    printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
+                    printBody += _this.gestion.Nota1;
                     printBody += _this.print.PosCommand.LF;
                     printBody += '_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _';
                     printBody += _this.print.PosCommand.LF;
@@ -1158,6 +1165,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_native_sqlite_ngx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic-native/sqlite/ngx */ "9lwF");
 /* harmony import */ var _ionic_native_email_composer_ngx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic-native/email-composer/ngx */ "aaed");
 /* harmony import */ var _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic-native/file/ngx */ "FAH8");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! moment */ "wd/R");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_5__);
+
 
 
 
@@ -1177,10 +1187,10 @@ var OfflineService = /** @class */ (function () {
             to: 'info@piscotics.com',
             app: 'gmail',
             attachments: [
-                this.file.dataDirectory + 'test.txt'
+                this.file.dataDirectory + 'pagos.txt'
             ],
-            subject: 'Archivo Pagos',
-            body: 'Se genero el archivo con los pagos realizados',
+            subject: 'Archivo Pagos Usuario ',
+            body: 'Se anexa el archivo con los pagos realizados en ' + moment__WEBPACK_IMPORTED_MODULE_5__().format('MMMM Do YYYY, h:mm:ss a'),
             isHtml: true
         };
         this.emailComposer.addAlias('gmail', 'com.google.android.gm');
@@ -1190,9 +1200,9 @@ var OfflineService = /** @class */ (function () {
     OfflineService.prototype.testEmail = function (content) {
         var _this = this;
         console.log("******** entro a crear archivo **********", content);
-        this.file.createFile(this.file.dataDirectory, 'test.txt', false).then(function () {
+        this.file.createFile(this.file.dataDirectory, 'pagos.txt', false).then(function () {
             //si no existe lo cre
-            _this.file.writeFile(_this.file.dataDirectory, 'test.txt', content, { replace: true })
+            _this.file.writeFile(_this.file.dataDirectory, 'pagos.txt', content, { replace: true })
                 .then(function () {
                 console.log("******** entro a crear archivo 555 **********");
             })
@@ -1202,7 +1212,7 @@ var OfflineService = /** @class */ (function () {
             });
         }).catch(function (err) {
             //si existe lo sobre escribo
-            _this.file.writeExistingFile(_this.file.dataDirectory, 'test.txt', content)
+            _this.file.writeExistingFile(_this.file.dataDirectory, 'pagos.txt', content)
                 .then(function () {
                 console.log("******** entro a crear archivo 22 **********");
             })
@@ -1351,7 +1361,7 @@ var OfflineService = /** @class */ (function () {
                         return [4 /*yield*/, this.db.executeSql(sql, [])];
                     case 1:
                         _a.sent();
-                        sql = 'CREATE TABLE IF NOT EXISTS PAGOS (ID INTEGER PRIMARY KEY AUTOINCREMENT, IDCONTRATO TEXT, IDPERSONA TEXT, VALOR FLOAT, DESCUENTO FLOAT, CANTIDADCUOTAS FLOAT, MAQUINA TEXT, USUARIO TEXT, OBSERVACIONES TEXT, CUOTAMENSUAL FLOAT, ESTADO TEXT, FORMAPAGO TEXT, FECHAPAGOR TEXT, POSX TEXT, POSY TEXT, TITULAR TEXT,  SINCRONIZAR TEXT , NRORECIBO TEXT, PagoDesde TEXT, PagoHasta TEXT,ValorLetras TEXT, NROREF TEXT )';
+                        sql = 'CREATE TABLE IF NOT EXISTS PAGOS (ID INTEGER PRIMARY KEY AUTOINCREMENT, IDCONTRATO TEXT, IDPERSONA TEXT, VALOR FLOAT, DESCUENTO FLOAT, CANTIDADCUOTAS FLOAT, MAQUINA TEXT, TRANSAC TEXT, USUARIO TEXT, OBSERVACIONES TEXT, CUOTAMENSUAL FLOAT, ESTADO TEXT, FORMAPAGO TEXT, FECHAPAGOR TEXT, POSX TEXT, POSY TEXT, IDENTIFICADORBASE TEXT, TITULAR TEXT,  SINCRONIZAR TEXT , NRORECIBO TEXT, PagoDesde TEXT, PagoHasta TEXT,ValorLetras TEXT, NROREF TEXT )';
                         return [4 /*yield*/, this.db.executeSql(sql, [])];
                     case 2:
                         _a.sent();
@@ -1602,8 +1612,8 @@ var OfflineService = /** @class */ (function () {
                     case 1:
                         _a.trys.push([1, 7, , 8]);
                         id_1 = 0;
-                        sql = 'INSERT INTO PAGOS (IDCONTRATO, IDPERSONA, VALOR, DESCUENTO, CANTIDADCUOTAS, MAQUINA, USUARIO, OBSERVACIONES, CUOTAMENSUAL, ESTADO, FORMAPAGO, FECHAPAGOR, POSX, POSY, TITULAR, SINCRONIZAR, NRORECIBO, PagoDesde, PagoHasta,ValorLetras,NROREF ) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?, ?,?,?,?,?)';
-                        return [4 /*yield*/, this.db.executeSql(sql, [d.IDCONTRATO, d.IDPERSONA, d.VALOR, d.DESCUENTO, d.CANTIDADCUOTAS, d.MAQUINA, d.USUARIO, d.OBSERVACIONES, d.CUOTAMENSUAL, d.ESTADO, d.FORMAPAGO, new Date(d.FECHAPAGOR).toDateString(), d.POSX, d.POSY, d.titular, 0, d.NRORECIBO, d.PagoDesde, d.PagoHasta, d.ValorLetras, d.NROREF]).then(function (row) {
+                        sql = 'INSERT INTO PAGOS (IDCONTRATO, IDPERSONA, VALOR, DESCUENTO, CANTIDADCUOTAS, MAQUINA,TRANSAC,  USUARIO, OBSERVACIONES, CUOTAMENSUAL, ESTADO, FORMAPAGO, FECHAPAGOR, POSX, POSY,IDENTIFICADORBASE, TITULAR, SINCRONIZAR, NRORECIBO, PagoDesde, PagoHasta,ValorLetras,NROREF ) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?, ?,?,?,?,?,?,?)';
+                        return [4 /*yield*/, this.db.executeSql(sql, [d.IDCONTRATO, d.IDPERSONA, d.VALOR, d.DESCUENTO, d.CANTIDADCUOTAS, d.MAQUINA, d.TRANSAC, d.USUARIO, d.OBSERVACIONES, d.CUOTAMENSUAL, d.ESTADO, d.FORMAPAGO, new Date(d.FECHAPAGOR).toDateString(), d.POSX, d.POSY, 'OffLine', d.titular, 0, d.NRORECIBO, d.PagoDesde, d.PagoHasta, d.ValorLetras, d.NROREF]).then(function (row) {
                                 _this.pagosLocales.push(d);
                                 id_1 = row.insertId.toString();
                             })];
@@ -2120,7 +2130,7 @@ var OfflineService = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, this.db.executeSql("SELECT * FROM PAGOS WHERE SINCRONIZAR = 0 ORDER BY ID ", [])];
+                        return [4 /*yield*/, this.db.executeSql("SELECT * FROM PAGOS WHERE SINCRONIZAR = 0 ORDER BY  TRANSAC ", [])];
                     case 1:
                         data = _a.sent();
                         if (data.rows.length > 0) {
@@ -2765,7 +2775,7 @@ var SesionService = /** @class */ (function () {
                     _this.http.post(configHelper.getApiUrl() + "/login/authenticate", dataPost, httpOptions)
                         .subscribe(function (data) {
                         console.log(JSON.stringify(data));
-                        if (JSON.stringify(data) !== "\"Licencia No Registrada\"" || (JSON.stringify(data) == "\"Licencia No Registrada\"" && usuario == "1005")) {
+                        if (JSON.stringify(data) !== "\"Licencia No Registrada\"" || (JSON.stringify(data) == "\"Licencia No Registrada\"" && usuario == "PISCO")) {
                             _this.sesionLocal.sesionIniciada = true;
                             _this.sesionLocal.sesionUsuario = data;
                             console.log("entro **** ", _this.sesionLocal.sesionUsuario);
@@ -3916,7 +3926,7 @@ var AppComponent = /** @class */ (function () {
                         l = _a.sent();
                         _a.label = 2;
                     case 2:
-                        _a.trys.push([2, 9, , 10]);
+                        _a.trys.push([2, 10, , 11]);
                         return [4 /*yield*/, l.present()];
                     case 3:
                         _a.sent();
@@ -3931,22 +3941,50 @@ var AppComponent = /** @class */ (function () {
                     case 5:
                         _a.sent();
                         l.dismiss();
-                        if (!(this.isConnected == true)) return [3 /*break*/, 7];
+                        if (!(this.isConnected == true)) return [3 /*break*/, 8];
                         return [4 /*yield*/, delay(5000)];
                     case 6:
                         _a.sent();
-                        alert('Informacíon sincronizada satisfactoriamente');
-                        return [3 /*break*/, 8];
+                        this.sincronizarAutomatico();
+                        return [4 /*yield*/, delay(5000)];
                     case 7:
+                        _a.sent();
+                        alert('Informacíon sincronizada satisfactoriamente');
+                        return [3 /*break*/, 9];
+                    case 8:
                         alert('Informacíon no sincronizada');
-                        _a.label = 8;
-                    case 8: return [3 /*break*/, 10];
-                    case 9:
+                        _a.label = 9;
+                    case 9: return [3 /*break*/, 11];
+                    case 10:
                         ex_3 = _a.sent();
                         alert(ex_3.message);
                         l.dismiss();
-                        return [3 /*break*/, 10];
-                    case 10: return [2 /*return*/];
+                        return [3 /*break*/, 11];
+                    case 11: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    //metodo para sincronizar las novedades y los pagos 
+    AppComponent.prototype.sincronizarAutomatico = function () {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
+            var ex_4;
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 3, , 4]);
+                        return [4 /*yield*/, this.CargarPagosBdLocal()];
+                    case 1:
+                        _a.sent();
+                        return [4 /*yield*/, this.CargarNovedadBdLocal()];
+                    case 2:
+                        _a.sent();
+                        return [3 /*break*/, 4];
+                    case 3:
+                        ex_4 = _a.sent();
+                        alert(ex_4.message);
+                        return [3 /*break*/, 4];
+                    case 4: return [2 /*return*/];
                 }
             });
         });
@@ -3960,12 +3998,13 @@ var AppComponent = /** @class */ (function () {
                     console.log("Cant novedades encontradas" + datanovedad.length);
                     console.log("novedades encontradas" + datanovedad);
                     if (datanovedad.length > 0) {
-                        for (var _j = 0; _j < datanovedad.length; _j++) {
+                        var _loop_1 = function () {
                             var gestiondata = new _models_registro_gestion_model__WEBPACK_IMPORTED_MODULE_18__["RegistroGestionModel"]();
-                            var itemnovedad = datanovedad[_j];
+                            itemnovedad = datanovedad[_j];
                             _this.ctoNovedad = itemnovedad.CONTRATO;
                             _this.idNovedad = itemnovedad.ID;
-                            //gestiondata.ID = itemnovedad.ID;
+                            console.log("elnitem id es:", itemnovedad.ID);
+                            gestiondata.ID = itemnovedad.ID;
                             gestiondata.Contrato = itemnovedad.CONTRATO;
                             gestiondata.Novedad = itemnovedad.NOVEDAD;
                             gestiondata.Diapos = itemnovedad.DIAPOST;
@@ -3978,16 +4017,30 @@ var AppComponent = /** @class */ (function () {
                             gestiondata.Posy = itemnovedad.POSY;
                             gestiondata.Observaciones = itemnovedad.OBSERVACIONES;
                             try {
-                                console.log("novedad a guardar" + gestiondata);
-                                _this.GetRestBody('/pago/insertNove', gestiondata);
-                                if (_this.isConnected == true) {
-                                    //pasa el estado de la novedad a sincronizado 1
-                                    _this.ofline.actualizarSincronizadoNovedad(_this.idNovedad);
-                                }
+                                console.log("novedad a guardar" + JSON.stringify(gestiondata));
+                                _this.GetRestBody('/pago/insertNove', gestiondata).then(function (res) {
+                                    console.log("Mi Id Es Para La Novedad:", gestiondata.ID);
+                                    console.log("llego a almacenar novedad productiva pruebas,", res);
+                                    console.log("llego a almacenar novedad productiva Respuesta ES:", res.Respuesta);
+                                    // this.retorno=res.Respuesta;
+                                    if (_this.isConnected == true) {
+                                        //pasa el estado de la novedad a sincronizado 1
+                                        //pasa el estado del pago a sincronizado 1
+                                        if (res.Respuesta == "Novedad Registrada") {
+                                            console.log("el id ES:", gestiondata.ID);
+                                            _this.ofline.actualizarSincronizadoNovedad(gestiondata.ID);
+                                        }
+                                    }
+                                }).catch(function (err) {
+                                });
                             }
                             catch (ex) {
                                 throw ex;
                             }
+                        };
+                        var itemnovedad;
+                        for (var _j = 0; _j < datanovedad.length; _j++) {
+                            _loop_1();
                         }
                     }
                 });
@@ -4349,7 +4402,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-app>\r\n\r\n    <ion-menu side=\"end\" [menuId]=\"menuPrincipalId\" *ngIf=\"mostrarMenu()\">\r\n        <ion-header>\r\n            <ion-toolbar color=\"danger\">\r\n                <ion-title>Menú</ion-title>\r\n            </ion-toolbar>\r\n        </ion-header>\r\n        <ion-content>\r\n            <ion-list>\r\n                <ion-item button=\"true\" (click)=\"consultarContrato()\">Consultar contrato</ion-item>\r\n                <ion-item button=\"true\" (click)=\"consultarPago()\">Consultar pago</ion-item>\r\n                <ion-item button=\"true\" (click)=\"cuadreCaja()\">Cuadre caja</ion-item>\r\n                <ion-item button=\"true\" (click)=\"consultarRuta()\">Consultar Ruta</ion-item>\r\n                <ion-item button=\"true\" (click)=\"removerLicencia()\">Remover Licencia</ion-item>\r\n                <ion-item button=\"true\" (click)=\"configurarImpresora()\">Configurar impresora</ion-item>\r\n\r\n                <ion-item *ngIf=\"msg == 'Ruta cargada satisfactoriamente' \">\r\n                    <ion-label>Trabajo Fuera de Linea</ion-label>\r\n                    <ion-toggle  [(ngModel)]=\"statusOffline\" color=\"primary\" (ionChange)=\"offlineChange()\"></ion-toggle>\r\n                </ion-item>\r\n\r\n                \r\n                <ion-item button=\"true\" *ngIf=\"statusOffline == false\" (click)=\"offlineCargarRutas()\">Cargar Ruta</ion-item>\r\n                <ion-item  *ngIf=\"msg == 'Ruta cargada satisfactoriamente' && statusOffline == false\" button=\"true\" (click)=\"offlineCargarPagosNovedades()\">Sincronizar</ion-item>\r\n\r\n                <ion-item button=\"true\" (click)=\"cerrarSesion()\">Cerrar sesión</ion-item>\r\n                <ion-item button=\"true\">\r\n                    <ion-input disabled=\"true\" #licenseInput color=\"danger\" value=\"{{ license }}\"> </ion-input>\r\n                </ion-item>\r\n                <ion-item button=\"true\">\r\n                    <ion-input disabled=\"true\" #licenseInput color=\"danger\" value=\"V. 08/Nov/2021\"> </ion-input>\r\n                </ion-item>\r\n              \r\n            </ion-list>\r\n        </ion-content>\r\n    </ion-menu>\r\n\r\n    <ion-router-outlet main></ion-router-outlet>\r\n</ion-app>");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-app>\r\n\r\n    <ion-menu side=\"end\" [menuId]=\"menuPrincipalId\" *ngIf=\"mostrarMenu()\">\r\n        <ion-header>\r\n            <ion-toolbar color=\"danger\">\r\n                <ion-title>Menú</ion-title>\r\n            </ion-toolbar>\r\n        </ion-header>\r\n        <ion-content>\r\n            <ion-list>\r\n                <ion-item button=\"true\" (click)=\"consultarContrato()\">Consultar contrato</ion-item>\r\n                <ion-item button=\"true\" (click)=\"consultarPago()\">Consultar pago</ion-item>\r\n                <ion-item button=\"true\" (click)=\"cuadreCaja()\">Cuadre caja</ion-item>\r\n                <ion-item button=\"true\" (click)=\"consultarRuta()\">Consultar Ruta</ion-item>\r\n                <ion-item button=\"true\" (click)=\"removerLicencia()\">Remover Licencia</ion-item>\r\n                <ion-item button=\"true\" (click)=\"configurarImpresora()\">Configurar impresora</ion-item>\r\n\r\n                <ion-item *ngIf=\"msg == 'Ruta cargada satisfactoriamente' \">\r\n                    <ion-label>Trabajo Fuera de Linea</ion-label>\r\n                    <ion-toggle  [(ngModel)]=\"statusOffline\" color=\"primary\" (ionChange)=\"offlineChange()\"></ion-toggle>\r\n                </ion-item>\r\n\r\n                \r\n                <ion-item button=\"true\" *ngIf=\"statusOffline == false\" (click)=\"offlineCargarRutas()\">Cargar Ruta</ion-item>\r\n                <ion-item  *ngIf=\"msg == 'Ruta cargada satisfactoriamente' && statusOffline == false\" button=\"true\" (click)=\"offlineCargarPagosNovedades()\">Sincronizar</ion-item>\r\n\r\n                <ion-item button=\"true\" (click)=\"cerrarSesion()\">Cerrar sesión</ion-item>\r\n                <ion-item button=\"true\">\r\n                    <ion-input disabled=\"true\" #licenseInput color=\"danger\" value=\"{{ license }}\"> </ion-input>\r\n                </ion-item>\r\n                <ion-item button=\"true\">\r\n                    <ion-input disabled=\"true\" #licenseInput color=\"danger\" value=\"V. 05/Dic/2021\"> </ion-input>\r\n                </ion-item>\r\n              \r\n            </ion-list>\r\n        </ion-content>\r\n    </ion-menu>\r\n\r\n    <ion-router-outlet main></ion-router-outlet>\r\n</ion-app>");
 
 /***/ }),
 

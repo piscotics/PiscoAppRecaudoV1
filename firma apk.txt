@@ -22,6 +22,18 @@ jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore piscorecaudomov
 zipalign -v 4 app-release-unsigned.apk piscorecaudomovil.apk
 
 
+---- nueva forma de firmar
+
+zipalign -f 4 app-release-unsigned.apk piscorecaudomovil.apk
+
+apksigner.bat sign --ks piscorecaudomovil.keystore --v1-signing-enabled true --v2-signing-enabled true piscorecaudomovil.apk
+
+-----
+
+    <preference name="android-targetSdkVersion" value="28" />
+
+
+
 
 
 
