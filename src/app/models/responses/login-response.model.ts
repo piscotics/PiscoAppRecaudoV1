@@ -20,4 +20,6 @@ export class LoginResponseModel {
     IDCAJAPAR: number;
     IDCAJA: number;
     IDCAJAANT: number;
+    RESPUESTA: string;
+   // OFFLINE : number;
  }

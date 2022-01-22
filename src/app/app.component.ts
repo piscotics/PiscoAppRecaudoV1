@@ -45,6 +45,7 @@ export class AppComponent implements OnInit, OnDestroy {
   isConnected = false;
   statusOffline: boolean;
   respuesta : string;
+  offlineapi : number;
   idNovedad : string;
   retorno : string;
 
@@ -71,6 +72,7 @@ export class AppComponent implements OnInit, OnDestroy {
     private http: HttpClient,
     private navCtrl: NavController,
     private network: Network
+    
   ) {
     this.initializeApp();
     this.statusOffline = localStorage.getItem('offlineMode') === 'true' ? true : false;
@@ -148,6 +150,10 @@ export class AppComponent implements OnInit, OnDestroy {
       ]).then(() => {
 
         this.sesionLocal = this.sesionService.sesionLocal;
+
+        //trae el estado desde la api campo de permiso para cliente
+        //this.offlineapi = this.sesionLocal.sesionUsuario.OFFLINE;
+       // console.log("el estado del offline api es ",this.offlineapi )
 
         if (this.platform.is('ios')) {
           this.statusBar.overlaysWebView(true);
