@@ -9,6 +9,8 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { DatosNovedadComponent } from './datos-novedad/datos-novedad.component';
 import { UltimosPagosComponent } from './ultimos-pagos/ultimos-pagos.component';
+import { UltimasNovedadesComponent } from './ultimas-novedades/ultimas-novedades.component';
+import { UltimosServadicionalesComponent } from './ultimos-servadicionales/ultimos-servadicionales.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { UltimosPagosComponent } from './ultimos-pagos/ultimos-pagos.component';
     ModalConfirmarPagoComponent,
     BeneficiariosComponent,
     DatosNovedadComponent,
-    UltimosPagosComponent
+    UltimosPagosComponent,
+    UltimasNovedadesComponent,
+    UltimosServadicionalesComponent
   ],
   imports: [
     CommonModule,
@@ -32,6 +36,6 @@ import { UltimosPagosComponent } from './ultimos-pagos/ultimos-pagos.component';
     LogoEmpresaComponent,
     DatosNovedadComponent
   ],
-  entryComponents: [ModalConfirmarPagoComponent, BeneficiariosComponent, UltimosPagosComponent]
+  entryComponents: [ModalConfirmarPagoComponent, BeneficiariosComponent, UltimosPagosComponent,UltimasNovedadesComponent,UltimosServadicionalesComponent]
 })
 export class OwnComponentsModule { }

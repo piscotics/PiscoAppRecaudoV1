@@ -1,30 +1,30 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[22],{
 
-/***/ "GlbS":
-/*!*****************************************************************!*\
-  !*** ../node_modules/@ionic/core/dist/esm/ion-popover.entry.js ***!
-  \*****************************************************************/
+/***/ "qCuA":
+/*!****************************************************************!*\
+  !*** ./node_modules/@ionic/core/dist/esm/ion-popover.entry.js ***!
+  \****************************************************************/
 /*! exports provided: ion_popover */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_popover", function() { return Popover; });
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../node_modules/@babel/runtime/helpers/esm/defineProperty */ "mK0O");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../node_modules/@babel/runtime/regenerator */ "o0o1");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../node_modules/@babel/runtime/helpers/esm/asyncToGenerator */ "eijD");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../node_modules/@babel/runtime/helpers/esm/classCallCheck */ "hisu");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../node_modules/@babel/runtime/helpers/esm/createClass */ "yBJb");
-/* harmony import */ var _index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./index-e806d1f6.js */ "OVRr");
-/* harmony import */ var _ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ionic-global-9d5c8ee3.js */ "rAwY");
-/* harmony import */ var _helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./helpers-90f46169.js */ "Ij9o");
-/* harmony import */ var _animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./animation-54fe0237.js */ "uxFI");
-/* harmony import */ var _index_d8cfb4a8_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./index-d8cfb4a8.js */ "Q0/8");
-/* harmony import */ var _hardware_back_button_4a6b37fb_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./hardware-back-button-4a6b37fb.js */ "A64e");
-/* harmony import */ var _overlays_12c20431_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./overlays-12c20431.js */ "zr4j");
-/* harmony import */ var _theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./theme-ff3fc52f.js */ "akMd");
-/* harmony import */ var _framework_delegate_4584ab5a_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./framework-delegate-4584ab5a.js */ "5N/I");
+/* harmony import */ var C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/defineProperty */ "rePB");
+/* harmony import */ var C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ "o0o1");
+/* harmony import */ var C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator */ "HaE+");
+/* harmony import */ var C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/classCallCheck */ "1OyB");
+/* harmony import */ var C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createClass */ "vuIU");
+/* harmony import */ var _index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./index-7a8b7a1c.js */ "wEJo");
+/* harmony import */ var _ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ionic-global-63a97a32.js */ "E/Mt");
+/* harmony import */ var _framework_delegate_4392cd63_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./framework-delegate-4392cd63.js */ "acej");
+/* harmony import */ var _overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./overlays-e9ccff30.js */ "SOSK");
+/* harmony import */ var _theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./theme-ff3fc52f.js */ "74mu");
+/* harmony import */ var _index_931440b1_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./index-931440b1.js */ "Js3/");
+/* harmony import */ var _animation_096c6391_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./animation-096c6391.js */ "meiF");
+/* harmony import */ var _helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./helpers-dd7e4b7b.js */ "1vRN");
+/* harmony import */ var _hardware_back_button_4a6b37fb_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./hardware-back-button-4a6b37fb.js */ "B4Jq");
 
 
 
@@ -122,9 +122,9 @@ var iosEnterAnimation = function iosEnterAnimation(baseEl, ev) {
   }
 
   contentEl.style.transformOrigin = originY + ' ' + originX;
-  var baseAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])();
-  var backdropAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])();
-  var wrapperAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])();
+  var baseAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_11__["c"])();
+  var backdropAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_11__["c"])();
+  var wrapperAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_11__["c"])();
   backdropAnimation.addElement(baseEl.querySelector('ion-backdrop')).fromTo('opacity', 0.01, 'var(--backdrop-opacity)').beforeStyles({
     'pointer-events': 'none'
   }).afterClearStyles(['pointer-events']);
@@ -138,9 +138,9 @@ var POPOVER_IOS_BODY_PADDING = 5;
  */
 
 var iosLeaveAnimation = function iosLeaveAnimation(baseEl) {
-  var baseAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])();
-  var backdropAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])();
-  var wrapperAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])();
+  var baseAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_11__["c"])();
+  var backdropAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_11__["c"])();
+  var wrapperAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_11__["c"])();
   backdropAnimation.addElement(baseEl.querySelector('ion-backdrop')).fromTo('opacity', 'var(--backdrop-opacity)', 0);
   wrapperAnimation.addElement(baseEl.querySelector('.popover-wrapper')).fromTo('opacity', 0.99, 0);
   return baseAnimation.addElement(baseEl).easing('ease').duration(500).addAnimation([backdropAnimation, wrapperAnimation]);
@@ -197,11 +197,11 @@ var mdEnterAnimation = function mdEnterAnimation(baseEl, ev) {
     contentEl.style.bottom = POPOVER_MD_BODY_PADDING + 'px';
   }
 
-  var baseAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])();
-  var backdropAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])();
-  var wrapperAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])();
-  var contentAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])();
-  var viewportAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])();
+  var baseAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_11__["c"])();
+  var backdropAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_11__["c"])();
+  var wrapperAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_11__["c"])();
+  var contentAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_11__["c"])();
+  var viewportAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_11__["c"])();
   backdropAnimation.addElement(baseEl.querySelector('ion-backdrop')).fromTo('opacity', 0.01, 'var(--backdrop-opacity)').beforeStyles({
     'pointer-events': 'none'
   }).afterClearStyles(['pointer-events']);
@@ -220,28 +220,28 @@ var mdEnterAnimation = function mdEnterAnimation(baseEl, ev) {
 
 
 var mdLeaveAnimation = function mdLeaveAnimation(baseEl) {
-  var baseAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])();
-  var backdropAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])();
-  var wrapperAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])();
+  var baseAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_11__["c"])();
+  var backdropAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_11__["c"])();
+  var wrapperAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_11__["c"])();
   backdropAnimation.addElement(baseEl.querySelector('ion-backdrop')).fromTo('opacity', 'var(--backdrop-opacity)', 0);
   wrapperAnimation.addElement(baseEl.querySelector('.popover-wrapper')).fromTo('opacity', 0.99, 0);
   return baseAnimation.addElement(baseEl).easing('ease').duration(500).addAnimation([backdropAnimation, wrapperAnimation]);
 };
 
-var popoverIosCss = ".sc-ion-popover-ios-h{--background:var(--ion-background-color, #fff);--min-width:0;--min-height:0;--max-width:auto;--height:auto;left:0;right:0;top:0;bottom:0;display:-ms-flexbox;display:flex;position:fixed;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center;outline:none;color:var(--ion-text-color, #000);z-index:1001}.overlay-hidden.sc-ion-popover-ios-h{display:none}.popover-wrapper.sc-ion-popover-ios{opacity:0;z-index:10}.popover-content.sc-ion-popover-ios{display:-ms-flexbox;display:flex;position:absolute;-ms-flex-direction:column;flex-direction:column;width:var(--width);min-width:var(--min-width);max-width:var(--max-width);height:var(--height);min-height:var(--min-height);max-height:var(--max-height);background:var(--background);-webkit-box-shadow:var(--box-shadow);box-shadow:var(--box-shadow);overflow:auto;z-index:10}.popover-viewport.sc-ion-popover-ios{--ion-safe-area-top:0px;--ion-safe-area-right:0px;--ion-safe-area-bottom:0px;--ion-safe-area-left:0px}.sc-ion-popover-ios-h{--width:200px;--max-height:90%;--box-shadow:none;--backdrop-opacity:var(--ion-backdrop-opacity, 0.08)}.popover-content.sc-ion-popover-ios{border-radius:10px}.popover-arrow.sc-ion-popover-ios{display:block;position:absolute;width:20px;height:10px;overflow:hidden}.popover-arrow.sc-ion-popover-ios::after{left:3px;top:3px;border-radius:3px;position:absolute;width:14px;height:14px;-webkit-transform:rotate(45deg);transform:rotate(45deg);background:var(--background);content:\"\";z-index:10}[dir=rtl].sc-ion-popover-ios .popover-arrow.sc-ion-popover-ios::after,[dir=rtl].sc-ion-popover-ios-h .popover-arrow.sc-ion-popover-ios::after,[dir=rtl] .sc-ion-popover-ios-h .popover-arrow.sc-ion-popover-ios::after{left:unset;right:unset;right:3px}.popover-bottom.sc-ion-popover-ios-h .popover-arrow.sc-ion-popover-ios{top:auto;bottom:-10px}.popover-bottom.sc-ion-popover-ios-h .popover-arrow.sc-ion-popover-ios::after{top:-6px}@supports ((-webkit-backdrop-filter: blur(0)) or (backdrop-filter: blur(0))){.popover-translucent.sc-ion-popover-ios-h .popover-content.sc-ion-popover-ios,.popover-translucent.sc-ion-popover-ios-h .popover-arrow.sc-ion-popover-ios::after{background:rgba(var(--ion-background-color-rgb, 255, 255, 255), 0.8);-webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px)}}";
-var popoverMdCss = ".sc-ion-popover-md-h{--background:var(--ion-background-color, #fff);--min-width:0;--min-height:0;--max-width:auto;--height:auto;left:0;right:0;top:0;bottom:0;display:-ms-flexbox;display:flex;position:fixed;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center;outline:none;color:var(--ion-text-color, #000);z-index:1001}.overlay-hidden.sc-ion-popover-md-h{display:none}.popover-wrapper.sc-ion-popover-md{opacity:0;z-index:10}.popover-content.sc-ion-popover-md{display:-ms-flexbox;display:flex;position:absolute;-ms-flex-direction:column;flex-direction:column;width:var(--width);min-width:var(--min-width);max-width:var(--max-width);height:var(--height);min-height:var(--min-height);max-height:var(--max-height);background:var(--background);-webkit-box-shadow:var(--box-shadow);box-shadow:var(--box-shadow);overflow:auto;z-index:10}.popover-viewport.sc-ion-popover-md{--ion-safe-area-top:0px;--ion-safe-area-right:0px;--ion-safe-area-bottom:0px;--ion-safe-area-left:0px}.sc-ion-popover-md-h{--width:250px;--max-height:90%;--box-shadow:0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);--backdrop-opacity:var(--ion-backdrop-opacity, 0.32)}.popover-content.sc-ion-popover-md{border-radius:4px;-webkit-transform-origin:left top;transform-origin:left top}[dir=rtl].sc-ion-popover-md .popover-content.sc-ion-popover-md,[dir=rtl].sc-ion-popover-md-h .popover-content.sc-ion-popover-md,[dir=rtl] .sc-ion-popover-md-h .popover-content.sc-ion-popover-md{-webkit-transform-origin:right top;transform-origin:right top}.popover-viewport.sc-ion-popover-md{-webkit-transition-delay:100ms;transition-delay:100ms}";
+var popoverIosCss = ".sc-ion-popover-ios-h{--background:var(--ion-background-color, #fff);--min-width:0;--min-height:0;--max-width:auto;--height:auto;left:0;right:0;top:0;bottom:0;display:-ms-flexbox;display:flex;position:fixed;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center;outline:none;color:var(--ion-text-color, #000);z-index:1001}.overlay-hidden.sc-ion-popover-ios-h{display:none}.popover-wrapper.sc-ion-popover-ios{opacity:0;z-index:10}.popover-content.sc-ion-popover-ios{display:-ms-flexbox;display:flex;position:absolute;-ms-flex-direction:column;flex-direction:column;width:var(--width);min-width:var(--min-width);max-width:var(--max-width);height:var(--height);min-height:var(--min-height);max-height:var(--max-height);background:var(--background);-webkit-box-shadow:var(--box-shadow);box-shadow:var(--box-shadow);overflow:auto;z-index:10}.popover-viewport.sc-ion-popover-ios{--ion-safe-area-top:0px;--ion-safe-area-right:0px;--ion-safe-area-bottom:0px;--ion-safe-area-left:0px;display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;overflow:hidden}.sc-ion-popover-ios-h{--width:200px;--max-height:90%;--box-shadow:none;--backdrop-opacity:var(--ion-backdrop-opacity, 0.08)}.popover-content.sc-ion-popover-ios{border-radius:10px}.popover-arrow.sc-ion-popover-ios{display:block;position:absolute;width:20px;height:10px;overflow:hidden}.popover-arrow.sc-ion-popover-ios::after{left:3px;top:3px;border-radius:3px;position:absolute;width:14px;height:14px;-webkit-transform:rotate(45deg);transform:rotate(45deg);background:var(--background);content:\"\";z-index:10}[dir=rtl].sc-ion-popover-ios .popover-arrow.sc-ion-popover-ios::after,[dir=rtl].sc-ion-popover-ios-h .popover-arrow.sc-ion-popover-ios::after,[dir=rtl] .sc-ion-popover-ios-h .popover-arrow.sc-ion-popover-ios::after{left:unset;right:unset;right:3px}.popover-bottom.sc-ion-popover-ios-h .popover-arrow.sc-ion-popover-ios{top:auto;bottom:-10px}.popover-bottom.sc-ion-popover-ios-h .popover-arrow.sc-ion-popover-ios::after{top:-6px}@supports ((-webkit-backdrop-filter: blur(0)) or (backdrop-filter: blur(0))){.popover-translucent.sc-ion-popover-ios-h .popover-content.sc-ion-popover-ios,.popover-translucent.sc-ion-popover-ios-h .popover-arrow.sc-ion-popover-ios::after{background:rgba(var(--ion-background-color-rgb, 255, 255, 255), 0.8);-webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px)}}";
+var popoverMdCss = ".sc-ion-popover-md-h{--background:var(--ion-background-color, #fff);--min-width:0;--min-height:0;--max-width:auto;--height:auto;left:0;right:0;top:0;bottom:0;display:-ms-flexbox;display:flex;position:fixed;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center;outline:none;color:var(--ion-text-color, #000);z-index:1001}.overlay-hidden.sc-ion-popover-md-h{display:none}.popover-wrapper.sc-ion-popover-md{opacity:0;z-index:10}.popover-content.sc-ion-popover-md{display:-ms-flexbox;display:flex;position:absolute;-ms-flex-direction:column;flex-direction:column;width:var(--width);min-width:var(--min-width);max-width:var(--max-width);height:var(--height);min-height:var(--min-height);max-height:var(--max-height);background:var(--background);-webkit-box-shadow:var(--box-shadow);box-shadow:var(--box-shadow);overflow:auto;z-index:10}.popover-viewport.sc-ion-popover-md{--ion-safe-area-top:0px;--ion-safe-area-right:0px;--ion-safe-area-bottom:0px;--ion-safe-area-left:0px;display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;overflow:hidden}.sc-ion-popover-md-h{--width:250px;--max-height:90%;--box-shadow:0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);--backdrop-opacity:var(--ion-backdrop-opacity, 0.32)}.popover-content.sc-ion-popover-md{border-radius:4px;-webkit-transform-origin:left top;transform-origin:left top}[dir=rtl].sc-ion-popover-md .popover-content.sc-ion-popover-md,[dir=rtl].sc-ion-popover-md-h .popover-content.sc-ion-popover-md,[dir=rtl] .sc-ion-popover-md-h .popover-content.sc-ion-popover-md{-webkit-transform-origin:right top;transform-origin:right top}.popover-viewport.sc-ion-popover-md{-webkit-transition-delay:100ms;transition-delay:100ms}";
 
 var Popover = /*#__PURE__*/function () {
   function Popover(hostRef) {
     var _this = this;
 
-    Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__["default"])(this, Popover);
+    Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__["default"])(this, Popover);
 
-    Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["r"])(this, hostRef);
-    this.didPresent = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionPopoverDidPresent", 7);
-    this.willPresent = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionPopoverWillPresent", 7);
-    this.willDismiss = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionPopoverWillDismiss", 7);
-    this.didDismiss = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionPopoverDidDismiss", 7);
+    Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["r"])(this, hostRef);
+    this.didPresent = Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionPopoverDidPresent", 7);
+    this.willPresent = Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionPopoverWillPresent", 7);
+    this.willDismiss = Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionPopoverWillDismiss", 7);
+    this.didDismiss = Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionPopoverDidDismiss", 7);
     this.presented = false;
     /**
      * If `true`, the keyboard will be automatically dismissed when the overlay is presented.
@@ -279,7 +279,7 @@ var Popover = /*#__PURE__*/function () {
     };
 
     this.onBackdropTap = function () {
-      _this.dismiss(undefined, _overlays_12c20431_js__WEBPACK_IMPORTED_MODULE_11__["B"]);
+      _this.dismiss(undefined, _overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_8__["B"]);
     };
 
     this.onLifecycle = function (modalEvent) {
@@ -297,10 +297,10 @@ var Popover = /*#__PURE__*/function () {
     };
   }
 
-  Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__["default"])(Popover, [{
+  Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__["default"])(Popover, [{
     key: "connectedCallback",
     value: function connectedCallback() {
-      Object(_overlays_12c20431_js__WEBPACK_IMPORTED_MODULE_11__["e"])(this.el);
+      Object(_overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_8__["e"])(this.el);
     }
     /**
      * Present the popover overlay after it has been created.
@@ -309,9 +309,9 @@ var Popover = /*#__PURE__*/function () {
   }, {
     key: "present",
     value: function () {
-      var _present2 = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee() {
+      var _present2 = Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee() {
         var container, data;
-        return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee$(_context) {
+        return C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
@@ -337,15 +337,15 @@ var Popover = /*#__PURE__*/function () {
                   popover: this.el
                 });
                 _context.next = 8;
-                return Object(_framework_delegate_4584ab5a_js__WEBPACK_IMPORTED_MODULE_13__["a"])(this.delegate, container, this.component, ['popover-viewport', this.el['s-sc']], data);
+                return Object(_framework_delegate_4392cd63_js__WEBPACK_IMPORTED_MODULE_7__["a"])(this.delegate, container, this.component, ['popover-viewport', this.el['s-sc']], data);
 
               case 8:
                 this.usersElement = _context.sent;
                 _context.next = 11;
-                return Object(_index_d8cfb4a8_js__WEBPACK_IMPORTED_MODULE_9__["e"])(this.usersElement);
+                return Object(_index_931440b1_js__WEBPACK_IMPORTED_MODULE_10__["e"])(this.usersElement);
 
               case 11:
-                return _context.abrupt("return", Object(_overlays_12c20431_js__WEBPACK_IMPORTED_MODULE_11__["d"])(this, 'popoverEnter', iosEnterAnimation, mdEnterAnimation, this.event));
+                return _context.abrupt("return", Object(_overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_8__["d"])(this, 'popoverEnter', iosEnterAnimation, mdEnterAnimation, this.event));
 
               case 12:
               case "end":
@@ -371,14 +371,14 @@ var Popover = /*#__PURE__*/function () {
   }, {
     key: "dismiss",
     value: function () {
-      var _dismiss2 = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee2(data, role) {
+      var _dismiss2 = Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee2(data, role) {
         var shouldDismiss;
-        return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee2$(_context2) {
+        return C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.next = 2;
-                return Object(_overlays_12c20431_js__WEBPACK_IMPORTED_MODULE_11__["f"])(this, data, role, 'popoverLeave', iosLeaveAnimation, mdLeaveAnimation, this.event);
+                return Object(_overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_8__["f"])(this, data, role, 'popoverLeave', iosLeaveAnimation, mdLeaveAnimation, this.event);
 
               case 2:
                 shouldDismiss = _context2.sent;
@@ -389,7 +389,7 @@ var Popover = /*#__PURE__*/function () {
                 }
 
                 _context2.next = 6;
-                return Object(_framework_delegate_4584ab5a_js__WEBPACK_IMPORTED_MODULE_13__["d"])(this.delegate, this.usersElement);
+                return Object(_framework_delegate_4392cd63_js__WEBPACK_IMPORTED_MODULE_7__["d"])(this.delegate, this.usersElement);
 
               case 6:
                 return _context2.abrupt("return", shouldDismiss);
@@ -415,7 +415,7 @@ var Popover = /*#__PURE__*/function () {
   }, {
     key: "onDidDismiss",
     value: function onDidDismiss() {
-      return Object(_overlays_12c20431_js__WEBPACK_IMPORTED_MODULE_11__["g"])(this.el, 'ionPopoverDidDismiss');
+      return Object(_overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_8__["g"])(this.el, 'ionPopoverDidDismiss');
     }
     /**
      * Returns a promise that resolves when the popover will dismiss.
@@ -424,48 +424,50 @@ var Popover = /*#__PURE__*/function () {
   }, {
     key: "onWillDismiss",
     value: function onWillDismiss() {
-      return Object(_overlays_12c20431_js__WEBPACK_IMPORTED_MODULE_11__["g"])(this.el, 'ionPopoverWillDismiss');
+      return Object(_overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_8__["g"])(this.el, 'ionPopoverWillDismiss');
     }
   }, {
     key: "render",
     value: function render() {
       var _Object$assign;
 
-      var mode = Object(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this);
-      var onLifecycle = this.onLifecycle;
-      return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["H"], {
+      var mode = Object(_ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this);
+      var onLifecycle = this.onLifecycle,
+          htmlAttributes = this.htmlAttributes;
+      return Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["H"], Object.assign({
         "aria-modal": "true",
         "no-router": true,
-        tabindex: "-1",
+        tabindex: "-1"
+      }, htmlAttributes, {
         style: {
           zIndex: "".concat(20000 + this.overlayIndex)
         },
-        class: Object.assign(Object.assign({}, Object(_theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_12__["g"])(this.cssClass)), (_Object$assign = {}, Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_Object$assign, mode, true), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_Object$assign, 'popover-translucent', this.translucent), _Object$assign)),
+        class: Object.assign(Object.assign({}, Object(_theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_9__["g"])(this.cssClass)), (_Object$assign = {}, Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_Object$assign, mode, true), Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_Object$assign, 'popover-translucent', this.translucent), _Object$assign)),
         onIonPopoverDidPresent: onLifecycle,
         onIonPopoverWillPresent: onLifecycle,
         onIonPopoverWillDismiss: onLifecycle,
         onIonPopoverDidDismiss: onLifecycle,
         onIonDismiss: this.onDismiss,
         onIonBackdropTap: this.onBackdropTap
-      }, Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("ion-backdrop", {
+      }), Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])("ion-backdrop", {
         tappable: this.backdropDismiss,
         visible: this.showBackdrop
-      }), Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+      }), Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
         tabindex: "0"
-      }), Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+      }), Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
         class: "popover-wrapper ion-overlay-wrapper"
-      }, Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+      }, Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
         class: "popover-arrow"
-      }), Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+      }), Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
         class: "popover-content"
-      })), Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+      })), Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
         tabindex: "0"
       }));
     }
   }, {
     key: "el",
     get: function get() {
-      return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["i"])(this);
+      return Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["i"])(this);
     }
   }]);
 

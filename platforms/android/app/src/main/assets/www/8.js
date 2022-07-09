@@ -1,22 +1,22 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[8],{
 
-/***/ "u8ra":
-/*!******************************************************************!*\
-  !*** ../node_modules/@ionic/core/dist/esm/ion-checkbox.entry.js ***!
-  \******************************************************************/
+/***/ "4fMi":
+/*!*****************************************************************!*\
+  !*** ./node_modules/@ionic/core/dist/esm/ion-checkbox.entry.js ***!
+  \*****************************************************************/
 /*! exports provided: ion_checkbox */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_checkbox", function() { return Checkbox; });
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../node_modules/@babel/runtime/helpers/esm/defineProperty */ "mK0O");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../node_modules/@babel/runtime/helpers/esm/classCallCheck */ "hisu");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../node_modules/@babel/runtime/helpers/esm/createClass */ "yBJb");
-/* harmony import */ var _index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./index-e806d1f6.js */ "OVRr");
-/* harmony import */ var _ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ionic-global-9d5c8ee3.js */ "rAwY");
-/* harmony import */ var _helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./helpers-90f46169.js */ "Ij9o");
-/* harmony import */ var _theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./theme-ff3fc52f.js */ "akMd");
+/* harmony import */ var C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/defineProperty */ "rePB");
+/* harmony import */ var C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/classCallCheck */ "1OyB");
+/* harmony import */ var C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createClass */ "vuIU");
+/* harmony import */ var _index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./index-7a8b7a1c.js */ "wEJo");
+/* harmony import */ var _ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ionic-global-63a97a32.js */ "E/Mt");
+/* harmony import */ var _helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./helpers-dd7e4b7b.js */ "1vRN");
+/* harmony import */ var _theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./theme-ff3fc52f.js */ "74mu");
 
 
 
@@ -31,13 +31,13 @@ var Checkbox = /*#__PURE__*/function () {
   function Checkbox(hostRef) {
     var _this = this;
 
-    Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, Checkbox);
+    Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, Checkbox);
 
-    Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_3__["r"])(this, hostRef);
-    this.ionChange = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_3__["e"])(this, "ionChange", 7);
-    this.ionFocus = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_3__["e"])(this, "ionFocus", 7);
-    this.ionBlur = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_3__["e"])(this, "ionBlur", 7);
-    this.ionStyle = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_3__["e"])(this, "ionStyle", 7);
+    Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_3__["r"])(this, hostRef);
+    this.ionChange = Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_3__["e"])(this, "ionChange", 7);
+    this.ionFocus = Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_3__["e"])(this, "ionFocus", 7);
+    this.ionBlur = Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_3__["e"])(this, "ionBlur", 7);
+    this.ionStyle = Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_3__["e"])(this, "ionStyle", 7);
     this.inputId = "ion-cb-".concat(checkboxIds++);
     /**
      * The name of the control, which is submitted with the form data.
@@ -87,7 +87,7 @@ var Checkbox = /*#__PURE__*/function () {
     };
   }
 
-  Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(Checkbox, [{
+  Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(Checkbox, [{
     key: "componentWillLoad",
     value: function componentWillLoad() {
       this.emitStyle();
@@ -135,46 +135,46 @@ var Checkbox = /*#__PURE__*/function () {
           inputId = this.inputId,
           name = this.name,
           value = this.value;
-      var mode = Object(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_4__["b"])(this);
+      var mode = Object(_ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_4__["b"])(this);
 
-      var _getAriaLabel = Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_5__["c"])(el, inputId),
+      var _getAriaLabel = Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_5__["d"])(el, inputId),
           label = _getAriaLabel.label,
           labelId = _getAriaLabel.labelId,
           labelText = _getAriaLabel.labelText;
 
-      Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_5__["d"])(true, el, name, checked ? value : '', disabled);
-      var path = indeterminate ? Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_3__["h"])("path", {
+      Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_5__["e"])(true, el, name, checked ? value : '', disabled);
+      var path = indeterminate ? Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_3__["h"])("path", {
         d: "M6 12L18 12",
         part: "mark"
-      }) : Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_3__["h"])("path", {
+      }) : Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_3__["h"])("path", {
         d: "M5.9,12.5l3.8,3.8l8.8-8.8",
         part: "mark"
       });
 
       if (mode === 'md') {
-        path = indeterminate ? Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_3__["h"])("path", {
+        path = indeterminate ? Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_3__["h"])("path", {
           d: "M2 12H22",
           part: "mark"
-        }) : Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_3__["h"])("path", {
+        }) : Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_3__["h"])("path", {
           d: "M1.73,12.91 8.1,19.28 22.79,4.59",
           part: "mark"
         });
       }
 
-      return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_3__["h"])(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_3__["H"], {
+      return Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_3__["h"])(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_3__["H"], {
         onClick: this.onClick,
         "aria-labelledby": label ? labelId : null,
         "aria-checked": "".concat(checked),
         "aria-hidden": disabled ? 'true' : null,
         role: "checkbox",
-        class: Object(_theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_6__["c"])(color, (_createColorClasses = {}, Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, mode, true), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, 'in-item', Object(_theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_6__["h"])('ion-item', el)), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, 'checkbox-checked', checked), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, 'checkbox-disabled', disabled), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, 'checkbox-indeterminate', indeterminate), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, 'interactive', true), _createColorClasses))
-      }, Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_3__["h"])("svg", {
+        class: Object(_theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_6__["c"])(color, (_createColorClasses = {}, Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, mode, true), Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, 'in-item', Object(_theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_6__["h"])('ion-item', el)), Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, 'checkbox-checked', checked), Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, 'checkbox-disabled', disabled), Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, 'checkbox-indeterminate', indeterminate), Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, 'interactive', true), _createColorClasses))
+      }, Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_3__["h"])("svg", {
         class: "checkbox-icon",
         viewBox: "0 0 24 24",
         part: "container"
-      }, path), Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_3__["h"])("label", {
+      }, path), Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_3__["h"])("label", {
         htmlFor: inputId
-      }, labelText), Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_3__["h"])("input", {
+      }, labelText), Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_3__["h"])("input", {
         type: "checkbox",
         "aria-checked": "".concat(checked),
         disabled: disabled,
@@ -193,7 +193,7 @@ var Checkbox = /*#__PURE__*/function () {
   }, {
     key: "el",
     get: function get() {
-      return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_3__["i"])(this);
+      return Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_3__["i"])(this);
     }
   }], [{
     key: "watchers",

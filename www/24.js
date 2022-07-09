@@ -1,9 +1,9 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[24],{
 
-/***/ "FWSH":
-/*!*****************************************************************!*\
-  !*** ../node_modules/@ionic/core/dist/esm/ion-radio_2.entry.js ***!
-  \*****************************************************************/
+/***/ "h11V":
+/*!****************************************************************!*\
+  !*** ./node_modules/@ionic/core/dist/esm/ion-radio_2.entry.js ***!
+  \****************************************************************/
 /*! exports provided: ion_radio, ion_radio_group */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -11,17 +11,17 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_radio", function() { return Radio; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_radio_group", function() { return RadioGroup; });
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../node_modules/@babel/runtime/helpers/esm/createForOfIteratorHelper */ "V9Kn");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../node_modules/@babel/runtime/helpers/esm/defineProperty */ "mK0O");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../node_modules/@babel/runtime/regenerator */ "o0o1");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../node_modules/@babel/runtime/helpers/esm/asyncToGenerator */ "eijD");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../node_modules/@babel/runtime/helpers/esm/classCallCheck */ "hisu");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../node_modules/@babel/runtime/helpers/esm/createClass */ "yBJb");
-/* harmony import */ var _index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./index-e806d1f6.js */ "OVRr");
-/* harmony import */ var _ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./ionic-global-9d5c8ee3.js */ "rAwY");
-/* harmony import */ var _helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./helpers-90f46169.js */ "Ij9o");
-/* harmony import */ var _theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./theme-ff3fc52f.js */ "akMd");
+/* harmony import */ var C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createForOfIteratorHelper */ "uFwe");
+/* harmony import */ var C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/defineProperty */ "rePB");
+/* harmony import */ var C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ "o0o1");
+/* harmony import */ var C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator */ "HaE+");
+/* harmony import */ var C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/classCallCheck */ "1OyB");
+/* harmony import */ var C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createClass */ "vuIU");
+/* harmony import */ var _index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./index-7a8b7a1c.js */ "wEJo");
+/* harmony import */ var _ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./ionic-global-63a97a32.js */ "E/Mt");
+/* harmony import */ var _helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./helpers-dd7e4b7b.js */ "1vRN");
+/* harmony import */ var _theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./theme-ff3fc52f.js */ "74mu");
 
 
 
@@ -39,12 +39,12 @@ var Radio = /*#__PURE__*/function () {
   function Radio(hostRef) {
     var _this = this;
 
-    Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_4__["default"])(this, Radio);
+    Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_4__["default"])(this, Radio);
 
-    Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_6__["r"])(this, hostRef);
-    this.ionStyle = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_6__["e"])(this, "ionStyle", 7);
-    this.ionFocus = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_6__["e"])(this, "ionFocus", 7);
-    this.ionBlur = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_6__["e"])(this, "ionBlur", 7);
+    Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_6__["r"])(this, hostRef);
+    this.ionStyle = Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_6__["e"])(this, "ionStyle", 7);
+    this.ionFocus = Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_6__["e"])(this, "ionFocus", 7);
+    this.ionBlur = Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_6__["e"])(this, "ionBlur", 7);
     this.inputId = "ion-rb-".concat(radioButtonIds++);
     this.radioGroup = null;
     /**
@@ -86,11 +86,11 @@ var Radio = /*#__PURE__*/function () {
   /** @internal */
 
 
-  Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_5__["default"])(Radio, [{
+  Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_5__["default"])(Radio, [{
     key: "setFocus",
     value: function () {
-      var _setFocus = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_3__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.mark(function _callee(ev) {
-        return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.wrap(function _callee$(_context) {
+      var _setFocus = Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_3__["default"])( /*#__PURE__*/C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.mark(function _callee(ev) {
+        return C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
@@ -117,8 +117,8 @@ var Radio = /*#__PURE__*/function () {
   }, {
     key: "setButtonTabindex",
     value: function () {
-      var _setButtonTabindex = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_3__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.mark(function _callee2(value) {
-        return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.wrap(function _callee2$(_context2) {
+      var _setButtonTabindex = Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_3__["default"])( /*#__PURE__*/C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.mark(function _callee2(value) {
+        return C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
@@ -149,7 +149,7 @@ var Radio = /*#__PURE__*/function () {
 
       if (radioGroup) {
         this.updateState();
-        Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_8__["a"])(radioGroup, 'ionChange', this.updateState);
+        Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_8__["a"])(radioGroup, 'ionChange', this.updateState);
       }
     }
   }, {
@@ -158,7 +158,7 @@ var Radio = /*#__PURE__*/function () {
       var radioGroup = this.radioGroup;
 
       if (radioGroup) {
-        Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_8__["b"])(radioGroup, 'ionChange', this.updateState);
+        Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_8__["b"])(radioGroup, 'ionChange', this.updateState);
         this.radioGroup = null;
       }
     }
@@ -186,14 +186,14 @@ var Radio = /*#__PURE__*/function () {
           color = this.color,
           el = this.el,
           buttonTabindex = this.buttonTabindex;
-      var mode = Object(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_7__["b"])(this);
+      var mode = Object(_ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_7__["b"])(this);
 
-      var _getAriaLabel = Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_8__["c"])(el, inputId),
+      var _getAriaLabel = Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_8__["d"])(el, inputId),
           label = _getAriaLabel.label,
           labelId = _getAriaLabel.labelId,
           labelText = _getAriaLabel.labelText;
 
-      return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_6__["h"])(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_6__["H"], {
+      return Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_6__["h"])(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_6__["H"], {
         "aria-checked": "".concat(checked),
         "aria-hidden": disabled ? 'true' : null,
         "aria-labelledby": label ? labelId : null,
@@ -201,18 +201,18 @@ var Radio = /*#__PURE__*/function () {
         tabindex: buttonTabindex,
         onFocus: this.onFocus,
         onBlur: this.onBlur,
-        class: Object(_theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_9__["c"])(color, (_createColorClasses = {}, Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_createColorClasses, mode, true), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_createColorClasses, 'in-item', Object(_theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_9__["h"])('ion-item', el)), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_createColorClasses, 'interactive', true), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_createColorClasses, 'radio-checked', checked), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_createColorClasses, 'radio-disabled', disabled), _createColorClasses))
-      }, Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_6__["h"])("div", {
+        class: Object(_theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_9__["c"])(color, (_createColorClasses = {}, Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_createColorClasses, mode, true), Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_createColorClasses, 'in-item', Object(_theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_9__["h"])('ion-item', el)), Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_createColorClasses, 'interactive', true), Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_createColorClasses, 'radio-checked', checked), Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_createColorClasses, 'radio-disabled', disabled), _createColorClasses))
+      }, Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_6__["h"])("div", {
         class: "radio-icon",
         part: "container"
-      }, Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_6__["h"])("div", {
+      }, Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_6__["h"])("div", {
         class: "radio-inner",
         part: "mark"
-      }), Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_6__["h"])("div", {
+      }), Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_6__["h"])("div", {
         class: "radio-ripple"
-      })), Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_6__["h"])("label", {
+      })), Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_6__["h"])("label", {
         htmlFor: inputId
-      }, labelText), Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_6__["h"])("input", {
+      }, labelText), Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_6__["h"])("input", {
         type: "radio",
         checked: checked,
         disabled: disabled,
@@ -223,7 +223,7 @@ var Radio = /*#__PURE__*/function () {
   }, {
     key: "el",
     get: function get() {
-      return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_6__["i"])(this);
+      return Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_6__["i"])(this);
     }
   }], [{
     key: "watchers",
@@ -249,10 +249,10 @@ var RadioGroup = /*#__PURE__*/function () {
   function RadioGroup(hostRef) {
     var _this2 = this;
 
-    Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_4__["default"])(this, RadioGroup);
+    Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_4__["default"])(this, RadioGroup);
 
-    Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_6__["r"])(this, hostRef);
-    this.ionChange = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_6__["e"])(this, "ionChange", 7);
+    Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_6__["r"])(this, hostRef);
+    this.ionChange = Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_6__["e"])(this, "ionChange", 7);
     this.inputId = "ion-rg-".concat(radioGroupIds++);
     this.labelId = "".concat(this.inputId, "-lbl");
     /**
@@ -285,7 +285,7 @@ var RadioGroup = /*#__PURE__*/function () {
 
       var focusable = checked || first;
 
-      var _iterator = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper__WEBPACK_IMPORTED_MODULE_0__["default"])(radios),
+      var _iterator = Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper__WEBPACK_IMPORTED_MODULE_0__["default"])(radios),
           _step;
 
       try {
@@ -318,7 +318,7 @@ var RadioGroup = /*#__PURE__*/function () {
     };
   }
 
-  Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_5__["default"])(RadioGroup, [{
+  Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_5__["default"])(RadioGroup, [{
     key: "valueChanged",
     value: function valueChanged(value) {
       this.setRadioTabindex(value);
@@ -334,9 +334,9 @@ var RadioGroup = /*#__PURE__*/function () {
   }, {
     key: "connectedCallback",
     value: function () {
-      var _connectedCallback = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_3__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.mark(function _callee3() {
+      var _connectedCallback = Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_3__["default"])( /*#__PURE__*/C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.mark(function _callee3() {
         var header, label;
-        return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.wrap(function _callee3$(_context3) {
+        return C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
@@ -382,7 +382,7 @@ var RadioGroup = /*#__PURE__*/function () {
       // filter out disabled radios since we need to skip those
 
 
-      var radios = Array.from(this.el.querySelectorAll('ion-radio')).filter(function (radio) {
+      var radios = this.getRadios().filter(function (radio) {
         return !radio.disabled;
       }); // Only move the radio if the current focus is in the radio group
 
@@ -411,12 +411,14 @@ var RadioGroup = /*#__PURE__*/function () {
             this.value = next.value;
           }
         } // Update the radio group value when a user presses the
-        // space bar on top of a selected radio (only applies
-        // to radios in a select popover)
+        // space bar on top of a selected radio
 
 
         if (['Space'].includes(ev.code)) {
-          this.value = current.value;
+          this.value = this.allowEmptySelection && this.value !== undefined ? undefined : current.value; // Prevent browsers from jumping
+          // to the bottom of the screen
+
+          ev.preventDefault();
         }
       }
     }
@@ -425,8 +427,8 @@ var RadioGroup = /*#__PURE__*/function () {
     value: function render() {
       var label = this.label,
           labelId = this.labelId;
-      var mode = Object(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_7__["b"])(this);
-      return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_6__["h"])(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_6__["H"], {
+      var mode = Object(_ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_7__["b"])(this);
+      return Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_6__["h"])(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_6__["H"], {
         role: "radiogroup",
         "aria-labelledby": label ? labelId : null,
         onClick: this.onClick,
@@ -436,7 +438,7 @@ var RadioGroup = /*#__PURE__*/function () {
   }, {
     key: "el",
     get: function get() {
-      return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_6__["i"])(this);
+      return Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_6__["i"])(this);
     }
   }], [{
     key: "watchers",

@@ -33,7 +33,59 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\Recaudooffline V.1.0.1\PiscoAppRecaudo\src\main.ts */"zUnb");
+module.exports = __webpack_require__(/*! C:\Users\AlexanderMauricioEsc\Documents\GitHub\PiscoAppRecaudo\src\main.ts */"zUnb");
+
+
+/***/ }),
+
+/***/ "1P/o":
+/*!*********************************************************************************************!*\
+  !*** ./src/app/own-components/ultimos-servadicionales/ultimos-servadicionales.component.ts ***!
+  \*********************************************************************************************/
+/*! exports provided: UltimosServadicionalesComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UltimosServadicionalesComponent", function() { return UltimosServadicionalesComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
+/* harmony import */ var _raw_loader_ultimos_servadicionales_component_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./ultimos-servadicionales.component.html */ "fSCH");
+/* harmony import */ var _ultimos_servadicionales_component_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ultimos-servadicionales.component.scss */ "K0cM");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
+
+
+
+
+
+var UltimosServadicionalesComponent = /** @class */ (function () {
+    function UltimosServadicionalesComponent(modalctrl, navParams) {
+        this.modalctrl = modalctrl;
+        this.navParams = navParams;
+        this.adicionales = [];
+    }
+    UltimosServadicionalesComponent.prototype.ngOnInit = function () { };
+    UltimosServadicionalesComponent.prototype.ionViewWillEnter = function () {
+        this.adicionales = this.navParams.get('adicionales');
+    };
+    UltimosServadicionalesComponent.prototype.close = function () {
+        this.modalctrl.dismiss(true);
+    };
+    UltimosServadicionalesComponent.ctorParameters = function () { return [
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["ModalController"] },
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["NavParams"] }
+    ]; };
+    UltimosServadicionalesComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
+            selector: 'app-ultimos-servadicionales',
+            template: _raw_loader_ultimos_servadicionales_component_html__WEBPACK_IMPORTED_MODULE_1__["default"],
+            styles: [_ultimos_servadicionales_component_scss__WEBPACK_IMPORTED_MODULE_2__["default"]]
+        }),
+        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_4__["ModalController"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["NavParams"]])
+    ], UltimosServadicionalesComponent);
+    return UltimosServadicionalesComponent;
+}());
+
 
 
 /***/ }),
@@ -114,7 +166,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
 /* harmony import */ var _raw_loader_datos_pago_component_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./datos-pago.component.html */ "vE+j");
 /* harmony import */ var _datos_pago_component_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./datos-pago.component.scss */ "4m80");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "P4DM");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
 /* harmony import */ var _models_consulta_pago_model__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../models/consulta-pago.model */ "dNaG");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var _ionic_native_printer_ngx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic-native/printer/ngx */ "METt");
@@ -123,6 +175,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_services_sesion_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/services/sesion.service */ "PbBf");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! moment */ "wd/R");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _services_pagos_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../services/pagos.service */ "tDkB");
 
 
 
@@ -135,16 +188,23 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var DatosPagoComponent = /** @class */ (function () {
-    function DatosPagoComponent(printer, toastController, print, loading, config, sesion) {
+    function DatosPagoComponent(printer, toastController, print, loading, config, sesion, pagosService) {
         this.printer = printer;
         this.toastController = toastController;
         this.print = print;
         this.loading = loading;
         this.config = config;
         this.sesion = sesion;
+        this.pagosService = pagosService;
     }
-    DatosPagoComponent.prototype.ngOnInit = function () { };
+    DatosPagoComponent.prototype.ngOnInit = function () {
+        this.isOffline = localStorage.getItem('offlineMode') === 'true' ? true : false;
+    };
+    DatosPagoComponent.prototype.notificar = function () {
+        this.pagosService.notificarRecibo(this.pago.NumeroDocumento);
+    };
     DatosPagoComponent.prototype.imprimir = function () {
         /** Se comenta código anterior por inexistencia de lógica. */
         // this.printer.print('').catch(() => {
@@ -195,8 +255,7 @@ var DatosPagoComponent = /** @class */ (function () {
                     printBody += _this.print.PosCommand.LF;
                     printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
                     if (_this.pago.NumeroDocumento !== undefined) {
-                        var isOffline = localStorage.getItem('offlineMode') === 'true' ? true : false;
-                        if (!isOffline) {
+                        if (!_this.isOffline) {
                             printBody += tipodoc + ': ' + _this.pago.NumeroDocumento;
                         }
                         else {
@@ -402,7 +461,8 @@ var DatosPagoComponent = /** @class */ (function () {
         { type: _services_print_service__WEBPACK_IMPORTED_MODULE_7__["PrintService"] },
         { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["LoadingController"] },
         { type: _services_configuracion_service__WEBPACK_IMPORTED_MODULE_8__["ConfiguracionService"] },
-        { type: src_app_services_sesion_service__WEBPACK_IMPORTED_MODULE_9__["SesionService"] }
+        { type: src_app_services_sesion_service__WEBPACK_IMPORTED_MODULE_9__["SesionService"] },
+        { type: _services_pagos_service__WEBPACK_IMPORTED_MODULE_11__["PagosService"] }
     ]; };
     DatosPagoComponent.propDecorators = {
         pago: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_5__["Input"] }]
@@ -418,9 +478,32 @@ var DatosPagoComponent = /** @class */ (function () {
             _services_print_service__WEBPACK_IMPORTED_MODULE_7__["PrintService"],
             _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["LoadingController"],
             _services_configuracion_service__WEBPACK_IMPORTED_MODULE_8__["ConfiguracionService"],
-            src_app_services_sesion_service__WEBPACK_IMPORTED_MODULE_9__["SesionService"]])
+            src_app_services_sesion_service__WEBPACK_IMPORTED_MODULE_9__["SesionService"],
+            _services_pagos_service__WEBPACK_IMPORTED_MODULE_11__["PagosService"]])
     ], DatosPagoComponent);
     return DatosPagoComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "6kuY":
+/*!*********************************************************!*\
+  !*** ./src/app/models/responses/pago-response.model.ts ***!
+  \*********************************************************/
+/*! exports provided: PagoResponseModel */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PagoResponseModel", function() { return PagoResponseModel; });
+// Informaciòn que retorna el servidor al inicar sesión
+var PagoResponseModel = /** @class */ (function () {
+    function PagoResponseModel() {
+        this.DetallePago = '';
+    }
+    return PagoResponseModel;
 }());
 
 
@@ -482,7 +565,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _datos_novedad_component_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./datos-novedad.component.scss */ "eKrY");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var _models_registro_gestion_model__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../models/registro-gestion.model */ "gjAW");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "P4DM");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
 /* harmony import */ var _ionic_native_printer_ngx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic-native/printer/ngx */ "METt");
 /* harmony import */ var _services_print_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../services/print.service */ "Bhbv");
 /* harmony import */ var _services_configuracion_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../services/configuracion.service */ "Hpqp");
@@ -703,9 +786,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _header_header_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./header/header.component */ "TIVg");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/common */ "ofXK");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @ionic/angular */ "P4DM");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
 /* harmony import */ var _datos_novedad_datos_novedad_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./datos-novedad/datos-novedad.component */ "8rdd");
 /* harmony import */ var _ultimos_pagos_ultimos_pagos_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./ultimos-pagos/ultimos-pagos.component */ "IuA+");
+/* harmony import */ var _ultimas_novedades_ultimas_novedades_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./ultimas-novedades/ultimas-novedades.component */ "LbTB");
+/* harmony import */ var _ultimos_servadicionales_ultimos_servadicionales_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./ultimos-servadicionales/ultimos-servadicionales.component */ "1P/o");
+
+
 
 
 
@@ -731,7 +818,9 @@ var OwnComponentsModule = /** @class */ (function () {
                 _modal_confirmar_pago_modal_confirmar_pago_component__WEBPACK_IMPORTED_MODULE_1__["ModalConfirmarPagoComponent"],
                 _beneficiarios_beneficiarios_component__WEBPACK_IMPORTED_MODULE_2__["BeneficiariosComponent"],
                 _datos_novedad_datos_novedad_component__WEBPACK_IMPORTED_MODULE_10__["DatosNovedadComponent"],
-                _ultimos_pagos_ultimos_pagos_component__WEBPACK_IMPORTED_MODULE_11__["UltimosPagosComponent"]
+                _ultimos_pagos_ultimos_pagos_component__WEBPACK_IMPORTED_MODULE_11__["UltimosPagosComponent"],
+                _ultimas_novedades_ultimas_novedades_component__WEBPACK_IMPORTED_MODULE_12__["UltimasNovedadesComponent"],
+                _ultimos_servadicionales_ultimos_servadicionales_component__WEBPACK_IMPORTED_MODULE_13__["UltimosServadicionalesComponent"]
             ],
             imports: [
                 _angular_common__WEBPACK_IMPORTED_MODULE_8__["CommonModule"],
@@ -744,7 +833,7 @@ var OwnComponentsModule = /** @class */ (function () {
                 _logo_empresa_logo_empresa_component__WEBPACK_IMPORTED_MODULE_3__["LogoEmpresaComponent"],
                 _datos_novedad_datos_novedad_component__WEBPACK_IMPORTED_MODULE_10__["DatosNovedadComponent"]
             ],
-            entryComponents: [_modal_confirmar_pago_modal_confirmar_pago_component__WEBPACK_IMPORTED_MODULE_1__["ModalConfirmarPagoComponent"], _beneficiarios_beneficiarios_component__WEBPACK_IMPORTED_MODULE_2__["BeneficiariosComponent"], _ultimos_pagos_ultimos_pagos_component__WEBPACK_IMPORTED_MODULE_11__["UltimosPagosComponent"]]
+            entryComponents: [_modal_confirmar_pago_modal_confirmar_pago_component__WEBPACK_IMPORTED_MODULE_1__["ModalConfirmarPagoComponent"], _beneficiarios_beneficiarios_component__WEBPACK_IMPORTED_MODULE_2__["BeneficiariosComponent"], _ultimos_pagos_ultimos_pagos_component__WEBPACK_IMPORTED_MODULE_11__["UltimosPagosComponent"], _ultimas_novedades_ultimas_novedades_component__WEBPACK_IMPORTED_MODULE_12__["UltimasNovedadesComponent"], _ultimos_servadicionales_ultimos_servadicionales_component__WEBPACK_IMPORTED_MODULE_13__["UltimosServadicionalesComponent"]]
         })
     ], OwnComponentsModule);
     return OwnComponentsModule;
@@ -768,7 +857,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _raw_loader_beneficiarios_component_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./beneficiarios.component.html */ "HcCb");
 /* harmony import */ var _beneficiarios_component_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./beneficiarios.component.scss */ "soxc");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "P4DM");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
 
 
 
@@ -847,7 +936,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var _ionic_native_bluetooth_serial_ngx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic-native/bluetooth-serial/ngx */ "7uwA");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "P4DM");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
 
 
 
@@ -1333,7 +1422,7 @@ var OfflineService = /** @class */ (function () {
                             'POSTFECHADODIA SMALLINT, INDICE SMALLINT, CUOTA FLOAT, PENDIENTE SMALLINT, ESTADOCONTRATO TEXT, FECHAR TEXT, ' +
                             'BASEDATOS TEXT, EMPRESA TEXT, NIT TEXT, DIRECCIONCOBRO TEXT, BOXCONTRATANTE TEXT, VALORCARTERA FLOAT, VALORSEGURO FLOAT, ' +
                             // tslint:disable-next-line: max-line-length
-                            'CELULAR TEXT, PAGOHASTA TEXT, DEPTOC TEXT, MPIOC TEXT, BARRIOC TEXT, MOTIVO TEXT, FECHAPROGRAMADA TEXT, CODBARRIO TEXT, COBERTURA TEXT, ULTIMOSPAGOS TEXT, BENEFICIARIOS TEXT, BANDERA INTEGER,FECHAAFILIACION TEXT,PLAN TEXT, NOTA1 TEXT)';
+                            'CELULAR TEXT, PAGOHASTA TEXT, DEPTOC TEXT, MPIOC TEXT, BARRIOC TEXT, MOTIVO TEXT, FECHAPROGRAMADA TEXT, CODBARRIO TEXT, COBERTURA TEXT, ULTIMOSPAGOS TEXT,BENEFICIARIOS TEXT, BANDERA INTEGER,FECHAAFILIACION TEXT,PLAN TEXT, NOTA1 TEXT,ULTIMASGESTIONES TEXT,SERVADICIONALES TEXT)';
                         return [4 /*yield*/, this.db.executeSql(sql, [])];
                     case 2:
                         _a.sent();
@@ -1399,7 +1488,7 @@ var OfflineService = /** @class */ (function () {
                         sql = 'INSERT INTO RUTAS (USUARIO, IDCOBRADOR, IDCONTRATO,CEDULA, TITULAR, DIRECCION , ' +
                             'TELEFONO, CIUDAD, DIACOBRO1, DIACOBRO2, ESTADO, NOVEDAD, POSTFECHADODIA, INDICE, CUOTA, PENDIENTE, ESTADOCONTRATO, FECHAR, ' +
                             'BASEDATOS, EMPRESA, NIT, DIRECCIONCOBRO, BOXCONTRATANTE, VALORCARTERA, VALORSEGURO,' +
-                            'CELULAR, PAGOHASTA, DEPTOC, MPIOC, BARRIOC, MOTIVO, FECHAPROGRAMADA, CODBARRIO, COBERTURA,ULTIMOSPAGOS, BENEFICIARIOS,BANDERA,FECHAAFILIACION,PLAN,NOTA1) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?, ?, ?,?,?,?,?)';
+                            'CELULAR, PAGOHASTA, DEPTOC, MPIOC, BARRIOC, MOTIVO, FECHAPROGRAMADA, CODBARRIO, COBERTURA,ULTIMOSPAGOS, BENEFICIARIOS,BANDERA,FECHAAFILIACION,PLAN,NOTA1,ULTIMASGESTIONES,SERVADICIONALES) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?, ?, ?,?,?,?,?,?,?)';
                         _i = 0, data_1 = data;
                         _a.label = 2;
                     case 2:
@@ -1408,7 +1497,7 @@ var OfflineService = /** @class */ (function () {
                         return [4 /*yield*/, this.db.executeSql(sql, [d.USUARIO, d.IDCOBRADOR, d.IDCONTRATO, d.CEDULA, d.TITULAR, d.DIRECCION, d.TELEFONO, d.CIUDAD,
                                 d.DIACOBRO1, d.DIACOBRO2, d.ESTADO, d.NOVEDAD, d.POSTFECHADODIA, d.INDICE, d.CUOTA, d.PENDIENTE, d.ESTADOCONTRATO, d.FECHAR,
                                 d.BASEDATOS, d.EMPRESA, d.NIT, d.DIRECCIONCOBRO, d.BOXCONTRATANTE, d.VALORCARTERA, d.VALORSEGURO, d.CELULAR, d.PAGOHASTA,
-                                d.DEPTOC, d.MPIOC, d.BARRIOC, d.MOTIVO, d.FECHAPROGRAMADA, d.CODBARRIO, d.COBERTURA, d.ULTIMOSPAGOS, d.BENEFICIARIOS, 0, d.FECHAAFILIACION, d.PLAN, d.NOTA1])];
+                                d.DEPTOC, d.MPIOC, d.BARRIOC, d.MOTIVO, d.FECHAPROGRAMADA, d.CODBARRIO, d.COBERTURA, d.ULTIMOSPAGOS, d.BENEFICIARIOS, 0, d.FECHAAFILIACION, d.PLAN, d.NOTA1, d.ULTIMASGESTIONES, d.SERVADICIONALES])];
                     case 3:
                         _a.sent();
                         _a.label = 4;
@@ -2039,9 +2128,61 @@ var OfflineService = /** @class */ (function () {
             });
         });
     };
+    OfflineService.prototype.getUltimasNovedades = function (contrato) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
+            var data, novedades, ex_27;
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        return [4 /*yield*/, this.db.executeSql("SELECT ULTIMASGESTIONES FROM RUTAS WHERE IDCONTRATO = ? ", [contrato])];
+                    case 1:
+                        data = _a.sent();
+                        if (data.rows.length > 0) {
+                            novedades = data.rows.item(0).ULTIMASGESTIONES.toString().split('*');
+                            return [2 /*return*/, novedades];
+                        }
+                        else {
+                            return [2 /*return*/, {}];
+                        }
+                        return [3 /*break*/, 3];
+                    case 2:
+                        ex_27 = _a.sent();
+                        throw ex_27;
+                    case 3: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    OfflineService.prototype.getUltimosAdicionales = function (contrato) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
+            var data, adicionales, ex_28;
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        return [4 /*yield*/, this.db.executeSql("SELECT SERVADICIONALES FROM ADICIONALES WHERE IDCONTRATO = ? ", [contrato])];
+                    case 1:
+                        data = _a.sent();
+                        if (data.rows.length > 0) {
+                            adicionales = data.rows.item(0).SERVADICIONALES.toString().split('*');
+                            return [2 /*return*/, adicionales];
+                        }
+                        else {
+                            return [2 /*return*/, {}];
+                        }
+                        return [3 /*break*/, 3];
+                    case 2:
+                        ex_28 = _a.sent();
+                        throw ex_28;
+                    case 3: return [2 /*return*/];
+                }
+            });
+        });
+    };
     OfflineService.prototype.getFormaPago = function () {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var data, todos, i, ex_27;
+            var data, todos, i, ex_29;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -2061,61 +2202,6 @@ var OfflineService = /** @class */ (function () {
                         }
                         return [3 /*break*/, 3];
                     case 2:
-                        ex_27 = _a.sent();
-                        throw ex_27;
-                    case 3: return [2 /*return*/];
-                }
-            });
-        });
-    };
-    OfflineService.prototype.getNovedades = function () {
-        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var data, todos, i, ex_28;
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, this.db.executeSql("SELECT * FROM TIPONOVEDAD ", [])];
-                    case 1:
-                        data = _a.sent();
-                        if (data.rows.length > 0) {
-                            todos = [];
-                            for (i = 0; i < data.rows.length; i++) {
-                                todos.push(data.rows.item(i));
-                            }
-                            return [2 /*return*/, todos];
-                        }
-                        else {
-                            return [2 /*return*/, []];
-                        }
-                        return [3 /*break*/, 3];
-                    case 2:
-                        ex_28 = _a.sent();
-                        throw ex_28;
-                    case 3: return [2 /*return*/];
-                }
-            });
-        });
-    };
-    OfflineService.prototype.getCuadreCaja = function (usuario, fecha) {
-        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var m, data, ex_29;
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        _a.trys.push([0, 2, , 3]);
-                        m = new Date(fecha);
-                        return [4 /*yield*/, this.db.executeSql("SELECT ? AS FECHA ,COUNT(P.IDCONTRATO) AS CANTIDADPAGOS , IFNULL(SUM(P.VALOR) - SUM(P.DESCUENTO), 0) AS VALORPAGOS , 0 AS CANTIDADANULADOS, (SELECT COUNT(N.CONTRATO ) FROM NOVEDAD N WHERE N.FECHA >= ? ) AS CANTIDADNOVEDADES FROM PAGOS P WHERE P.FECHAPAGOR >= ?   ", [fecha, new Date(fecha).toDateString(), new Date(fecha).toDateString()])];
-                    case 1:
-                        data = _a.sent();
-                        if (data.rows.length > 0) {
-                            return [2 /*return*/, data.rows.item(0)];
-                        }
-                        else {
-                            return [2 /*return*/, []];
-                        }
-                        return [3 /*break*/, 3];
-                    case 2:
                         ex_29 = _a.sent();
                         throw ex_29;
                     case 3: return [2 /*return*/];
@@ -2123,14 +2209,14 @@ var OfflineService = /** @class */ (function () {
             });
         });
     };
-    OfflineService.prototype.getListapago = function () {
+    OfflineService.prototype.getNovedades = function () {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
             var data, todos, i, ex_30;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, this.db.executeSql("SELECT * FROM PAGOS WHERE SINCRONIZAR = 0 ORDER BY  TRANSAC ", [])];
+                        return [4 /*yield*/, this.db.executeSql("SELECT * FROM TIPONOVEDAD ", [])];
                     case 1:
                         data = _a.sent();
                         if (data.rows.length > 0) {
@@ -2152,9 +2238,64 @@ var OfflineService = /** @class */ (function () {
             });
         });
     };
+    OfflineService.prototype.getCuadreCaja = function (usuario, fecha) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
+            var m, data, ex_31;
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        m = new Date(fecha);
+                        return [4 /*yield*/, this.db.executeSql("SELECT ? AS FECHA ,COUNT(P.IDCONTRATO) AS CANTIDADPAGOS , IFNULL(SUM(P.VALOR) - SUM(P.DESCUENTO), 0) AS VALORPAGOS , 0 AS CANTIDADANULADOS, (SELECT COUNT(N.CONTRATO ) FROM NOVEDAD N WHERE N.FECHA >= ? ) AS CANTIDADNOVEDADES FROM PAGOS P WHERE P.FECHAPAGOR >= ?   ", [fecha, new Date(fecha).toDateString(), new Date(fecha).toDateString()])];
+                    case 1:
+                        data = _a.sent();
+                        if (data.rows.length > 0) {
+                            return [2 /*return*/, data.rows.item(0)];
+                        }
+                        else {
+                            return [2 /*return*/, []];
+                        }
+                        return [3 /*break*/, 3];
+                    case 2:
+                        ex_31 = _a.sent();
+                        throw ex_31;
+                    case 3: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    OfflineService.prototype.getListapago = function () {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
+            var data, todos, i, ex_32;
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        return [4 /*yield*/, this.db.executeSql("SELECT * FROM PAGOS WHERE SINCRONIZAR = 0 ORDER BY  TRANSAC ", [])];
+                    case 1:
+                        data = _a.sent();
+                        if (data.rows.length > 0) {
+                            todos = [];
+                            for (i = 0; i < data.rows.length; i++) {
+                                todos.push(data.rows.item(i));
+                            }
+                            return [2 /*return*/, todos];
+                        }
+                        else {
+                            return [2 /*return*/, []];
+                        }
+                        return [3 /*break*/, 3];
+                    case 2:
+                        ex_32 = _a.sent();
+                        throw ex_32;
+                    case 3: return [2 /*return*/];
+                }
+            });
+        });
+    };
     OfflineService.prototype.getListaNovedades = function () {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
-            var data, todos, i, ex_31;
+            var data, todos, i, ex_33;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -2177,8 +2318,8 @@ var OfflineService = /** @class */ (function () {
                         }
                         return [3 /*break*/, 3];
                     case 2:
-                        ex_31 = _a.sent();
-                        throw ex_31;
+                        ex_33 = _a.sent();
+                        throw ex_33;
                     case 3: return [2 /*return*/];
                 }
             });
@@ -2201,6 +2342,19 @@ var OfflineService = /** @class */ (function () {
 }());
 
 
+
+/***/ }),
+
+/***/ "DdRY":
+/*!***********************************************************************************!*\
+  !*** ./src/app/own-components/ultimas-novedades/ultimas-novedades.component.scss ***!
+  \***********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJ1bHRpbWFzLW5vdmVkYWRlcy5jb21wb25lbnQuc2NzcyJ9 */");
 
 /***/ }),
 
@@ -2243,6 +2397,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "HnsP":
+/*!*************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/own-components/ultimas-novedades/ultimas-novedades.component.html ***!
+  \*************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-content>\r\n  <ion-grid>\r\n  <ion-row class=\"md5\" *ngFor=\"let novedad of novedades\">\r\n      <ion-card>\r\n          <ion-card-content>\r\n              {{novedad}}\r\n          </ion-card-content>\r\n      </ion-card>\r\n      <!-- <ion-col>\r\n          <label *ngFor=\"let item of items\">\r\n      </ion-col> -->\r\n  </ion-row>\r\n</ion-grid>\r\n</ion-content>\r\n");
+
+/***/ }),
+
 /***/ "Hpqp":
 /*!***************************************************!*\
   !*** ./src/app/services/configuracion.service.ts ***!
@@ -2256,7 +2423,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
 /* harmony import */ var _models_config_model__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../models/config.model */ "oRqo");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "P4DM");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
 /* harmony import */ var _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic-native/native-storage/ngx */ "M2ZX");
 /* harmony import */ var _ionic_native_ionic_webview_ngx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic-native/ionic-webview/ngx */ "eHpL");
 
@@ -2432,7 +2599,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _raw_loader_ultimos_pagos_component_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./ultimos-pagos.component.html */ "/05H");
 /* harmony import */ var _ultimos_pagos_component_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ultimos-pagos.component.scss */ "54qg");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "P4DM");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
 
 
 
@@ -2467,6 +2634,19 @@ var UltimosPagosComponent = /** @class */ (function () {
 }());
 
 
+
+/***/ }),
+
+/***/ "K0cM":
+/*!***********************************************************************************************!*\
+  !*** ./src/app/own-components/ultimos-servadicionales/ultimos-servadicionales.component.scss ***!
+  \***********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJ1bHRpbW9zLXNlcnZhZGljaW9uYWxlcy5jb21wb25lbnQuc2NzcyJ9 */");
 
 /***/ }),
 
@@ -2553,6 +2733,58 @@ var DatosContratoComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "LbTB":
+/*!*********************************************************************************!*\
+  !*** ./src/app/own-components/ultimas-novedades/ultimas-novedades.component.ts ***!
+  \*********************************************************************************/
+/*! exports provided: UltimasNovedadesComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UltimasNovedadesComponent", function() { return UltimasNovedadesComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
+/* harmony import */ var _raw_loader_ultimas_novedades_component_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./ultimas-novedades.component.html */ "HnsP");
+/* harmony import */ var _ultimas_novedades_component_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ultimas-novedades.component.scss */ "DdRY");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
+
+
+
+
+
+var UltimasNovedadesComponent = /** @class */ (function () {
+    function UltimasNovedadesComponent(modalctrl, navParams) {
+        this.modalctrl = modalctrl;
+        this.navParams = navParams;
+        this.novedades = [];
+    }
+    UltimasNovedadesComponent.prototype.ngOnInit = function () { };
+    UltimasNovedadesComponent.prototype.ionViewWillEnter = function () {
+        this.novedades = this.navParams.get('novedades');
+    };
+    UltimasNovedadesComponent.prototype.close = function () {
+        this.modalctrl.dismiss(true);
+    };
+    UltimasNovedadesComponent.ctorParameters = function () { return [
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["ModalController"] },
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["NavParams"] }
+    ]; };
+    UltimasNovedadesComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
+            selector: 'app-ultimas-novedades',
+            template: _raw_loader_ultimas_novedades_component_html__WEBPACK_IMPORTED_MODULE_1__["default"],
+            styles: [_ultimas_novedades_component_scss__WEBPACK_IMPORTED_MODULE_2__["default"]]
+        }),
+        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_4__["ModalController"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["NavParams"]])
+    ], UltimasNovedadesComponent);
+    return UltimasNovedadesComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "M7j1":
 /*!************************************************!*\
   !*** ./src/app/models/iniciar-sesion.model.ts ***!
@@ -2588,7 +2820,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SesionService", function() { return SesionService; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "P4DM");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
 /* harmony import */ var _models_config_model__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../models/config.model */ "oRqo");
 /* harmony import */ var _helpers_config_helper__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../helpers/config.helper */ "5Ez/");
@@ -3369,7 +3601,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
 /* harmony import */ var _raw_loader_app_component_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./app.component.html */ "VzVu");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "P4DM");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
 /* harmony import */ var _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic-native/splash-screen/ngx */ "54vc");
 /* harmony import */ var _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic-native/status-bar/ngx */ "VYYF");
 /* harmony import */ var _models_sesion_local_model__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./models/sesion-local.model */ "IKtr");
@@ -4251,7 +4483,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
 /* harmony import */ var _raw_loader_header_component_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./header.component.html */ "FzS+");
 /* harmony import */ var _header_component_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./header.component.scss */ "205S");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "P4DM");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "tyNb");
 /* harmony import */ var _models_sesion_local_model__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../models/sesion-local.model */ "IKtr");
@@ -4379,7 +4611,7 @@ var TasksService = /** @class */ (function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\r\n<ion-content padding class=\"background\">\r\n\r\n  <ion-grid class=\"grid1\">\r\n  \r\n    <ion-row class=\"row1\">\r\n      <ion-col >\r\n      \r\n      </ion-col>\r\n  </ion-row>\r\n  \r\n      <ion-row class=\"row2\">\r\n          <ion-col>\r\n  \r\n          </ion-col>\r\n      </ion-row>\r\n  \r\n  </ion-grid>\r\n  \r\n  <ion-slide>\r\n      <div class=\"contaier-login\">\r\n          <ion-grid>\r\n              \r\n              <ion-row>\r\n                \r\n                  <ion-col>\r\n                      <ion-list>\r\n                        <ion-row class=\"row4\">\r\n                          <ion-col class=\"imglogo\">\r\n                            <ion-img src=\"assets/img/App.png\"></ion-img>\r\n                          </ion-col>\r\n                        </ion-row>\r\n  \r\n                          <ion-item>\r\n\r\n                            <ion-label color=\"primary\" position=\"floating\">Usuario</ion-label>\r\n                            <!-- <ion-input autocorrect=\"on\" autofocus=\"on\" clearInput=\"true\" clearOnEdit=\"true\" color=\"primary\" inputmode=\"text\" placeholder=\"Enter your name\" required=\"true\"></ion-input>\r\n                         -->\r\n                              \r\n                              <ion-input #userName autofocus=\"true\" placeholder=\"Ingresa Tu Usuario\" clearInput=\"true\" clearOnEdit=\"true\" color=\"danger\" type=\"text\" [value]=\"usuario\"\r\n                                (ionChange)=\"usuario = userName.value\"></ion-input>\r\n\r\n          \r\n                          </ion-item>\r\n                          <ion-item>\r\n                            <ion-label color=\"primary\" position=\"floating\">Clave</ion-label>\r\n                         \r\n                            \r\n\r\n                            <ion-input  #password type=\"password\" placeholder=\"Ingresa Tu Clave\" clearInput=\"true\" clearOnEdit=\"true\" color=\"danger\" [value]=\"clave\"\r\n                              (ionChange)=\"clave = password.value\"></ion-input>\r\n                        </ion-item>\r\n  \r\n                      </ion-list>\r\n                      \r\n                  </ion-col>\r\n              </ion-row>\r\n              <ion-row>\r\n                  <ion-col>\r\n                    <div id=\"recaptcha-container\"></div>\r\n                      <ion-button style=\"border-radius: 10%;\" color=\"danger\" fill=\"solid\" expand=\"full\" (click)=\"iniciarSesion()\">\r\n                        Ingresar\r\n                      </ion-button>\r\n                  </ion-col>\r\n              </ion-row>\r\n              <ion-row class=\"row3\" >\r\n                <ion-col class=\"img-container\">\r\n                    <ion-label  (click)=\"irAConfiguracion()\" color=\"danger\">\r\n                        <h3>Configuración</h3>\r\n                        \r\n                    </ion-label>\r\n              \r\n                    \r\n                </ion-col>\r\n              </ion-row> \r\n             \r\n          </ion-grid>\r\n          \r\n      </div>\r\n     \r\n    \r\n      \r\n  </ion-slide>\r\n  \r\n</ion-content>\r\n\r\n\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("\r\n<ion-content padding class=\"background\">\r\n\r\n  <ion-grid class=\"grid1\">\r\n  \r\n    <ion-row class=\"row1\">\r\n      <ion-col >\r\n      \r\n      </ion-col>\r\n  </ion-row>\r\n  \r\n      <ion-row class=\"row2\">\r\n          <ion-col>\r\n  \r\n          </ion-col>\r\n      </ion-row>\r\n  \r\n  </ion-grid>\r\n  \r\n  <ion-slide>\r\n      <div class=\"contaier-login\">\r\n          <ion-grid>\r\n              \r\n              <ion-row>\r\n                \r\n                  <ion-col>\r\n                      <ion-list>\r\n                        <ion-row class=\"row4\">\r\n                          <ion-col class=\"imglogo\">\r\n                            <ion-img src=\"assets/img/App.png\"></ion-img>\r\n                          </ion-col>\r\n                        </ion-row>\r\n  \r\n                          <ion-item>\r\n\r\n                            <ion-label color=\"primary\" position=\"floating\">Usuario</ion-label>\r\n                            <!-- <ion-input autocorrect=\"on\" autofocus=\"on\" clearInput=\"true\" clearOnEdit=\"true\" color=\"primary\" inputmode=\"text\" placeholder=\"Enter your name\" required=\"true\"></ion-input>\r\n                         -->\r\n                              \r\n                              <ion-input #userName autofocus=\"true\" placeholder=\"Ingresa Tu Usuario\" clearInput=\"true\" clearOnEdit=\"true\" color=\"danger\" type=\"text\" [value]=\"usuario\"\r\n                                (ionChange)=\"usuario = userName.value\"></ion-input>\r\n\r\n          \r\n                          </ion-item>\r\n                          <ion-item>\r\n                            <ion-label color=\"primary\" position=\"floating\">Clave</ion-label>\r\n                         \r\n                            \r\n\r\n                            <ion-input  #password type=\"password\" placeholder=\"Ingresa Tu Clave\" clearInput=\"true\" clearOnEdit=\"true\" color=\"danger\" [value]=\"clave\"\r\n                              (ionChange)=\"clave = password.value\"></ion-input>\r\n                        </ion-item>\r\n  \r\n                      </ion-list>\r\n                      \r\n                  </ion-col>\r\n              </ion-row>\r\n              <ion-row>\r\n                  <ion-col>\r\n                    <div id=\"recaptcha-container\"></div>\r\n                      <ion-button style=\"border-radius: 10%;\" color=\"danger\" fill=\"solid\" expand=\"full\" (click)=\"iniciarSesion()\">\r\n                        Ingresar\r\n                      </ion-button>\r\n                  </ion-col>\r\n              </ion-row>\r\n              <ion-row class=\"row3\" >\r\n                <ion-col class=\"img-container\">\r\n                    <ion-label  (click)=\"irAConfiguracion()\" color=\"danger\">\r\n                        <h3>Configuración</h3>\r\n                        \r\n                    </ion-label>\r\n              \r\n                    \r\n                </ion-col>\r\n              </ion-row> \r\n             <ion-row>\r\n              <ion-col>\r\n              <div   class=\"ion-text-center\" (click)=\"doTermAccepted()\">\r\n                <a style=\"color: #fa4343; text-decoration: underline; font-size: small;\" href=\"https://www.piscotics.com/privacy-policy/\">\r\n                    Política de Datos Personales\r\n                </a>\r\n                </div>\r\n              </ion-col>\r\n             </ion-row>\r\n          </ion-grid>\r\n          \r\n      </div>\r\n     \r\n    \r\n      \r\n  </ion-slide>\r\n  \r\n</ion-content>\r\n\r\n\r\n");
 
 /***/ }),
 
@@ -4405,7 +4637,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-app>\r\n\r\n    <ion-menu side=\"end\" [menuId]=\"menuPrincipalId\" *ngIf=\"mostrarMenu()\">\r\n        <ion-header>\r\n            <ion-toolbar color=\"danger\">\r\n                <ion-title>Menú</ion-title>\r\n            </ion-toolbar>\r\n        </ion-header>\r\n        <ion-content>\r\n            <ion-list>\r\n                <ion-item button=\"true\" (click)=\"consultarContrato()\">Consultar contrato</ion-item>\r\n                <ion-item button=\"true\" (click)=\"consultarPago()\">Consultar pago</ion-item>\r\n                <ion-item button=\"true\" (click)=\"cuadreCaja()\">Cuadre caja</ion-item>\r\n                <ion-item button=\"true\" (click)=\"consultarRuta()\">Consultar Ruta</ion-item>\r\n                <ion-item button=\"true\" (click)=\"removerLicencia()\">Remover Licencia</ion-item>\r\n                <ion-item button=\"true\" (click)=\"configurarImpresora()\">Configurar impresora</ion-item>\r\n\r\n                <ion-item *ngIf=\"msg == 'Ruta cargada satisfactoriamente'  \">\r\n                    <ion-label>Trabajo Fuera de Linea</ion-label>\r\n                    <ion-toggle  [(ngModel)]=\"statusOffline\" color=\"primary\" (ionChange)=\"offlineChange()\"></ion-toggle>\r\n                </ion-item>\r\n\r\n                \r\n                <ion-item button=\"true\" *ngIf=\"statusOffline == false \" (click)=\"offlineCargarRutas()\">Cargar Ruta</ion-item>\r\n                <ion-item  *ngIf=\"msg == 'Ruta cargada satisfactoriamente' && statusOffline == false\" button=\"true\" (click)=\"offlineCargarPagosNovedades()\">Sincronizar</ion-item>\r\n\r\n                <ion-item button=\"true\" (click)=\"cerrarSesion()\">Cerrar sesión</ion-item>\r\n                <ion-item button=\"true\">\r\n                    <ion-input disabled=\"true\" #licenseInput color=\"danger\" value=\"{{ license }}\"> </ion-input>\r\n                </ion-item>\r\n                <ion-item button=\"true\">\r\n                    <ion-input disabled=\"true\" #licenseInput color=\"danger\" value=\"V. 19/Ene/2022\"> </ion-input>\r\n                </ion-item>\r\n              \r\n                \r\n            </ion-list>\r\n        </ion-content>\r\n    </ion-menu>\r\n\r\n    <ion-router-outlet main></ion-router-outlet>\r\n</ion-app>");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-app>\r\n\r\n    <ion-menu side=\"end\" [menuId]=\"menuPrincipalId\" *ngIf=\"mostrarMenu()\">\r\n        <ion-header>\r\n            <ion-toolbar color=\"danger\">\r\n                <ion-title>Menú</ion-title>\r\n            </ion-toolbar>\r\n        </ion-header>\r\n        <ion-content>\r\n            <ion-list>\r\n                <ion-item button=\"true\" (click)=\"consultarContrato()\">Consultar contrato</ion-item>\r\n                <ion-item button=\"true\" (click)=\"consultarPago()\">Consultar pago</ion-item>\r\n                <ion-item button=\"true\" (click)=\"cuadreCaja()\">Cuadre caja</ion-item>\r\n                <ion-item button=\"true\" (click)=\"consultarRuta()\">Consultar Ruta</ion-item>\r\n                <ion-item button=\"true\" (click)=\"removerLicencia()\">Remover Licencia</ion-item>\r\n                <ion-item button=\"true\" (click)=\"configurarImpresora()\">Configurar impresora</ion-item>\r\n\r\n                <ion-item *ngIf=\"msg == 'Ruta cargada satisfactoriamente'  \">\r\n                    <ion-label>Trabajo Fuera de Linea</ion-label>\r\n                    <ion-toggle  [(ngModel)]=\"statusOffline\" color=\"primary\" (ionChange)=\"offlineChange()\"></ion-toggle>\r\n                </ion-item>\r\n\r\n                \r\n                <ion-item button=\"true\" *ngIf=\"statusOffline == false \" (click)=\"offlineCargarRutas()\">Cargar Ruta</ion-item>\r\n                <ion-item  *ngIf=\"msg == 'Ruta cargada satisfactoriamente' && statusOffline == false\" button=\"true\" (click)=\"offlineCargarPagosNovedades()\">Sincronizar</ion-item>\r\n\r\n                <ion-item button=\"true\" (click)=\"cerrarSesion()\">Cerrar sesión</ion-item>\r\n                <ion-item button=\"true\">\r\n                    <ion-input disabled=\"true\" #licenseInput color=\"danger\" value=\"{{ license }}\"> </ion-input>\r\n                </ion-item>\r\n                <ion-item button=\"true\">\r\n                    <ion-input disabled=\"true\" #licenseInput color=\"danger\" value=\"V. 19/Abril/2022\"> </ion-input>\r\n                </ion-item>\r\n              \r\n                \r\n            </ion-list>\r\n        </ion-content>\r\n    </ion-menu>\r\n\r\n    <ion-router-outlet main></ion-router-outlet>\r\n</ion-app>");
 
 /***/ }),
 
@@ -4436,7 +4668,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/platform-browser */ "jhN1");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "tyNb");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "P4DM");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common */ "ofXK");
 /* harmony import */ var _angular_common_locales_es_CO__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/common/locales/es-CO */ "AQDP");
@@ -4560,7 +4792,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _raw_loader_login_page_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./login.page.html */ "TuYN");
 /* harmony import */ var _login_page_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./login.page.scss */ "H+1c");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "P4DM");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "tyNb");
 /* harmony import */ var src_app_models_config_model__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/models/config.model */ "oRqo");
 /* harmony import */ var src_app_models_sesion_local_model__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/models/sesion-local.model */ "IKtr");
@@ -4649,6 +4881,8 @@ var LoginPage = /** @class */ (function () {
     LoginPage.prototype.irAConfiguracion = function () {
         this.router.navigate(['config']);
     };
+    LoginPage.prototype.doTermAccepted = function () {
+    };
     LoginPage.ctorParameters = function () { return [
         { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["Platform"] },
         { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"] },
@@ -4713,244 +4947,6 @@ var ConsultaPagoModel = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "df5q":
-/*!******************************************************************************************************************************************!*\
-  !*** ../node_modules/@ionic/core/dist/esm lazy ^\.\/.*\.entry\.js$ include: \.entry\.js$ exclude: \.system\.entry\.js$ namespace object ***!
-  \******************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var map = {
-	"./ion-action-sheet.entry.js": [
-		"F9aY",
-		"common",
-		0
-	],
-	"./ion-alert.entry.js": [
-		"X0n3",
-		"common",
-		1
-	],
-	"./ion-app_8.entry.js": [
-		"owCT",
-		"common",
-		2
-	],
-	"./ion-avatar_3.entry.js": [
-		"bfEr",
-		"common",
-		3
-	],
-	"./ion-back-button.entry.js": [
-		"Cdt7",
-		"common",
-		4
-	],
-	"./ion-backdrop.entry.js": [
-		"dJ9L",
-		5
-	],
-	"./ion-button_2.entry.js": [
-		"xIkb",
-		"common",
-		6
-	],
-	"./ion-card_5.entry.js": [
-		"a42N",
-		"common",
-		7
-	],
-	"./ion-checkbox.entry.js": [
-		"u8ra",
-		"common",
-		8
-	],
-	"./ion-chip.entry.js": [
-		"BLeQ",
-		"common",
-		9
-	],
-	"./ion-col_3.entry.js": [
-		"LWlC",
-		10
-	],
-	"./ion-datetime_3.entry.js": [
-		"d7GT",
-		"common",
-		11
-	],
-	"./ion-fab_3.entry.js": [
-		"XHKO",
-		"common",
-		12
-	],
-	"./ion-img.entry.js": [
-		"C7MG",
-		13
-	],
-	"./ion-infinite-scroll_2.entry.js": [
-		"ue0N",
-		14
-	],
-	"./ion-input.entry.js": [
-		"tuBz",
-		"common",
-		15
-	],
-	"./ion-item-option_3.entry.js": [
-		"CPLj",
-		"common",
-		16
-	],
-	"./ion-item_8.entry.js": [
-		"uY9F",
-		"common",
-		17
-	],
-	"./ion-loading.entry.js": [
-		"LzzF",
-		"common",
-		18
-	],
-	"./ion-menu_3.entry.js": [
-		"9SvH",
-		"common",
-		19
-	],
-	"./ion-modal.entry.js": [
-		"oh+x",
-		"common",
-		20
-	],
-	"./ion-nav_2.entry.js": [
-		"xTgS",
-		"common",
-		21
-	],
-	"./ion-popover.entry.js": [
-		"GlbS",
-		"common",
-		22
-	],
-	"./ion-progress-bar.entry.js": [
-		"O420",
-		"common",
-		23
-	],
-	"./ion-radio_2.entry.js": [
-		"FWSH",
-		"common",
-		24
-	],
-	"./ion-range.entry.js": [
-		"iD9d",
-		"common",
-		25
-	],
-	"./ion-refresher_2.entry.js": [
-		"NNj2",
-		"common",
-		26
-	],
-	"./ion-reorder_2.entry.js": [
-		"UZzn",
-		"common",
-		27
-	],
-	"./ion-ripple-effect.entry.js": [
-		"l0Ah",
-		28
-	],
-	"./ion-route_4.entry.js": [
-		"eQ6Z",
-		"common",
-		29
-	],
-	"./ion-searchbar.entry.js": [
-		"0975",
-		"common",
-		30
-	],
-	"./ion-segment_2.entry.js": [
-		"GkFz",
-		"common",
-		31
-	],
-	"./ion-select_3.entry.js": [
-		"9EPn",
-		"common",
-		32
-	],
-	"./ion-slide_2.entry.js": [
-		"LF8h",
-		33
-	],
-	"./ion-spinner.entry.js": [
-		"NY5D",
-		"common",
-		34
-	],
-	"./ion-split-pane.entry.js": [
-		"3/Fq",
-		35
-	],
-	"./ion-tab-bar_2.entry.js": [
-		"e0Yx",
-		"common",
-		36
-	],
-	"./ion-tab_2.entry.js": [
-		"VhUQ",
-		"common",
-		37
-	],
-	"./ion-text.entry.js": [
-		"Qvlj",
-		"common",
-		38
-	],
-	"./ion-textarea.entry.js": [
-		"UTrk",
-		"common",
-		39
-	],
-	"./ion-toast.entry.js": [
-		"5e/D",
-		"common",
-		40
-	],
-	"./ion-toggle.entry.js": [
-		"2XLE",
-		"common",
-		41
-	],
-	"./ion-virtual-scroll.entry.js": [
-		"w2GW",
-		42
-	]
-};
-function webpackAsyncContext(req) {
-	if(!__webpack_require__.o(map, req)) {
-		return Promise.resolve().then(function() {
-			var e = new Error("Cannot find module '" + req + "'");
-			e.code = 'MODULE_NOT_FOUND';
-			throw e;
-		});
-	}
-
-	var ids = map[req], id = ids[0];
-	return Promise.all(ids.slice(1).map(__webpack_require__.e)).then(function() {
-		return __webpack_require__(id);
-	});
-}
-webpackAsyncContext.keys = function webpackAsyncContextKeys() {
-	return Object.keys(map);
-};
-webpackAsyncContext.id = "df5q";
-module.exports = webpackAsyncContext;
-
-/***/ }),
-
 /***/ "eKrY":
 /*!***************************************************************************!*\
   !*** ./src/app/own-components/datos-novedad/datos-novedad.component.scss ***!
@@ -4961,6 +4957,19 @@ module.exports = webpackAsyncContext;
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJkYXRvcy1ub3ZlZGFkLmNvbXBvbmVudC5zY3NzIn0= */");
+
+/***/ }),
+
+/***/ "fSCH":
+/*!*************************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/own-components/ultimos-servadicionales/ultimos-servadicionales.component.html ***!
+  \*************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-content>\r\n  <ion-grid>\r\n  <ion-row class=\"md5\" *ngFor=\"let adicional of adicionales\">\r\n      <ion-card>\r\n          <ion-card-content>\r\n              {{adicional}}\r\n          </ion-card-content>\r\n      </ion-card>\r\n      <!-- <ion-col>\r\n          <label *ngFor=\"let item of items\">\r\n      </ion-col> -->\r\n  </ion-row>\r\n</ion-grid>\r\n</ion-content>\r\n");
 
 /***/ }),
 
@@ -5011,7 +5020,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _raw_loader_logo_empresa_component_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./logo-empresa.component.html */ "X4az");
 /* harmony import */ var _logo_empresa_component_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./logo-empresa.component.scss */ "gkQz");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "P4DM");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
 /* harmony import */ var src_app_models_config_model__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/models/config.model */ "oRqo");
 /* harmony import */ var src_app_services_configuracion_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/services/configuracion.service */ "Hpqp");
 
@@ -5075,6 +5084,244 @@ var DepartamentoModel = /** @class */ (function () {
 }());
 
 
+
+/***/ }),
+
+/***/ "kLfG":
+/*!*****************************************************************************************************************************************!*\
+  !*** ./node_modules/@ionic/core/dist/esm lazy ^\.\/.*\.entry\.js$ include: \.entry\.js$ exclude: \.system\.entry\.js$ namespace object ***!
+  \*****************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"./ion-action-sheet.entry.js": [
+		"dUtr",
+		"common",
+		0
+	],
+	"./ion-alert.entry.js": [
+		"Q8AI",
+		"common",
+		1
+	],
+	"./ion-app_8.entry.js": [
+		"hgI1",
+		"common",
+		2
+	],
+	"./ion-avatar_3.entry.js": [
+		"CfoV",
+		"common",
+		3
+	],
+	"./ion-back-button.entry.js": [
+		"Nt02",
+		"common",
+		4
+	],
+	"./ion-backdrop.entry.js": [
+		"Q2Bp",
+		5
+	],
+	"./ion-button_2.entry.js": [
+		"0Pbj",
+		"common",
+		6
+	],
+	"./ion-card_5.entry.js": [
+		"ydQj",
+		"common",
+		7
+	],
+	"./ion-checkbox.entry.js": [
+		"4fMi",
+		"common",
+		8
+	],
+	"./ion-chip.entry.js": [
+		"czK9",
+		"common",
+		9
+	],
+	"./ion-col_3.entry.js": [
+		"/CAe",
+		10
+	],
+	"./ion-datetime_3.entry.js": [
+		"WgF3",
+		"common",
+		11
+	],
+	"./ion-fab_3.entry.js": [
+		"uQcF",
+		"common",
+		12
+	],
+	"./ion-img.entry.js": [
+		"wHD8",
+		13
+	],
+	"./ion-infinite-scroll_2.entry.js": [
+		"2lz6",
+		14
+	],
+	"./ion-input.entry.js": [
+		"ercB",
+		"common",
+		15
+	],
+	"./ion-item-option_3.entry.js": [
+		"MGMP",
+		"common",
+		16
+	],
+	"./ion-item_8.entry.js": [
+		"9bur",
+		"common",
+		17
+	],
+	"./ion-loading.entry.js": [
+		"cABk",
+		"common",
+		18
+	],
+	"./ion-menu_3.entry.js": [
+		"kyFE",
+		"common",
+		19
+	],
+	"./ion-modal.entry.js": [
+		"TvZU",
+		"common",
+		20
+	],
+	"./ion-nav_2.entry.js": [
+		"vnES",
+		"common",
+		21
+	],
+	"./ion-popover.entry.js": [
+		"qCuA",
+		"common",
+		22
+	],
+	"./ion-progress-bar.entry.js": [
+		"0tOe",
+		"common",
+		23
+	],
+	"./ion-radio_2.entry.js": [
+		"h11V",
+		"common",
+		24
+	],
+	"./ion-range.entry.js": [
+		"XGij",
+		"common",
+		25
+	],
+	"./ion-refresher_2.entry.js": [
+		"nYbb",
+		"common",
+		26
+	],
+	"./ion-reorder_2.entry.js": [
+		"smMY",
+		"common",
+		27
+	],
+	"./ion-ripple-effect.entry.js": [
+		"STjf",
+		28
+	],
+	"./ion-route_4.entry.js": [
+		"k5eQ",
+		"common",
+		29
+	],
+	"./ion-searchbar.entry.js": [
+		"OR5t",
+		"common",
+		30
+	],
+	"./ion-segment_2.entry.js": [
+		"fSgp",
+		"common",
+		31
+	],
+	"./ion-select_3.entry.js": [
+		"lfGF",
+		"common",
+		32
+	],
+	"./ion-slide_2.entry.js": [
+		"5xYT",
+		33
+	],
+	"./ion-spinner.entry.js": [
+		"nI0H",
+		"common",
+		34
+	],
+	"./ion-split-pane.entry.js": [
+		"NAQR",
+		35
+	],
+	"./ion-tab-bar_2.entry.js": [
+		"knkW",
+		"common",
+		36
+	],
+	"./ion-tab_2.entry.js": [
+		"TpdJ",
+		"common",
+		37
+	],
+	"./ion-text.entry.js": [
+		"ISmu",
+		"common",
+		38
+	],
+	"./ion-textarea.entry.js": [
+		"U7LX",
+		"common",
+		39
+	],
+	"./ion-toast.entry.js": [
+		"L3sA",
+		"common",
+		40
+	],
+	"./ion-toggle.entry.js": [
+		"IUOf",
+		"common",
+		41
+	],
+	"./ion-virtual-scroll.entry.js": [
+		"8Mb5",
+		42
+	]
+};
+function webpackAsyncContext(req) {
+	if(!__webpack_require__.o(map, req)) {
+		return Promise.resolve().then(function() {
+			var e = new Error("Cannot find module '" + req + "'");
+			e.code = 'MODULE_NOT_FOUND';
+			throw e;
+		});
+	}
+
+	var ids = map[req], id = ids[0];
+	return Promise.all(ids.slice(1).map(__webpack_require__.e)).then(function() {
+		return __webpack_require__(id);
+	});
+}
+webpackAsyncContext.keys = function webpackAsyncContextKeys() {
+	return Object.keys(map);
+};
+webpackAsyncContext.id = "kLfG";
+module.exports = webpackAsyncContext;
 
 /***/ }),
 
@@ -5166,6 +5413,564 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "tDkB":
+/*!*******************************************!*\
+  !*** ./src/app/services/pagos.service.ts ***!
+  \*******************************************/
+/*! exports provided: PagosService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PagosService", function() { return PagosService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
+/* harmony import */ var _helpers_config_helper__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../helpers/config.helper */ "5Ez/");
+/* harmony import */ var _ionic_native_android_permissions_ngx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic-native/android-permissions/ngx */ "WOgW");
+/* harmony import */ var _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic-native/geolocation/ngx */ "Bfh1");
+/* harmony import */ var _ionic_native_diagnostic_ngx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ionic-native/diagnostic/ngx */ "mtRb");
+/* harmony import */ var _ionic_native_device_ngx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ionic-native/device/ngx */ "xS7M");
+/* harmony import */ var _models_config_model__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../models/config.model */ "oRqo");
+/* harmony import */ var _configuracion_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./configuracion.service */ "Hpqp");
+/* harmony import */ var _models_cuadre_caja_model__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../models/cuadre-caja.model */ "qDQK");
+/* harmony import */ var _models_responses_pago_response_model__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../models/responses/pago-response.model */ "6kuY");
+/* harmony import */ var _offline_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./offline.service */ "DFAf");
+
+
+
+
+
+// Plugins
+
+
+
+
+// Modelos
+
+// Servicios
+
+
+
+
+var PagosService = /** @class */ (function () {
+    function PagosService(platform, http, alertController, toastController, loadingController, androidPermissions, diagnostic, geolocation, device, configuracionService, offline) {
+        this.platform = platform;
+        this.http = http;
+        this.alertController = alertController;
+        this.toastController = toastController;
+        this.loadingController = loadingController;
+        this.androidPermissions = androidPermissions;
+        this.diagnostic = diagnostic;
+        this.geolocation = geolocation;
+        this.device = device;
+        this.configuracionService = configuracionService;
+        this.offline = offline;
+        this.config = new _models_config_model__WEBPACK_IMPORTED_MODULE_9__["ConfigModel"]();
+        this.ValorPorDia = 0;
+        this.DiasASumar = 0;
+        this.config = this.configuracionService.config;
+    }
+    PagosService.prototype.cargarFormaPago = function () {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            var isOffline = localStorage.getItem('offlineMode') === 'true' ? true : false;
+            if (!isOffline) {
+                var configHelper = new _helpers_config_helper__WEBPACK_IMPORTED_MODULE_4__["ConfigHelper"](_this.config);
+                _this.http.get(configHelper.getApiUrl() + "/pago/TiposPagos")
+                    .subscribe(function (result) {
+                    resolve(result);
+                }, function (error) {
+                    console.log(JSON.stringify(error));
+                    reject();
+                    _this.mostrarToastSimple('Error realizando el pago');
+                });
+            }
+            else {
+                _this.offline.createDatabase().then(function (res) {
+                    // tslint:disable-next-line: no-shadowed-variable
+                    _this.offline.getFormaPago().then(function (result) {
+                        resolve(result);
+                    });
+                });
+            }
+        });
+    };
+    PagosService.prototype.cuadreCaja = function (fecha, usuario) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            var isOffline = localStorage.getItem('offlineMode') === 'true' ? true : false;
+            if (!isOffline) {
+                _this.loadingController.create({
+                    message: 'Cuadrando Caja',
+                    duration: 30000
+                }).then(function (loading) {
+                    loading.present();
+                    var dataPost = new _models_cuadre_caja_model__WEBPACK_IMPORTED_MODULE_11__["CuadreCajaRequesModel"](usuario, fecha);
+                    var configHelper = new _helpers_config_helper__WEBPACK_IMPORTED_MODULE_4__["ConfigHelper"](_this.configuracionService.config);
+                    var httpOptions = {
+                        headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpHeaders"]({
+                            'Content-Type': 'application/json'
+                        })
+                    };
+                    _this.http.post(configHelper.getApiUrl() + "/cuadre/cuadre", dataPost, httpOptions)
+                        .subscribe(function (data) {
+                        loading.dismiss();
+                        resolve(data);
+                    }, function (error) {
+                        console.log(JSON.stringify(error));
+                        _this.mostrarToastSimple('Error autenticando en el servidor');
+                        loading.dismiss();
+                        reject();
+                    });
+                });
+            }
+            else {
+                _this.loadingController.create({
+                    message: 'Cuadrando Caja',
+                    duration: 30000
+                }).then(function (loading) {
+                    loading.present();
+                    _this.offline.getCuadreCaja(usuario, fecha).then(function (data) {
+                        loading.dismiss();
+                        resolve(data);
+                    });
+                });
+            }
+        });
+    };
+    PagosService.prototype.lstNovedades = function (fecha, usuario) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.loadingController.create({
+                message: 'Lista Novedades',
+                duration: 30000
+            }).then(function (loading) {
+                loading.present();
+                var dataPost = new _models_cuadre_caja_model__WEBPACK_IMPORTED_MODULE_11__["CuadreCajaRequesModel"](usuario, fecha);
+                var configHelper = new _helpers_config_helper__WEBPACK_IMPORTED_MODULE_4__["ConfigHelper"](_this.configuracionService.config);
+                var httpOptions = {
+                    headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpHeaders"]({
+                        'Content-Type': 'application/json'
+                    })
+                };
+                _this.http.post(configHelper.getApiUrl() + "/cuadre/lstNovedadUser", dataPost, httpOptions)
+                    .subscribe(function (data) {
+                    loading.dismiss();
+                    resolve(data);
+                }, function (error) {
+                    console.log(JSON.stringify(error));
+                    _this.mostrarToastSimple('Error autenticando en el servidor');
+                    loading.dismiss();
+                    reject();
+                });
+            });
+        });
+    };
+    PagosService.prototype.lstPagos = function (fecha, usuario) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.loadingController.create({
+                message: 'Lista Pagos',
+                duration: 30000
+            }).then(function (loading) {
+                loading.present();
+                var dataPost = new _models_cuadre_caja_model__WEBPACK_IMPORTED_MODULE_11__["CuadreCajaRequesModel"](usuario, fecha);
+                var configHelper = new _helpers_config_helper__WEBPACK_IMPORTED_MODULE_4__["ConfigHelper"](_this.configuracionService.config);
+                var httpOptions = {
+                    headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpHeaders"]({
+                        'Content-Type': 'application/json'
+                    })
+                };
+                _this.http.post(configHelper.getApiUrl() + "/cuadre/lstPagoUser", dataPost, httpOptions)
+                    .subscribe(function (data) {
+                    loading.dismiss();
+                    resolve(data);
+                }, function (error) {
+                    console.log(JSON.stringify(error));
+                    _this.mostrarToastSimple('Error autenticando en el servidor');
+                    loading.dismiss();
+                    reject();
+                });
+            });
+        });
+    };
+    PagosService.prototype.prepararRegistroPago = function (registroPago) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            console.log('la forma de pago a validar', registroPago.FORMAPAGO);
+            if (!registroPago.FORMAPAGO) {
+                // this.mostrarToastSimple('Por favor seleccione la forma de pago');
+                // reject();
+                //return;
+                registroPago.FORMAPAGO = 'Efectivo';
+                console.log('la forma de pago despues de validar', registroPago.FORMAPAGO);
+            }
+            if (!_this.platform.is('android')) {
+                resolve(registroPago);
+            }
+            else {
+                // Validaciones de permisos en Android
+                _this.validarAccesoGPS().then(function () {
+                    _this.validarGPSActivo().then(function () {
+                        _this.validarAccesoDispositivo().then(function () {
+                            _this.loadingController.create({
+                                message: 'Obteniendo geolocalización',
+                                duration: 5300
+                            }).then(function (loading) {
+                                loading.present();
+                                // Obtenemos la geolocalización
+                                _this.geolocation.getCurrentPosition({
+                                    timeout: 5000,
+                                    enableHighAccuracy: true
+                                }).then(function (resp) {
+                                    loading.dismiss();
+                                    registroPago.POSX = String(resp.coords.latitude);
+                                    registroPago.POSY = String(resp.coords.longitude);
+                                    // Obtenemos el UUID
+                                    registroPago.MAQUINA = _this.device.uuid;
+                                    console.log("POSX: " + registroPago.POSX + ", POSY: " + registroPago.POSY);
+                                    console.log("MAQUINA: " + registroPago.MAQUINA);
+                                    // Mostrar modal de confirmación
+                                    resolve(registroPago);
+                                }).catch(function (error) {
+                                    loading.dismiss();
+                                    _this.mostrarToastSimple('Error obteniendo la geolocalización, intente de nuevo');
+                                    resolve(registroPago);
+                                    //reject();
+                                });
+                            });
+                        }).catch(function () {
+                            reject();
+                        });
+                    }).catch(function () {
+                        reject();
+                    });
+                }).catch(function () {
+                    reject();
+                });
+            }
+        });
+    };
+    PagosService.prototype.validarAccesoGPS = function () {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.diagnostic.isLocationAuthorized().then(function (authorized) {
+                console.log("\u00BFAutorizado permiso de GPS?: " + (authorized ? 'SI' : 'NO'));
+                if (!authorized) {
+                    // No está autorizada la app
+                    _this.alertController.create({
+                        header: 'Permiso uso de GPS',
+                        message: 'Necesitamos su permiso para acceder al GPS antes de continuar.',
+                        buttons: [{
+                                role: 'cancel',
+                                text: 'Cancelar',
+                                handler: function () {
+                                    reject();
+                                }
+                            }, {
+                                text: 'De acuerdo',
+                                handler: function () {
+                                    _this.diagnostic.requestLocationAuthorization().then(function () {
+                                        resolve(null);
+                                    }).catch(function () {
+                                        _this.mostrarToastSimple('No se concedió acceso al GPS');
+                                        reject();
+                                    });
+                                }
+                            }]
+                    }).then(function (myAlert) {
+                        myAlert.present();
+                    });
+                }
+                else {
+                    resolve(null);
+                }
+            }).catch(function (error) {
+                _this.mostrarToastSimple('Error comprobando autorizaciòn de GPS');
+                reject();
+            });
+        });
+    };
+    PagosService.prototype.validarGPSActivo = function () {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.diagnostic.isGpsLocationAvailable().then(function (enabled) {
+                console.log("\u00BFEsta activado GPS?: " + (enabled ? 'SI' : 'NO'));
+                if (!enabled) {
+                    // No está activo el GPS
+                    _this.alertController.create({
+                        header: 'Activar GPS',
+                        message: 'Por favor active el GPS en el modo Alta precisión antes de continuar.',
+                        buttons: [{
+                                role: 'cancel',
+                                text: 'Cancelar',
+                                handler: function () {
+                                    reject();
+                                }
+                            }, {
+                                text: 'De acuerdo',
+                                handler: function () {
+                                    _this.diagnostic.switchToLocationSettings();
+                                    reject();
+                                }
+                            }]
+                    }).then(function (myAlert) {
+                        myAlert.present();
+                    });
+                }
+                else {
+                    resolve(null);
+                }
+            }).catch(function (error) {
+                _this.mostrarToastSimple('Error comprobando GPS activo');
+                reject();
+            });
+        });
+    };
+    // Para consultar el IMEI
+    PagosService.prototype.validarAccesoDispositivo = function () {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.androidPermissions.checkPermission(_this.androidPermissions.PERMISSION.READ_PHONE_STATE).then(function (hasPermission) {
+                console.log("\u00BFAutorizado permiso de estado de dispositivo?: " + (hasPermission ? 'SI' : 'NO'));
+                if (!hasPermission) {
+                    _this.alertController.create({
+                        header: 'Permiso estado dispositivo',
+                        message: 'Necesitamos consultar el estado del dispositivo, por favor concedanos el permiso antes de continuar.',
+                        buttons: [{
+                                role: 'cancel',
+                                text: 'Cancelar',
+                                handler: function () {
+                                    reject();
+                                }
+                            }, {
+                                text: 'De acuerdo',
+                                handler: function () {
+                                    // Solicitar permiso
+                                    _this.androidPermissions.requestPermission(_this.androidPermissions.PERMISSION.READ_PHONE_STATE).then(function () {
+                                        resolve(null);
+                                    }).catch(function () {
+                                        reject();
+                                    });
+                                }
+                            }]
+                    }).then(function (myAlert) {
+                        myAlert.present();
+                    });
+                }
+                else {
+                    resolve(null);
+                }
+            }).catch(function (error) {
+                _this.mostrarToastSimple('Error comprobando autorizaciòn de estado de dispositivo');
+                reject();
+            });
+        });
+    };
+    PagosService.prototype.registrarPago = function (pago) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            var configHelper = new _helpers_config_helper__WEBPACK_IMPORTED_MODULE_4__["ConfigHelper"](_this.config);
+            var httpOptions = {
+                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpHeaders"]({
+                    'Content-Type': 'application/json',
+                })
+            };
+            var isOffline = localStorage.getItem('offlineMode') === 'true' ? true : false;
+            if (!isOffline) {
+                _this.loadingController.create({
+                    message: 'Registrando pago',
+                    duration: 30000
+                }).then(function (loading) {
+                    loading.present();
+                    console.log("los datos del pago son:", pago);
+                    _this.http.post(configHelper.getApiUrl() + "/pago/create", pago, httpOptions)
+                        //this.http.post('http://localhost:5008/api/pago/create', pago, httpOptions)
+                        .subscribe(function (result) {
+                        if (result.Respuesta.indexOf('ERROR') !== -1) {
+                            loading.dismiss();
+                            _this.alertController.create({
+                                header: 'Error',
+                                message: result.Respuesta.split('-')[1] + ' ' + result.Respuesta.split('-')[2],
+                                buttons: ['Ok']
+                            }).then(function (obj) {
+                                obj.present();
+                            });
+                            reject();
+                        }
+                        else {
+                            loading.dismiss();
+                            _this.alertController.create({
+                                header: 'Información',
+                                message: 'Pago realizado satisfactoriamente',
+                                buttons: ['Ok']
+                            }).then(function (obj) {
+                                obj.present();
+                            });
+                            resolve(result);
+                        }
+                    }, function (error) {
+                        loading.dismiss();
+                        console.log(JSON.stringify(error));
+                        reject();
+                        _this.mostrarToastSimple('Error realizando el pago');
+                    });
+                });
+            }
+            else {
+                var result_1 = new _models_responses_pago_response_model__WEBPACK_IMPORTED_MODULE_12__["PagoResponseModel"]();
+                _this.loadingController.create({
+                    message: 'Registrando Pago',
+                    duration: 30000
+                }).then(function (loading) {
+                    loading.present();
+                    _this.offline.guardarPagosLocal(pago).then(function (resp) {
+                        loading.dismiss();
+                        _this.alertController.create({
+                            header: 'Información',
+                            message: 'Pago realizado satisfactoriamente',
+                            buttons: ['Ok']
+                            // tslint:disable-next-line: whitespace
+                        }).then(function (obj) {
+                            obj.present();
+                        });
+                        _this.offline.getPagoHasta(pago.IDCONTRATO).then(function (res) {
+                            result_1.NroRecibo = pago.NRORECIBO; //resp; momentGGGG
+                            result_1.VlrDctoPago = pago.DESCUENTO;
+                            result_1.VlrIva = 0;
+                            result_1.VlrCto = pago.VALOR;
+                            //result.DetallePago = pago.OBSERVACIONES;
+                            var fecha = new Date(res.PAGOHASTA);
+                            result_1.Desde = fecha.toString();
+                            console.log("el pago**********************", pago);
+                            if (pago.CANTIDADCUOTAS == 0) {
+                                _this.DiasMes = new Date(fecha.getFullYear(), fecha.getMonth() + 1, 0);
+                                _this.ValorPorDia = (pago.CUOTAMENSUAL / _this.DiasMes.getDate());
+                                _this.DiasASumar = (pago.VALOR / _this.ValorPorDia);
+                                result_1.Hasta = new Date(new Date(res.PAGOHASTA).setDate(new Date(res.PAGOHASTA).getDate() + Math.round(_this.DiasASumar))).toString();
+                                console.log("los datos son DiasMes ", _this.DiasMes.getDate(), " ValorPorDia ", _this.ValorPorDia, "  DiasASumar ", Math.round(_this.DiasASumar), "  result.Hasta ", result_1.Hasta);
+                            }
+                            else {
+                                result_1.Hasta = new Date(new Date(res.PAGOHASTA).setMonth(new Date(res.PAGOHASTA).getMonth() + pago.CANTIDADCUOTAS)).toString();
+                            }
+                            _this.offline.updatePagoHasta(result_1.Hasta, pago.IDCONTRATO).then(function () { });
+                            //actualiza las fechas del pago 
+                            _this.offline.fechasPagos(result_1.Desde, result_1.Hasta, result_1.NroRecibo).then(function () { });
+                            resolve(result_1);
+                        });
+                        // resolve(result);
+                    });
+                });
+            }
+        });
+    };
+    PagosService.prototype.mostrarAlertSimple = function (titulo, texto) {
+        this.alertController.create({
+            header: titulo,
+            message: texto,
+            buttons: [{
+                    role: 'cancel',
+                    text: 'Ok'
+                }]
+        }).then(function (myAlert) {
+            myAlert.present();
+        });
+    };
+    PagosService.prototype.mostrarToastSimple = function (texto) {
+        this.toastController.create({
+            message: texto,
+            duration: 2000
+        }).then(function (toast) {
+            toast.present();
+        });
+    };
+    PagosService.prototype.notificarRecibo = function (NoRecibo) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            var params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpParams"]().set('NoRecibo', NoRecibo);
+            var configHelper = new _helpers_config_helper__WEBPACK_IMPORTED_MODULE_4__["ConfigHelper"](_this.configuracionService.config);
+            var httpOptions = {
+                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpHeaders"]({
+                    'Content-Type': 'application/json',
+                }),
+                params: params
+            };
+            _this.loadingController.create({
+                message: 'Enviando Recibo',
+                duration: 30000
+            }).then(function (loading) {
+                loading.present();
+                _this.http.post(configHelper.getApiUrl() + "/pago/notificarrecibo", null, httpOptions)
+                    .subscribe(function (resultado) {
+                    if (!resultado) {
+                        loading.dismiss();
+                        _this.alertController.create({
+                            header: 'Información',
+                            message: resultado.RESPUESTA,
+                            buttons: ['Ok']
+                        }).then(function (obj) {
+                            obj.present();
+                        });
+                        reject();
+                    }
+                    else {
+                        loading.dismiss();
+                        _this.alertController.create({
+                            header: 'Información',
+                            message: resultado.RESPUESTA,
+                            buttons: ['Ok']
+                        }).then(function (obj) {
+                            obj.present();
+                        });
+                        resolve(resultado);
+                    }
+                }, function (error) {
+                    loading.dismiss();
+                    console.log(JSON.stringify(error));
+                    reject();
+                    _this.mostrarToastSimple('Error enviando recibo');
+                });
+            });
+        });
+    };
+    PagosService.ctorParameters = function () { return [
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"] },
+        { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"] },
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["AlertController"] },
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ToastController"] },
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["LoadingController"] },
+        { type: _ionic_native_android_permissions_ngx__WEBPACK_IMPORTED_MODULE_5__["AndroidPermissions"] },
+        { type: _ionic_native_diagnostic_ngx__WEBPACK_IMPORTED_MODULE_7__["Diagnostic"] },
+        { type: _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_6__["Geolocation"] },
+        { type: _ionic_native_device_ngx__WEBPACK_IMPORTED_MODULE_8__["Device"] },
+        { type: _configuracion_service__WEBPACK_IMPORTED_MODULE_10__["ConfiguracionService"] },
+        { type: _offline_service__WEBPACK_IMPORTED_MODULE_13__["OfflineService"] }
+    ]; };
+    PagosService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root'
+        }),
+        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"],
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["AlertController"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ToastController"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["LoadingController"],
+            _ionic_native_android_permissions_ngx__WEBPACK_IMPORTED_MODULE_5__["AndroidPermissions"],
+            _ionic_native_diagnostic_ngx__WEBPACK_IMPORTED_MODULE_7__["Diagnostic"],
+            _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_6__["Geolocation"],
+            _ionic_native_device_ngx__WEBPACK_IMPORTED_MODULE_8__["Device"],
+            _configuracion_service__WEBPACK_IMPORTED_MODULE_10__["ConfiguracionService"],
+            _offline_service__WEBPACK_IMPORTED_MODULE_13__["OfflineService"]])
+    ], PagosService);
+    return PagosService;
+}());
+
+
+
+/***/ }),
+
 /***/ "tyzh":
 /*!*****************************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/own-components/datos-novedad/datos-novedad.component.html ***!
@@ -5194,7 +5999,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modal_confirmar_pago_component_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modal-confirmar-pago.component.scss */ "/Zxc");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var src_app_models_sesion_local_model__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/models/sesion-local.model */ "IKtr");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "P4DM");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
 /* harmony import */ var src_app_services_sesion_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/services/sesion.service */ "PbBf");
 /* harmony import */ var _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ionic-native/network/ngx */ "kwrG");
 
@@ -5284,7 +6089,7 @@ var ModalConfirmarPagoComponent = /** @class */ (function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"ion-padding\">\r\n    <h5 class=\"semi-titulo\">Datos del pago</h5>\r\n</div>\r\n<ion-grid fixed>\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Contrato</ion-col>\r\n        <ion-col size=\"4\">\r\n            <ion-text color=\"danger\">\r\n                <span>{{ pago.Contrato }}</span>\r\n            </ion-text>\r\n        </ion-col>\r\n    </ion-row>\r\n\r\n\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">\r\n            Cuota\r\n        </ion-col>\r\n        <ion-col size=\"8\">\r\n            <ion-text color=\"danger\">\r\n                <span>{{ pago.Cuota | currency:'COP':'symbol-narrow':'4.2-2' }}</span>\r\n            </ion-text>\r\n        </ion-col>\r\n    </ion-row>\r\n\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Cédula</ion-col>\r\n        <ion-col size=\"8\">\r\n            <ion-text color=\"danger\">\r\n                <span>{{ pago.Cedula }}</span>\r\n            </ion-text>\r\n        </ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Nombre</ion-col>\r\n        <ion-col size=\"8\">\r\n            <ion-text color=\"danger\">\r\n                <span>{{ pago.Nombre }}</span>\r\n            </ion-text>\r\n        </ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Fecha Pago</ion-col>\r\n        <ion-col size=\"8\"><span class=\"ion-text-capitalize\">{{ pago.FechaPago | date:'MMMM dd yyyy':'':'es-Co' }}</span>\r\n        </ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Total</ion-col>\r\n        <ion-col size=\"8\">\r\n            <ion-text color=\"danger\">\r\n                <span>{{ pago.Total | currency:'COP':'symbol-narrow':'4.2-2' }}</span>\r\n            </ion-text>\r\n        </ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Forma De Pago</ion-col>\r\n        <ion-col size=\"8\"><span>{{ pago.FormaPago }}</span></ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Pago Hasta</ion-col>\r\n        <ion-col size=\"8\"><span class=\"ion-text-capitalize\">{{ pago.PagoHasta | date:'MMMM dd yyyy':'':'es-Co' }}</span>\r\n        </ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Nro Doc</ion-col>\r\n        <ion-col size=\"8\">\r\n            <ion-text color=\"danger\">\r\n                <span>{{ pago.NumeroDocumento }}</span>\r\n            </ion-text>\r\n        </ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Usuario</ion-col>\r\n        <ion-col size=\"8\"><span>{{ pago.Usuario }}</span></ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Terminal</ion-col>\r\n        <ion-col size=\"8\"><span>{{ pago.Terminal }}</span></ion-col>\r\n    </ion-row>\r\n\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Sincronizado</ion-col>\r\n        <ion-col size=\"8\"><span>{{ pago.Sincronizar }}</span></ion-col>\r\n    </ion-row>\r\n\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Observaciones</ion-col>\r\n        <ion-col size=\"8\">\r\n            <ion-textarea readonly rows=\"4\" [value]=\"pago.Observaciones\">\r\n            </ion-textarea>\r\n        </ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Nro. Referencia</ion-col>\r\n        <ion-col size=\"8\">\r\n            <ion-textarea readonly rows=\"4\" [value]=\"pago.NROREF\">\r\n            </ion-textarea>\r\n        </ion-col>\r\n    </ion-row>\r\n    <ion-row>\r\n        <ion-col size=\"12\">\r\n            <ion-button color=\"danger\" expand=\"block\" (click)=\"imprimir()\">\r\n                Imprimir\r\n            </ion-button>\r\n        </ion-col>\r\n    </ion-row>\r\n</ion-grid>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"ion-padding\">\r\n    <h5 class=\"semi-titulo\">Datos del pago</h5>\r\n</div>\r\n<ion-grid fixed>\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Contrato</ion-col>\r\n        <ion-col size=\"4\">\r\n            <ion-text color=\"danger\">\r\n                <span>{{ pago.Contrato }}</span>\r\n            </ion-text>\r\n        </ion-col>\r\n    </ion-row>\r\n\r\n\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">\r\n            Cuota\r\n        </ion-col>\r\n        <ion-col size=\"8\">\r\n            <ion-text color=\"danger\">\r\n                <span>{{ pago.Cuota | currency:'COP':'symbol-narrow':'4.2-2' }}</span>\r\n            </ion-text>\r\n        </ion-col>\r\n    </ion-row>\r\n\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Cédula</ion-col>\r\n        <ion-col size=\"8\">\r\n            <ion-text color=\"danger\">\r\n                <span>{{ pago.Cedula }}</span>\r\n            </ion-text>\r\n        </ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Nombre</ion-col>\r\n        <ion-col size=\"8\">\r\n            <ion-text color=\"danger\">\r\n                <span>{{ pago.Nombre }}</span>\r\n            </ion-text>\r\n        </ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Fecha Pago</ion-col>\r\n        <ion-col size=\"8\"><span class=\"ion-text-capitalize\">{{ pago.FechaPago | date:'MMMM dd yyyy':'':'es-Co' }}</span>\r\n        </ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Total</ion-col>\r\n        <ion-col size=\"8\">\r\n            <ion-text color=\"danger\">\r\n                <span>{{ pago.Total | currency:'COP':'symbol-narrow':'4.2-2' }}</span>\r\n            </ion-text>\r\n        </ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Forma De Pago</ion-col>\r\n        <ion-col size=\"8\"><span>{{ pago.FormaPago }}</span></ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Pago Hasta</ion-col>\r\n        <ion-col size=\"8\"><span class=\"ion-text-capitalize\">{{ pago.PagoHasta | date:'MMMM dd yyyy':'':'es-Co' }}</span>\r\n        </ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Nro Doc</ion-col>\r\n        <ion-col size=\"8\">\r\n            <ion-text color=\"danger\">\r\n                <span>{{ pago.NumeroDocumento }}</span>\r\n            </ion-text>\r\n        </ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Usuario</ion-col>\r\n        <ion-col size=\"8\"><span>{{ pago.Usuario }}</span></ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Terminal</ion-col>\r\n        <ion-col size=\"8\"><span>{{ pago.Terminal }}</span></ion-col>\r\n    </ion-row>\r\n\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Sincronizado</ion-col>\r\n        <ion-col size=\"8\"><span>{{ pago.Sincronizar }}</span></ion-col>\r\n    </ion-row>\r\n\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Observaciones</ion-col>\r\n        <ion-col size=\"8\">\r\n            <ion-textarea readonly rows=\"4\" [value]=\"pago.Observaciones\">\r\n            </ion-textarea>\r\n        </ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"ion-align-items-center\">\r\n        <ion-col size=\"4\">Nro. Referencia</ion-col>\r\n        <ion-col size=\"8\">\r\n            <ion-textarea readonly rows=\"4\" [value]=\"pago.NROREF\">\r\n            </ion-textarea>\r\n        </ion-col>\r\n    </ion-row>\r\n    <ion-row>\r\n        <ion-col size=\"12\">\r\n            <ion-button color=\"danger\" expand=\"block\" (click)=\"imprimir()\">\r\n                Imprimir\r\n            </ion-button>\r\n        </ion-col>\r\n    </ion-row>\r\n    <ion-row>\r\n        <ion-col size=\"12\" *ngIf=\"!isOffline\">\r\n            <ion-button color=\"danger\" expand=\"block\" (click)=\"notificar()\" >\r\n                Notificar Recibo\r\n            </ion-button>\r\n        </ion-col>\r\n    </ion-row>\r\n</ion-grid>");
 
 /***/ }),
 
@@ -5349,6 +6154,7 @@ var routes = [
     { path: 'lista-pagos', loadChildren: './pages/lista-pago/lista-pago.module#ListaPagoPageModule' },
     { path: 'geolocalizacion', loadChildren: './pages/geolocalizacion/geolocalizacion.module#GeolocalizacionPageModule' },
     { path: 'lista-pago', loadChildren: './pages/lista-pago/lista-pago.module#ListaPagoPageModule' },
+    { path: 'lista-novedades', loadChildren: './pages/lista-novedad/lista-novedad.module#ListaNovedadPageModule' },
     { path: 'pruebas', loadChildren: './pages/pruebas/pruebas.module#PruebasPageModule' },
 ];
 var AppRoutingModule = /** @class */ (function () {
@@ -5431,7 +6237,6 @@ var map = {
 	],
 	"./pages/cuadre-caja/cuadre-caja.module": [
 		"e7df",
-		"default~pages-cuadre-caja-cuadre-caja-module~pages-lista-pago-lista-pago-module~pages-registrar-pago~352ba1bd",
 		"pages-cuadre-caja-cuadre-caja-module"
 	],
 	"./pages/geolocalizacion/geolocalizacion.module": [
@@ -5442,9 +6247,12 @@ var map = {
 		"99Un",
 		"pages-home-home-module"
 	],
+	"./pages/lista-novedad/lista-novedad.module": [
+		"4xos",
+		"pages-lista-novedad-lista-novedad-module"
+	],
 	"./pages/lista-pago/lista-pago.module": [
 		"rAHZ",
-		"default~pages-cuadre-caja-cuadre-caja-module~pages-lista-pago-lista-pago-module~pages-registrar-pago~352ba1bd",
 		"pages-lista-pago-lista-pago-module"
 	],
 	"./pages/menu/menu.module": [
@@ -5453,7 +6261,6 @@ var map = {
 	],
 	"./pages/registrar-pago/registrar-pago.module": [
 		"SMe6",
-		"default~pages-cuadre-caja-cuadre-caja-module~pages-lista-pago-lista-pago-module~pages-registrar-pago~352ba1bd",
 		"pages-registrar-pago-registrar-pago-module"
 	],
 	"./pages/registrar-pago2/registrar-pago2.module": [

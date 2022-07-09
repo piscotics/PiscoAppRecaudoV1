@@ -1,9 +1,9 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[26],{
 
-/***/ "NNj2":
-/*!*********************************************************************!*\
-  !*** ../node_modules/@ionic/core/dist/esm/ion-refresher_2.entry.js ***!
-  \*********************************************************************/
+/***/ "nYbb":
+/*!********************************************************************!*\
+  !*** ./node_modules/@ionic/core/dist/esm/ion-refresher_2.entry.js ***!
+  \********************************************************************/
 /*! exports provided: ion_refresher, ion_refresher_content */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -11,20 +11,20 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_refresher", function() { return Refresher; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_refresher_content", function() { return RefresherContent; });
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../node_modules/@babel/runtime/helpers/esm/defineProperty */ "mK0O");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../node_modules/@babel/runtime/helpers/esm/classCallCheck */ "hisu");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../node_modules/@babel/runtime/helpers/esm/createClass */ "yBJb");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../node_modules/@babel/runtime/regenerator */ "o0o1");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../node_modules/@babel/runtime/helpers/esm/asyncToGenerator */ "eijD");
-/* harmony import */ var _index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./index-e806d1f6.js */ "OVRr");
-/* harmony import */ var _ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ionic-global-9d5c8ee3.js */ "rAwY");
-/* harmony import */ var _helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./helpers-90f46169.js */ "Ij9o");
-/* harmony import */ var _animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./animation-54fe0237.js */ "uxFI");
-/* harmony import */ var _cubic_bezier_eea9a7a9_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./cubic-bezier-eea9a7a9.js */ "kBbB");
-/* harmony import */ var _index_9e3fe806_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./index-9e3fe806.js */ "Mo2t");
-/* harmony import */ var _haptic_27b3f981_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./haptic-27b3f981.js */ "ApiU");
-/* harmony import */ var _spinner_configs_cd7845af_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./spinner-configs-cd7845af.js */ "n/PS");
+/* harmony import */ var C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/defineProperty */ "rePB");
+/* harmony import */ var C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/classCallCheck */ "1OyB");
+/* harmony import */ var C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createClass */ "vuIU");
+/* harmony import */ var C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ "o0o1");
+/* harmony import */ var C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator */ "HaE+");
+/* harmony import */ var _index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./index-7a8b7a1c.js */ "wEJo");
+/* harmony import */ var _ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ionic-global-63a97a32.js */ "E/Mt");
+/* harmony import */ var _cubic_bezier_eea9a7a9_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./cubic-bezier-eea9a7a9.js */ "bC4P");
+/* harmony import */ var _helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./helpers-dd7e4b7b.js */ "1vRN");
+/* harmony import */ var _haptic_27b3f981_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./haptic-27b3f981.js */ "qULd");
+/* harmony import */ var _animation_096c6391_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./animation-096c6391.js */ "meiF");
+/* harmony import */ var _index_9e3fe806_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./index-9e3fe806.js */ "39oe");
+/* harmony import */ var _spinner_configs_cd7845af_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./spinner-configs-cd7845af.js */ "h3R7");
 
 
 
@@ -45,8 +45,8 @@ var getRefresherAnimationType = function getRefresherAnimationType(contentEl) {
   return hasHeader ? 'translate' : 'scale';
 };
 
-var createPullingAnimation = function createPullingAnimation(type, pullingSpinner) {
-  return type === 'scale' ? createScaleAnimation(pullingSpinner) : createTranslateAnimation(pullingSpinner);
+var createPullingAnimation = function createPullingAnimation(type, pullingSpinner, refresherEl) {
+  return type === 'scale' ? createScaleAnimation(pullingSpinner, refresherEl) : createTranslateAnimation(pullingSpinner, refresherEl);
 };
 
 var createBaseAnimation = function createBaseAnimation(pullingRefresherIcon) {
@@ -55,8 +55,8 @@ var createBaseAnimation = function createBaseAnimation(pullingRefresherIcon) {
   var spinnerArrowContainer = pullingRefresherIcon.querySelector('.spinner-arrow-container');
   var arrowContainer = pullingRefresherIcon.querySelector('.arrow-container');
   var arrow = arrowContainer ? arrowContainer.querySelector('ion-icon') : null;
-  var baseAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])().duration(1000).easing('ease-out');
-  var spinnerArrowContainerAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])().addElement(spinnerArrowContainer).keyframes([{
+  var baseAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_10__["c"])().duration(1000).easing('ease-out');
+  var spinnerArrowContainerAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_10__["c"])().addElement(spinnerArrowContainer).keyframes([{
     offset: 0,
     opacity: '0.3'
   }, {
@@ -69,7 +69,7 @@ var createBaseAnimation = function createBaseAnimation(pullingRefresherIcon) {
     offset: 1,
     opacity: '1'
   }]);
-  var circleInnerAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])().addElement(circle).keyframes([{
+  var circleInnerAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_10__["c"])().addElement(circle).keyframes([{
     offset: 0,
     strokeDasharray: '1px, 200px'
   }, {
@@ -82,7 +82,7 @@ var createBaseAnimation = function createBaseAnimation(pullingRefresherIcon) {
     offset: 1,
     strokeDasharray: '100px, 200px'
   }]);
-  var circleOuterAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])().addElement(spinner).keyframes([{
+  var circleOuterAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_10__["c"])().addElement(spinner).keyframes([{
     offset: 0,
     transform: 'rotate(-90deg)'
   }, {
@@ -96,7 +96,7 @@ var createBaseAnimation = function createBaseAnimation(pullingRefresherIcon) {
    */
 
   if (arrowContainer && arrow) {
-    var arrowContainerAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])().addElement(arrowContainer).keyframes([{
+    var arrowContainerAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_10__["c"])().addElement(arrowContainer).keyframes([{
       offset: 0,
       transform: 'rotate(0deg)'
     }, {
@@ -109,7 +109,7 @@ var createBaseAnimation = function createBaseAnimation(pullingRefresherIcon) {
       offset: 1,
       transform: 'rotate(400deg)'
     }]);
-    var arrowAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])().addElement(arrow).keyframes([{
+    var arrowAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_10__["c"])().addElement(arrow).keyframes([{
       offset: 0,
       transform: 'translateX(2px) scale(0)'
     }, {
@@ -128,11 +128,20 @@ var createBaseAnimation = function createBaseAnimation(pullingRefresherIcon) {
   return baseAnimation.addAnimation([spinnerArrowContainerAnimation, circleInnerAnimation, circleOuterAnimation]);
 };
 
-var createScaleAnimation = function createScaleAnimation(pullingRefresherIcon) {
-  var height = pullingRefresherIcon.clientHeight;
-  var spinnerAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])().addElement(pullingRefresherIcon).keyframes([{
+var createScaleAnimation = function createScaleAnimation(pullingRefresherIcon, refresherEl) {
+  /**
+   * Do not take the height of the refresher icon
+   * because at this point the DOM has not updated,
+   * so the refresher icon is still hidden with
+   * display: none.
+   * The `ion-refresher` container height
+   * is roughly the amount we need to offset
+   * the icon by when pulling down.
+   */
+  var height = refresherEl.clientHeight;
+  var spinnerAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_10__["c"])().addElement(pullingRefresherIcon).keyframes([{
     offset: 0,
-    transform: "scale(0) translateY(-".concat(height + 20, "px)")
+    transform: "scale(0) translateY(-".concat(height, "px)")
   }, {
     offset: 1,
     transform: 'scale(1) translateY(100px)'
@@ -140,11 +149,20 @@ var createScaleAnimation = function createScaleAnimation(pullingRefresherIcon) {
   return createBaseAnimation(pullingRefresherIcon).addAnimation([spinnerAnimation]);
 };
 
-var createTranslateAnimation = function createTranslateAnimation(pullingRefresherIcon) {
-  var height = pullingRefresherIcon.clientHeight;
-  var spinnerAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])().addElement(pullingRefresherIcon).keyframes([{
+var createTranslateAnimation = function createTranslateAnimation(pullingRefresherIcon, refresherEl) {
+  /**
+   * Do not take the height of the refresher icon
+   * because at this point the DOM has not updated,
+   * so the refresher icon is still hidden with
+   * display: none.
+   * The `ion-refresher` container height
+   * is roughly the amount we need to offset
+   * the icon by when pulling down.
+   */
+  var height = refresherEl.clientHeight;
+  var spinnerAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_10__["c"])().addElement(pullingRefresherIcon).keyframes([{
     offset: 0,
-    transform: "translateY(-".concat(height + 20, "px)")
+    transform: "translateY(-".concat(height, "px)")
   }, {
     offset: 1,
     transform: 'translateY(100px)'
@@ -153,7 +171,7 @@ var createTranslateAnimation = function createTranslateAnimation(pullingRefreshe
 };
 
 var createSnapBackAnimation = function createSnapBackAnimation(pullingRefresherIcon) {
-  return Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_8__["c"])().duration(125).addElement(pullingRefresherIcon).fromTo('transform', 'translateY(var(--ion-pulling-refresher-translate, 100px))', 'translateY(0px)');
+  return Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_10__["c"])().duration(125).addElement(pullingRefresherIcon).fromTo('transform', 'translateY(var(--ion-pulling-refresher-translate, 100px))', 'translateY(0px)');
 }; // iOS Native Refresher
 // -----------------------------
 
@@ -163,7 +181,7 @@ var setSpinnerOpacity = function setSpinnerOpacity(spinner, opacity) {
 };
 
 var handleScrollWhilePulling = function handleScrollWhilePulling(spinner, ticks, opacity, currentTickToShow) {
-  Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["c"])(function () {
+  Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["c"])(function () {
     setSpinnerOpacity(spinner, opacity);
     ticks.forEach(function (el, i) {
       return el.style.setProperty('opacity', i <= currentTickToShow ? '0.99' : '0');
@@ -172,7 +190,7 @@ var handleScrollWhilePulling = function handleScrollWhilePulling(spinner, ticks,
 };
 
 var handleScrollWhileRefreshing = function handleScrollWhileRefreshing(spinner, lastVelocityY) {
-  Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["c"])(function () {
+  Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["c"])(function () {
     // If user pulls down quickly, the spinner should spin faster
     spinner.style.setProperty('--refreshing-rotation-duration', lastVelocityY >= 1.0 ? '0.5s' : '2s');
     spinner.style.setProperty('opacity', '1');
@@ -185,7 +203,7 @@ var translateElement = function translateElement(el, value) {
   }
 
   var trans = transitionEndAsync(el, 200);
-  Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["c"])(function () {
+  Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["c"])(function () {
     el.style.setProperty('transition', '0.2s all ease-out');
 
     if (value === undefined) {
@@ -200,9 +218,9 @@ var translateElement = function translateElement(el, value) {
 
 
 var shouldUseNativeRefresher = /*#__PURE__*/function () {
-  var _ref = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee(referenceEl, mode) {
+  var _ref = Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4__["default"])( /*#__PURE__*/C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee(referenceEl, mode) {
     var refresherContent, pullingSpinner, refreshingSpinner;
-    return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee$(_context) {
+    return C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
@@ -217,12 +235,14 @@ var shouldUseNativeRefresher = /*#__PURE__*/function () {
 
           case 3:
             _context.next = 5;
-            return refresherContent.componentOnReady();
+            return new Promise(function (resolve) {
+              return Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_8__["c"])(refresherContent, resolve);
+            });
 
           case 5:
             pullingSpinner = referenceEl.querySelector('ion-refresher-content .refresher-pulling ion-spinner');
             refreshingSpinner = referenceEl.querySelector('ion-refresher-content .refresher-refreshing ion-spinner');
-            return _context.abrupt("return", pullingSpinner !== null && refreshingSpinner !== null && (mode === 'ios' && Object(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["i"])('mobile') && referenceEl.style.webkitOverflowScrolling !== undefined || mode === 'md'));
+            return _context.abrupt("return", pullingSpinner !== null && refreshingSpinner !== null && (mode === 'ios' && Object(_ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_6__["a"])('mobile') && referenceEl.style.webkitOverflowScrolling !== undefined || mode === 'md'));
 
           case 8:
           case "end":
@@ -287,16 +307,16 @@ var transitionEnd = function transitionEnd(el) {
 };
 
 var refresherIosCss = "ion-refresher{left:0;top:0;display:none;position:absolute;width:100%;height:60px;pointer-events:none;z-index:-1}[dir=rtl] ion-refresher,:host-context([dir=rtl]) ion-refresher{left:unset;right:unset;right:0}ion-refresher.refresher-active{display:block}ion-refresher-content{display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;-ms-flex-pack:center;justify-content:center;height:100%}.refresher-pulling,.refresher-refreshing{display:none;width:100%}.refresher-pulling-icon,.refresher-refreshing-icon{-webkit-transform-origin:center;transform-origin:center;-webkit-transition:200ms;transition:200ms;font-size:30px;text-align:center}[dir=rtl] .refresher-pulling-icon,:host-context([dir=rtl]) .refresher-pulling-icon,[dir=rtl] .refresher-refreshing-icon,:host-context([dir=rtl]) .refresher-refreshing-icon{-webkit-transform-origin:calc(100% - center);transform-origin:calc(100% - center)}.refresher-pulling-text,.refresher-refreshing-text{font-size:16px;text-align:center}ion-refresher-content .arrow-container{display:none}.refresher-pulling ion-refresher-content .refresher-pulling{display:block}.refresher-ready ion-refresher-content .refresher-pulling{display:block}.refresher-ready ion-refresher-content .refresher-pulling-icon{-webkit-transform:rotate(180deg);transform:rotate(180deg)}.refresher-refreshing ion-refresher-content .refresher-refreshing{display:block}.refresher-cancelling ion-refresher-content .refresher-pulling{display:block}.refresher-cancelling ion-refresher-content .refresher-pulling-icon{-webkit-transform:scale(0);transform:scale(0)}.refresher-completing ion-refresher-content .refresher-refreshing{display:block}.refresher-completing ion-refresher-content .refresher-refreshing-icon{-webkit-transform:scale(0);transform:scale(0)}.refresher-native .refresher-pulling-text,.refresher-native .refresher-refreshing-text{display:none}.refresher-ios .refresher-pulling-icon,.refresher-ios .refresher-refreshing-icon{color:var(--ion-text-color, #000)}.refresher-ios .refresher-pulling-text,.refresher-ios .refresher-refreshing-text{color:var(--ion-text-color, #000)}.refresher-ios .refresher-refreshing .spinner-lines-ios line,.refresher-ios .refresher-refreshing .spinner-lines-small-ios line,.refresher-ios .refresher-refreshing .spinner-crescent circle{stroke:var(--ion-text-color, #000)}.refresher-ios .refresher-refreshing .spinner-bubbles circle,.refresher-ios .refresher-refreshing .spinner-circles circle,.refresher-ios .refresher-refreshing .spinner-dots circle{fill:var(--ion-text-color, #000)}ion-refresher.refresher-native{display:block;z-index:1}ion-refresher.refresher-native ion-spinner{margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0}@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0){ion-refresher.refresher-native ion-spinner{margin-left:unset;margin-right:unset;-webkit-margin-start:auto;margin-inline-start:auto;-webkit-margin-end:auto;margin-inline-end:auto}}.refresher-native .refresher-refreshing ion-spinner{--refreshing-rotation-duration:2s;display:none;-webkit-animation:var(--refreshing-rotation-duration) ease-out refresher-rotate forwards;animation:var(--refreshing-rotation-duration) ease-out refresher-rotate forwards}.refresher-native .refresher-refreshing{display:none;-webkit-animation:250ms linear refresher-pop forwards;animation:250ms linear refresher-pop forwards}.refresher-native.refresher-refreshing .refresher-pulling ion-spinner,.refresher-native.refresher-completing .refresher-pulling ion-spinner{display:none}.refresher-native.refresher-refreshing .refresher-refreshing ion-spinner,.refresher-native.refresher-completing .refresher-refreshing ion-spinner{display:block}.refresher-native.refresher-pulling .refresher-pulling ion-spinner{display:block}.refresher-native.refresher-pulling .refresher-refreshing ion-spinner{display:none}@-webkit-keyframes refresher-pop{0%{-webkit-transform:scale(1);transform:scale(1);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}50%{-webkit-transform:scale(1.2);transform:scale(1.2);-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out}100%{-webkit-transform:scale(1);transform:scale(1)}}@keyframes refresher-pop{0%{-webkit-transform:scale(1);transform:scale(1);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}50%{-webkit-transform:scale(1.2);transform:scale(1.2);-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out}100%{-webkit-transform:scale(1);transform:scale(1)}}@-webkit-keyframes refresher-rotate{from{-webkit-transform:rotate(0deg);transform:rotate(0deg)}to{-webkit-transform:rotate(180deg);transform:rotate(180deg)}}@keyframes refresher-rotate{from{-webkit-transform:rotate(0deg);transform:rotate(0deg)}to{-webkit-transform:rotate(180deg);transform:rotate(180deg)}}";
-var refresherMdCss = "ion-refresher{left:0;top:0;display:none;position:absolute;width:100%;height:60px;pointer-events:none;z-index:-1}[dir=rtl] ion-refresher,:host-context([dir=rtl]) ion-refresher{left:unset;right:unset;right:0}ion-refresher.refresher-active{display:block}ion-refresher-content{display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;-ms-flex-pack:center;justify-content:center;height:100%}.refresher-pulling,.refresher-refreshing{display:none;width:100%}.refresher-pulling-icon,.refresher-refreshing-icon{-webkit-transform-origin:center;transform-origin:center;-webkit-transition:200ms;transition:200ms;font-size:30px;text-align:center}[dir=rtl] .refresher-pulling-icon,:host-context([dir=rtl]) .refresher-pulling-icon,[dir=rtl] .refresher-refreshing-icon,:host-context([dir=rtl]) .refresher-refreshing-icon{-webkit-transform-origin:calc(100% - center);transform-origin:calc(100% - center)}.refresher-pulling-text,.refresher-refreshing-text{font-size:16px;text-align:center}ion-refresher-content .arrow-container{display:none}.refresher-pulling ion-refresher-content .refresher-pulling{display:block}.refresher-ready ion-refresher-content .refresher-pulling{display:block}.refresher-ready ion-refresher-content .refresher-pulling-icon{-webkit-transform:rotate(180deg);transform:rotate(180deg)}.refresher-refreshing ion-refresher-content .refresher-refreshing{display:block}.refresher-cancelling ion-refresher-content .refresher-pulling{display:block}.refresher-cancelling ion-refresher-content .refresher-pulling-icon{-webkit-transform:scale(0);transform:scale(0)}.refresher-completing ion-refresher-content .refresher-refreshing{display:block}.refresher-completing ion-refresher-content .refresher-refreshing-icon{-webkit-transform:scale(0);transform:scale(0)}.refresher-native .refresher-pulling-text,.refresher-native .refresher-refreshing-text{display:none}.refresher-md .refresher-pulling-icon,.refresher-md .refresher-refreshing-icon{color:var(--ion-text-color, #000)}.refresher-md .refresher-pulling-text,.refresher-md .refresher-refreshing-text{color:var(--ion-text-color, #000)}.refresher-md .refresher-refreshing .spinner-lines-md line,.refresher-md .refresher-refreshing .spinner-lines-small-md line,.refresher-md .refresher-refreshing .spinner-crescent circle{stroke:var(--ion-text-color, #000)}.refresher-md .refresher-refreshing .spinner-bubbles circle,.refresher-md .refresher-refreshing .spinner-circles circle,.refresher-md .refresher-refreshing .spinner-dots circle{fill:var(--ion-text-color, #000)}ion-refresher.refresher-native{display:block;z-index:1}ion-refresher.refresher-native ion-spinner{margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;width:24px;height:24px;color:var(--ion-color-primary, #3880ff)}@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0){ion-refresher.refresher-native ion-spinner{margin-left:unset;margin-right:unset;-webkit-margin-start:auto;margin-inline-start:auto;-webkit-margin-end:auto;margin-inline-end:auto}}ion-refresher.refresher-native .spinner-arrow-container{display:inherit}ion-refresher.refresher-native .arrow-container{display:block;position:absolute;width:24px;height:24px}ion-refresher.refresher-native .arrow-container ion-icon{margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;left:0;right:0;bottom:-4px;position:absolute;color:var(--ion-color-primary, #3880ff);font-size:12px}@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0){ion-refresher.refresher-native .arrow-container ion-icon{margin-left:unset;margin-right:unset;-webkit-margin-start:auto;margin-inline-start:auto;-webkit-margin-end:auto;margin-inline-end:auto}}ion-refresher.refresher-native.refresher-pulling ion-refresher-content .refresher-pulling,ion-refresher.refresher-native.refresher-ready ion-refresher-content .refresher-pulling{display:-ms-flexbox;display:flex}ion-refresher.refresher-native.refresher-refreshing ion-refresher-content .refresher-refreshing,ion-refresher.refresher-native.refresher-completing ion-refresher-content .refresher-refreshing,ion-refresher.refresher-native.refresher-cancelling ion-refresher-content .refresher-refreshing{display:-ms-flexbox;display:flex}ion-refresher.refresher-native .refresher-pulling-icon{-webkit-transform:translateY(calc(-100% - 10px));transform:translateY(calc(-100% - 10px))}ion-refresher.refresher-native .refresher-pulling-icon,ion-refresher.refresher-native .refresher-refreshing-icon{margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;border-radius:100%;padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px;display:-ms-flexbox;display:flex;border:1px solid #ececec;background:white;-webkit-box-shadow:0px 1px 6px rgba(0, 0, 0, 0.1);box-shadow:0px 1px 6px rgba(0, 0, 0, 0.1)}@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0){ion-refresher.refresher-native .refresher-pulling-icon,ion-refresher.refresher-native .refresher-refreshing-icon{margin-left:unset;margin-right:unset;-webkit-margin-start:auto;margin-inline-start:auto;-webkit-margin-end:auto;margin-inline-end:auto}}@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0){ion-refresher.refresher-native .refresher-pulling-icon,ion-refresher.refresher-native .refresher-refreshing-icon{padding-left:unset;padding-right:unset;-webkit-padding-start:8px;padding-inline-start:8px;-webkit-padding-end:8px;padding-inline-end:8px}}";
+var refresherMdCss = "ion-refresher{left:0;top:0;display:none;position:absolute;width:100%;height:60px;pointer-events:none;z-index:-1}[dir=rtl] ion-refresher,:host-context([dir=rtl]) ion-refresher{left:unset;right:unset;right:0}ion-refresher.refresher-active{display:block}ion-refresher-content{display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;-ms-flex-pack:center;justify-content:center;height:100%}.refresher-pulling,.refresher-refreshing{display:none;width:100%}.refresher-pulling-icon,.refresher-refreshing-icon{-webkit-transform-origin:center;transform-origin:center;-webkit-transition:200ms;transition:200ms;font-size:30px;text-align:center}[dir=rtl] .refresher-pulling-icon,:host-context([dir=rtl]) .refresher-pulling-icon,[dir=rtl] .refresher-refreshing-icon,:host-context([dir=rtl]) .refresher-refreshing-icon{-webkit-transform-origin:calc(100% - center);transform-origin:calc(100% - center)}.refresher-pulling-text,.refresher-refreshing-text{font-size:16px;text-align:center}ion-refresher-content .arrow-container{display:none}.refresher-pulling ion-refresher-content .refresher-pulling{display:block}.refresher-ready ion-refresher-content .refresher-pulling{display:block}.refresher-ready ion-refresher-content .refresher-pulling-icon{-webkit-transform:rotate(180deg);transform:rotate(180deg)}.refresher-refreshing ion-refresher-content .refresher-refreshing{display:block}.refresher-cancelling ion-refresher-content .refresher-pulling{display:block}.refresher-cancelling ion-refresher-content .refresher-pulling-icon{-webkit-transform:scale(0);transform:scale(0)}.refresher-completing ion-refresher-content .refresher-refreshing{display:block}.refresher-completing ion-refresher-content .refresher-refreshing-icon{-webkit-transform:scale(0);transform:scale(0)}.refresher-native .refresher-pulling-text,.refresher-native .refresher-refreshing-text{display:none}.refresher-md .refresher-pulling-icon,.refresher-md .refresher-refreshing-icon{color:var(--ion-text-color, #000)}.refresher-md .refresher-pulling-text,.refresher-md .refresher-refreshing-text{color:var(--ion-text-color, #000)}.refresher-md .refresher-refreshing .spinner-lines-md line,.refresher-md .refresher-refreshing .spinner-lines-small-md line,.refresher-md .refresher-refreshing .spinner-crescent circle{stroke:var(--ion-text-color, #000)}.refresher-md .refresher-refreshing .spinner-bubbles circle,.refresher-md .refresher-refreshing .spinner-circles circle,.refresher-md .refresher-refreshing .spinner-dots circle{fill:var(--ion-text-color, #000)}ion-refresher.refresher-native{display:block;z-index:1}ion-refresher.refresher-native ion-spinner{margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;width:24px;height:24px;color:var(--ion-color-primary, #3880ff)}@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0){ion-refresher.refresher-native ion-spinner{margin-left:unset;margin-right:unset;-webkit-margin-start:auto;margin-inline-start:auto;-webkit-margin-end:auto;margin-inline-end:auto}}ion-refresher.refresher-native .spinner-arrow-container{display:inherit}ion-refresher.refresher-native .arrow-container{display:block;position:absolute;width:24px;height:24px}ion-refresher.refresher-native .arrow-container ion-icon{margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;left:0;right:0;bottom:-4px;position:absolute;color:var(--ion-color-primary, #3880ff);font-size:12px}@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0){ion-refresher.refresher-native .arrow-container ion-icon{margin-left:unset;margin-right:unset;-webkit-margin-start:auto;margin-inline-start:auto;-webkit-margin-end:auto;margin-inline-end:auto}}ion-refresher.refresher-native.refresher-pulling ion-refresher-content .refresher-pulling,ion-refresher.refresher-native.refresher-ready ion-refresher-content .refresher-pulling{display:-ms-flexbox;display:flex}ion-refresher.refresher-native.refresher-refreshing ion-refresher-content .refresher-refreshing,ion-refresher.refresher-native.refresher-completing ion-refresher-content .refresher-refreshing,ion-refresher.refresher-native.refresher-cancelling ion-refresher-content .refresher-refreshing{display:-ms-flexbox;display:flex}ion-refresher.refresher-native .refresher-pulling-icon{-webkit-transform:translateY(calc(-100% - 10px));transform:translateY(calc(-100% - 10px))}ion-refresher.refresher-native .refresher-pulling-icon,ion-refresher.refresher-native .refresher-refreshing-icon{margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;border-radius:100%;padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px;display:-ms-flexbox;display:flex;border:1px solid var(--ion-color-step-200, #ececec);background:var(--ion-color-step-250, #ffffff);-webkit-box-shadow:0px 1px 6px rgba(0, 0, 0, 0.1);box-shadow:0px 1px 6px rgba(0, 0, 0, 0.1)}@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0){ion-refresher.refresher-native .refresher-pulling-icon,ion-refresher.refresher-native .refresher-refreshing-icon{margin-left:unset;margin-right:unset;-webkit-margin-start:auto;margin-inline-start:auto;-webkit-margin-end:auto;margin-inline-end:auto}}@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0){ion-refresher.refresher-native .refresher-pulling-icon,ion-refresher.refresher-native .refresher-refreshing-icon{padding-left:unset;padding-right:unset;-webkit-padding-start:8px;padding-inline-start:8px;-webkit-padding-end:8px;padding-inline-end:8px}}";
 
 var Refresher = /*#__PURE__*/function () {
   function Refresher(hostRef) {
-    Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, Refresher);
+    Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, Refresher);
 
-    Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["r"])(this, hostRef);
-    this.ionRefresh = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionRefresh", 7);
-    this.ionPull = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionPull", 7);
-    this.ionStart = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionStart", 7);
+    Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["r"])(this, hostRef);
+    this.ionRefresh = Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionRefresh", 7);
+    this.ionPull = Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionPull", 7);
+    this.ionStart = Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionStart", 7);
     this.appliedStyles = false;
     this.didStart = false;
     this.progress = 0;
@@ -345,7 +365,7 @@ var Refresher = /*#__PURE__*/function () {
 
     this.closeDuration = '280ms';
     /**
-     * Time it takes the refresher to to snap back to the `refreshing` state.
+     * Time it takes the refresher to snap back to the `refreshing` state.
      * Does not apply when the refresher content uses a spinner,
      * enabling the native refresher.
      */
@@ -374,7 +394,7 @@ var Refresher = /*#__PURE__*/function () {
     this.disabled = false;
   }
 
-  Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(Refresher, [{
+  Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(Refresher, [{
     key: "disabledChanged",
     value: function disabledChanged() {
       if (this.gesture) {
@@ -384,14 +404,14 @@ var Refresher = /*#__PURE__*/function () {
   }, {
     key: "checkNativeRefresher",
     value: function () {
-      var _checkNativeRefresher = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee2() {
+      var _checkNativeRefresher = Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4__["default"])( /*#__PURE__*/C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee2() {
         var useNativeRefresher, contentEl;
-        return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee2$(_context2) {
+        return C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.next = 2;
-                return shouldUseNativeRefresher(this.el, Object(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this));
+                return shouldUseNativeRefresher(this.el, Object(_ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this));
 
               case 2:
                 useNativeRefresher = _context2.sent;
@@ -430,14 +450,14 @@ var Refresher = /*#__PURE__*/function () {
   }, {
     key: "resetNativeRefresher",
     value: function () {
-      var _resetNativeRefresher = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee3(el, state) {
-        return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee3$(_context3) {
+      var _resetNativeRefresher = Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4__["default"])( /*#__PURE__*/C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee3(el, state) {
+        return C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
                 this.state = state;
 
-                if (!(Object(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this) === 'ios')) {
+                if (!(Object(_ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this) === 'ios')) {
                   _context3.next = 6;
                   break;
                 }
@@ -483,11 +503,11 @@ var Refresher = /*#__PURE__*/function () {
   }, {
     key: "setupiOSNativeRefresher",
     value: function () {
-      var _setupiOSNativeRefresher = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee4(pullingSpinner, refreshingSpinner) {
+      var _setupiOSNativeRefresher = Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4__["default"])( /*#__PURE__*/C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee4(pullingSpinner, refreshingSpinner) {
         var _this = this;
 
         var ticks, MAX_PULL, NUM_TICKS;
-        return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee4$(_context4) {
+        return C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee4$(_context4) {
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
@@ -495,7 +515,7 @@ var Refresher = /*#__PURE__*/function () {
                 ticks = pullingSpinner.shadowRoot.querySelectorAll('svg');
                 MAX_PULL = this.scrollEl.clientHeight * 0.16;
                 NUM_TICKS = ticks.length;
-                Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["c"])(function () {
+                Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["c"])(function () {
                   return ticks.forEach(function (el) {
                     return el.style.setProperty('animation', 'none');
                   });
@@ -509,7 +529,7 @@ var Refresher = /*#__PURE__*/function () {
                       return;
                     }
 
-                  Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["f"])(function () {
+                  Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["f"])(function () {
                     // PTR should only be active when overflow scrolling at the top
                     var scrollTop = _this.scrollEl.scrollTop;
                     var refresherHeight = _this.el.clientHeight;
@@ -522,14 +542,14 @@ var Refresher = /*#__PURE__*/function () {
                       if (_this.state === 8
                       /* Refreshing */
                       ) {
-                          var ratio = Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["h"])(0, scrollTop / (refresherHeight * 0.5), 1);
-                          Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["c"])(function () {
+                          var ratio = Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_8__["j"])(0, scrollTop / (refresherHeight * 0.5), 1);
+                          Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["c"])(function () {
                             return setSpinnerOpacity(refreshingSpinner, 1 - ratio);
                           });
                           return;
                         }
 
-                      Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["c"])(function () {
+                      Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["c"])(function () {
                         return setSpinnerOpacity(pullingSpinner, 0);
                       });
                       return;
@@ -549,9 +569,9 @@ var Refresher = /*#__PURE__*/function () {
                     } // delay showing the next tick marks until user has pulled 30px
 
 
-                    var opacity = Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["h"])(0, Math.abs(scrollTop) / refresherHeight, 0.99);
-                    var pullAmount = _this.progress = Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["h"])(0, (Math.abs(scrollTop) - 30) / MAX_PULL, 1);
-                    var currentTickToShow = Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["h"])(0, Math.floor(pullAmount * NUM_TICKS), NUM_TICKS - 1);
+                    var opacity = Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_8__["j"])(0, Math.abs(scrollTop) / refresherHeight, 0.99);
+                    var pullAmount = _this.progress = Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_8__["j"])(0, (Math.abs(scrollTop) - 30) / MAX_PULL, 1);
+                    var currentTickToShow = Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_8__["j"])(0, Math.floor(pullAmount * NUM_TICKS), NUM_TICKS - 1);
                     var shouldShowRefreshingSpinner = _this.state === 8
                     /* Refreshing */
                     || currentTickToShow === NUM_TICKS - 1;
@@ -565,7 +585,7 @@ var Refresher = /*#__PURE__*/function () {
                         _this.beginRefresh();
 
                         _this.didRefresh = true;
-                        Object(_haptic_27b3f981_js__WEBPACK_IMPORTED_MODULE_11__["d"])({
+                        Object(_haptic_27b3f981_js__WEBPACK_IMPORTED_MODULE_9__["d"])({
                           style: 'light'
                         });
                         /**
@@ -588,7 +608,7 @@ var Refresher = /*#__PURE__*/function () {
 
                 this.scrollEl.addEventListener('scroll', this.scrollListenerCallback);
                 _context4.next = 9;
-                return Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! ./index-f49d994d.js */ "8ciA"));
+                return Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! ./index-34cb2743.js */ "KF81"));
 
               case 9:
                 this.gesture = _context4.sent.createGesture({
@@ -631,7 +651,7 @@ var Refresher = /*#__PURE__*/function () {
 
                       _this.needsCompletion = false;
                     } else if (_this.didRefresh) {
-                      Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["f"])(function () {
+                      Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["f"])(function () {
                         return translateElement(_this.elementToTransform, "".concat(_this.el.clientHeight, "px"));
                       });
                     }
@@ -656,20 +676,20 @@ var Refresher = /*#__PURE__*/function () {
   }, {
     key: "setupMDNativeRefresher",
     value: function () {
-      var _setupMDNativeRefresher = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee6(contentEl, pullingSpinner, refreshingSpinner) {
+      var _setupMDNativeRefresher = Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4__["default"])( /*#__PURE__*/C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee6(contentEl, pullingSpinner, refreshingSpinner) {
         var _this2 = this;
 
         var circle, pullingRefresherIcon, refreshingCircle;
-        return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee6$(_context6) {
+        return C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee6$(_context6) {
           while (1) {
             switch (_context6.prev = _context6.next) {
               case 0:
-                circle = Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["g"])(pullingSpinner).querySelector('circle');
+                circle = Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_8__["g"])(pullingSpinner).querySelector('circle');
                 pullingRefresherIcon = this.el.querySelector('ion-refresher-content .refresher-pulling-icon');
-                refreshingCircle = Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["g"])(refreshingSpinner).querySelector('circle');
+                refreshingCircle = Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_8__["g"])(refreshingSpinner).querySelector('circle');
 
                 if (circle !== null && refreshingCircle !== null) {
-                  Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["c"])(function () {
+                  Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["c"])(function () {
                     circle.style.setProperty('animation', 'none'); // This lines up the animation on the refreshing spinner with the pulling spinner
 
                     refreshingSpinner.style.setProperty('animation-delay', '-655ms');
@@ -678,7 +698,7 @@ var Refresher = /*#__PURE__*/function () {
                 }
 
                 _context6.next = 6;
-                return Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! ./index-f49d994d.js */ "8ciA"));
+                return Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! ./index-34cb2743.js */ "KF81"));
 
               case 6:
                 this.gesture = _context6.sent.createGesture({
@@ -712,24 +732,23 @@ var Refresher = /*#__PURE__*/function () {
                       _this2.state = 2
                       /* Pulling */
                       ;
-                      Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["c"])(function () {
-                        var animationType = getRefresherAnimationType(contentEl);
-                        var animation = createPullingAnimation(animationType, pullingRefresherIcon);
-                        ev.data.animation = animation;
-
-                        _this2.scrollEl.style.setProperty('--overflow', 'hidden');
-
-                        animation.progressStart(false, 0);
-
-                        _this2.ionStart.emit();
-
-                        _this2.animations.push(animation);
+                      Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["c"])(function () {
+                        return _this2.scrollEl.style.setProperty('--overflow', 'hidden');
                       });
+                      var animationType = getRefresherAnimationType(contentEl);
+                      var animation = createPullingAnimation(animationType, pullingRefresherIcon, _this2.el);
+                      ev.data.animation = animation;
+                      animation.progressStart(false, 0);
+
+                      _this2.ionStart.emit();
+
+                      _this2.animations.push(animation);
+
                       return;
                     } // Since we are using an easing curve, slow the gesture tracking down a bit
 
 
-                    _this2.progress = Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["h"])(0, ev.deltaY / 180 * 0.5, 1);
+                    _this2.progress = Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_8__["j"])(0, ev.deltaY / 180 * 0.5, 1);
                     ev.data.animation.progressStep(_this2.progress);
 
                     _this2.ionPull.emit();
@@ -739,7 +758,7 @@ var Refresher = /*#__PURE__*/function () {
                       return;
                     }
 
-                    Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["c"])(function () {
+                    Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["c"])(function () {
                       return _this2.scrollEl.style.removeProperty('--overflow');
                     });
 
@@ -762,13 +781,13 @@ var Refresher = /*#__PURE__*/function () {
                       return;
                     }
 
-                    var progress = Object(_cubic_bezier_eea9a7a9_js__WEBPACK_IMPORTED_MODULE_9__["g"])([0, 0], [0, 0], [1, 1], [1, 1], _this2.progress)[0];
+                    var progress = Object(_cubic_bezier_eea9a7a9_js__WEBPACK_IMPORTED_MODULE_7__["g"])([0, 0], [0, 0], [1, 1], [1, 1], _this2.progress)[0];
                     var snapBackAnimation = createSnapBackAnimation(pullingRefresherIcon);
 
                     _this2.animations.push(snapBackAnimation);
 
-                    Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["c"])( /*#__PURE__*/Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee5() {
-                      return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee5$(_context5) {
+                    Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["c"])( /*#__PURE__*/Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4__["default"])( /*#__PURE__*/C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee5() {
+                      return C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee5$(_context5) {
                         while (1) {
                           switch (_context5.prev = _context5.next) {
                             case 0:
@@ -810,9 +829,9 @@ var Refresher = /*#__PURE__*/function () {
   }, {
     key: "setupNativeRefresher",
     value: function () {
-      var _setupNativeRefresher = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee7(contentEl) {
+      var _setupNativeRefresher = Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4__["default"])( /*#__PURE__*/C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee7(contentEl) {
         var pullingSpinner, refreshingSpinner;
-        return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee7$(_context7) {
+        return C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee7$(_context7) {
           while (1) {
             switch (_context7.prev = _context7.next) {
               case 0:
@@ -836,7 +855,7 @@ var Refresher = /*#__PURE__*/function () {
                 pullingSpinner = this.el.querySelector('ion-refresher-content .refresher-pulling ion-spinner');
                 refreshingSpinner = this.el.querySelector('ion-refresher-content .refresher-refreshing ion-spinner');
 
-                if (Object(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this) === 'ios') {
+                if (Object(_ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this) === 'ios') {
                   this.setupiOSNativeRefresher(pullingSpinner, refreshingSpinner);
                 } else {
                   this.setupMDNativeRefresher(contentEl, pullingSpinner, refreshingSpinner);
@@ -864,11 +883,11 @@ var Refresher = /*#__PURE__*/function () {
   }, {
     key: "connectedCallback",
     value: function () {
-      var _connectedCallback = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee8() {
+      var _connectedCallback = Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4__["default"])( /*#__PURE__*/C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee8() {
         var _this3 = this;
 
         var contentEl;
-        return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee8$(_context8) {
+        return C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee8$(_context8) {
           while (1) {
             switch (_context8.prev = _context8.next) {
               case 0:
@@ -893,7 +912,9 @@ var Refresher = /*#__PURE__*/function () {
 
               case 7:
                 _context8.next = 9;
-                return contentEl.componentOnReady();
+                return new Promise(function (resolve) {
+                  return Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_8__["c"])(contentEl, resolve);
+                });
 
               case 9:
                 _context8.next = 11;
@@ -901,9 +922,9 @@ var Refresher = /*#__PURE__*/function () {
 
               case 11:
                 this.scrollEl = _context8.sent;
-                this.backgroundContentEl = Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["g"])(contentEl).querySelector('#background-content');
+                this.backgroundContentEl = Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_8__["g"])(contentEl).querySelector('#background-content');
                 _context8.next = 15;
-                return shouldUseNativeRefresher(this.el, Object(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this));
+                return shouldUseNativeRefresher(this.el, Object(_ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this));
 
               case 15:
                 if (!_context8.sent) {
@@ -917,7 +938,7 @@ var Refresher = /*#__PURE__*/function () {
 
               case 19:
                 _context8.next = 21;
-                return Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! ./index-f49d994d.js */ "8ciA"));
+                return Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! ./index-34cb2743.js */ "KF81"));
 
               case 21:
                 this.gesture = _context8.sent.createGesture({
@@ -980,10 +1001,10 @@ var Refresher = /*#__PURE__*/function () {
   }, {
     key: "complete",
     value: function () {
-      var _complete = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee9() {
+      var _complete = Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4__["default"])( /*#__PURE__*/C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee9() {
         var _this4 = this;
 
-        return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee9$(_context9) {
+        return C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee9$(_context9) {
           while (1) {
             switch (_context9.prev = _context9.next) {
               case 0:
@@ -991,8 +1012,8 @@ var Refresher = /*#__PURE__*/function () {
                   this.needsCompletion = true; // Do not reset scroll el until user removes pointer from screen
 
                   if (!this.pointerDown) {
-                    Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["r"])(function () {
-                      return Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["r"])(function () {
+                    Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_8__["r"])(function () {
+                      return Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_8__["r"])(function () {
                         return _this4.resetNativeRefresher(_this4.elementToTransform, 32
                         /* Completing */
                         );
@@ -1026,18 +1047,18 @@ var Refresher = /*#__PURE__*/function () {
   }, {
     key: "cancel",
     value: function () {
-      var _cancel = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee10() {
+      var _cancel = Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4__["default"])( /*#__PURE__*/C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee10() {
         var _this5 = this;
 
-        return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee10$(_context10) {
+        return C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee10$(_context10) {
           while (1) {
             switch (_context10.prev = _context10.next) {
               case 0:
                 if (this.nativeRefresher) {
                   // Do not reset scroll el until user removes pointer from screen
                   if (!this.pointerDown) {
-                    Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["r"])(function () {
-                      return Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["r"])(function () {
+                    Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_8__["r"])(function () {
+                      return Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_8__["r"])(function () {
                         return _this5.resetNativeRefresher(_this5.elementToTransform, 16
                         /* Cancelling */
                         );
@@ -1288,7 +1309,7 @@ var Refresher = /*#__PURE__*/function () {
       }
 
       this.appliedStyles = y > 0;
-      Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["c"])(function () {
+      Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["c"])(function () {
         if (_this7.scrollEl && _this7.backgroundContentEl) {
           var scrollStyle = _this7.scrollEl.style;
           var backgroundStyle = _this7.backgroundContentEl.style;
@@ -1304,16 +1325,16 @@ var Refresher = /*#__PURE__*/function () {
     value: function render() {
       var _class;
 
-      var mode = Object(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this);
-      return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["H"], {
+      var mode = Object(_ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this);
+      return Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["H"], {
         slot: "fixed",
-        class: (_class = {}, Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class, mode, true), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class, "refresher-".concat(mode), true), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class, 'refresher-native', this.nativeRefresher), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class, 'refresher-active', this.state !== 1), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class, 'refresher-pulling', this.state === 2), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class, 'refresher-ready', this.state === 4), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class, 'refresher-refreshing', this.state === 8), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class, 'refresher-cancelling', this.state === 16), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class, 'refresher-completing', this.state === 32), _class)
+        class: (_class = {}, Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class, mode, true), Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class, "refresher-".concat(mode), true), Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class, 'refresher-native', this.nativeRefresher), Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class, 'refresher-active', this.state !== 1), Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class, 'refresher-pulling', this.state === 2), Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class, 'refresher-ready', this.state === 4), Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class, 'refresher-refreshing', this.state === 8), Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class, 'refresher-cancelling', this.state === 16), Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class, 'refresher-completing', this.state === 32), _class)
       });
     }
   }, {
     key: "el",
     get: function get() {
-      return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["i"])(this);
+      return Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["i"])(this);
     }
   }], [{
     key: "watchers",
@@ -1334,24 +1355,24 @@ Refresher.style = {
 
 var RefresherContent = /*#__PURE__*/function () {
   function RefresherContent(hostRef) {
-    Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, RefresherContent);
+    Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, RefresherContent);
 
-    Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["r"])(this, hostRef);
+    Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["r"])(this, hostRef);
   }
 
-  Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(RefresherContent, [{
+  Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(RefresherContent, [{
     key: "componentWillLoad",
     value: function componentWillLoad() {
       if (this.pullingIcon === undefined) {
-        var mode = Object(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this);
+        var mode = Object(_ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this);
         var overflowRefresher = this.el.style.webkitOverflowScrolling !== undefined ? 'lines' : 'arrow-down';
-        this.pullingIcon = _ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["c"].get('refreshingIcon', mode === 'ios' && Object(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["i"])('mobile') ? _ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["c"].get('spinner', overflowRefresher) : 'circular');
+        this.pullingIcon = _ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_6__["c"].get('refreshingIcon', mode === 'ios' && Object(_ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_6__["a"])('mobile') ? _ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_6__["c"].get('spinner', overflowRefresher) : 'circular');
       }
 
       if (this.refreshingSpinner === undefined) {
-        var _mode = Object(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this);
+        var _mode = Object(_ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this);
 
-        this.refreshingSpinner = _ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["c"].get('refreshingSpinner', _ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["c"].get('spinner', _mode === 'ios' ? 'lines' : 'circular'));
+        this.refreshingSpinner = _ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_6__["c"].get('refreshingSpinner', _ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_6__["c"].get('spinner', _mode === 'ios' ? 'lines' : 'circular'));
       }
     }
   }, {
@@ -1359,45 +1380,45 @@ var RefresherContent = /*#__PURE__*/function () {
     value: function render() {
       var pullingIcon = this.pullingIcon;
       var hasSpinner = pullingIcon != null && _spinner_configs_cd7845af_js__WEBPACK_IMPORTED_MODULE_12__["S"][pullingIcon] !== undefined;
-      var mode = Object(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this);
-      return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["H"], {
+      var mode = Object(_ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this);
+      return Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["H"], {
         class: mode
-      }, Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+      }, Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
         class: "refresher-pulling"
-      }, this.pullingIcon && hasSpinner && Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+      }, this.pullingIcon && hasSpinner && Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
         class: "refresher-pulling-icon"
-      }, Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+      }, Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
         class: "spinner-arrow-container"
-      }, Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("ion-spinner", {
+      }, Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])("ion-spinner", {
         name: this.pullingIcon,
         paused: true
-      }), mode === 'md' && this.pullingIcon === 'circular' && Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+      }), mode === 'md' && this.pullingIcon === 'circular' && Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
         class: "arrow-container"
-      }, Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("ion-icon", {
+      }, Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])("ion-icon", {
         name: "caret-back-sharp"
-      })))), this.pullingIcon && !hasSpinner && Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+      })))), this.pullingIcon && !hasSpinner && Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
         class: "refresher-pulling-icon"
-      }, Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("ion-icon", {
+      }, Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])("ion-icon", {
         icon: this.pullingIcon,
         lazy: false
-      })), this.pullingText && Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+      })), this.pullingText && Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
         class: "refresher-pulling-text",
-        innerHTML: Object(_index_9e3fe806_js__WEBPACK_IMPORTED_MODULE_10__["s"])(this.pullingText)
-      })), Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+        innerHTML: Object(_index_9e3fe806_js__WEBPACK_IMPORTED_MODULE_11__["s"])(this.pullingText)
+      })), Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
         class: "refresher-refreshing"
-      }, this.refreshingSpinner && Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+      }, this.refreshingSpinner && Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
         class: "refresher-refreshing-icon"
-      }, Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("ion-spinner", {
+      }, Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])("ion-spinner", {
         name: this.refreshingSpinner
-      })), this.refreshingText && Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+      })), this.refreshingText && Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
         class: "refresher-refreshing-text",
-        innerHTML: Object(_index_9e3fe806_js__WEBPACK_IMPORTED_MODULE_10__["s"])(this.refreshingText)
+        innerHTML: Object(_index_9e3fe806_js__WEBPACK_IMPORTED_MODULE_11__["s"])(this.refreshingText)
       })));
     }
   }, {
     key: "el",
     get: function get() {
-      return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["i"])(this);
+      return Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["i"])(this);
     }
   }]);
 

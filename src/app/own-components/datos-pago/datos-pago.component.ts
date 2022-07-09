@@ -8,6 +8,7 @@ import { PrintService } from '../../services/print.service';
 import { ConfiguracionService } from '../../services/configuracion.service';
 import { SesionService } from 'src/app/services/sesion.service';
 import * as moment from 'moment';
+import { PagosService } from '../../services/pagos.service';
 
 @Component({
   selector: 'app-datos-pago',
@@ -17,6 +18,7 @@ import * as moment from 'moment';
 export class DatosPagoComponent implements OnInit {
 
   @Input() pago: ConsultaPagoModel;
+  isOffline: boolean;
 
   constructor(
     private printer: Printer,
@@ -24,10 +26,21 @@ export class DatosPagoComponent implements OnInit {
     private print: PrintService,
     private loading: LoadingController,
     private config: ConfiguracionService,
-    private sesion: SesionService
+    private sesion: SesionService,
+    private pagosService : PagosService
   ) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+
+    this.isOffline = localStorage.getItem('offlineMode') === 'true' ? true : false;
+
+   }
+
+  notificar() {
+    this.pagosService.notificarRecibo(this.pago.NumeroDocumento);
+  }
+
+
 
   imprimir() {
     /** Se comenta código anterior por inexistencia de lógica. */
@@ -93,9 +106,9 @@ export class DatosPagoComponent implements OnInit {
            
             if(this.pago.NumeroDocumento !== undefined)
             {
-              let isOffline = localStorage.getItem('offlineMode') === 'true' ? true : false;
+              
 
-              if(!isOffline){
+              if(!this.isOffline){
                   printBody += tipodoc+ ': ' + this.pago.NumeroDocumento;
               }else{
                   printBody += 'RECIBO'+ ': ' + this.pago.NumeroDocumento;

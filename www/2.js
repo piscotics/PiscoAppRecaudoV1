@@ -1,9 +1,9 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[2],{
 
-/***/ "owCT":
-/*!***************************************************************!*\
-  !*** ../node_modules/@ionic/core/dist/esm/ion-app_8.entry.js ***!
-  \***************************************************************/
+/***/ "hgI1":
+/*!**************************************************************!*\
+  !*** ./node_modules/@ionic/core/dist/esm/ion-app_8.entry.js ***!
+  \**************************************************************/
 /*! exports provided: ion_app, ion_buttons, ion_content, ion_footer, ion_header, ion_router_outlet, ion_title, ion_toolbar */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -17,19 +17,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_router_outlet", function() { return RouterOutlet; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_title", function() { return ToolbarTitle; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_toolbar", function() { return Toolbar; });
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../node_modules/@babel/runtime/helpers/esm/defineProperty */ "mK0O");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../node_modules/@babel/runtime/regenerator */ "o0o1");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../node_modules/@babel/runtime/helpers/esm/asyncToGenerator */ "eijD");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../node_modules/@babel/runtime/helpers/esm/classCallCheck */ "hisu");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../node_modules/@babel/runtime/helpers/esm/createClass */ "yBJb");
-/* harmony import */ var _index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./index-e806d1f6.js */ "OVRr");
-/* harmony import */ var _ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ionic-global-9d5c8ee3.js */ "rAwY");
-/* harmony import */ var _helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./helpers-90f46169.js */ "Ij9o");
-/* harmony import */ var _index_d8cfb4a8_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./index-d8cfb4a8.js */ "Q0/8");
-/* harmony import */ var _cubic_bezier_eea9a7a9_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./cubic-bezier-eea9a7a9.js */ "kBbB");
-/* harmony import */ var _theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./theme-ff3fc52f.js */ "akMd");
-/* harmony import */ var _framework_delegate_4584ab5a_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./framework-delegate-4584ab5a.js */ "5N/I");
+/* harmony import */ var C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/defineProperty */ "rePB");
+/* harmony import */ var C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ "o0o1");
+/* harmony import */ var C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator */ "HaE+");
+/* harmony import */ var C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/classCallCheck */ "1OyB");
+/* harmony import */ var C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createClass */ "vuIU");
+/* harmony import */ var _index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./index-7a8b7a1c.js */ "wEJo");
+/* harmony import */ var _ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ionic-global-63a97a32.js */ "E/Mt");
+/* harmony import */ var _theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./theme-ff3fc52f.js */ "74mu");
+/* harmony import */ var _helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./helpers-dd7e4b7b.js */ "1vRN");
+/* harmony import */ var _cubic_bezier_eea9a7a9_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./cubic-bezier-eea9a7a9.js */ "bC4P");
+/* harmony import */ var _framework_delegate_4392cd63_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./framework-delegate-4392cd63.js */ "acej");
+/* harmony import */ var _index_931440b1_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./index-931440b1.js */ "Js3/");
 
 
 
@@ -46,60 +46,60 @@ var appCss = "html.plt-mobile ion-app{-webkit-user-select:none;-moz-user-select:
 
 var App = /*#__PURE__*/function () {
   function App(hostRef) {
-    Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__["default"])(this, App);
+    Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__["default"])(this, App);
 
-    Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["r"])(this, hostRef);
+    Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["r"])(this, hostRef);
   }
 
-  Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__["default"])(App, [{
+  Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__["default"])(App, [{
     key: "componentDidLoad",
     value: function componentDidLoad() {
       {
-        rIC( /*#__PURE__*/Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee() {
+        rIC( /*#__PURE__*/Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee() {
           var isHybrid, hardwareBackButtonModule;
-          return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee$(_context) {
+          return C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee$(_context) {
             while (1) {
               switch (_context.prev = _context.next) {
                 case 0:
-                  isHybrid = Object(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["i"])(window, 'hybrid');
+                  isHybrid = Object(_ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_6__["a"])(window, 'hybrid');
 
-                  if (!_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["c"].getBoolean('_testing')) {
-                    __webpack_require__.e(/*! import() | tap-click-71d2324a-js */ "tap-click-71d2324a-js").then(__webpack_require__.bind(null, /*! ./tap-click-71d2324a.js */ "O9dl")).then(function (module) {
-                      return module.startTapClick(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["c"]);
+                  if (!_ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_6__["c"].getBoolean('_testing')) {
+                    __webpack_require__.e(/*! import() | tap-click-cc1ae2b2-js */ "tap-click-cc1ae2b2-js").then(__webpack_require__.bind(null, /*! ./tap-click-cc1ae2b2.js */ "cg4z")).then(function (module) {
+                      return module.startTapClick(_ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_6__["c"]);
                     });
                   }
 
-                  if (_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["c"].getBoolean('statusTap', isHybrid)) {
-                    __webpack_require__.e(/*! import() | status-tap-b46a1b02-js */ "status-tap-b46a1b02-js").then(__webpack_require__.bind(null, /*! ./status-tap-b46a1b02.js */ "GhNg")).then(function (module) {
+                  if (_ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_6__["c"].getBoolean('statusTap', isHybrid)) {
+                    __webpack_require__.e(/*! import() | status-tap-5c3a5bca-js */ "status-tap-5c3a5bca-js").then(__webpack_require__.bind(null, /*! ./status-tap-5c3a5bca.js */ "dP+9")).then(function (module) {
                       return module.startStatusTap();
                     });
                   }
 
-                  if (_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["c"].getBoolean('inputShims', needInputShims())) {
-                    __webpack_require__.e(/*! import() | input-shims-7a52f98d-js */ "input-shims-7a52f98d-js").then(__webpack_require__.bind(null, /*! ./input-shims-7a52f98d.js */ "Q+jX")).then(function (module) {
-                      return module.startInputShims(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["c"]);
+                  if (_ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_6__["c"].getBoolean('inputShims', needInputShims())) {
+                    __webpack_require__.e(/*! import() | input-shims-73f15161-js */ "input-shims-73f15161-js").then(__webpack_require__.bind(null, /*! ./input-shims-73f15161.js */ "3Iwd")).then(function (module) {
+                      return module.startInputShims(_ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_6__["c"]);
                     });
                   }
 
                   _context.next = 6;
-                  return Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! ./hardware-back-button-4a6b37fb.js */ "A64e"));
+                  return Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! ./hardware-back-button-4a6b37fb.js */ "B4Jq"));
 
                 case 6:
                   hardwareBackButtonModule = _context.sent;
 
-                  if (_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["c"].getBoolean('hardwareBackButton', isHybrid)) {
+                  if (_ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_6__["c"].getBoolean('hardwareBackButton', isHybrid)) {
                     hardwareBackButtonModule.startHardwareBackButton();
                   } else {
                     hardwareBackButtonModule.blockHardwareBackButton();
                   }
 
                   if (typeof window !== 'undefined') {
-                    __webpack_require__.e(/*! import() | keyboard-5742b5da-js */ "keyboard-5742b5da-js").then(__webpack_require__.bind(null, /*! ./keyboard-5742b5da.js */ "92VN")).then(function (module) {
+                    __webpack_require__.e(/*! import() | keyboard-5742b5da-js */ "keyboard-5742b5da-js").then(__webpack_require__.bind(null, /*! ./keyboard-5742b5da.js */ "nGaW")).then(function (module) {
                       return module.startKeyboardAssist(window);
                     });
                   }
 
-                  __webpack_require__.e(/*! import() | focus-visible-f4ad4f1a-js */ "focus-visible-f4ad4f1a-js").then(__webpack_require__.bind(null, /*! ./focus-visible-f4ad4f1a.js */ "IqoH")).then(function (module) {
+                  __webpack_require__.e(/*! import() | focus-visible-f4ad4f1a-js */ "focus-visible-f4ad4f1a-js").then(__webpack_require__.bind(null, /*! ./focus-visible-f4ad4f1a.js */ "Tsnu")).then(function (module) {
                     return module.startFocusVisible();
                   });
 
@@ -117,15 +117,15 @@ var App = /*#__PURE__*/function () {
     value: function render() {
       var _class;
 
-      var mode = Object(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this);
-      return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["H"], {
-        class: (_class = {}, Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class, mode, true), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class, 'ion-page', true), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class, 'force-statusbar-padding', _ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["c"].getBoolean('_forceStatusbarPadding')), _class)
+      var mode = Object(_ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this);
+      return Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["H"], {
+        class: (_class = {}, Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class, mode, true), Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class, 'ion-page', true), Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class, 'force-statusbar-padding', _ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_6__["c"].getBoolean('_forceStatusbarPadding')), _class)
       });
     }
   }, {
     key: "el",
     get: function get() {
-      return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["i"])(this);
+      return Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["i"])(this);
     }
   }]);
 
@@ -133,7 +133,7 @@ var App = /*#__PURE__*/function () {
 }();
 
 var needInputShims = function needInputShims() {
-  return Object(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["i"])(window, 'ios') && Object(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["i"])(window, 'mobile');
+  return Object(_ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_6__["a"])(window, 'ios') && Object(_ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_6__["a"])(window, 'mobile');
 };
 
 var rIC = function rIC(callback) {
@@ -150,9 +150,9 @@ var buttonsMdCss = ".sc-ion-buttons-md-h{display:-ms-flexbox;display:flex;-ms-fl
 
 var Buttons = /*#__PURE__*/function () {
   function Buttons(hostRef) {
-    Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__["default"])(this, Buttons);
+    Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__["default"])(this, Buttons);
 
-    Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["r"])(this, hostRef);
+    Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["r"])(this, hostRef);
     /**
      * If true, buttons will disappear when its
      * parent toolbar has fully collapsed if the toolbar
@@ -169,14 +169,14 @@ var Buttons = /*#__PURE__*/function () {
     this.collapse = false;
   }
 
-  Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__["default"])(Buttons, [{
+  Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__["default"])(Buttons, [{
     key: "render",
     value: function render() {
       var _class2;
 
-      var mode = Object(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this);
-      return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["H"], {
-        class: (_class2 = {}, Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class2, mode, true), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class2, 'buttons-collapse', this.collapse), _class2)
+      var mode = Object(_ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this);
+      return Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["H"], {
+        class: (_class2 = {}, Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class2, mode, true), Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class2, 'buttons-collapse', this.collapse), _class2)
       });
     }
   }]);
@@ -188,21 +188,22 @@ Buttons.style = {
   ios: buttonsIosCss,
   md: buttonsMdCss
 };
-var contentCss = ":host{--background:var(--ion-background-color, #fff);--color:var(--ion-text-color, #000);--padding-top:0px;--padding-bottom:0px;--padding-start:0px;--padding-end:0px;--keyboard-offset:0px;--offset-top:0px;--offset-bottom:0px;--overflow:auto;display:block;position:relative;-ms-flex:1;flex:1;width:100%;height:100%;margin:0 !important;padding:0 !important;font-family:var(--ion-font-family, inherit);contain:size style}:host(.ion-color) .inner-scroll{background:var(--ion-color-base);color:var(--ion-color-contrast)}:host(.outer-content){--background:var(--ion-color-step-50, #f2f2f2)}#background-content{left:0px;right:0px;top:calc(var(--offset-top) * -1);bottom:calc(var(--offset-bottom) * -1);position:absolute;background:var(--background)}.inner-scroll{left:0px;right:0px;top:calc(var(--offset-top) * -1);bottom:calc(var(--offset-bottom) * -1);padding-left:var(--padding-start);padding-right:var(--padding-end);padding-top:calc(var(--padding-top) + var(--offset-top));padding-bottom:calc(var(--padding-bottom) + var(--keyboard-offset) + var(--offset-bottom));position:absolute;color:var(--color);-webkit-box-sizing:border-box;box-sizing:border-box;overflow:hidden}@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0){.inner-scroll{padding-left:unset;padding-right:unset;-webkit-padding-start:var(--padding-start);padding-inline-start:var(--padding-start);-webkit-padding-end:var(--padding-end);padding-inline-end:var(--padding-end)}}.scroll-y,.scroll-x{-webkit-overflow-scrolling:touch;z-index:0;will-change:scroll-position}.scroll-y{-ms-touch-action:pan-y;touch-action:pan-y;overflow-y:var(--overflow);overscroll-behavior-y:contain}.scroll-x{-ms-touch-action:pan-x;touch-action:pan-x;overflow-x:var(--overflow);overscroll-behavior-x:contain}.scroll-x.scroll-y{-ms-touch-action:auto;touch-action:auto}.overscroll::before,.overscroll::after{position:absolute;width:1px;height:1px;content:\"\"}.overscroll::before{bottom:-1px}.overscroll::after{top:-1px}:host(.content-sizing){contain:none}:host(.content-sizing) .inner-scroll{position:relative}.transition-effect{display:none;position:absolute;left:-100%;width:100%;height:100vh;opacity:0;pointer-events:none}.transition-cover{position:absolute;right:0;width:100%;height:100%;background:black;opacity:0.1}.transition-shadow{display:block;position:absolute;right:0;width:10px;height:100%;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAgCAYAAAAIXrg4AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQ1IDc5LjE2MzQ5OSwgMjAxOC8wOC8xMy0xNjo0MDoyMiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTkgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MTE3MDgzRkQ5QTkyMTFFOUEwNzQ5MkJFREE1NUY2MjQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MTE3MDgzRkU5QTkyMTFFOUEwNzQ5MkJFREE1NUY2MjQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDoxMTcwODNGQjlBOTIxMUU5QTA3NDkyQkVEQTU1RjYyNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoxMTcwODNGQzlBOTIxMUU5QTA3NDkyQkVEQTU1RjYyNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PmePEuQAAABNSURBVHjaYvz//z8DIxAwMDAwATGMhmFmPDQuOSZks0AMmoJBaQHjkPfB0Lfg/2gQjVow+HPy/yHvg9GiYjQfjMbBqAWjFgy/4hogwADYqwdzxy5BuwAAAABJRU5ErkJggg==);background-repeat:repeat-y;background-size:10px 16px}::slotted([slot=fixed]){position:absolute}";
+var contentCss = ":host{--background:var(--ion-background-color, #fff);--color:var(--ion-text-color, #000);--padding-top:0px;--padding-bottom:0px;--padding-start:0px;--padding-end:0px;--keyboard-offset:0px;--offset-top:0px;--offset-bottom:0px;--overflow:auto;display:block;position:relative;-ms-flex:1;flex:1;width:100%;height:100%;margin:0 !important;padding:0 !important;font-family:var(--ion-font-family, inherit);contain:size style}:host(.ion-color) .inner-scroll{background:var(--ion-color-base);color:var(--ion-color-contrast)}:host(.outer-content){--background:var(--ion-color-step-50, #f2f2f2)}#background-content{left:0px;right:0px;top:calc(var(--offset-top) * -1);bottom:calc(var(--offset-bottom) * -1);position:absolute;background:var(--background)}.inner-scroll{left:0px;right:0px;top:calc(var(--offset-top) * -1);bottom:calc(var(--offset-bottom) * -1);padding-left:var(--padding-start);padding-right:var(--padding-end);padding-top:calc(var(--padding-top) + var(--offset-top));padding-bottom:calc(var(--padding-bottom) + var(--keyboard-offset) + var(--offset-bottom));position:absolute;color:var(--color);-webkit-box-sizing:border-box;box-sizing:border-box;overflow:hidden}@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0){.inner-scroll{padding-left:unset;padding-right:unset;-webkit-padding-start:var(--padding-start);padding-inline-start:var(--padding-start);-webkit-padding-end:var(--padding-end);padding-inline-end:var(--padding-end)}}.scroll-y,.scroll-x{-webkit-overflow-scrolling:touch;z-index:0;will-change:scroll-position}.scroll-y{-ms-touch-action:pan-y;touch-action:pan-y;overflow-y:var(--overflow);overscroll-behavior-y:contain}.scroll-x{-ms-touch-action:pan-x;touch-action:pan-x;overflow-x:var(--overflow);overscroll-behavior-x:contain}.scroll-x.scroll-y{-ms-touch-action:auto;touch-action:auto}.overscroll::before,.overscroll::after{position:absolute;width:1px;height:1px;content:\"\"}.overscroll::before{bottom:-1px}.overscroll::after{top:-1px}:host(.content-sizing){display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;min-height:0;contain:none}:host(.content-sizing) .inner-scroll{position:relative;top:0;bottom:0;margin-top:calc(var(--offset-top) * -1);margin-bottom:calc(var(--offset-bottom) * -1)}.transition-effect{display:none;position:absolute;left:-100%;width:100%;height:100vh;opacity:0;pointer-events:none}.transition-cover{position:absolute;right:0;width:100%;height:100%;background:black;opacity:0.1}.transition-shadow{display:block;position:absolute;right:0;width:10px;height:100%;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAgCAYAAAAIXrg4AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQ1IDc5LjE2MzQ5OSwgMjAxOC8wOC8xMy0xNjo0MDoyMiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTkgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MTE3MDgzRkQ5QTkyMTFFOUEwNzQ5MkJFREE1NUY2MjQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MTE3MDgzRkU5QTkyMTFFOUEwNzQ5MkJFREE1NUY2MjQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDoxMTcwODNGQjlBOTIxMUU5QTA3NDkyQkVEQTU1RjYyNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoxMTcwODNGQzlBOTIxMUU5QTA3NDkyQkVEQTU1RjYyNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PmePEuQAAABNSURBVHjaYvz//z8DIxAwMDAwATGMhmFmPDQuOSZks0AMmoJBaQHjkPfB0Lfg/2gQjVow+HPy/yHvg9GiYjQfjMbBqAWjFgy/4hogwADYqwdzxy5BuwAAAABJRU5ErkJggg==);background-repeat:repeat-y;background-size:10px 16px}::slotted([slot=fixed]){position:absolute;-webkit-transform:translateZ(0);transform:translateZ(0)}";
 
 var Content = /*#__PURE__*/function () {
   function Content(hostRef) {
-    Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__["default"])(this, Content);
+    Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__["default"])(this, Content);
 
-    Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["r"])(this, hostRef);
-    this.ionScrollStart = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionScrollStart", 7);
-    this.ionScroll = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionScroll", 7);
-    this.ionScrollEnd = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionScrollEnd", 7);
+    Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["r"])(this, hostRef);
+    this.ionScrollStart = Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionScrollStart", 7);
+    this.ionScroll = Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionScroll", 7);
+    this.ionScrollEnd = Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionScrollEnd", 7);
     this.isScrolling = false;
     this.lastScroll = 0;
     this.queued = false;
     this.cTop = -1;
-    this.cBottom = -1; // Detail is used in a hot loop in the scroll event, by allocating it here
+    this.cBottom = -1;
+    this.isMainContent = true; // Detail is used in a hot loop in the scroll event, by allocating it here
     // V8 will be able to inline any read/write to it since it's a monomorphic class.
     // https://mrale.ph/blog/2015/01/11/whats-up-with-monomorphism.html
 
@@ -249,7 +250,12 @@ var Content = /*#__PURE__*/function () {
     this.scrollEvents = false;
   }
 
-  Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__["default"])(Content, [{
+  Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__["default"])(Content, [{
+    key: "connectedCallback",
+    value: function connectedCallback() {
+      this.isMainContent = this.el.closest('ion-menu, ion-popover, ion-modal') === null;
+    }
+  }, {
     key: "disconnectedCallback",
     value: function disconnectedCallback() {
       this.onScrollEnd();
@@ -260,19 +266,11 @@ var Content = /*#__PURE__*/function () {
       this.resize();
     }
   }, {
-    key: "onClick",
-    value: function onClick(ev) {
-      if (this.isScrolling) {
-        ev.preventDefault();
-        ev.stopPropagation();
-      }
-    }
-  }, {
     key: "shouldForceOverscroll",
     value: function shouldForceOverscroll() {
       var forceOverscroll = this.forceOverscroll;
-      var mode = Object(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this);
-      return forceOverscroll === undefined ? mode === 'ios' && Object(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["i"])('ios') : forceOverscroll;
+      var mode = Object(_ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this);
+      return forceOverscroll === undefined ? mode === 'ios' && Object(_ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_6__["a"])('ios') : forceOverscroll;
     }
   }, {
     key: "resize",
@@ -280,12 +278,12 @@ var Content = /*#__PURE__*/function () {
       var _this = this;
 
       if (this.fullscreen) {
-        Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["f"])(function () {
+        Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["f"])(function () {
           return _this.readDimensions();
         });
       } else if (this.cTop !== 0 || this.cBottom !== 0) {
         this.cTop = this.cBottom = 0;
-        Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["j"])(this);
+        Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["j"])(this);
       }
     }
   }, {
@@ -299,7 +297,7 @@ var Content = /*#__PURE__*/function () {
       if (dirty) {
         this.cTop = top;
         this.cBottom = bottom;
-        Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["j"])(this);
+        Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["j"])(this);
       }
     }
   }, {
@@ -317,7 +315,7 @@ var Content = /*#__PURE__*/function () {
 
       if (!this.queued && this.scrollEvents) {
         this.queued = true;
-        Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["f"])(function (ts) {
+        Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["f"])(function (ts) {
           _this2.queued = false;
           _this2.detail.event = ev;
           updateScrollDetail(_this2.detail, _this2.scrollEl, ts, shouldStart);
@@ -389,7 +387,7 @@ var Content = /*#__PURE__*/function () {
   }, {
     key: "scrollToPoint",
     value: function () {
-      var _scrollToPoint = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee2(x, y) {
+      var _scrollToPoint = Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee2(x, y) {
         var duration,
             el,
             resolve,
@@ -401,7 +399,7 @@ var Content = /*#__PURE__*/function () {
             deltaX,
             step,
             _args2 = arguments;
-        return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee2$(_context2) {
+        return C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
@@ -516,22 +514,24 @@ var Content = /*#__PURE__*/function () {
       var _createColorClasses,
           _this4 = this;
 
-      var scrollX = this.scrollX,
+      var isMainContent = this.isMainContent,
+          scrollX = this.scrollX,
           scrollY = this.scrollY;
-      var mode = Object(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this);
+      var mode = Object(_ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this);
       var forceOverscroll = this.shouldForceOverscroll();
-      var transitionShadow = mode === 'ios' && _ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["c"].getBoolean('experimentalTransitionShadow', true);
+      var TagType = isMainContent ? 'main' : 'div';
+      var transitionShadow = mode === 'ios' && _ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_6__["c"].getBoolean('experimentalTransitionShadow', true);
       this.resize();
-      return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["H"], {
-        class: Object(_theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_10__["c"])(this.color, (_createColorClasses = {}, Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, mode, true), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, 'content-sizing', Object(_theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_10__["h"])('ion-popover', this.el)), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, 'overscroll', forceOverscroll), _createColorClasses)),
+      return Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["H"], {
+        class: Object(_theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_7__["c"])(this.color, (_createColorClasses = {}, Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, mode, true), Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, 'content-sizing', Object(_theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_7__["h"])('ion-popover', this.el)), Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, 'overscroll', forceOverscroll), _createColorClasses)),
         style: {
           '--offset-top': "".concat(this.cTop, "px"),
           '--offset-bottom': "".concat(this.cBottom, "px")
         }
-      }, Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+      }, Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
         id: "background-content",
         part: "background"
-      }), Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("main", {
+      }), Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])(TagType, {
         class: {
           'inner-scroll': true,
           'scroll-x': scrollX,
@@ -545,20 +545,20 @@ var Content = /*#__PURE__*/function () {
           return _this4.onScroll(ev);
         } : undefined,
         part: "scroll"
-      }, Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("slot", null)), transitionShadow ? Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+      }, Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])("slot", null)), transitionShadow ? Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
         class: "transition-effect"
-      }, Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+      }, Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
         class: "transition-cover"
-      }), Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+      }), Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
         class: "transition-shadow"
-      })) : null, Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("slot", {
+      })) : null, Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])("slot", {
         name: "fixed"
       }));
     }
   }, {
     key: "el",
     get: function get() {
-      return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["i"])(this);
+      return Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["i"])(this);
     }
   }]);
 
@@ -585,8 +585,14 @@ var getPageElement = function getPageElement(el) {
   if (tabs) {
     return tabs;
   }
+  /**
+   * If we're in a popover, we need to use its wrapper so we can account for space
+   * between the popover and the edges of the screen. But if the popover contains
+   * its own page element, we should use that instead.
+   */
 
-  var page = el.closest('ion-app,ion-page,.ion-page,page-inner');
+
+  var page = el.closest('ion-app, ion-page, .ion-page, page-inner, .popover-content');
 
   if (page) {
     return page;
@@ -632,9 +638,9 @@ var footerMdCss = "ion-footer{display:block;position:relative;-ms-flex-order:1;o
 
 var Footer = /*#__PURE__*/function () {
   function Footer(hostRef) {
-    Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__["default"])(this, Footer);
+    Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__["default"])(this, Footer);
 
-    Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["r"])(this, hostRef);
+    Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["r"])(this, hostRef);
     /**
      * If `true`, the footer will be translucent.
      * Only applies when the mode is `"ios"` and the device supports
@@ -647,19 +653,19 @@ var Footer = /*#__PURE__*/function () {
     this.translucent = false;
   }
 
-  Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__["default"])(Footer, [{
+  Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__["default"])(Footer, [{
     key: "render",
     value: function render() {
       var _class3;
 
-      var mode = Object(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this);
+      var mode = Object(_ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this);
       var translucent = this.translucent;
-      return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["H"], {
+      return Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["H"], {
         role: "contentinfo",
-        class: (_class3 = {}, Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class3, mode, true), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class3, "footer-".concat(mode), true), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class3, "footer-translucent", translucent), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class3, "footer-translucent-".concat(mode), translucent), _class3)
-      }, mode === 'ios' && translucent && Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+        class: (_class3 = {}, Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class3, mode, true), Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class3, "footer-".concat(mode), true), Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class3, "footer-translucent", translucent), Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class3, "footer-translucent-".concat(mode), translucent), _class3)
+      }, mode === 'ios' && translucent && Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
         class: "footer-background"
-      }), Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("slot", null));
+      }), Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])("slot", null));
     }
   }]);
 
@@ -708,14 +714,14 @@ var createHeaderIndex = function createHeaderIndex(headerEl) {
 };
 
 var handleContentScroll = function handleContentScroll(scrollEl, scrollHeaderIndex, contentEl) {
-  Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["f"])(function () {
+  Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["f"])(function () {
     var scrollTop = scrollEl.scrollTop;
-    var scale = Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["h"])(1, 1 + -scrollTop / 500, 1.1); // Native refresher should not cause titles to scale
+    var scale = Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_8__["j"])(1, 1 + -scrollTop / 500, 1.1); // Native refresher should not cause titles to scale
 
     var nativeRefresher = contentEl.querySelector('ion-refresher.refresher-native');
 
     if (nativeRefresher === null) {
-      Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["c"])(function () {
+      Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["c"])(function () {
         scaleLargeTitles(scrollHeaderIndex.toolbars, scale);
       });
     }
@@ -730,7 +736,7 @@ var setToolbarBackgroundOpacity = function setToolbarBackgroundOpacity(toolbar, 
   }
 };
 
-var handleToolbarBorderIntersection = function handleToolbarBorderIntersection(ev, mainHeaderIndex) {
+var handleToolbarBorderIntersection = function handleToolbarBorderIntersection(ev, mainHeaderIndex, scrollTop) {
   if (!ev[0].isIntersecting) {
     return;
   }
@@ -739,10 +745,15 @@ var handleToolbarBorderIntersection = function handleToolbarBorderIntersection(e
    * does not always reset the scrollTop position to 0 when letting go. It will
    * set to 1 once the rubber band effect has ended. This causes the background to
    * appear slightly on certain app setups.
+   *
+   * Additionally, we check if user is rubber banding (scrolling is negative)
+   * as this can mean they are using pull to refresh. Once the refresher starts,
+   * the content is transformed which can cause the intersection observer to erroneously
+   * fire here as well.
    */
 
 
-  var scale = ev[0].intersectionRatio > 0.9 ? 0 : (1 - ev[0].intersectionRatio) * 100 / 75;
+  var scale = ev[0].intersectionRatio > 0.9 || scrollTop <= 0 ? 0 : (1 - ev[0].intersectionRatio) * 100 / 75;
   mainHeaderIndex.toolbars.forEach(function (toolbar) {
     setToolbarBackgroundOpacity(toolbar, scale === 1 ? undefined : scale);
   });
@@ -754,9 +765,10 @@ var handleToolbarBorderIntersection = function handleToolbarBorderIntersection(e
  */
 
 
-var handleToolbarIntersection = function handleToolbarIntersection(ev, mainHeaderIndex, scrollHeaderIndex) {
-  Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["c"])(function () {
-    handleToolbarBorderIntersection(ev, mainHeaderIndex);
+var handleToolbarIntersection = function handleToolbarIntersection(ev, mainHeaderIndex, scrollHeaderIndex, scrollEl) {
+  Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["c"])(function () {
+    var scrollTop = scrollEl.scrollTop;
+    handleToolbarBorderIntersection(ev, mainHeaderIndex, scrollTop);
     var event = ev[0];
     var intersection = event.intersectionRect;
     var intersectionArea = intersection.width * intersection.height;
@@ -784,7 +796,7 @@ var handleToolbarIntersection = function handleToolbarIntersection(ev, mainHeade
        */
       var hasValidIntersection = intersection.x === 0 && intersection.y === 0 || intersection.width !== 0 && intersection.height !== 0;
 
-      if (hasValidIntersection) {
+      if (hasValidIntersection && scrollTop > 0) {
         setHeaderActive(mainHeaderIndex);
         setHeaderActive(scrollHeaderIndex, false);
         setToolbarBackgroundOpacity(mainHeaderIndex.toolbars[0]);
@@ -825,10 +837,11 @@ var headerMdCss = "ion-header{display:block;position:relative;-ms-flex-order:-1;
 
 var Header = /*#__PURE__*/function () {
   function Header(hostRef) {
-    Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__["default"])(this, Header);
+    Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__["default"])(this, Header);
 
-    Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["r"])(this, hostRef);
+    Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["r"])(this, hostRef);
     this.collapsibleHeaderInitialized = false;
+    this.inheritedAttributes = {};
     /**
      * If `true`, the header will be translucent.
      * Only applies when the mode is `"ios"` and the device supports
@@ -841,11 +854,16 @@ var Header = /*#__PURE__*/function () {
     this.translucent = false;
   }
 
-  Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__["default"])(Header, [{
+  Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__["default"])(Header, [{
+    key: "componentWillLoad",
+    value: function componentWillLoad() {
+      this.inheritedAttributes = Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_8__["i"])(this.el, ['role']);
+    }
+  }, {
     key: "componentDidLoad",
     value: function () {
-      var _componentDidLoad = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee3() {
-        return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee3$(_context3) {
+      var _componentDidLoad = Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee3() {
+        return C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
@@ -869,8 +887,8 @@ var Header = /*#__PURE__*/function () {
   }, {
     key: "componentDidUpdate",
     value: function () {
-      var _componentDidUpdate = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee4() {
-        return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee4$(_context4) {
+      var _componentDidUpdate = Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee4() {
+        return C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee4$(_context4) {
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
@@ -899,15 +917,15 @@ var Header = /*#__PURE__*/function () {
   }, {
     key: "checkCollapsibleHeader",
     value: function () {
-      var _checkCollapsibleHeader = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee5() {
+      var _checkCollapsibleHeader = Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee5() {
         var hasCollapse, canCollapse, pageEl, contentEl;
-        return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee5$(_context5) {
+        return C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee5$(_context5) {
           while (1) {
             switch (_context5.prev = _context5.next) {
               case 0:
                 // Determine if the header can collapse
                 hasCollapse = this.collapse === 'condense';
-                canCollapse = hasCollapse && Object(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this) === 'ios' ? hasCollapse : false;
+                canCollapse = hasCollapse && Object(_ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this) === 'ios' ? hasCollapse : false;
 
                 if (!(!canCollapse && this.collapsibleHeaderInitialized)) {
                   _context5.next = 6;
@@ -927,7 +945,7 @@ var Header = /*#__PURE__*/function () {
                 pageEl = this.el.closest('ion-app,ion-page,.ion-page,page-inner');
                 contentEl = pageEl ? pageEl.querySelector('ion-content') : null; // Cloned elements are always needed in iOS transition
 
-                Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["c"])(function () {
+                Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["c"])(function () {
                   var title = cloneElement('ion-title');
                   title.size = 'large';
                   cloneElement('ion-back-button');
@@ -970,11 +988,11 @@ var Header = /*#__PURE__*/function () {
   }, {
     key: "setupCollapsibleHeader",
     value: function () {
-      var _setupCollapsibleHeader = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee6(contentEl, pageEl) {
+      var _setupCollapsibleHeader = Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee6(contentEl, pageEl) {
         var _this5 = this;
 
         var headers, mainHeaderIndex, scrollHeaderIndex, toolbarIntersection;
-        return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee6$(_context6) {
+        return C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee6$(_context6) {
           while (1) {
             switch (_context6.prev = _context6.next) {
               case 0:
@@ -1036,7 +1054,7 @@ var Header = /*#__PURE__*/function () {
                  */
 
                 toolbarIntersection = function toolbarIntersection(ev) {
-                  handleToolbarIntersection(ev, mainHeaderIndex, scrollHeaderIndex);
+                  handleToolbarIntersection(ev, mainHeaderIndex, scrollHeaderIndex, _this5.scrollEl);
                 };
 
                 this.intersectionObserver = new IntersectionObserver(toolbarIntersection, {
@@ -1055,7 +1073,7 @@ var Header = /*#__PURE__*/function () {
                 };
 
                 this.scrollEl.addEventListener('scroll', this.contentScrollCallback);
-                Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["c"])(function () {
+                Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["c"])(function () {
                   if (_this5.collapsibleMainHeader !== undefined) {
                     _this5.collapsibleMainHeader.classList.add('header-collapse-main');
                   }
@@ -1081,20 +1099,23 @@ var Header = /*#__PURE__*/function () {
     value: function render() {
       var _class4;
 
-      var translucent = this.translucent;
-      var mode = Object(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this);
-      var collapse = this.collapse || 'none';
-      return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["H"], {
-        role: "banner",
-        class: (_class4 = {}, Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class4, mode, true), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class4, "header-".concat(mode), true), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class4, "header-translucent", this.translucent), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class4, "header-collapse-".concat(collapse), true), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class4, "header-translucent-".concat(mode), this.translucent), _class4)
-      }, mode === 'ios' && translucent && Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+      var translucent = this.translucent,
+          inheritedAttributes = this.inheritedAttributes;
+      var mode = Object(_ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this);
+      var collapse = this.collapse || 'none'; // banner role must be at top level, so remove role if inside a menu
+
+      var roleType = Object(_theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_7__["h"])('ion-menu', this.el) ? 'none' : 'banner';
+      return Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["H"], Object.assign({
+        role: roleType,
+        class: (_class4 = {}, Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class4, mode, true), Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class4, "header-".concat(mode), true), Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class4, "header-translucent", this.translucent), Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class4, "header-collapse-".concat(collapse), true), Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_class4, "header-translucent-".concat(mode), this.translucent), _class4)
+      }, inheritedAttributes), mode === 'ios' && translucent && Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
         class: "header-background"
-      }), Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("slot", null));
+      }), Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])("slot", null));
     }
   }, {
     key: "el",
     get: function get() {
-      return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["i"])(this);
+      return Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["i"])(this);
     }
   }]);
 
@@ -1109,18 +1130,18 @@ var routeOutletCss = ":host{left:0;right:0;top:0;bottom:0;position:absolute;cont
 
 var RouterOutlet = /*#__PURE__*/function () {
   function RouterOutlet(hostRef) {
-    Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__["default"])(this, RouterOutlet);
+    Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__["default"])(this, RouterOutlet);
 
-    Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["r"])(this, hostRef);
-    this.ionNavWillLoad = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionNavWillLoad", 7);
-    this.ionNavWillChange = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionNavWillChange", 3);
-    this.ionNavDidChange = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionNavDidChange", 3);
-    this.animationEnabled = true;
+    Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["r"])(this, hostRef);
+    this.ionNavWillLoad = Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionNavWillLoad", 7);
+    this.ionNavWillChange = Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionNavWillChange", 3);
+    this.ionNavDidChange = Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionNavDidChange", 3);
+    this.gestureOrAnimationInProgress = false;
     /**
      * The mode determines which platform styles to use.
      */
 
-    this.mode = Object(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this);
+    this.mode = Object(_ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this);
     /**
      * If `true`, the router-outlet should animate the transition of components.
      */
@@ -1128,7 +1149,7 @@ var RouterOutlet = /*#__PURE__*/function () {
     this.animated = true;
   }
 
-  Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__["default"])(RouterOutlet, [{
+  Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__["default"])(RouterOutlet, [{
     key: "swipeHandlerChanged",
     value: function swipeHandlerChanged() {
       if (this.gesture) {
@@ -1138,29 +1159,36 @@ var RouterOutlet = /*#__PURE__*/function () {
   }, {
     key: "connectedCallback",
     value: function () {
-      var _connectedCallback = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee7() {
+      var _connectedCallback = Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee7() {
         var _this6 = this;
 
-        return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee7$(_context7) {
+        var onStart;
+        return C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee7$(_context7) {
           while (1) {
             switch (_context7.prev = _context7.next) {
               case 0:
-                _context7.next = 2;
-                return __webpack_require__.e(/*! import() | swipe-back-2154c9a7-js */ "swipe-back-2154c9a7-js").then(__webpack_require__.bind(null, /*! ./swipe-back-2154c9a7.js */ "VpNE"));
+                onStart = function onStart() {
+                  _this6.gestureOrAnimationInProgress = true;
 
-              case 2:
+                  if (_this6.swipeHandler) {
+                    _this6.swipeHandler.onStart();
+                  }
+                };
+
+                _context7.next = 3;
+                return __webpack_require__.e(/*! import() | swipe-back-fae97365-js */ "swipe-back-fae97365-js").then(__webpack_require__.bind(null, /*! ./swipe-back-fae97365.js */ "Pu4v"));
+
+              case 3:
                 this.gesture = _context7.sent.createSwipeBackGesture(this.el, function () {
-                  return !!_this6.swipeHandler && _this6.swipeHandler.canStart() && _this6.animationEnabled;
+                  return !_this6.gestureOrAnimationInProgress && !!_this6.swipeHandler && _this6.swipeHandler.canStart();
                 }, function () {
-                  return _this6.swipeHandler && _this6.swipeHandler.onStart();
+                  return onStart();
                 }, function (step) {
                   return _this6.ani && _this6.ani.progressStep(step);
                 }, function (shouldComplete, step, dur) {
                   if (_this6.ani) {
-                    _this6.animationEnabled = false;
-
                     _this6.ani.onFinish(function () {
-                      _this6.animationEnabled = true;
+                      _this6.gestureOrAnimationInProgress = false;
 
                       if (_this6.swipeHandler) {
                         _this6.swipeHandler.onEnd(shouldComplete);
@@ -1189,11 +1217,13 @@ var RouterOutlet = /*#__PURE__*/function () {
                     }
 
                     _this6.ani.progressEnd(shouldComplete ? 1 : 0, newStepValue, dur);
+                  } else {
+                    _this6.gestureOrAnimationInProgress = false;
                   }
                 });
                 this.swipeHandlerChanged();
 
-              case 4:
+              case 5:
               case "end":
                 return _context7.stop();
             }
@@ -1225,9 +1255,9 @@ var RouterOutlet = /*#__PURE__*/function () {
   }, {
     key: "commit",
     value: function () {
-      var _commit = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee8(enteringEl, leavingEl, opts) {
+      var _commit = Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee8(enteringEl, leavingEl, opts) {
         var unlock, changed;
-        return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee8$(_context8) {
+        return C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee8$(_context8) {
           while (1) {
             switch (_context8.prev = _context8.next) {
               case 0:
@@ -1274,9 +1304,9 @@ var RouterOutlet = /*#__PURE__*/function () {
   }, {
     key: "setRouteId",
     value: function () {
-      var _setRouteId = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee9(id, params, direction, animation) {
+      var _setRouteId = Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee9(id, params, direction, animation) {
         var changed;
-        return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee9$(_context9) {
+        return C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee9$(_context9) {
           while (1) {
             switch (_context9.prev = _context9.next) {
               case 0:
@@ -1313,9 +1343,9 @@ var RouterOutlet = /*#__PURE__*/function () {
   }, {
     key: "getRouteId",
     value: function () {
-      var _getRouteId = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee10() {
+      var _getRouteId = Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee10() {
         var active;
-        return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee10$(_context10) {
+        return C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee10$(_context10) {
           while (1) {
             switch (_context10.prev = _context10.next) {
               case 0:
@@ -1342,9 +1372,9 @@ var RouterOutlet = /*#__PURE__*/function () {
   }, {
     key: "setRoot",
     value: function () {
-      var _setRoot = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee11(component, params, opts) {
+      var _setRoot = Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee11(component, params, opts) {
         var leavingEl, enteringEl;
-        return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee11$(_context11) {
+        return C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee11$(_context11) {
           while (1) {
             switch (_context11.prev = _context11.next) {
               case 0:
@@ -1359,7 +1389,7 @@ var RouterOutlet = /*#__PURE__*/function () {
                 // attach entering view to DOM
                 leavingEl = this.activeEl;
                 _context11.next = 5;
-                return Object(_framework_delegate_4584ab5a_js__WEBPACK_IMPORTED_MODULE_11__["a"])(this.delegate, this.el, component, ['ion-page', 'ion-page-invisible'], params);
+                return Object(_framework_delegate_4392cd63_js__WEBPACK_IMPORTED_MODULE_10__["a"])(this.delegate, this.el, component, ['ion-page', 'ion-page-invisible'], params);
 
               case 5:
                 enteringEl = _context11.sent;
@@ -1371,7 +1401,7 @@ var RouterOutlet = /*#__PURE__*/function () {
 
               case 10:
                 _context11.next = 12;
-                return Object(_framework_delegate_4584ab5a_js__WEBPACK_IMPORTED_MODULE_11__["d"])(this.delegate, leavingEl);
+                return Object(_framework_delegate_4392cd63_js__WEBPACK_IMPORTED_MODULE_10__["d"])(this.delegate, leavingEl);
 
               case 12:
                 return _context11.abrupt("return", true);
@@ -1393,7 +1423,7 @@ var RouterOutlet = /*#__PURE__*/function () {
   }, {
     key: "transition",
     value: function () {
-      var _transition2 = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee12(enteringEl, leavingEl) {
+      var _transition2 = Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee12(enteringEl, leavingEl) {
         var _this7 = this;
 
         var opts,
@@ -1402,7 +1432,7 @@ var RouterOutlet = /*#__PURE__*/function () {
             animated,
             animationBuilder,
             _args12 = arguments;
-        return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee12$(_context12) {
+        return C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee12$(_context12) {
           while (1) {
             switch (_context12.prev = _context12.next) {
               case 0:
@@ -1419,17 +1449,45 @@ var RouterOutlet = /*#__PURE__*/function () {
                 // emit nav will change event
                 this.ionNavWillChange.emit();
                 el = this.el, mode = this.mode;
-                animated = this.animated && _ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["c"].getBoolean('animated', true);
-                animationBuilder = this.animation || opts.animationBuilder || _ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["c"].get('navAnimation');
+                animated = this.animated && _ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_6__["c"].getBoolean('animated', true);
+                animationBuilder = opts.animationBuilder || this.animation || _ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_6__["c"].get('navAnimation');
                 _context12.next = 9;
-                return Object(_index_d8cfb4a8_js__WEBPACK_IMPORTED_MODULE_8__["t"])(Object.assign(Object.assign({
+                return Object(_index_931440b1_js__WEBPACK_IMPORTED_MODULE_11__["t"])(Object.assign(Object.assign({
                   mode: mode,
                   animated: animated,
                   enteringEl: enteringEl,
                   leavingEl: leavingEl,
                   baseEl: el,
                   progressCallback: opts.progressAnimation ? function (ani) {
-                    return _this7.ani = ani;
+                    /**
+                     * Because this progress callback is called asynchronously
+                     * it is possible for the gesture to start and end before
+                     * the animation is ever set. In that scenario, we should
+                     * immediately call progressEnd so that the transition promise
+                     * resolves and the gesture does not get locked up.
+                     */
+                    if (ani !== undefined && !_this7.gestureOrAnimationInProgress) {
+                      _this7.gestureOrAnimationInProgress = true;
+                      ani.onFinish(function () {
+                        _this7.gestureOrAnimationInProgress = false;
+
+                        if (_this7.swipeHandler) {
+                          _this7.swipeHandler.onEnd(false);
+                        }
+                      }, {
+                        oneTimeCallback: true
+                      });
+                      /**
+                       * Playing animation to beginning
+                       * with a duration of 0 prevents
+                       * any flickering when the animation
+                       * is later cleaned up.
+                       */
+
+                      ani.progressEnd(0, 0, 0);
+                    } else {
+                      _this7.ani = ani;
+                    }
                   } : undefined
                 }, opts), {
                   animationBuilder: animationBuilder
@@ -1457,9 +1515,9 @@ var RouterOutlet = /*#__PURE__*/function () {
   }, {
     key: "lock",
     value: function () {
-      var _lock = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee13() {
+      var _lock = Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee13() {
         var p, resolve;
-        return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee13$(_context13) {
+        return C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee13$(_context13) {
           while (1) {
             switch (_context13.prev = _context13.next) {
               case 0:
@@ -1496,12 +1554,12 @@ var RouterOutlet = /*#__PURE__*/function () {
   }, {
     key: "render",
     value: function render() {
-      return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("slot", null);
+      return Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])("slot", null);
     }
   }, {
     key: "el",
     get: function get() {
-      return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["i"])(this);
+      return Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["i"])(this);
     }
   }], [{
     key: "watchers",
@@ -1516,18 +1574,18 @@ var RouterOutlet = /*#__PURE__*/function () {
 }();
 
 RouterOutlet.style = routeOutletCss;
-var titleIosCss = ":host{--color:initial;display:-ms-flexbox;display:flex;-ms-flex:1;flex:1;-ms-flex-align:center;align-items:center;-webkit-transform:translateZ(0);transform:translateZ(0);color:var(--color)}:host(.ion-color){color:var(--ion-color-base)}.toolbar-title{display:block;width:100%;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;pointer-events:auto}:host(.title-small) .toolbar-title{white-space:normal}:host{left:0;top:0;padding-left:90px;padding-right:90px;padding-top:0;padding-bottom:0;position:absolute;width:100%;height:100%;-webkit-transform:translateZ(0);transform:translateZ(0);font-size:17px;font-weight:600;text-align:center;-webkit-box-sizing:border-box;box-sizing:border-box;pointer-events:none}:host-context([dir=rtl]){left:unset;right:unset;right:0}@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0){:host{padding-left:unset;padding-right:unset;-webkit-padding-start:90px;padding-inline-start:90px;-webkit-padding-end:90px;padding-inline-end:90px}}:host(.title-small){padding-left:9px;padding-right:9px;padding-top:6px;padding-bottom:16px;position:relative;font-size:13px;font-weight:normal}@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0){:host(.title-small){padding-left:unset;padding-right:unset;-webkit-padding-start:9px;padding-inline-start:9px;-webkit-padding-end:9px;padding-inline-end:9px}}:host(.title-large){padding-left:16px;padding-right:16px;padding-top:0;padding-bottom:0;-webkit-transform-origin:left center;transform-origin:left center;bottom:0;-ms-flex-align:end;align-items:flex-end;min-width:100%;padding-bottom:6px;font-size:34px;font-weight:700;text-align:start}@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0){:host(.title-large){padding-left:unset;padding-right:unset;-webkit-padding-start:16px;padding-inline-start:16px;-webkit-padding-end:16px;padding-inline-end:16px}}:host-context([dir=rtl]):host(.title-large),:host-context([dir=rtl]).title-large{-webkit-transform-origin:right center;transform-origin:right center}:host(.title-large.ion-cloned-element){--color:var(--ion-text-color, #000)}:host(.title-large) .toolbar-title{-webkit-transform-origin:inherit;transform-origin:inherit}:host-context([dir=rtl]):host(.title-large) .toolbar-title,:host-context([dir=rtl]).title-large .toolbar-title{-webkit-transform-origin:calc(100% - inherit);transform-origin:calc(100% - inherit)}";
+var titleIosCss = ":host{--color:initial;display:-ms-flexbox;display:flex;-ms-flex:1;flex:1;-ms-flex-align:center;align-items:center;-webkit-transform:translateZ(0);transform:translateZ(0);color:var(--color)}:host(.ion-color){color:var(--ion-color-base)}.toolbar-title{display:block;width:100%;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;pointer-events:auto}:host(.title-small) .toolbar-title{white-space:normal}:host{left:0;top:0;padding-left:90px;padding-right:90px;padding-top:var(--padding-top);padding-bottom:var(--padding-bottom);position:absolute;width:100%;height:100%;-webkit-transform:translateZ(0);transform:translateZ(0);font-size:17px;font-weight:600;text-align:center;-webkit-box-sizing:border-box;box-sizing:border-box;pointer-events:none}:host-context([dir=rtl]){left:unset;right:unset;right:0}@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0){:host{padding-left:unset;padding-right:unset;-webkit-padding-start:90px;padding-inline-start:90px;-webkit-padding-end:90px;padding-inline-end:90px}}:host(.title-small){padding-left:9px;padding-right:9px;padding-top:6px;padding-bottom:16px;position:relative;font-size:13px;font-weight:normal}@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0){:host(.title-small){padding-left:unset;padding-right:unset;-webkit-padding-start:9px;padding-inline-start:9px;-webkit-padding-end:9px;padding-inline-end:9px}}:host(.title-large){padding-left:16px;padding-right:16px;padding-top:0;padding-bottom:0;-webkit-transform-origin:left center;transform-origin:left center;bottom:0;-ms-flex-align:end;align-items:flex-end;min-width:100%;padding-bottom:6px;font-size:34px;font-weight:700;text-align:start}@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0){:host(.title-large){padding-left:unset;padding-right:unset;-webkit-padding-start:16px;padding-inline-start:16px;-webkit-padding-end:16px;padding-inline-end:16px}}:host(.title-large.title-rtl){-webkit-transform-origin:right center;transform-origin:right center}:host(.title-large.ion-cloned-element){--color:var(--ion-text-color, #000)}:host(.title-large) .toolbar-title{-webkit-transform-origin:inherit;transform-origin:inherit}:host-context([dir=rtl]):host(.title-large) .toolbar-title,:host-context([dir=rtl]).title-large .toolbar-title{-webkit-transform-origin:calc(100% - inherit);transform-origin:calc(100% - inherit)}";
 var titleMdCss = ":host{--color:initial;display:-ms-flexbox;display:flex;-ms-flex:1;flex:1;-ms-flex-align:center;align-items:center;-webkit-transform:translateZ(0);transform:translateZ(0);color:var(--color)}:host(.ion-color){color:var(--ion-color-base)}.toolbar-title{display:block;width:100%;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;pointer-events:auto}:host(.title-small) .toolbar-title{white-space:normal}:host{padding-left:20px;padding-right:20px;padding-top:0;padding-bottom:0;font-size:20px;font-weight:500;letter-spacing:0.0125em}@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0){:host{padding-left:unset;padding-right:unset;-webkit-padding-start:20px;padding-inline-start:20px;-webkit-padding-end:20px;padding-inline-end:20px}}:host(.title-small){width:100%;height:100%;font-size:15px;font-weight:normal}";
 
 var ToolbarTitle = /*#__PURE__*/function () {
   function ToolbarTitle(hostRef) {
-    Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__["default"])(this, ToolbarTitle);
+    Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__["default"])(this, ToolbarTitle);
 
-    Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["r"])(this, hostRef);
-    this.ionStyle = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionStyle", 7);
+    Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["r"])(this, hostRef);
+    this.ionStyle = Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionStyle", 7);
   }
 
-  Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__["default"])(ToolbarTitle, [{
+  Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__["default"])(ToolbarTitle, [{
     key: "sizeChanged",
     value: function sizeChanged() {
       this.emitStyle();
@@ -1541,7 +1599,7 @@ var ToolbarTitle = /*#__PURE__*/function () {
     key: "emitStyle",
     value: function emitStyle() {
       var size = this.getSize();
-      this.ionStyle.emit(Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])({}, "title-".concat(size), true));
+      this.ionStyle.emit(Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])({}, "title-".concat(size), true));
     }
   }, {
     key: "getSize",
@@ -1553,18 +1611,18 @@ var ToolbarTitle = /*#__PURE__*/function () {
     value: function render() {
       var _createColorClasses2;
 
-      var mode = Object(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this);
+      var mode = Object(_ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this);
       var size = this.getSize();
-      return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["H"], {
-        class: Object(_theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_10__["c"])(this.color, (_createColorClasses2 = {}, Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses2, mode, true), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses2, "title-".concat(size), true), _createColorClasses2))
-      }, Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+      return Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["H"], {
+        class: Object(_theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_7__["c"])(this.color, (_createColorClasses2 = {}, Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses2, mode, true), Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses2, "title-".concat(size), true), Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses2, 'title-rtl', document.dir === 'rtl'), _createColorClasses2))
+      }, Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
         class: "toolbar-title"
-      }, Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("slot", null)));
+      }, Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])("slot", null)));
     }
   }, {
     key: "el",
     get: function get() {
-      return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["i"])(this);
+      return Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["i"])(this);
     }
   }], [{
     key: "watchers",
@@ -1587,13 +1645,13 @@ var toolbarMdCss = ":host{--border-width:0;--border-style:solid;--opacity:1;-moz
 
 var Toolbar = /*#__PURE__*/function () {
   function Toolbar(hostRef) {
-    Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__["default"])(this, Toolbar);
+    Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__["default"])(this, Toolbar);
 
-    Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["r"])(this, hostRef);
+    Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["r"])(this, hostRef);
     this.childrenStyles = new Map();
   }
 
-  Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__["default"])(Toolbar, [{
+  Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__["default"])(Toolbar, [{
     key: "componentWillLoad",
     value: function componentWillLoad() {
       var buttons = Array.from(this.el.querySelectorAll('ion-buttons'));
@@ -1642,7 +1700,7 @@ var Toolbar = /*#__PURE__*/function () {
 
       if (hasStyleChange) {
         this.childrenStyles.set(tagName, newStyles);
-        Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["j"])(this);
+        Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["j"])(this);
       }
     }
   }, {
@@ -1650,33 +1708,33 @@ var Toolbar = /*#__PURE__*/function () {
     value: function render() {
       var _createColorClasses3;
 
-      var mode = Object(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this);
+      var mode = Object(_ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this);
       var childStyles = {};
       this.childrenStyles.forEach(function (value) {
         Object.assign(childStyles, value);
       });
-      return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["H"], {
-        class: Object.assign(Object.assign({}, childStyles), Object(_theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_10__["c"])(this.color, (_createColorClasses3 = {}, Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses3, mode, true), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses3, 'in-toolbar', Object(_theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_10__["h"])('ion-toolbar', this.el)), _createColorClasses3)))
-      }, Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+      return Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["H"], {
+        class: Object.assign(Object.assign({}, childStyles), Object(_theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_7__["c"])(this.color, (_createColorClasses3 = {}, Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses3, mode, true), Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses3, 'in-toolbar', Object(_theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_7__["h"])('ion-toolbar', this.el)), _createColorClasses3)))
+      }, Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
         class: "toolbar-background"
-      }), Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+      }), Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
         class: "toolbar-container"
-      }, Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("slot", {
+      }, Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])("slot", {
         name: "start"
-      }), Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("slot", {
+      }), Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])("slot", {
         name: "secondary"
-      }), Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+      }), Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
         class: "toolbar-content"
-      }, Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("slot", null)), Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("slot", {
+      }, Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])("slot", null)), Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])("slot", {
         name: "primary"
-      }), Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("slot", {
+      }), Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])("slot", {
         name: "end"
       })));
     }
   }, {
     key: "el",
     get: function get() {
-      return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["i"])(this);
+      return Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["i"])(this);
     }
   }]);
 

@@ -13,7 +13,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
 /* harmony import */ var _raw_loader_consultar_contrato2_page_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./consultar-contrato2.page.html */ "uxE6");
 /* harmony import */ var _consultar_contrato2_page_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./consultar-contrato2.page.scss */ "WavN");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "P4DM");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
 /* harmony import */ var _services_contrato_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../../services/contrato.service */ "YjMO");
 /* harmony import */ var _own_components_beneficiarios_beneficiarios_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../../own-components/beneficiarios/beneficiarios.component */ "9L3W");
 /* harmony import */ var _models_ultimo_pago_model__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../models/ultimo-pago.model */ "rxqv");
@@ -22,6 +22,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/router */ "tyNb");
 /* harmony import */ var _own_components_ultimos_pagos_ultimos_pagos_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../own-components/ultimos-pagos/ultimos-pagos.component */ "IuA+");
+/* harmony import */ var _own_components_ultimos_servadicionales_ultimos_servadicionales_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../own-components/ultimos-servadicionales/ultimos-servadicionales.component */ "1P/o");
+/* harmony import */ var src_app_own_components_ultimas_novedades_ultimas_novedades_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! src/app/own-components/ultimas-novedades/ultimas-novedades.component */ "LbTB");
+
+
 
 
 
@@ -156,6 +160,46 @@ var ConsultarContrato2Page = /** @class */ (function () {
             });
         }
     };
+    ConsultarContrato2Page.prototype.verNovedades = function () {
+        var _this = this;
+        if (!this.contrato) {
+            alert('Seleccione contrato');
+            return;
+        }
+        else {
+            this.contratoSevice.consultarUltimasNovedades(this.contrato.contrato).then(function (novedades) {
+                console.log(JSON.stringify(novedades));
+                _this.modalController.create({
+                    component: src_app_own_components_ultimas_novedades_ultimas_novedades_component__WEBPACK_IMPORTED_MODULE_13__["UltimasNovedadesComponent"],
+                    componentProps: {
+                        novedades: novedades
+                    },
+                }).then(function (modal) {
+                    modal.present();
+                });
+            });
+        }
+    };
+    ConsultarContrato2Page.prototype.verAdicionales = function () {
+        var _this = this;
+        if (!this.contrato) {
+            alert('Seleccione contrato');
+            return;
+        }
+        else {
+            this.contratoSevice.consultarUltimosAdicionales(this.contrato.contrato).then(function (adicionales) {
+                console.log(JSON.stringify(adicionales));
+                _this.modalController.create({
+                    component: _own_components_ultimos_servadicionales_ultimos_servadicionales_component__WEBPACK_IMPORTED_MODULE_12__["UltimosServadicionalesComponent"],
+                    componentProps: {
+                        adicionales: adicionales
+                    },
+                }).then(function (modal) {
+                    modal.present();
+                });
+            });
+        }
+    };
     ConsultarContrato2Page.prototype.verbeneficiarios = function () {
         var _this = this;
         if (!this.contrato) {
@@ -251,7 +295,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "ofXK");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "3Pt+");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "tyNb");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "P4DM");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
 /* harmony import */ var _consultar_contrato2_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./consultar-contrato2.page */ "JYgH");
 /* harmony import */ var src_app_own_components_own_components_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/own-components/own-components.module */ "9FvA");
 
@@ -319,7 +363,7 @@ var UltimoPagoModel = /** @class */ (function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<app-header titulo=\"consultar contrato\"></app-header>\r\n\r\n<ion-content>\r\n\r\n    <div class=\"ion-padding\" *ngIf=\"!consultandoContrato && ((criterioBusqueda === 'CEDULA' && contratos.length === 0)  || (criterioBusqueda === 'CONTRATO' && !contrato))\">\r\n        <ion-text color=\"danger\">\r\n            <p>No se encontró algùn contrato, intente nuevamente</p>\r\n        </ion-text>\r\n    </div>\r\n\r\n    <div class=\"ion-margin-bottom\" *ngIf=\"criterioBusqueda === 'CEDULA' && contratos.length > 0\">\r\n        <div class=\"ion-padding\">\r\n            <h3>Seleccione un contrato</h3>\r\n        </div>\r\n        <ion-list>\r\n            <ion-item button=\"true\" (click)=\"seleccionarContrato(i)\" *ngFor=\"let contrato of contratos; let i=index;\">\r\n                <ion-label>Nro. Contrato: {{ contrato.contrato }}</ion-label>\r\n            </ion-item>\r\n        </ion-list>\r\n    </div>\r\n\r\n    <app-datos-contrato [contrato]=\"contrato\" [modo]=\"modoVisualizarContrato\" *ngIf=\"!consultandoContrato && contrato\">\r\n    </app-datos-contrato>\r\n\r\n    <div class=\"ion-padding\" *ngIf=\"mostrarUltimoPago\">\r\n        <h5 class=\"semi-titulo\">Último pago</h5>\r\n    </div>\r\n    <ion-grid fixed *ngIf=\"mostrarUltimoPago\">\r\n        <ion-row>\r\n            <ion-col size=\"5\">Fecha último pago</ion-col>\r\n            <ion-col size=\"7\">{{ ultimoPago.fechaUltimoPago }}</ion-col>\r\n        </ion-row>\r\n        <ion-row>\r\n            <ion-col size=\"5\">Nro documento</ion-col>\r\n            <ion-col size=\"7\">{{ ultimoPago.numeroDocumento }}</ion-col>\r\n        </ion-row>\r\n        <ion-row>\r\n            <ion-col size=\"5\">Valor</ion-col>\r\n            <ion-col size=\"7\">{{ ultimoPago.valor }}</ion-col>\r\n        </ion-row>\r\n        <ion-row>\r\n            <ion-col size=\"5\">Usuario</ion-col>\r\n            <ion-col size=\"7\">{{ ultimoPago.usuario }}</ion-col>\r\n        </ion-row>\r\n    </ion-grid>\r\n    <div class=\"ion-padding\">\r\n\r\n        <ion-button color=\"danger\" (click)=\"verpagos()\">\r\n            Ultimos Pagos\r\n        </ion-button>\r\n        <ion-button color=\"danger\" (click)=\"verbeneficiarios()\">\r\n            Grupo Reportado\r\n        </ion-button>\r\n        <ion-button color=\"danger\" (click)=\"registrarPago()\">\r\n            Pagar\r\n        </ion-button>\r\n        <ion-button color=\"danger\" (click)=\"registrarGestion()\">\r\n            Gestión\r\n        </ion-button>\r\n        <ion-button *ngIf=\"!isOffline\" color=\"danger\" (click)=\"actualizarContrato()\">\r\n            Actualizar\r\n        </ion-button>\r\n    </div>\r\n</ion-content>");
+/* harmony default export */ __webpack_exports__["default"] = ("<app-header titulo=\"consultar contrato\"></app-header>\r\n\r\n<ion-content>\r\n\r\n    <div class=\"ion-padding\" *ngIf=\"!consultandoContrato && ((criterioBusqueda === 'CEDULA' && contratos.length === 0)  || (criterioBusqueda === 'CONTRATO' && !contrato))\">\r\n        <ion-text color=\"danger\">\r\n            <p>No se encontró algùn contrato, intente nuevamente</p>\r\n        </ion-text>\r\n    </div>\r\n\r\n    <div class=\"ion-margin-bottom\" *ngIf=\"criterioBusqueda === 'CEDULA' && contratos.length > 0\">\r\n        <div class=\"ion-padding\">\r\n            <h3>Seleccione un contrato</h3>\r\n        </div>\r\n        <ion-list>\r\n            <ion-item button=\"true\" (click)=\"seleccionarContrato(i)\" *ngFor=\"let contrato of contratos; let i=index;\">\r\n                <ion-label>Nro. Contrato: {{ contrato.contrato }}</ion-label>\r\n            </ion-item>\r\n        </ion-list>\r\n    </div>\r\n\r\n    <app-datos-contrato [contrato]=\"contrato\" [modo]=\"modoVisualizarContrato\" *ngIf=\"!consultandoContrato && contrato\">\r\n    </app-datos-contrato>\r\n\r\n    <div class=\"ion-padding\" *ngIf=\"mostrarUltimoPago\">\r\n        <h5 class=\"semi-titulo\">Último pago</h5>\r\n    </div>\r\n    <ion-grid fixed *ngIf=\"mostrarUltimoPago\">\r\n        <ion-row>\r\n            <ion-col size=\"5\">Fecha último pago</ion-col>\r\n            <ion-col size=\"7\">{{ ultimoPago.fechaUltimoPago }}</ion-col>\r\n        </ion-row>\r\n        <ion-row>\r\n            <ion-col size=\"5\">Nro documento</ion-col>\r\n            <ion-col size=\"7\">{{ ultimoPago.numeroDocumento }}</ion-col>\r\n        </ion-row>\r\n        <ion-row>\r\n            <ion-col size=\"5\">Valor</ion-col>\r\n            <ion-col size=\"7\">{{ ultimoPago.valor }}</ion-col>\r\n        </ion-row>\r\n        <ion-row>\r\n            <ion-col size=\"5\">Usuario</ion-col>\r\n            <ion-col size=\"7\">{{ ultimoPago.usuario }}</ion-col>\r\n        </ion-row>\r\n    </ion-grid>\r\n    <div class=\"ion-padding\">\r\n\r\n        <ion-button color=\"danger\" (click)=\"verpagos()\">\r\n            Ultimos Pagos\r\n        </ion-button>\r\n        <ion-button color=\"danger\" (click)=\"verbeneficiarios()\">\r\n            Grupo Reportado\r\n        </ion-button>\r\n        <ion-button color=\"danger\" (click)=\"registrarPago()\">\r\n            Pagar\r\n        </ion-button>\r\n        <ion-button color=\"danger\" (click)=\"registrarGestion()\">\r\n            Gestión\r\n        </ion-button>\r\n        <ion-button *ngIf=\"!isOffline\" color=\"danger\" (click)=\"actualizarContrato()\">\r\n            Actualizar\r\n        </ion-button>\r\n        <ion-button color=\"danger\" (click)=\"verNovedades()\">\r\n            Ultimas Novedades\r\n        </ion-button>\r\n        <ion-button color=\"danger\" (click)=\"verAdicionales()\">\r\n            Servicios Adicionales\r\n        </ion-button>\r\n    </div>\r\n</ion-content>");
 
 /***/ })
 

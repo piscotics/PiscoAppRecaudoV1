@@ -156,7 +156,7 @@ export class OfflineService {
     'POSTFECHADODIA SMALLINT, INDICE SMALLINT, CUOTA FLOAT, PENDIENTE SMALLINT, ESTADOCONTRATO TEXT, FECHAR TEXT, ' +
     'BASEDATOS TEXT, EMPRESA TEXT, NIT TEXT, DIRECCIONCOBRO TEXT, BOXCONTRATANTE TEXT, VALORCARTERA FLOAT, VALORSEGURO FLOAT, ' + 
     // tslint:disable-next-line: max-line-length
-    'CELULAR TEXT, PAGOHASTA TEXT, DEPTOC TEXT, MPIOC TEXT, BARRIOC TEXT, MOTIVO TEXT, FECHAPROGRAMADA TEXT, CODBARRIO TEXT, COBERTURA TEXT, ULTIMOSPAGOS TEXT, BENEFICIARIOS TEXT, BANDERA INTEGER,FECHAAFILIACION TEXT,PLAN TEXT, NOTA1 TEXT)';
+    'CELULAR TEXT, PAGOHASTA TEXT, DEPTOC TEXT, MPIOC TEXT, BARRIOC TEXT, MOTIVO TEXT, FECHAPROGRAMADA TEXT, CODBARRIO TEXT, COBERTURA TEXT, ULTIMOSPAGOS TEXT,BENEFICIARIOS TEXT, BANDERA INTEGER,FECHAAFILIACION TEXT,PLAN TEXT, NOTA1 TEXT,ULTIMASGESTIONES TEXT,SERVADICIONALES TEXT)';
     await this.db.executeSql(sql, []);
 
    
@@ -202,14 +202,14 @@ export class OfflineService {
       let sql = 'INSERT INTO RUTAS (USUARIO, IDCOBRADOR, IDCONTRATO,CEDULA, TITULAR, DIRECCION , ' + 
       'TELEFONO, CIUDAD, DIACOBRO1, DIACOBRO2, ESTADO, NOVEDAD, POSTFECHADODIA, INDICE, CUOTA, PENDIENTE, ESTADOCONTRATO, FECHAR, ' +
       'BASEDATOS, EMPRESA, NIT, DIRECCIONCOBRO, BOXCONTRATANTE, VALORCARTERA, VALORSEGURO,' + 
-      'CELULAR, PAGOHASTA, DEPTOC, MPIOC, BARRIOC, MOTIVO, FECHAPROGRAMADA, CODBARRIO, COBERTURA,ULTIMOSPAGOS, BENEFICIARIOS,BANDERA,FECHAAFILIACION,PLAN,NOTA1) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?, ?, ?,?,?,?,?)'
+      'CELULAR, PAGOHASTA, DEPTOC, MPIOC, BARRIOC, MOTIVO, FECHAPROGRAMADA, CODBARRIO, COBERTURA,ULTIMOSPAGOS, BENEFICIARIOS,BANDERA,FECHAAFILIACION,PLAN,NOTA1,ULTIMASGESTIONES,SERVADICIONALES) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?, ?, ?,?,?,?,?,?,?)'
 
 
       for(let d of data){
         await this.db.executeSql(sql, [d.USUARIO, d.IDCOBRADOR, d.IDCONTRATO, d.CEDULA, d.TITULAR, d.DIRECCION, d.TELEFONO, d.CIUDAD, 
           d.DIACOBRO1, d.DIACOBRO2, d.ESTADO, d.NOVEDAD, d.POSTFECHADODIA, d.INDICE, d.CUOTA, d.PENDIENTE, d.ESTADOCONTRATO, d.FECHAR, 
           d.BASEDATOS, d.EMPRESA, d.NIT, d.DIRECCIONCOBRO, d.BOXCONTRATANTE, d.VALORCARTERA, d.VALORSEGURO, d.CELULAR, d.PAGOHASTA, 
-          d.DEPTOC, d.MPIOC, d.BARRIOC, d.MOTIVO, d.FECHAPROGRAMADA, d.CODBARRIO, d.COBERTURA, d.ULTIMOSPAGOS, d.BENEFICIARIOS,0, d.FECHAAFILIACION,d.PLAN, d.NOTA1 ]);
+          d.DEPTOC, d.MPIOC, d.BARRIOC, d.MOTIVO, d.FECHAPROGRAMADA, d.CODBARRIO, d.COBERTURA, d.ULTIMOSPAGOS, d.BENEFICIARIOS,0, d.FECHAAFILIACION,d.PLAN, d.NOTA1,d.ULTIMASGESTIONES, d.SERVADICIONALES ]);
       }
 
     }catch(ex)
@@ -612,6 +612,36 @@ export class OfflineService {
     }
   }
 
+  
+  public async getUltimasNovedades(contrato){
+    try
+    {
+      let data = await this.db.executeSql("SELECT ULTIMASGESTIONES FROM RUTAS WHERE IDCONTRATO = ? ", [contrato]);
+      if(data.rows.length > 0){
+        let novedades = data.rows.item(0).ULTIMASGESTIONES.toString().split('*');
+        return novedades;
+      }else{
+        return {};
+      }
+    } catch(ex){
+      throw ex;
+    }
+  }
+
+  public async getUltimosAdicionales(contrato){
+    try
+    {
+      let data = await this.db.executeSql("SELECT SERVADICIONALES FROM ADICIONALES WHERE IDCONTRATO = ? ", [contrato]);
+      if(data.rows.length > 0){
+        let adicionales = data.rows.item(0).SERVADICIONALES.toString().split('*');
+        return adicionales;
+      }else{
+        return {};
+      }
+    } catch(ex){
+      throw ex;
+    }
+  }
 
   public async getFormaPago(){
     try

@@ -1,22 +1,22 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[34],{
 
-/***/ "NY5D":
-/*!*****************************************************************!*\
-  !*** ../node_modules/@ionic/core/dist/esm/ion-spinner.entry.js ***!
-  \*****************************************************************/
+/***/ "nI0H":
+/*!****************************************************************!*\
+  !*** ./node_modules/@ionic/core/dist/esm/ion-spinner.entry.js ***!
+  \****************************************************************/
 /*! exports provided: ion_spinner */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_spinner", function() { return Spinner; });
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../node_modules/@babel/runtime/helpers/esm/defineProperty */ "mK0O");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../node_modules/@babel/runtime/helpers/esm/classCallCheck */ "hisu");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../node_modules/@babel/runtime/helpers/esm/createClass */ "yBJb");
-/* harmony import */ var _index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./index-e806d1f6.js */ "OVRr");
-/* harmony import */ var _ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ionic-global-9d5c8ee3.js */ "rAwY");
-/* harmony import */ var _theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./theme-ff3fc52f.js */ "akMd");
-/* harmony import */ var _spinner_configs_cd7845af_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./spinner-configs-cd7845af.js */ "n/PS");
+/* harmony import */ var C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/defineProperty */ "rePB");
+/* harmony import */ var C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/classCallCheck */ "1OyB");
+/* harmony import */ var C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createClass */ "vuIU");
+/* harmony import */ var _index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./index-7a8b7a1c.js */ "wEJo");
+/* harmony import */ var _ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ionic-global-63a97a32.js */ "E/Mt");
+/* harmony import */ var _theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./theme-ff3fc52f.js */ "74mu");
+/* harmony import */ var _spinner_configs_cd7845af_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./spinner-configs-cd7845af.js */ "h3R7");
 
 
 
@@ -28,9 +28,9 @@ var spinnerCss = ":host{display:inline-block;position:relative;width:28px;height
 
 var Spinner = /*#__PURE__*/function () {
   function Spinner(hostRef) {
-    Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, Spinner);
+    Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, Spinner);
 
-    Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_3__["r"])(this, hostRef);
+    Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_3__["r"])(this, hostRef);
     /**
      * If `true`, the spinner's animation will be paused.
      */
@@ -38,11 +38,11 @@ var Spinner = /*#__PURE__*/function () {
     this.paused = false;
   }
 
-  Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(Spinner, [{
+  Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(Spinner, [{
     key: "getName",
     value: function getName() {
-      var spinnerName = this.name || _ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_4__["c"].get('spinner');
-      var mode = Object(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_4__["b"])(this);
+      var spinnerName = this.name || _ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_4__["c"].get('spinner');
+      var mode = Object(_ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_4__["b"])(this);
 
       if (spinnerName) {
         return spinnerName;
@@ -56,7 +56,7 @@ var Spinner = /*#__PURE__*/function () {
       var _createColorClasses;
 
       var self = this;
-      var mode = Object(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_4__["b"])(self);
+      var mode = Object(_ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_4__["b"])(self);
       var spinnerName = self.getName();
       var spinner = _spinner_configs_cd7845af_js__WEBPACK_IMPORTED_MODULE_6__["S"][spinnerName] || _spinner_configs_cd7845af_js__WEBPACK_IMPORTED_MODULE_6__["S"]['lines'];
       var duration = typeof self.duration === 'number' && self.duration > 10 ? self.duration : spinner.dur;
@@ -72,8 +72,8 @@ var Spinner = /*#__PURE__*/function () {
         }
       }
 
-      return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_3__["h"])(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_3__["H"], {
-        class: Object(_theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_5__["c"])(self.color, (_createColorClasses = {}, Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, mode, true), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, "spinner-".concat(spinnerName), true), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, 'spinner-paused', !!self.paused || _ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_4__["c"].getBoolean('_testing')), _createColorClasses)),
+      return Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_3__["h"])(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_3__["H"], {
+        class: Object(_theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_5__["c"])(self.color, (_createColorClasses = {}, Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, mode, true), Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, "spinner-".concat(spinnerName), true), Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, 'spinner-paused', !!self.paused || _ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_4__["c"].getBoolean('_testing')), _createColorClasses)),
         role: "progressbar",
         style: spinner.elmDuration ? {
           animationDuration: duration + 'ms'
@@ -88,10 +88,10 @@ var Spinner = /*#__PURE__*/function () {
 var buildCircle = function buildCircle(spinner, duration, index, total) {
   var data = spinner.fn(duration, index, total);
   data.style['animation-duration'] = duration + 'ms';
-  return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_3__["h"])("svg", {
+  return Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_3__["h"])("svg", {
     viewBox: data.viewBox || '0 0 64 64',
     style: data.style
-  }, Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_3__["h"])("circle", {
+  }, Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_3__["h"])("circle", {
     transform: data.transform || 'translate(32,32)',
     cx: data.cx,
     cy: data.cy,
@@ -105,10 +105,10 @@ var buildCircle = function buildCircle(spinner, duration, index, total) {
 var buildLine = function buildLine(spinner, duration, index, total) {
   var data = spinner.fn(duration, index, total);
   data.style['animation-duration'] = duration + 'ms';
-  return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_3__["h"])("svg", {
+  return Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_3__["h"])("svg", {
     viewBox: data.viewBox || '0 0 64 64',
     style: data.style
-  }, Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_3__["h"])("line", {
+  }, Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_3__["h"])("line", {
     transform: "translate(32,32)",
     y1: data.y1,
     y2: data.y2

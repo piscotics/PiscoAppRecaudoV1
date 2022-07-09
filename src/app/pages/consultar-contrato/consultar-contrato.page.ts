@@ -38,6 +38,10 @@ export class ConsultarContratoPage implements OnInit {
     this.router.navigate(['lista-pagos']);
   }
 
+  listaNovedades() {
+    this.router.navigate(['lista-novedades']);
+  }
+
   cuadrecaja() {
     this.router.navigate(['cuadre-caja']);
   }

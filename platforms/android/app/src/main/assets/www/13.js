@@ -1,19 +1,19 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[13],{
 
-/***/ "C7MG":
-/*!*************************************************************!*\
-  !*** ../node_modules/@ionic/core/dist/esm/ion-img.entry.js ***!
-  \*************************************************************/
+/***/ "wHD8":
+/*!************************************************************!*\
+  !*** ./node_modules/@ionic/core/dist/esm/ion-img.entry.js ***!
+  \************************************************************/
 /*! exports provided: ion_img */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_img", function() { return Img; });
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../node_modules/@babel/runtime/helpers/esm/classCallCheck */ "hisu");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../node_modules/@babel/runtime/helpers/esm/createClass */ "yBJb");
-/* harmony import */ var _index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./index-e806d1f6.js */ "OVRr");
-/* harmony import */ var _ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ionic-global-9d5c8ee3.js */ "rAwY");
+/* harmony import */ var C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/classCallCheck */ "1OyB");
+/* harmony import */ var C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createClass */ "vuIU");
+/* harmony import */ var _index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./index-7a8b7a1c.js */ "wEJo");
+/* harmony import */ var _ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ionic-global-63a97a32.js */ "E/Mt");
 
 
 
@@ -24,12 +24,12 @@ var Img = /*#__PURE__*/function () {
   function Img(hostRef) {
     var _this = this;
 
-    Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, Img);
+    Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, Img);
 
-    Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_2__["r"])(this, hostRef);
-    this.ionImgWillLoad = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_2__["e"])(this, "ionImgWillLoad", 7);
-    this.ionImgDidLoad = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_2__["e"])(this, "ionImgDidLoad", 7);
-    this.ionError = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_2__["e"])(this, "ionError", 7);
+    Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_2__["r"])(this, hostRef);
+    this.ionImgWillLoad = Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_2__["e"])(this, "ionImgWillLoad", 7);
+    this.ionImgDidLoad = Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_2__["e"])(this, "ionImgDidLoad", 7);
+    this.ionError = Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_2__["e"])(this, "ionError", 7);
 
     this.onLoad = function () {
       _this.ionImgDidLoad.emit();
@@ -40,7 +40,7 @@ var Img = /*#__PURE__*/function () {
     };
   }
 
-  Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(Img, [{
+  Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(Img, [{
     key: "srcChanged",
     value: function srcChanged() {
       this.addIO();
@@ -62,10 +62,12 @@ var Img = /*#__PURE__*/function () {
       if (typeof window !== 'undefined' && 'IntersectionObserver' in window && 'IntersectionObserverEntry' in window && 'isIntersecting' in window.IntersectionObserverEntry.prototype) {
         this.removeIO();
         this.io = new IntersectionObserver(function (data) {
-          // because there will only ever be one instance
-          // of the element we are observing
-          // we can just use data[0]
-          if (data[0].isIntersecting) {
+          /**
+           * On slower devices, it is possible for an intersection observer entry to contain multiple
+           * objects in the array. This happens when quickly scrolling an image into view and then out of
+           * view. In this case, the last object represents the current state of the component.
+           */
+          if (data[data.length - 1].isIntersecting) {
             _this2.load();
 
             _this2.removeIO();
@@ -97,9 +99,9 @@ var Img = /*#__PURE__*/function () {
   }, {
     key: "render",
     value: function render() {
-      return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_2__["h"])(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_2__["H"], {
-        class: Object(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_3__["b"])(this)
-      }, Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_2__["h"])("img", {
+      return Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_2__["h"])(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_2__["H"], {
+        class: Object(_ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_3__["b"])(this)
+      }, Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_2__["h"])("img", {
         decoding: "async",
         src: this.loadSrc,
         alt: this.alt,
@@ -111,7 +113,7 @@ var Img = /*#__PURE__*/function () {
   }, {
     key: "el",
     get: function get() {
-      return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_2__["i"])(this);
+      return Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_2__["i"])(this);
     }
   }], [{
     key: "watchers",

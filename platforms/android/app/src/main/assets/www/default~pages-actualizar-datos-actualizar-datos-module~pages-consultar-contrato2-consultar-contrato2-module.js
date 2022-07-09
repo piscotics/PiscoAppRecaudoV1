@@ -12,7 +12,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ContratoService", function() { return ContratoService; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "P4DM");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
 /* harmony import */ var _helpers_config_helper__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../helpers/config.helper */ "5Ez/");
 /* harmony import */ var _models_config_model__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../models/config.model */ "oRqo");
@@ -251,6 +251,110 @@ var ContratoService = /** @class */ (function () {
                     _this.offline.getUltimospagos(contrato).then(function (pagos) {
                         loading.dismiss();
                         resolve(pagos);
+                    });
+                });
+            }
+        });
+    };
+    ContratoService.prototype.consultarUltimasNovedades = function (contrato) {
+        var _this = this;
+        var isOffline = localStorage.getItem('offlineMode') === 'true' ? true : false;
+        return new Promise(function (resolve, reject) {
+            var params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpParams"]().set('NumberId', contrato);
+            var configHelper = new _helpers_config_helper__WEBPACK_IMPORTED_MODULE_4__["ConfigHelper"](_this.config);
+            var httpOptions = {
+                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpHeaders"]({
+                    'Content-Type': 'application/json',
+                }),
+                params: params
+            };
+            if (!isOffline) {
+                _this.loadingController.create({
+                    message: 'Consultando Ultimas Novedades',
+                    duration: 30000
+                }).then(function (loading) {
+                    loading.present();
+                    _this.http.post(configHelper.getApiUrl() + "/pago/searcNovedades", null, httpOptions)
+                        .subscribe(function (novedades) {
+                        console.log(JSON.stringify(novedades));
+                        if (novedades.length === 0) {
+                            loading.dismiss();
+                            _this.mostrarToast('No se encontraron Novedades, intente nuevamente.');
+                            reject();
+                        }
+                        else {
+                            loading.dismiss();
+                            resolve(novedades);
+                        }
+                    }, function (error) {
+                        loading.dismiss();
+                        console.log(JSON.stringify(error));
+                        reject();
+                        _this.mostrarToast('Error consultando Novedades');
+                    });
+                });
+            }
+            else {
+                _this.loadingController.create({
+                    message: 'Consultando Novedades',
+                    duration: 30000
+                }).then(function (loading) {
+                    loading.present();
+                    _this.offline.getUltimasNovedades(contrato).then(function (novedades) {
+                        loading.dismiss();
+                        resolve(novedades);
+                    });
+                });
+            }
+        });
+    };
+    ContratoService.prototype.consultarUltimosAdicionales = function (contrato) {
+        var _this = this;
+        var isOffline = localStorage.getItem('offlineMode') === 'true' ? true : false;
+        return new Promise(function (resolve, reject) {
+            var params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpParams"]().set('NumberId', contrato);
+            var configHelper = new _helpers_config_helper__WEBPACK_IMPORTED_MODULE_4__["ConfigHelper"](_this.config);
+            var httpOptions = {
+                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpHeaders"]({
+                    'Content-Type': 'application/json',
+                }),
+                params: params
+            };
+            if (!isOffline) {
+                _this.loadingController.create({
+                    message: 'Consultando Servicios Adicionales',
+                    duration: 30000
+                }).then(function (loading) {
+                    loading.present();
+                    _this.http.post(configHelper.getApiUrl() + "/pago/searcAdicionales", null, httpOptions)
+                        .subscribe(function (adicionales) {
+                        console.log(JSON.stringify(adicionales));
+                        if (adicionales.length === 0) {
+                            loading.dismiss();
+                            _this.mostrarToast('No se encontraron Servicios Adicionales, intente nuevamente.');
+                            reject();
+                        }
+                        else {
+                            loading.dismiss();
+                            resolve(adicionales);
+                        }
+                    }, function (error) {
+                        loading.dismiss();
+                        console.log(JSON.stringify(error));
+                        reject();
+                        _this.mostrarToast('Error consultando Servicios Adicionales');
+                    });
+                });
+            }
+            else {
+                _this.loadingController.create({
+                    message: 'Consultando Servicios Adicionales',
+                    duration: 30000
+                }).then(function (loading) {
+                    loading.present();
+                    _this.offline.getUltimosAdicionales(contrato).then(function (adicionales) {
+                        loading.dismiss();
+                        resolve(adicionales);
                     });
                 });
             }

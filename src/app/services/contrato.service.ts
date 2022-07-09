@@ -286,6 +286,142 @@ export class ContratoService {
 
     });
   }
+
+  consultarUltimasNovedades(contrato: string){
+    let isOffline = localStorage.getItem('offlineMode') === 'true' ? true : false;
+
+
+    return new Promise((resolve, reject) => {
+
+      const params = new HttpParams().set('NumberId', contrato);
+      const configHelper = new ConfigHelper(this.config);
+      const httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+        }),
+        params
+      };
+
+      if(!isOffline)
+      {
+
+      this.loadingController.create({
+        message: 'Consultando Ultimas Novedades',
+        duration: 30000
+      }).then((loading) => {
+
+        loading.present();
+
+        this.http.post(`${configHelper.getApiUrl()}/pago/searcNovedades`, null, httpOptions)
+          .subscribe((novedades: string[]) => {
+
+            console.log(JSON.stringify(novedades));
+
+            if (novedades.length === 0) {
+              loading.dismiss();
+              this.mostrarToast('No se encontraron Novedades, intente nuevamente.');
+              reject();
+            } else {
+              loading.dismiss();
+              resolve(novedades);
+            }
+
+          },
+            (error: HttpErrorResponse) => {
+
+              loading.dismiss();
+              console.log(JSON.stringify(error))
+              reject();
+              this.mostrarToast('Error consultando Novedades');
+
+            });
+
+      });
+    }
+    else{
+      this.loadingController.create({
+        message: 'Consultando Novedades',
+        duration: 30000
+      }).then((loading) => {
+        loading.present();
+        this.offline.getUltimasNovedades(contrato).then((novedades: string[]) => {
+            loading.dismiss();
+            resolve(novedades);
+        });
+      });
+
+    }
+
+    });
+  }
+
+  consultarUltimosAdicionales(contrato: string){
+    let isOffline = localStorage.getItem('offlineMode') === 'true' ? true : false;
+
+
+    return new Promise((resolve, reject) => {
+
+      const params = new HttpParams().set('NumberId', contrato);
+      const configHelper = new ConfigHelper(this.config);
+      const httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+        }),
+        params
+      };
+
+      if(!isOffline)
+      {
+
+      this.loadingController.create({
+        message: 'Consultando Servicios Adicionales',
+        duration: 30000
+      }).then((loading) => {
+
+        loading.present();
+
+        this.http.post(`${configHelper.getApiUrl()}/pago/searcAdicionales`, null, httpOptions)
+          .subscribe((adicionales: string[]) => {
+
+            console.log(JSON.stringify(adicionales));
+
+            if (adicionales.length === 0) {
+              loading.dismiss();
+              this.mostrarToast('No se encontraron Servicios Adicionales, intente nuevamente.');
+              reject();
+            } else {
+              loading.dismiss();
+              resolve(adicionales);
+            }
+
+          },
+            (error: HttpErrorResponse) => {
+
+              loading.dismiss();
+              console.log(JSON.stringify(error))
+              reject();
+              this.mostrarToast('Error consultando Servicios Adicionales');
+
+            });
+
+      });
+    }
+    else{
+      this.loadingController.create({
+        message: 'Consultando Servicios Adicionales',
+        duration: 30000
+      }).then((loading) => {
+        loading.present();
+        this.offline.getUltimosAdicionales(contrato).then((adicionales: string[]) => {
+            loading.dismiss();
+            resolve(adicionales);
+        });
+      });
+
+    }
+
+    });
+  }
   cargarDepartamentos() {
     return new Promise((resolve, reject) => {
 

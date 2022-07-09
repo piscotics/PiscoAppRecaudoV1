@@ -1,9 +1,9 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[11],{
 
-/***/ "d7GT":
-/*!********************************************************************!*\
-  !*** ../node_modules/@ionic/core/dist/esm/ion-datetime_3.entry.js ***!
-  \********************************************************************/
+/***/ "WgF3":
+/*!*******************************************************************!*\
+  !*** ./node_modules/@ionic/core/dist/esm/ion-datetime_3.entry.js ***!
+  \*******************************************************************/
 /*! exports provided: ion_datetime, ion_picker, ion_picker_column */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -12,22 +12,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_datetime", function() { return Datetime; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_picker", function() { return Picker; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_picker_column", function() { return PickerColumnCmp; });
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../node_modules/@babel/runtime/helpers/esm/createForOfIteratorHelper */ "V9Kn");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../node_modules/@babel/runtime/helpers/esm/defineProperty */ "mK0O");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../node_modules/@babel/runtime/helpers/esm/toConsumableArray */ "6CzD");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../node_modules/@babel/runtime/regenerator */ "o0o1");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../node_modules/@babel/runtime/helpers/esm/asyncToGenerator */ "eijD");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../node_modules/@babel/runtime/helpers/esm/classCallCheck */ "hisu");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../node_modules/@babel/runtime/helpers/esm/createClass */ "yBJb");
-/* harmony import */ var _index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./index-e806d1f6.js */ "OVRr");
-/* harmony import */ var _ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./ionic-global-9d5c8ee3.js */ "rAwY");
-/* harmony import */ var _helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./helpers-90f46169.js */ "Ij9o");
-/* harmony import */ var _animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./animation-54fe0237.js */ "uxFI");
-/* harmony import */ var _hardware_back_button_4a6b37fb_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./hardware-back-button-4a6b37fb.js */ "A64e");
-/* harmony import */ var _overlays_12c20431_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./overlays-12c20431.js */ "zr4j");
-/* harmony import */ var _haptic_27b3f981_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./haptic-27b3f981.js */ "ApiU");
-/* harmony import */ var _theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./theme-ff3fc52f.js */ "akMd");
+/* harmony import */ var C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createForOfIteratorHelper */ "uFwe");
+/* harmony import */ var C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/defineProperty */ "rePB");
+/* harmony import */ var C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/toConsumableArray */ "KQm4");
+/* harmony import */ var C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ "o0o1");
+/* harmony import */ var C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator */ "HaE+");
+/* harmony import */ var C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/classCallCheck */ "1OyB");
+/* harmony import */ var C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createClass */ "vuIU");
+/* harmony import */ var _index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./index-7a8b7a1c.js */ "wEJo");
+/* harmony import */ var _ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./ionic-global-63a97a32.js */ "E/Mt");
+/* harmony import */ var _helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./helpers-dd7e4b7b.js */ "1vRN");
+/* harmony import */ var _overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./overlays-e9ccff30.js */ "SOSK");
+/* harmony import */ var _theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./theme-ff3fc52f.js */ "74mu");
+/* harmony import */ var _animation_096c6391_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./animation-096c6391.js */ "meiF");
+/* harmony import */ var _haptic_27b3f981_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./haptic-27b3f981.js */ "qULd");
+/* harmony import */ var _hardware_back_button_4a6b37fb_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./hardware-back-button-4a6b37fb.js */ "B4Jq");
 
 
 
@@ -675,14 +675,14 @@ var Datetime = /*#__PURE__*/function () {
   function Datetime(hostRef) {
     var _this = this;
 
-    Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_5__["default"])(this, Datetime);
+    Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_5__["default"])(this, Datetime);
 
-    Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_7__["r"])(this, hostRef);
-    this.ionCancel = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_7__["e"])(this, "ionCancel", 7);
-    this.ionChange = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_7__["e"])(this, "ionChange", 7);
-    this.ionFocus = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_7__["e"])(this, "ionFocus", 7);
-    this.ionBlur = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_7__["e"])(this, "ionBlur", 7);
-    this.ionStyle = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_7__["e"])(this, "ionStyle", 7);
+    Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_7__["r"])(this, hostRef);
+    this.ionCancel = Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_7__["e"])(this, "ionCancel", 7);
+    this.ionChange = Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_7__["e"])(this, "ionChange", 7);
+    this.ionFocus = Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_7__["e"])(this, "ionFocus", 7);
+    this.ionBlur = Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_7__["e"])(this, "ionBlur", 7);
+    this.ionStyle = Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_7__["e"])(this, "ionStyle", 7);
     this.inputId = "ion-dt-".concat(datetimeIds++);
     this.locale = {};
     this.datetimeMin = {};
@@ -739,7 +739,7 @@ var Datetime = /*#__PURE__*/function () {
     };
   }
 
-  Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_6__["default"])(Datetime, [{
+  Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_6__["default"])(Datetime, [{
     key: "disabledChanged",
     value: function disabledChanged() {
       this.emitStyle();
@@ -780,11 +780,11 @@ var Datetime = /*#__PURE__*/function () {
   }, {
     key: "open",
     value: function () {
-      var _open = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee2() {
+      var _open = Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4__["default"])( /*#__PURE__*/C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee2() {
         var _this2 = this;
 
         var pickerOptions, picker;
-        return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee2$(_context2) {
+        return C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
@@ -798,7 +798,7 @@ var Datetime = /*#__PURE__*/function () {
               case 2:
                 pickerOptions = this.generatePickerOptions();
                 _context2.next = 5;
-                return _overlays_12c20431_js__WEBPACK_IMPORTED_MODULE_12__["p"].create(pickerOptions);
+                return _overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_10__["p"].create(pickerOptions);
 
               case 5:
                 picker = _context2.sent;
@@ -808,10 +808,10 @@ var Datetime = /*#__PURE__*/function () {
 
                   _this2.setFocus();
                 });
-                Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_9__["a"])(picker, 'ionPickerColChange', /*#__PURE__*/function () {
-                  var _ref = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee(event) {
+                Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_9__["a"])(picker, 'ionPickerColChange', /*#__PURE__*/function () {
+                  var _ref = Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4__["default"])( /*#__PURE__*/C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee(event) {
                     var data, colSelectedIndex, colOptions, changeData;
-                    return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee$(_context) {
+                    return C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee$(_context) {
                       while (1) {
                         switch (_context.prev = _context.next) {
                           case 0:
@@ -883,7 +883,7 @@ var Datetime = /*#__PURE__*/function () {
     value: function generatePickerOptions() {
       var _this3 = this;
 
-      var mode = Object(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_8__["b"])(this);
+      var mode = Object(_ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_8__["b"])(this);
       this.locale = {
         monthNames: convertToArrayOfStrings(this.monthNames, 'monthNames'),
         monthShortNames: convertToArrayOfStrings(this.monthShortNames, 'monthShortNames'),
@@ -1048,11 +1048,11 @@ var Datetime = /*#__PURE__*/function () {
         var years = convertToArrayOfNumbers(this.yearValues, 'year');
 
         if (this.min === undefined) {
-          this.min = Math.min.apply(Math, Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_2__["default"])(years)).toString();
+          this.min = Math.min.apply(Math, Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_2__["default"])(years)).toString();
         }
 
         if (this.max === undefined) {
-          this.max = Math.max.apply(Math, Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_2__["default"])(years)).toString();
+          this.max = Math.max.apply(Math, Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_2__["default"])(years)).toString();
         }
       } else {
         if (this.min === undefined) {
@@ -1124,7 +1124,7 @@ var Datetime = /*#__PURE__*/function () {
         }
       }
 
-      var selectedIndex = column.selectedIndex = Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_9__["h"])(indexMin, column.selectedIndex, indexMax);
+      var selectedIndex = column.selectedIndex = Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_9__["j"])(indexMin, column.selectedIndex, indexMax);
       var opt = column.options[selectedIndex];
 
       if (opt) {
@@ -1170,9 +1170,9 @@ var Datetime = /*#__PURE__*/function () {
           isExpanded = this.isExpanded,
           el = this.el,
           placeholder = this.placeholder;
-      var mode = Object(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_8__["b"])(this);
+      var mode = Object(_ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_8__["b"])(this);
       var labelId = inputId + '-lbl';
-      var label = Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_9__["f"])(el);
+      var label = Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_9__["h"])(el);
       var addPlaceholderClass = text === undefined && placeholder != null ? true : false; // If selected text has been passed in, use that first
       // otherwise use the placeholder
 
@@ -1183,18 +1183,18 @@ var Datetime = /*#__PURE__*/function () {
         label.id = labelId;
       }
 
-      Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_9__["d"])(true, el, this.name, this.value, this.disabled);
-      return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_7__["h"])(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_7__["H"], {
+      Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_9__["e"])(true, el, this.name, this.value, this.disabled);
+      return Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_7__["h"])(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_7__["H"], {
         onClick: this.onClick,
         "aria-disabled": disabled ? 'true' : null,
         "aria-expanded": "".concat(isExpanded),
         "aria-haspopup": "true",
-        "aria-labelledby": labelId,
-        class: (_class = {}, Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_class, mode, true), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_class, 'datetime-disabled', disabled), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_class, 'datetime-readonly', readonly), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_class, 'datetime-placeholder', addPlaceholderClass), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_class, 'in-item', Object(_theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_14__["h"])('ion-item', el)), _class)
-      }, Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_7__["h"])("div", {
+        "aria-labelledby": label ? labelId : null,
+        class: (_class = {}, Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_class, mode, true), Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_class, 'datetime-disabled', disabled), Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_class, 'datetime-readonly', readonly), Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_class, 'datetime-placeholder', addPlaceholderClass), Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_class, 'in-item', Object(_theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_11__["h"])('ion-item', el)), _class)
+      }, Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_7__["h"])("div", {
         class: "datetime-text",
         part: datetimeTextPart
-      }, datetimeText), Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_7__["h"])("button", {
+      }, datetimeText), Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_7__["h"])("button", {
         type: "button",
         onFocus: this.onFocus,
         onBlur: this.onBlur,
@@ -1207,7 +1207,7 @@ var Datetime = /*#__PURE__*/function () {
   }, {
     key: "el",
     get: function get() {
-      return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_7__["i"])(this);
+      return Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_7__["i"])(this);
     }
   }], [{
     key: "watchers",
@@ -1231,7 +1231,7 @@ var divyColumns = function divyColumns(columns) {
     col = columns[i];
     columnsWidth.push(0);
 
-    var _iterator = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper__WEBPACK_IMPORTED_MODULE_0__["default"])(col.options),
+    var _iterator = Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper__WEBPACK_IMPORTED_MODULE_0__["default"])(col.options),
         _step;
 
     try {
@@ -1277,9 +1277,9 @@ Datetime.style = {
  */
 
 var iosEnterAnimation = function iosEnterAnimation(baseEl) {
-  var baseAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_10__["c"])();
-  var backdropAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_10__["c"])();
-  var wrapperAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_10__["c"])();
+  var baseAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_12__["c"])();
+  var backdropAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_12__["c"])();
+  var wrapperAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_12__["c"])();
   backdropAnimation.addElement(baseEl.querySelector('ion-backdrop')).fromTo('opacity', 0.01, 'var(--backdrop-opacity)').beforeStyles({
     'pointer-events': 'none'
   }).afterClearStyles(['pointer-events']);
@@ -1292,9 +1292,9 @@ var iosEnterAnimation = function iosEnterAnimation(baseEl) {
 
 
 var iosLeaveAnimation = function iosLeaveAnimation(baseEl) {
-  var baseAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_10__["c"])();
-  var backdropAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_10__["c"])();
-  var wrapperAnimation = Object(_animation_54fe0237_js__WEBPACK_IMPORTED_MODULE_10__["c"])();
+  var baseAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_12__["c"])();
+  var backdropAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_12__["c"])();
+  var wrapperAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_12__["c"])();
   backdropAnimation.addElement(baseEl.querySelector('ion-backdrop')).fromTo('opacity', 'var(--backdrop-opacity)', 0.01);
   wrapperAnimation.addElement(baseEl.querySelector('.picker-wrapper')).fromTo('transform', 'translateY(0%)', 'translateY(100%)');
   return baseAnimation.addElement(baseEl).easing('cubic-bezier(.36,.66,.04,1)').duration(400).addAnimation([backdropAnimation, wrapperAnimation]);
@@ -1307,13 +1307,13 @@ var Picker = /*#__PURE__*/function () {
   function Picker(hostRef) {
     var _this6 = this;
 
-    Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_5__["default"])(this, Picker);
+    Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_5__["default"])(this, Picker);
 
-    Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_7__["r"])(this, hostRef);
-    this.didPresent = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_7__["e"])(this, "ionPickerDidPresent", 7);
-    this.willPresent = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_7__["e"])(this, "ionPickerWillPresent", 7);
-    this.willDismiss = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_7__["e"])(this, "ionPickerWillDismiss", 7);
-    this.didDismiss = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_7__["e"])(this, "ionPickerDidDismiss", 7);
+    Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_7__["r"])(this, hostRef);
+    this.didPresent = Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_7__["e"])(this, "ionPickerDidPresent", 7);
+    this.willPresent = Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_7__["e"])(this, "ionPickerWillPresent", 7);
+    this.willDismiss = Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_7__["e"])(this, "ionPickerWillDismiss", 7);
+    this.didDismiss = Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_7__["e"])(this, "ionPickerDidDismiss", 7);
     this.presented = false;
     /**
      * If `true`, the keyboard will be automatically dismissed when the overlay is presented.
@@ -1352,13 +1352,13 @@ var Picker = /*#__PURE__*/function () {
     this.animated = true;
 
     this.onBackdropTap = function () {
-      _this6.dismiss(undefined, _overlays_12c20431_js__WEBPACK_IMPORTED_MODULE_12__["B"]);
+      _this6.dismiss(undefined, _overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_10__["B"]);
     };
 
     this.dispatchCancelHandler = function (ev) {
       var role = ev.detail.role;
 
-      if (Object(_overlays_12c20431_js__WEBPACK_IMPORTED_MODULE_12__["i"])(role)) {
+      if (Object(_overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_10__["i"])(role)) {
         var cancelButton = _this6.buttons.find(function (b) {
           return b.role === 'cancel';
         });
@@ -1368,10 +1368,10 @@ var Picker = /*#__PURE__*/function () {
     };
   }
 
-  Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_6__["default"])(Picker, [{
+  Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_6__["default"])(Picker, [{
     key: "connectedCallback",
     value: function connectedCallback() {
-      Object(_overlays_12c20431_js__WEBPACK_IMPORTED_MODULE_12__["e"])(this.el);
+      Object(_overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_10__["e"])(this.el);
     }
     /**
      * Present the picker overlay after it has been created.
@@ -1380,15 +1380,15 @@ var Picker = /*#__PURE__*/function () {
   }, {
     key: "present",
     value: function () {
-      var _present2 = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee3() {
+      var _present2 = Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4__["default"])( /*#__PURE__*/C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee3() {
         var _this7 = this;
 
-        return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee3$(_context3) {
+        return C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
                 _context3.next = 2;
-                return Object(_overlays_12c20431_js__WEBPACK_IMPORTED_MODULE_12__["d"])(this, 'pickerEnter', iosEnterAnimation, iosEnterAnimation, undefined);
+                return Object(_overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_10__["d"])(this, 'pickerEnter', iosEnterAnimation, iosEnterAnimation, undefined);
 
               case 2:
                 if (this.duration > 0) {
@@ -1428,7 +1428,7 @@ var Picker = /*#__PURE__*/function () {
         clearTimeout(this.durationTimeout);
       }
 
-      return Object(_overlays_12c20431_js__WEBPACK_IMPORTED_MODULE_12__["f"])(this, data, role, 'pickerLeave', iosLeaveAnimation, iosLeaveAnimation);
+      return Object(_overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_10__["f"])(this, data, role, 'pickerLeave', iosLeaveAnimation, iosLeaveAnimation);
     }
     /**
      * Returns a promise that resolves when the picker did dismiss.
@@ -1437,7 +1437,7 @@ var Picker = /*#__PURE__*/function () {
   }, {
     key: "onDidDismiss",
     value: function onDidDismiss() {
-      return Object(_overlays_12c20431_js__WEBPACK_IMPORTED_MODULE_12__["g"])(this.el, 'ionPickerDidDismiss');
+      return Object(_overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_10__["g"])(this.el, 'ionPickerDidDismiss');
     }
     /**
      * Returns a promise that resolves when the picker will dismiss.
@@ -1446,7 +1446,7 @@ var Picker = /*#__PURE__*/function () {
   }, {
     key: "onWillDismiss",
     value: function onWillDismiss() {
-      return Object(_overlays_12c20431_js__WEBPACK_IMPORTED_MODULE_12__["g"])(this.el, 'ionPickerWillDismiss');
+      return Object(_overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_10__["g"])(this.el, 'ionPickerWillDismiss');
     }
     /**
      * Get the column that matches the specified name.
@@ -1464,15 +1464,15 @@ var Picker = /*#__PURE__*/function () {
   }, {
     key: "buttonClick",
     value: function () {
-      var _buttonClick = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee4(button) {
+      var _buttonClick = Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4__["default"])( /*#__PURE__*/C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee4(button) {
         var role, shouldDismiss;
-        return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee4$(_context4) {
+        return C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee4$(_context4) {
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
                 role = button.role;
 
-                if (!Object(_overlays_12c20431_js__WEBPACK_IMPORTED_MODULE_12__["i"])(role)) {
+                if (!Object(_overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_10__["i"])(role)) {
                   _context4.next = 3;
                   break;
                 }
@@ -1513,9 +1513,9 @@ var Picker = /*#__PURE__*/function () {
   }, {
     key: "callButtonHandler",
     value: function () {
-      var _callButtonHandler = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee5(button) {
+      var _callButtonHandler = Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4__["default"])( /*#__PURE__*/C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee5(button) {
         var rtn;
-        return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee5$(_context5) {
+        return C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee5$(_context5) {
           while (1) {
             switch (_context5.prev = _context5.next) {
               case 0:
@@ -1525,7 +1525,7 @@ var Picker = /*#__PURE__*/function () {
                 }
 
                 _context5.next = 3;
-                return Object(_overlays_12c20431_js__WEBPACK_IMPORTED_MODULE_12__["s"])(button.handler, this.getSelected());
+                return Object(_overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_10__["s"])(button.handler, this.getSelected());
 
               case 3:
                 rtn = _context5.sent;
@@ -1574,54 +1574,56 @@ var Picker = /*#__PURE__*/function () {
       var _Object$assign,
           _this8 = this;
 
-      var mode = Object(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_8__["b"])(this);
-      return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_7__["h"])(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_7__["H"], {
+      var htmlAttributes = this.htmlAttributes;
+      var mode = Object(_ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_8__["b"])(this);
+      return Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_7__["h"])(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_7__["H"], Object.assign({
         "aria-modal": "true",
-        tabindex: "-1",
-        class: Object.assign((_Object$assign = {}, Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_Object$assign, mode, true), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_Object$assign, "picker-".concat(mode), true), _Object$assign), Object(_theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_14__["g"])(this.cssClass)),
+        tabindex: "-1"
+      }, htmlAttributes, {
         style: {
           zIndex: "".concat(20000 + this.overlayIndex)
         },
+        class: Object.assign((_Object$assign = {}, Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_Object$assign, mode, true), Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_Object$assign, "picker-".concat(mode), true), _Object$assign), Object(_theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_11__["g"])(this.cssClass)),
         onIonBackdropTap: this.onBackdropTap,
         onIonPickerWillDismiss: this.dispatchCancelHandler
-      }, Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_7__["h"])("ion-backdrop", {
+      }), Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_7__["h"])("ion-backdrop", {
         visible: this.showBackdrop,
         tappable: this.backdropDismiss
-      }), Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_7__["h"])("div", {
+      }), Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_7__["h"])("div", {
         tabindex: "0"
-      }), Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_7__["h"])("div", {
+      }), Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_7__["h"])("div", {
         class: "picker-wrapper ion-overlay-wrapper",
         role: "dialog"
-      }, Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_7__["h"])("div", {
+      }, Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_7__["h"])("div", {
         class: "picker-toolbar"
       }, this.buttons.map(function (b) {
-        return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_7__["h"])("div", {
+        return Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_7__["h"])("div", {
           class: buttonWrapperClass(b)
-        }, Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_7__["h"])("button", {
+        }, Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_7__["h"])("button", {
           type: "button",
           onClick: function onClick() {
             return _this8.buttonClick(b);
           },
           class: buttonClass(b)
         }, b.text));
-      })), Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_7__["h"])("div", {
+      })), Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_7__["h"])("div", {
         class: "picker-columns"
-      }, Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_7__["h"])("div", {
+      }, Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_7__["h"])("div", {
         class: "picker-above-highlight"
       }), this.presented && this.columns.map(function (c) {
-        return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_7__["h"])("ion-picker-column", {
+        return Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_7__["h"])("ion-picker-column", {
           col: c
         });
-      }), Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_7__["h"])("div", {
+      }), Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_7__["h"])("div", {
         class: "picker-below-highlight"
-      }))), Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_7__["h"])("div", {
+      }))), Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_7__["h"])("div", {
         tabindex: "0"
       }));
     }
   }, {
     key: "el",
     get: function get() {
-      return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_7__["i"])(this);
+      return Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_7__["i"])(this);
     }
   }]);
 
@@ -1631,14 +1633,14 @@ var Picker = /*#__PURE__*/function () {
 var buttonWrapperClass = function buttonWrapperClass(button) {
   var _ref2;
 
-  return _ref2 = {}, Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_ref2, "picker-toolbar-".concat(button.role), button.role !== undefined), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_ref2, 'picker-toolbar-button', true), _ref2;
+  return _ref2 = {}, Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_ref2, "picker-toolbar-".concat(button.role), button.role !== undefined), Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_ref2, 'picker-toolbar-button', true), _ref2;
 };
 
 var buttonClass = function buttonClass(button) {
   return Object.assign({
     'picker-button': true,
     'ion-activatable': true
-  }, Object(_theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_14__["g"])(button.cssClass));
+  }, Object(_theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_11__["g"])(button.cssClass));
 };
 
 Picker.style = {
@@ -1650,10 +1652,10 @@ var pickerColumnMdCss = ".picker-col{display:-ms-flexbox;display:flex;position:r
 
 var PickerColumnCmp = /*#__PURE__*/function () {
   function PickerColumnCmp(hostRef) {
-    Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_5__["default"])(this, PickerColumnCmp);
+    Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_5__["default"])(this, PickerColumnCmp);
 
-    Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_7__["r"])(this, hostRef);
-    this.ionPickerColChange = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_7__["e"])(this, "ionPickerColChange", 7);
+    Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_7__["r"])(this, hostRef);
+    this.ionPickerColChange = Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_7__["e"])(this, "ionPickerColChange", 7);
     this.optHeight = 0;
     this.rotateFactor = 0;
     this.scaleFactor = 1;
@@ -1662,7 +1664,7 @@ var PickerColumnCmp = /*#__PURE__*/function () {
     this.noAnimate = true;
   }
 
-  Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_6__["default"])(PickerColumnCmp, [{
+  Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_6__["default"])(PickerColumnCmp, [{
     key: "colChanged",
     value: function colChanged() {
       this.refresh();
@@ -1670,17 +1672,17 @@ var PickerColumnCmp = /*#__PURE__*/function () {
   }, {
     key: "connectedCallback",
     value: function () {
-      var _connectedCallback = Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee6() {
+      var _connectedCallback = Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4__["default"])( /*#__PURE__*/C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee6() {
         var _this9 = this;
 
         var pickerRotateFactor, pickerScaleFactor, mode;
-        return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee6$(_context6) {
+        return C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee6$(_context6) {
           while (1) {
             switch (_context6.prev = _context6.next) {
               case 0:
                 pickerRotateFactor = 0;
                 pickerScaleFactor = 0.81;
-                mode = Object(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_8__["b"])(this);
+                mode = Object(_ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_8__["b"])(this);
 
                 if (mode === 'ios') {
                   pickerRotateFactor = -0.46;
@@ -1690,7 +1692,7 @@ var PickerColumnCmp = /*#__PURE__*/function () {
                 this.rotateFactor = pickerRotateFactor;
                 this.scaleFactor = pickerScaleFactor;
                 _context6.next = 8;
-                return Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! ./index-f49d994d.js */ "8ciA"));
+                return Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! ./index-34cb2743.js */ "KF81"));
 
               case 8:
                 this.gesture = _context6.sent.createGesture({
@@ -1972,7 +1974,7 @@ var PickerColumnCmp = /*#__PURE__*/function () {
         return;
       }
 
-      this.velocity = Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_9__["h"])(-MAX_PICKER_SPEED, detail.velocityY * 23, MAX_PICKER_SPEED);
+      this.velocity = Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_9__["j"])(-MAX_PICKER_SPEED, detail.velocityY * 23, MAX_PICKER_SPEED);
 
       if (this.velocity === 0 && detail.deltaY === 0) {
         var opt = detail.event.target.closest('.picker-opt');
@@ -2023,7 +2025,7 @@ var PickerColumnCmp = /*#__PURE__*/function () {
         return;
       }
 
-      var selectedIndex = Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_9__["h"])(min, this.col.selectedIndex || 0, max);
+      var selectedIndex = Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_9__["j"])(min, this.col.selectedIndex || 0, max);
 
       if (this.col.prevSelected !== selectedIndex || forceRefresh) {
         var y = selectedIndex * this.optHeight * -1;
@@ -2039,18 +2041,18 @@ var PickerColumnCmp = /*#__PURE__*/function () {
 
       var col = this.col;
       var Button = 'button';
-      var mode = Object(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_8__["b"])(this);
-      return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_7__["h"])(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_7__["H"], {
-        class: (_class2 = {}, Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_class2, mode, true), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_class2, 'picker-col', true), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_class2, 'picker-opts-left', this.col.align === 'left'), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_class2, 'picker-opts-right', this.col.align === 'right'), _class2),
+      var mode = Object(_ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_8__["b"])(this);
+      return Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_7__["h"])(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_7__["H"], {
+        class: (_class2 = {}, Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_class2, mode, true), Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_class2, 'picker-col', true), Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_class2, 'picker-opts-left', this.col.align === 'left'), Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_class2, 'picker-opts-right', this.col.align === 'right'), _class2),
         style: {
           'max-width': this.col.columnWidth
         }
-      }, col.prefix && Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_7__["h"])("div", {
+      }, col.prefix && Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_7__["h"])("div", {
         class: "picker-prefix",
         style: {
           width: col.prefixWidth
         }
-      }, col.prefix), Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_7__["h"])("div", {
+      }, col.prefix), Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_7__["h"])("div", {
         class: "picker-opts",
         style: {
           maxWidth: col.optionsWidth
@@ -2059,7 +2061,7 @@ var PickerColumnCmp = /*#__PURE__*/function () {
           return _this11.optsEl = el;
         }
       }, col.options.map(function (o, index) {
-        return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_7__["h"])(Button, {
+        return Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_7__["h"])(Button, {
           type: "button",
           class: {
             'picker-opt': true,
@@ -2067,7 +2069,7 @@ var PickerColumnCmp = /*#__PURE__*/function () {
           },
           "opt-index": index
         }, o.text);
-      })), col.suffix && Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_7__["h"])("div", {
+      })), col.suffix && Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_7__["h"])("div", {
         class: "picker-suffix",
         style: {
           width: col.suffixWidth
@@ -2077,7 +2079,7 @@ var PickerColumnCmp = /*#__PURE__*/function () {
   }, {
     key: "el",
     get: function get() {
-      return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_7__["i"])(this);
+      return Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_7__["i"])(this);
     }
   }], [{
     key: "watchers",

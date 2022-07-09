@@ -24,6 +24,7 @@ import { CuadreCajaRequesModel, CuadreCajaResponseModel } from '../models/cuadre
 import { PagoResponseModel } from '../models/responses/pago-response.model';
 import { OfflineService } from './offline.service';
 import * as moment from 'moment';
+import { NotificarPagoResponseModel } from '../models/responses/notificarpago-response.model';
 
 @Injectable({
   providedIn: 'root'
@@ -131,6 +132,41 @@ export class PagosService {
         });
 
       }
+    });
+  }
+
+  lstNovedades(fecha: string, usuario: string) {
+    return new Promise((resolve, reject) => {
+
+      this.loadingController.create({
+        message: 'Lista Novedades',
+        duration: 30000
+      }).then((loading) => {
+
+        loading.present();
+
+        const dataPost = new CuadreCajaRequesModel(usuario, fecha);
+        const configHelper = new ConfigHelper(this.configuracionService.config);
+        const httpOptions = {
+          headers: new HttpHeaders({
+            'Content-Type': 'application/json'
+          })
+        };
+        
+        this.http.post(`${configHelper.getApiUrl()}/cuadre/lstNovedadUser`, dataPost, httpOptions)
+        .subscribe((data: string[]) => {
+            loading.dismiss();
+            resolve(data);
+          },
+            (error: HttpErrorResponse) => {
+              console.log(JSON.stringify(error))
+              this.mostrarToastSimple('Error autenticando en el servidor');
+              loading.dismiss();
+              reject();
+            });
+
+      });
+
     });
   }
 
@@ -529,6 +565,65 @@ export class PagosService {
       duration: 2000
     }).then(toast => {
       toast.present();
+    });
+  }
+  
+
+  notificarRecibo(NoRecibo : string){
+    return new Promise((resolve, reject) => {
+
+      const params = new HttpParams().set('NoRecibo',  NoRecibo);
+      const configHelper = new ConfigHelper(this.configuracionService.config);
+      const httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+        }),
+        params
+      };
+
+      this.loadingController.create({
+        message: 'Enviando Recibo',
+        duration: 30000
+      }).then((loading) => {
+
+        loading.present();
+
+        this.http.post(`${configHelper.getApiUrl()}/pago/notificarrecibo`, null, httpOptions)
+          .subscribe((resultado: NotificarPagoResponseModel) => {
+            if (!resultado) {
+              loading.dismiss();
+              this.alertController.create({
+                header: 'Información',
+                message: resultado.RESPUESTA,
+                buttons:['Ok']
+              }).then(obj=>{
+                obj.present();
+              });
+              reject();
+            } else {
+              loading.dismiss();
+              this.alertController.create({
+                header: 'Información',
+                message: resultado.RESPUESTA,
+                buttons:['Ok']
+              }).then(obj=>{
+                obj.present();
+              });
+              resolve(resultado);
+            }
+
+          },
+            (error: HttpErrorResponse) => {
+
+              loading.dismiss();
+              console.log(JSON.stringify(error))
+              reject();
+              this.mostrarToastSimple('Error enviando recibo');
+
+            });
+
+      });
+
     });
   }
 }

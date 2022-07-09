@@ -1,25 +1,25 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[25],{
 
-/***/ "iD9d":
-/*!***************************************************************!*\
-  !*** ../node_modules/@ionic/core/dist/esm/ion-range.entry.js ***!
-  \***************************************************************/
+/***/ "XGij":
+/*!**************************************************************!*\
+  !*** ./node_modules/@ionic/core/dist/esm/ion-range.entry.js ***!
+  \**************************************************************/
 /*! exports provided: ion_range */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_range", function() { return Range; });
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../node_modules/@babel/runtime/helpers/esm/defineProperty */ "mK0O");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../node_modules/@babel/runtime/regenerator */ "o0o1");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../node_modules/@babel/runtime/helpers/esm/asyncToGenerator */ "eijD");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../node_modules/@babel/runtime/helpers/esm/classCallCheck */ "hisu");
-/* harmony import */ var D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../node_modules/@babel/runtime/helpers/esm/createClass */ "yBJb");
-/* harmony import */ var _index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./index-e806d1f6.js */ "OVRr");
-/* harmony import */ var _ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ionic-global-9d5c8ee3.js */ "rAwY");
-/* harmony import */ var _helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./helpers-90f46169.js */ "Ij9o");
-/* harmony import */ var _theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./theme-ff3fc52f.js */ "akMd");
+/* harmony import */ var C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/defineProperty */ "rePB");
+/* harmony import */ var C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ "o0o1");
+/* harmony import */ var C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator */ "HaE+");
+/* harmony import */ var C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/classCallCheck */ "1OyB");
+/* harmony import */ var C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createClass */ "vuIU");
+/* harmony import */ var _index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./index-7a8b7a1c.js */ "wEJo");
+/* harmony import */ var _ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ionic-global-63a97a32.js */ "E/Mt");
+/* harmony import */ var _helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./helpers-dd7e4b7b.js */ "1vRN");
+/* harmony import */ var _theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./theme-ff3fc52f.js */ "74mu");
 
 
 
@@ -36,16 +36,17 @@ var Range = /*#__PURE__*/function () {
   function Range(hostRef) {
     var _this = this;
 
-    Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__["default"])(this, Range);
+    Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__["default"])(this, Range);
 
-    Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["r"])(this, hostRef);
-    this.ionChange = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionChange", 7);
-    this.ionStyle = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionStyle", 7);
-    this.ionFocus = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionFocus", 7);
-    this.ionBlur = Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionBlur", 7);
+    Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["r"])(this, hostRef);
+    this.ionChange = Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionChange", 7);
+    this.ionStyle = Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionStyle", 7);
+    this.ionFocus = Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionFocus", 7);
+    this.ionBlur = Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this, "ionBlur", 7);
     this.didLoad = false;
     this.noUpdate = false;
     this.hasFocus = false;
+    this.inheritedAttributes = {};
     this.ratioA = 0;
     this.ratioB = 0;
     /**
@@ -54,7 +55,8 @@ var Range = /*#__PURE__*/function () {
      * This also impacts form bindings such as `ngModel` or `v-model`.
      */
 
-    this.debounce = 0;
+    this.debounce = 0; // TODO: In Ionic Framework v6 this should initialize to this.rangeId like the other form components do.
+
     /**
      * The name of the control, which is submitted with the form data.
      */
@@ -110,7 +112,7 @@ var Range = /*#__PURE__*/function () {
     this.value = 0;
 
     this.clampBounds = function (value) {
-      return Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["h"])(_this.min, value, _this.max);
+      return Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_7__["j"])(_this.min, value, _this.max);
     };
 
     this.ensureValueInBounds = function (value) {
@@ -124,9 +126,9 @@ var Range = /*#__PURE__*/function () {
       }
     };
 
-    this.setupGesture = /*#__PURE__*/Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee() {
+    this.setupGesture = /*#__PURE__*/Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee() {
       var rangeSlider;
-      return D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee$(_context) {
+      return C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
@@ -138,7 +140,7 @@ var Range = /*#__PURE__*/function () {
               }
 
               _context.next = 4;
-              return Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! ./index-f49d994d.js */ "8ciA"));
+              return Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! ./index-34cb2743.js */ "KF81"));
 
             case 4:
               _this.gesture = _context.sent.createGesture({
@@ -177,9 +179,9 @@ var Range = /*#__PURE__*/function () {
       }
 
       if (knob === 'A') {
-        _this.ratioA = Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["h"])(0, _this.ratioA + step, 1);
+        _this.ratioA = Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_7__["j"])(0, _this.ratioA + step, 1);
       } else {
-        _this.ratioB = Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["h"])(0, _this.ratioB + step, 1);
+        _this.ratioB = Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_7__["j"])(0, _this.ratioB + step, 1);
       }
 
       _this.updateValue();
@@ -206,10 +208,10 @@ var Range = /*#__PURE__*/function () {
     };
   }
 
-  Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__["default"])(Range, [{
+  Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__["default"])(Range, [{
     key: "debounceChanged",
     value: function debounceChanged() {
-      this.ionChange = Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["e"])(this.ionChange, this.debounce);
+      this.ionChange = Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_7__["f"])(this.ionChange, this.debounce);
     }
   }, {
     key: "minChanged",
@@ -245,6 +247,16 @@ var Range = /*#__PURE__*/function () {
       this.ionChange.emit({
         value: value
       });
+    }
+  }, {
+    key: "componentWillLoad",
+    value: function componentWillLoad() {
+      /**
+       * If user has custom ID set then we should
+       * not assign the default incrementing ID.
+       */
+      this.rangeId = this.el.hasAttribute('id') ? this.el.getAttribute('id') : "ion-r-".concat(rangeIds++);
+      this.inheritedAttributes = Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_7__["i"])(this.el, ['aria-label']);
     }
   }, {
     key: "componentDidLoad",
@@ -313,7 +325,7 @@ var Range = /*#__PURE__*/function () {
       var rect = this.rect = this.rangeSlider.getBoundingClientRect();
       var currentX = detail.currentX; // figure out which knob they started closer to
 
-      var ratio = Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["h"])(0, (currentX - rect.left) / rect.width, 1);
+      var ratio = Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_7__["j"])(0, (currentX - rect.left) / rect.width, 1);
 
       if (document.dir === 'rtl') {
         ratio = 1 - ratio;
@@ -341,7 +353,7 @@ var Range = /*#__PURE__*/function () {
       // figure out where the pointer is currently at
       // update the knob being interacted with
       var rect = this.rect;
-      var ratio = Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["h"])(0, (currentX - rect.left) / rect.width, 1);
+      var ratio = Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_7__["j"])(0, (currentX - rect.left) / rect.width, 1);
 
       if (document.dir === 'rtl') {
         ratio = 1 - ratio;
@@ -443,8 +455,23 @@ var Range = /*#__PURE__*/function () {
           disabled = this.disabled,
           pin = this.pin,
           ratioLower = this.ratioLower,
-          ratioUpper = this.ratioUpper;
-      var mode = Object(_ionic_global_9d5c8ee3_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this);
+          ratioUpper = this.ratioUpper,
+          inheritedAttributes = this.inheritedAttributes,
+          rangeId = this.rangeId;
+      /**
+       * Look for external label, ion-label, or aria-labelledby.
+       * If none, see if user placed an aria-label on the host
+       * and use that instead.
+       */
+
+      var _getAriaLabel = Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_7__["d"])(el, rangeId),
+          labelText = _getAriaLabel.labelText;
+
+      if (labelText === undefined || labelText === null) {
+        labelText = inheritedAttributes['aria-label'];
+      }
+
+      var mode = Object(_ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_6__["b"])(this);
       var barStart = "".concat(ratioLower * 100, "%");
       var barEnd = "".concat(100 - ratioUpper * 100, "%");
       var doc = document;
@@ -453,10 +480,10 @@ var Range = /*#__PURE__*/function () {
       var end = isRTL ? 'left' : 'right';
 
       var tickStyle = function tickStyle(tick) {
-        return Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])({}, start, tick[start]);
+        return Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])({}, start, tick[start]);
       };
 
-      var barStyle = (_barStyle = {}, Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_barStyle, start, barStart), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_barStyle, end, barEnd), _barStyle);
+      var barStyle = (_barStyle = {}, Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_barStyle, start, barStart), Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_barStyle, end, barEnd), _barStyle);
       var ticks = [];
 
       if (this.snaps && this.ticks) {
@@ -471,20 +498,21 @@ var Range = /*#__PURE__*/function () {
         }
       }
 
-      Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["d"])(true, el, this.name, JSON.stringify(this.getValue()), disabled);
-      return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["H"], {
+      Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_7__["e"])(true, el, this.name, JSON.stringify(this.getValue()), disabled);
+      return Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["H"], {
         onFocusin: this.onFocus,
         onFocusout: this.onBlur,
-        class: Object(_theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_8__["c"])(this.color, (_createColorClasses = {}, Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, mode, true), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, 'in-item', Object(_theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_8__["h"])('ion-item', el)), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, 'range-disabled', disabled), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, 'range-pressed', pressedKnob !== undefined), Object(D_Recaudooffline_V_1_0_1_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, 'range-has-pin', pin), _createColorClasses))
-      }, Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("slot", {
+        id: rangeId,
+        class: Object(_theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_8__["c"])(this.color, (_createColorClasses = {}, Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, mode, true), Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, 'in-item', Object(_theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_8__["h"])('ion-item', el)), Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, 'range-disabled', disabled), Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, 'range-pressed', pressedKnob !== undefined), Object(C_Users_AlexanderMauricioEsc_Documents_GitHub_PiscoAppRecaudo_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_createColorClasses, 'range-has-pin', pin), _createColorClasses))
+      }, Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])("slot", {
         name: "start"
-      }), Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+      }), Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
         class: "range-slider",
         ref: function ref(rangeEl) {
           return _this2.rangeSlider = rangeEl;
         }
       }, ticks.map(function (tick) {
-        return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+        return Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
           style: tickStyle(tick),
           role: "presentation",
           class: {
@@ -493,11 +521,11 @@ var Range = /*#__PURE__*/function () {
           },
           part: tick.active ? 'tick-active' : 'tick'
         });
-      }), Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+      }), Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
         class: "range-bar",
         role: "presentation",
         part: "bar"
-      }), Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+      }), Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
         class: "range-bar range-bar-active",
         role: "presentation",
         style: barStyle,
@@ -511,7 +539,8 @@ var Range = /*#__PURE__*/function () {
         disabled: disabled,
         handleKeyboard: handleKeyboard,
         min: min,
-        max: max
+        max: max,
+        labelText: labelText
       }), this.dualKnobs && renderKnob(isRTL, {
         knob: 'B',
         pressed: pressedKnob === 'B',
@@ -521,15 +550,16 @@ var Range = /*#__PURE__*/function () {
         disabled: disabled,
         handleKeyboard: handleKeyboard,
         min: min,
-        max: max
-      })), Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("slot", {
+        max: max,
+        labelText: labelText
+      })), Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])("slot", {
         name: "end"
       }));
     }
   }, {
     key: "el",
     get: function get() {
-      return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["i"])(this);
+      return Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["i"])(this);
     }
   }], [{
     key: "watchers",
@@ -556,7 +586,8 @@ var renderKnob = function renderKnob(isRTL, _ref3) {
       disabled = _ref3.disabled,
       pressed = _ref3.pressed,
       pin = _ref3.pin,
-      handleKeyboard = _ref3.handleKeyboard;
+      handleKeyboard = _ref3.handleKeyboard,
+      labelText = _ref3.labelText;
   var start = isRTL ? 'right' : 'left';
 
   var knobStyle = function knobStyle() {
@@ -565,7 +596,7 @@ var renderKnob = function renderKnob(isRTL, _ref3) {
     return style;
   };
 
-  return Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+  return Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
     onKeyDown: function onKeyDown(ev) {
       var key = ev.key;
 
@@ -590,15 +621,16 @@ var renderKnob = function renderKnob(isRTL, _ref3) {
     style: knobStyle(),
     role: "slider",
     tabindex: disabled ? -1 : 0,
+    "aria-label": labelText,
     "aria-valuemin": min,
     "aria-valuemax": max,
     "aria-disabled": disabled ? 'true' : null,
     "aria-valuenow": value
-  }, pin && Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+  }, pin && Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
     class: "range-pin",
     role: "presentation",
     part: "pin"
-  }, Math.round(value)), Object(_index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
+  }, Math.round(value)), Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_5__["h"])("div", {
     class: "range-knob",
     role: "presentation",
     part: "knob"
@@ -612,13 +644,14 @@ var ratioToValue = function ratioToValue(ratio, min, max, step) {
     value = Math.round(value / step) * step + min;
   }
 
-  return Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["h"])(min, value, max);
+  return Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_7__["j"])(min, value, max);
 };
 
 var valueToRatio = function valueToRatio(value, min, max) {
-  return Object(_helpers_90f46169_js__WEBPACK_IMPORTED_MODULE_7__["h"])(0, (value - min) / (max - min), 1);
+  return Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_7__["j"])(0, (value - min) / (max - min), 1);
 };
 
+var rangeIds = 0;
 Range.style = {
   ios: rangeIosCss,
   md: rangeMdCss

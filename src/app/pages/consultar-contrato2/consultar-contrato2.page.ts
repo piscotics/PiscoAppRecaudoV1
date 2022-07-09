@@ -9,6 +9,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ConsultaContratoResponseModel } from 'src/app/models/responses/consulta-contrato-response.model';
 import { ModalController } from '@ionic/angular';
 import { UltimosPagosComponent } from '../../own-components/ultimos-pagos/ultimos-pagos.component';
+import { UltimosServadicionalesComponent } from '../../own-components/ultimos-servadicionales/ultimos-servadicionales.component';
+import { UltimasNovedadesComponent } from 'src/app/own-components/ultimas-novedades/ultimas-novedades.component';
 
 @Component({
   selector: 'app-consultar-contrato2',
@@ -140,6 +142,44 @@ export class ConsultarContrato2Page implements OnInit {
           component: UltimosPagosComponent,
           componentProps: {
             pagos
+          },
+        }).then((modal) => {
+           modal.present();
+        });
+       });
+    }
+  }
+
+  verNovedades() {
+    if (!this.contrato) {
+      alert('Seleccione contrato');
+      return;
+    } else {
+        this.contratoSevice.consultarUltimasNovedades(this.contrato.contrato).then((novedades: string[]) => {
+         console.log(JSON.stringify(novedades));
+         this.modalController.create({
+          component: UltimasNovedadesComponent,
+          componentProps: {
+            novedades
+          },
+        }).then((modal) => {
+           modal.present();
+        });
+       });
+    }
+  }
+
+  verAdicionales() {
+    if (!this.contrato) {
+      alert('Seleccione contrato');
+      return;
+    } else {
+        this.contratoSevice.consultarUltimosAdicionales(this.contrato.contrato).then((adicionales: string[]) => {
+         console.log(JSON.stringify(adicionales));
+         this.modalController.create({
+          component: UltimosServadicionalesComponent,
+          componentProps: {
+            adicionales
           },
         }).then((modal) => {
            modal.present();

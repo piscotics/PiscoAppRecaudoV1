@@ -23,7 +23,10 @@ const routes: Routes = [
   { path: 'lista-pagos', loadChildren: './pages/lista-pago/lista-pago.module#ListaPagoPageModule' },
   { path: 'geolocalizacion', loadChildren: './pages/geolocalizacion/geolocalizacion.module#GeolocalizacionPageModule' },
   { path: 'lista-pago', loadChildren: './pages/lista-pago/lista-pago.module#ListaPagoPageModule' },
+  { path: 'lista-novedades', loadChildren: './pages/lista-novedad/lista-novedad.module#ListaNovedadPageModule' },
   { path: 'pruebas', loadChildren: './pages/pruebas/pruebas.module#PruebasPageModule' },
+  
+
   
   
 
