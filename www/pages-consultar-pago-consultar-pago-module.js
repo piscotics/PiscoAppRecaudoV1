@@ -175,7 +175,9 @@ var ConsultarPagoPage = /** @class */ (function () {
                     // this.pago.VlrSaldo = 0;
                     _this.pago.FormaPago = resPago[0].FORMAPAGO;
                     _this.pago.NROREF = resPago[0].NROREF;
-                    console.log("la forma de pago es " + _this.pago.FormaPago);
+                    //indica si el recibo ya fue impreso
+                    _this.pago.RESPUESTA = resPago[0].RESPUESTA;
+                    console.log("la forma de pago es " + resPago[0].RESPUESTA);
                 });
             });
         }
@@ -233,7 +235,9 @@ var ConsultarPagoPage = /** @class */ (function () {
                 _this.pago.VlrSaldo = res.VlrSaldo;
                 _this.pago.FormaPago = res.FormaPago;
                 _this.pago.NROREF = res.NROREF;
-                console.log("la forma de pago es " + _this.pago.FormaPago);
+                //indica si el recibo ya fue impreso
+                _this.pago.RESPUESTA = res.RESPUESTA;
+                console.log("la forma de pago es " + res.RESPUESTA);
             }, function (err) {
                 _this.alert
                     .create({

@@ -96,8 +96,12 @@ export class ConsultarPagoPage implements OnInit {
            // this.pago.VlrSaldo = 0;
             this.pago.FormaPago = resPago[0].FORMAPAGO;
             this.pago.NROREF = resPago[0].NROREF;
+
+            //indica si el recibo ya fue impreso
+            this.pago.RESPUESTA = resPago[0].RESPUESTA;
             
-            console.log("la forma de pago es " + this.pago.FormaPago);
+            
+            console.log("la forma de pago es " + resPago[0].RESPUESTA);
         });
     });
 
@@ -164,8 +168,10 @@ export class ConsultarPagoPage implements OnInit {
             this.pago.VlrSaldo = res.VlrSaldo;
             this.pago.FormaPago = res.FormaPago;
             this.pago.NROREF = res.NROREF;
+            //indica si el recibo ya fue impreso
+            this.pago.RESPUESTA = res.RESPUESTA;
             
-            console.log("la forma de pago es " + this.pago.FormaPago);
+            console.log("la forma de pago es " + res.RESPUESTA);
           },
           (err) => {
             this.alert

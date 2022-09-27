@@ -26,6 +26,7 @@ import { RegistrarpagoModel } from './models/registrar-pago.model';
 import { RegistroGestionModel } from './models/registro-gestion.model';
 import { Network } from '@ionic-native/network/ngx';
 import { exit } from 'process';
+import * as moment from 'moment';
 
 
 @Component({
@@ -67,6 +68,7 @@ export class AppComponent implements OnInit, OnDestroy {
     private alert: AlertController,
     private sqlite: SQLite,
     private device: Device,
+    private sesion: SesionService,
     private ofline:  OfflineService,
     private loading: LoadingController,
     private http: HttpClient,
@@ -190,6 +192,11 @@ export class AppComponent implements OnInit, OnDestroy {
 
   consultarContrato() {
     this.router.navigate(['consultar-contrato']);
+    this.menu.close(this.menuPrincipalId);
+  }
+
+  inicio() {
+    this.router.navigate(['home']);
     this.menu.close(this.menuPrincipalId);
   }
 
@@ -537,9 +544,10 @@ export class AppComponent implements OnInit, OnDestroy {
 
       if (data == '')
       {
-        this.msg = 'Ruta No Encontrada';
+        this.msg = 'Ruta No Encontrada  ';
       }else{
-        localStorage.setItem('existeRuta', 'Ruta cargada satisfactoriamente');
+        localStorage.setItem('existeRuta', 'Ruta cargada satisfactoriamente' );
+        localStorage.setItem('fechaRuta', moment().format('DD/MMM/YYYY'))
       }
       
 
@@ -744,6 +752,13 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   offlineChange(){
+
+    //guarda el estado
+    if(this.statusOffline == true){
+      this.sesionService.guardamovilestado(this.sesion.sesionLocal.sesionUsuario.USERNAME,"OffLine",this.device.uuid);
+    }else{
+      this.sesionService.guardamovilestado(this.sesion.sesionLocal.sesionUsuario.USERNAME,"OnLine",this.device.uuid);
+    }
 
 console.log("statusOffline", this.statusOffline)
 console.log("localstore", localStorage.getItem('offlineMode'))

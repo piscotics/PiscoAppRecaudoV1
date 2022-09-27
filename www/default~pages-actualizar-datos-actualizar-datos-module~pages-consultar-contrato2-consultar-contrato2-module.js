@@ -152,6 +152,184 @@ var ContratoService = /** @class */ (function () {
             }
         });
     };
+    ContratoService.prototype.consultarContratoPorEmpresa = function (empresa) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            var params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpParams"]().set('NumberEmpresa', empresa);
+            var configHelper = new _helpers_config_helper__WEBPACK_IMPORTED_MODULE_4__["ConfigHelper"](_this.config);
+            var httpOptions = {
+                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpHeaders"]({
+                    'Content-Type': 'application/json',
+                }),
+                params: params
+            };
+            var isOffline = localStorage.getItem('offlineMode') === 'true' ? true : false;
+            if (!isOffline) {
+                _this.loadingController.create({
+                    message: 'Consultando empresa',
+                    duration: 30000
+                }).then(function (loading) {
+                    loading.present();
+                    _this.http.post(configHelper.getApiUrl() + "/contrato/searchnumberempresa", null, httpOptions)
+                        .subscribe(function (contrato) {
+                        console.log(JSON.stringify(contrato));
+                        if (contrato.length === 0) {
+                            loading.dismiss();
+                            _this.mostrarToast('No se encontraron datos, intente nuevamente.');
+                            reject();
+                        }
+                        else {
+                            loading.dismiss();
+                            resolve(contrato);
+                        }
+                    }, function (error) {
+                        loading.dismiss();
+                        console.log(JSON.stringify(error));
+                        reject();
+                        _this.mostrarToast('Error consultando datos');
+                    });
+                });
+            }
+            /* else{
+               this.loadingController.create({
+                 message: 'Consultando Empresa',
+                 duration: 30000
+               }).then((loading) => {
+                 this.offline.createDatabase().then(res => {
+                     // tslint:disable-next-line: no-shadowed-variable
+                     this.offline.getInfoCedula(empresa).then((res: any[]) => {
+                       const  returncontrato: ConsultaContratoResponseModel[] = [];
+                       const contrato: ConsultaContratoResponseModel = new ConsultaContratoResponseModel();
+                       for (let i = 0; i < res.length ; i++) {
+                         contrato.IdContrato =  res[i].IDCONTRATO;
+                         contrato.FechaAfiliacion = res[i].FECHAAFILIACION;
+                         //contrato.FechaCobertura  = res[i].FECHACOERTURA;
+                         contrato.EstadoContrato = res[i].ESTADOCONTRATO;
+                         contrato.Cedula = res[i].CEDULA;
+                         contrato.FechaCobertura = res[i].PAGOHASTA;
+                         contrato.Titular = res[i].TITULAR ;
+                         contrato.Direccion = res[i].DIRECCION;
+                         contrato.DireccionCobro = res[i].DIRECCIONCOBRO;
+                         contrato.Telefono = res[i].TELEFONO ;
+                         contrato.Celular = res[i].CELULAR;
+                         contrato.Plan = res[i].PLAN;
+                         contrato.Cuota = res[i].CUOTA ;
+                         contrato.FechaUltimoPago = res[i].FECHAULTIMOPAGO;
+                         contrato.NoRecibo = res[i].NORECIBO;
+                         contrato.Valor = res[i].VALOR;
+                         contrato.Departamento = res[i].DEPARTAMENTO;
+                         contrato.DepartamentoCobro = res[i].DEPARTAMENTOCOBRO;
+                         contrato.Municipio = res[i].MUNICIPIO;
+                         contrato.MunicipioCobro = res[i].MUNICIPIOCOBRO;
+                         contrato.Barrio = res[i].BARRIO;
+                         contrato.BarrioCobro = res[i].BARRIOCOBRO;
+                         contrato.Email = res[i].EMAIL;
+                         contrato.Nota1 = res[i].NOTA1;
+                         returncontrato.push(contrato);
+                       }
+                       if (returncontrato.length === 0) {
+                         loading.dismiss();
+                         this.mostrarToast('No se encontraron datos, intente nuevamente.');
+                         reject();
+                       } else {
+                         loading.dismiss();
+                         resolve(returncontrato);
+                       }
+                     });
+                 });
+               });
+             }*/
+        });
+    };
+    ContratoService.prototype.consultarContratoPorNit = function (nit) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            var params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpParams"]().set('NumberNit', nit);
+            var configHelper = new _helpers_config_helper__WEBPACK_IMPORTED_MODULE_4__["ConfigHelper"](_this.config);
+            var httpOptions = {
+                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpHeaders"]({
+                    'Content-Type': 'application/json',
+                }),
+                params: params
+            };
+            var isOffline = localStorage.getItem('offlineMode') === 'true' ? true : false;
+            if (!isOffline) {
+                _this.loadingController.create({
+                    message: 'Consultando nit',
+                    duration: 30000
+                }).then(function (loading) {
+                    loading.present();
+                    _this.http.post(configHelper.getApiUrl() + "/contrato/searchnumbernit", null, httpOptions)
+                        .subscribe(function (contrato) {
+                        console.log(JSON.stringify(contrato));
+                        if (contrato.length === 0) {
+                            loading.dismiss();
+                            _this.mostrarToast('No se encontraron datos, intente nuevamente.');
+                            reject();
+                        }
+                        else {
+                            loading.dismiss();
+                            resolve(contrato);
+                        }
+                    }, function (error) {
+                        loading.dismiss();
+                        console.log(JSON.stringify(error));
+                        reject();
+                        _this.mostrarToast('Error consultando datos');
+                    });
+                });
+            }
+            /* else{
+               this.loadingController.create({
+                 message: 'Consultando Empresa',
+                 duration: 30000
+               }).then((loading) => {
+                 this.offline.createDatabase().then(res => {
+                     // tslint:disable-next-line: no-shadowed-variable
+                     this.offline.getInfoCedula(empresa).then((res: any[]) => {
+                       const  returncontrato: ConsultaContratoResponseModel[] = [];
+                       const contrato: ConsultaContratoResponseModel = new ConsultaContratoResponseModel();
+                       for (let i = 0; i < res.length ; i++) {
+                         contrato.IdContrato =  res[i].IDCONTRATO;
+                         contrato.FechaAfiliacion = res[i].FECHAAFILIACION;
+                         //contrato.FechaCobertura  = res[i].FECHACOERTURA;
+                         contrato.EstadoContrato = res[i].ESTADOCONTRATO;
+                         contrato.Cedula = res[i].CEDULA;
+                         contrato.FechaCobertura = res[i].PAGOHASTA;
+                         contrato.Titular = res[i].TITULAR ;
+                         contrato.Direccion = res[i].DIRECCION;
+                         contrato.DireccionCobro = res[i].DIRECCIONCOBRO;
+                         contrato.Telefono = res[i].TELEFONO ;
+                         contrato.Celular = res[i].CELULAR;
+                         contrato.Plan = res[i].PLAN;
+                         contrato.Cuota = res[i].CUOTA ;
+                         contrato.FechaUltimoPago = res[i].FECHAULTIMOPAGO;
+                         contrato.NoRecibo = res[i].NORECIBO;
+                         contrato.Valor = res[i].VALOR;
+                         contrato.Departamento = res[i].DEPARTAMENTO;
+                         contrato.DepartamentoCobro = res[i].DEPARTAMENTOCOBRO;
+                         contrato.Municipio = res[i].MUNICIPIO;
+                         contrato.MunicipioCobro = res[i].MUNICIPIOCOBRO;
+                         contrato.Barrio = res[i].BARRIO;
+                         contrato.BarrioCobro = res[i].BARRIOCOBRO;
+                         contrato.Email = res[i].EMAIL;
+                         contrato.Nota1 = res[i].NOTA1;
+                         returncontrato.push(contrato);
+                       }
+                       if (returncontrato.length === 0) {
+                         loading.dismiss();
+                         this.mostrarToast('No se encontraron datos, intente nuevamente.');
+                         reject();
+                       } else {
+                         loading.dismiss();
+                         resolve(returncontrato);
+                       }
+                     });
+                 });
+               });
+             }*/
+        });
+    };
     ContratoService.prototype.consultarBeneficiarrios = function (cedula) {
         var _this = this;
         var isOffline = localStorage.getItem('offlineMode') === 'true' ? true : false;
@@ -202,6 +380,59 @@ var ContratoService = /** @class */ (function () {
                     });
                 });
             }
+        });
+    };
+    ContratoService.prototype.consultarFacturasPendientes = function (cedula) {
+        var _this = this;
+        var isOffline = localStorage.getItem('offlineMode') === 'true' ? true : false;
+        return new Promise(function (resolve, reject) {
+            var params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpParams"]().set('NumberId', cedula);
+            var configHelper = new _helpers_config_helper__WEBPACK_IMPORTED_MODULE_4__["ConfigHelper"](_this.config);
+            var httpOptions = {
+                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpHeaders"]({
+                    'Content-Type': 'application/json',
+                }),
+                params: params
+            };
+            if (!isOffline) {
+                _this.loadingController.create({
+                    message: 'Consultando Facturas',
+                    duration: 30000
+                }).then(function (loading) {
+                    loading.present();
+                    _this.http.post(configHelper.getApiUrl() + "/contrato/searchFacturas", null, httpOptions)
+                        .subscribe(function (facturas) {
+                        console.log(JSON.stringify(facturas));
+                        if (facturas.length === 0) {
+                            loading.dismiss();
+                            _this.mostrarToast('No se encontraron facuras, intente nuevamente.');
+                            reject();
+                        }
+                        else {
+                            loading.dismiss();
+                            resolve(facturas);
+                        }
+                    }, function (error) {
+                        loading.dismiss();
+                        console.log(JSON.stringify(error));
+                        reject();
+                        _this.mostrarToast('Error consultando facturas');
+                    });
+                });
+            }
+            /*else{
+              this.loadingController.create({
+                message: 'Consultando Facturas',
+                duration: 30000
+              }).then((loading) => {
+                loading.present();
+                this.offline.getBeneficiarios(cedula).then((facturas: string[]) => {
+                    loading.dismiss();
+                    resolve(facturas);
+                });
+              });
+        
+            }*/
         });
     };
     ContratoService.prototype.consultarUltimosPagos = function (contrato) {

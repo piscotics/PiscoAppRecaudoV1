@@ -21,6 +21,7 @@ import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
 import { ConfiguracionService } from './configuracion.service';
 import { ContratoModel } from '../models/contrato-model';
 import { OfflineService } from './offline.service';
+import { analyzeAndValidateNgModules } from '@angular/compiler';
 
 
 @Injectable({
@@ -32,6 +33,7 @@ export class SesionService {
   private readonly sesionLocalKey: string = 'SESION_LOCAL';
   private readonly sesionEmpresaKey: string = 'EMPRESA_LOCAL';
   sesionLocal: SesionLocalModel = new SesionLocalModel();
+  nolicense: LoginResponseModel;
 
   constructor(
     private platform: Platform,
@@ -205,10 +207,8 @@ export class SesionService {
 
             if(JSON.stringify(data) !== "\"Licencia No Registrada\"" || (JSON.stringify(data) == "\"Licencia No Registrada\"" && usuario == "PISCO"))
             {
-             
             this.sesionLocal.sesionIniciada = true;
             this.sesionLocal.sesionUsuario = data;
-            console.log("entro **** ", this.sesionLocal.sesionUsuario)
             this.guardarSesionLocal()
               .then(() => {
                 loading.textContent = 'Consultando información de empresa';
@@ -438,6 +438,56 @@ export class SesionService {
   });
 }
 
+guardamovilestado(Usuario : string, Estado : string,  Terminal : string){
+  return new Promise((resolve, reject) => {
+
+    const params = new HttpParams().set('Usuario',  Usuario)
+    .set('Estado',  Estado)
+    .set('Terminal',  Terminal);
+
+    const configHelper = new ConfigHelper(this.configuracionService.config);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+      params
+    };
+
+    this.loadingController.create({
+      message: 'Actualizando Estado...',
+      duration: 30000
+    }).then((loading) => {
+
+      loading.present();
+
+      this.http.post(`${configHelper.getApiUrl()}/pago/guardamovilestado`, null, httpOptions)
+        .subscribe((resultado: any) => {
+         
+
+        },
+          (error: HttpErrorResponse) => {
+
+            loading.dismiss();
+            console.log(JSON.stringify(error))
+            reject();
+            this.mostrarToastSimple('Error guardando historico impresion');
+
+          });
+
+    });
+
+  });
+}
+
+
+private mostrarToastSimple(texto: string) {
+  this.toastController.create({
+    message: texto,
+    duration: 2000
+  }).then(toast => {
+    toast.present();
+  });
+}
 
   // Para consultar el IMEI
   private validarAccesoDispositivo() {

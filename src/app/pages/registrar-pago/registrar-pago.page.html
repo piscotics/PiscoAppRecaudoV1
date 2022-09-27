@@ -7,10 +7,16 @@
     </div>
     <ion-grid fixed *ngIf="registroPago">
         <ion-row class="ion-align-items-center">
-            <ion-col size="4">Cuotas a pagar</ion-col>
-            <ion-col size="2">
+            <ion-col size="4" *ngIf="(TipoBusqueda==='CEDULA' || TipoBusqueda==='CONTRATO')">Cuotas a pagar</ion-col>
+            <ion-col size="4" *ngIf="(TipoBusqueda==='NIT' || TipoBusqueda==='EMPRESA')">Facturas Pendientes</ion-col>
+            <ion-col size="2" *ngIf="(TipoBusqueda==='CEDULA' || TipoBusqueda==='CONTRATO')">
                 <ion-select class="select-full-width" cancelText="Cancelar" placeholder="Seleccione cantidad de cuotas" [value]="registroPago.CANTIDADCUOTAS" (ionChange)="actualizarCantidadCuotas($event)">
                     <ion-select-option *ngFor="let cuota of listCantidadCuotas" [value]="cuota">{{ cuota }}</ion-select-option>
+                </ion-select>
+            </ion-col>
+            <ion-col size="8" *ngIf="(TipoBusqueda==='NIT' || TipoBusqueda==='EMPRESA')">
+                <ion-select  #selectFacturaPago  cancelText="Cancelar" placeholder="Seleccione La Factura" [value]="nvofacturaspago" (ionChange)="valorFactura($event)">
+                    <ion-select-option *ngFor="let facturasp of facturaspago"  [value]="facturasp.Factura"> {{facturasp.Factura}}</ion-select-option>
                 </ion-select>
             </ion-col>
         </ion-row>
@@ -58,7 +64,7 @@
         </ion-row>
         <ion-row *ngIf="contrato">
             <ion-col size="12">
-                <ion-button color="danger" (click)="guardar()">
+                <ion-button *ngIf="registraPago" color="danger" (click)="guardar()">
                     Guardar
                 </ion-button>
             </ion-col>

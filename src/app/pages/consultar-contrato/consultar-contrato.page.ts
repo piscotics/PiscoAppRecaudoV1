@@ -30,7 +30,7 @@ export class ConsultarContratoPage implements OnInit {
       alert('Por favor ingresa un criterio de búsqueda');
       return;
     }
-
+    localStorage.setItem("TipoBusqueda",this.criterioBusqueda)
     this.router.navigate(['consultar-contrato2', this.criterioBusqueda, this.textoBusqueda]);
   }
 

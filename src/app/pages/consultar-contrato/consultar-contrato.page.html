@@ -13,7 +13,9 @@
                
             <ion-select #selectCriterio cancelText="Cancelar" placeholder="Seleccione Criterio Búsqueda" [value]="criterioBusqueda" (ionChange)="criterioBusqueda = selectCriterio.value">
                 <ion-select-option value="CEDULA">Cédula</ion-select-option>
-                <ion-select-option value="CONTRATO">Contrato</ion-select-option>
+                <ion-select-option value="NIT">Nit</ion-select-option>
+                <ion-select-option value="CONTRATO">Codigo</ion-select-option>
+                <ion-select-option value="EMPRESA">Empresa</ion-select-option>
             </ion-select>
 
            
@@ -22,7 +24,7 @@
         <ion-item style="padding-top: 20px;">
             <ion-label color="primary" position="floating">Dato A Consultar</ion-label>
                          
-            <ion-input #valueCriterio placeholder="Contrato O Cedula" [value]="textoBusqueda" (ionChange)="textoBusqueda = valueCriterio.value"></ion-input>
+            <ion-input #valueCriterio placeholder="Ingrese Dato A Buscar" [value]="textoBusqueda" (ionChange)="textoBusqueda = valueCriterio.value"></ion-input>
 
         </ion-item>
         <div style="padding-top: 20px;">

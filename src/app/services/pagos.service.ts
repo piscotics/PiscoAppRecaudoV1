@@ -25,6 +25,7 @@ import { PagoResponseModel } from '../models/responses/pago-response.model';
 import { OfflineService } from './offline.service';
 import * as moment from 'moment';
 import { NotificarPagoResponseModel } from '../models/responses/notificarpago-response.model';
+import { FacturasPagosRequesModel, FacturasPagosResponseModel } from '../models/facturas-pago.model';
 
 @Injectable({
   providedIn: 'root'
@@ -82,6 +83,39 @@ export class PagosService {
       });
 
       }
+    });
+  }
+
+  cargarFacturaPago( contrato: string) {
+    return new Promise((resolve, reject) => {
+
+      let isOffline = localStorage.getItem('offlineMode') === 'true' ? true : false;
+
+      if(!isOffline)
+      {
+
+        const params = new HttpParams().set('IDCONTRATO', contrato);
+        const configHelper = new ConfigHelper(this.config);
+        const httpOptions = {
+          headers: new HttpHeaders({
+            'Content-Type': 'application/json',
+          }),
+          params
+        };
+          this.http.post(`${configHelper.getApiUrl()}/pago/FacturasPagos`, null, httpOptions)
+            .subscribe((result: any[]) => {
+              resolve(result);
+          },
+          (error: HttpErrorResponse) => {
+            console.log(JSON.stringify(error))
+            reject();
+            this.mostrarToastSimple('Error consultando facturas');
+    
+          });
+
+        
+      }
+     
     });
   }
 
@@ -619,6 +653,48 @@ export class PagosService {
               console.log(JSON.stringify(error))
               reject();
               this.mostrarToastSimple('Error enviando recibo');
+
+            });
+
+      });
+
+    });
+  }
+
+  guardaHistoricoImpresion(IdContrato : string, NoRecibo : string, Usuario : string, Terminal : string){
+    return new Promise((resolve, reject) => {
+
+      const params = new HttpParams().set('IdContrato',  IdContrato)
+      .set('NoRecibo',  NoRecibo)
+      .set('Usuario',  Usuario)
+      .set('Terminal',  Terminal);
+
+      const configHelper = new ConfigHelper(this.configuracionService.config);
+      const httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+        }),
+        params
+      };
+
+      this.loadingController.create({
+        message: 'Preparando Impresion...',
+        duration: 30000
+      }).then((loading) => {
+
+        loading.present();
+
+        this.http.post(`${configHelper.getApiUrl()}/pago/guardahistoricoimpresion`, null, httpOptions)
+          .subscribe((resultado: any) => {
+           
+
+          },
+            (error: HttpErrorResponse) => {
+
+              loading.dismiss();
+              console.log(JSON.stringify(error))
+              reject();
+              this.mostrarToastSimple('Error guardando historico impresion');
 
             });
 

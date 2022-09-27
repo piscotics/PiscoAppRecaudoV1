@@ -26,4 +26,11 @@ export class ConsultaPagoModel {
     FormaPago : string;
     Sincronizar : number; 
     NROREF : string;
+    RESPUESTA : string;
+
+    NitEmpresa : string;
+    Empresa : string;
+    TelefonoEmpresa : string;
+    DireccionEmpresa : string;
+    CiudadEmpresa: string;
 }

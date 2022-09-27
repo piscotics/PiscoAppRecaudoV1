@@ -8,7 +8,7 @@
         </ion-text>
     </div>
 
-    <div class="ion-margin-bottom" *ngIf="criterioBusqueda === 'CEDULA' && contratos.length > 0">
+    <div class="ion-margin-bottom" *ngIf="(criterioBusqueda === 'CEDULA'  ) && contratos.length > 0">
         <div class="ion-padding">
             <h3>Seleccione un contrato</h3>
         </div>
@@ -16,6 +16,22 @@
             <ion-item button="true" (click)="seleccionarContrato(i)" *ngFor="let contrato of contratos; let i=index;">
                 <ion-label>Nro. Contrato: {{ contrato.contrato }}</ion-label>
             </ion-item>
+        </ion-list>
+    </div>
+
+    <div class="ion-margin-bottom" *ngIf="(criterioBusqueda === 'EMPRESA' || criterioBusqueda === 'NIT' ) && contratos.length > 0">
+        <div class="ion-padding">
+            <h3>Seleccione la empresa</h3>
+        </div>
+        <ion-list >
+            <ion-card *ngFor="let contrato of contratos; let i=index;" button="true"  (click)="seleccionarContrato(i)">
+                <ion-item >
+                    <ion-label>Nit: {{ contrato.contrato }}</ion-label>
+                </ion-item>
+                <ion-item >
+                    <ion-label>Empresa: {{ contrato.nombre }}</ion-label>
+                </ion-item>
+            </ion-card>
         </ion-list>
     </div>
 
@@ -48,8 +64,11 @@
         <ion-button color="danger" (click)="verpagos()">
             Ultimos Pagos
         </ion-button>
-        <ion-button color="danger" (click)="verbeneficiarios()">
+        <ion-button *ngIf="criterioBusqueda === 'CEDULA' || criterioBusqueda === 'CONTRATO' " color="danger" (click)="verbeneficiarios()">
             Grupo Reportado
+        </ion-button>
+        <ion-button  *ngIf=" (criterioBusqueda === 'EMPRESA' || criterioBusqueda === 'NIT' ) " color="danger" (click)="verfacturaspendientes()">
+           Facturas Pendientes
         </ion-button>
         <ion-button color="danger" (click)="registrarPago()">
             Pagar

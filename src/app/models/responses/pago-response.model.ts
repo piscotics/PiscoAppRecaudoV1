@@ -16,4 +16,10 @@ export class PagoResponseModel {
     VlrDctoPago: number;
     VlrIva: number;
     FormaPago : string;
+
+    NitEmpresa : string;
+    Empresa : string;
+    TelefonoEmpresa : string;
+    DireccionEmpresa : string;
+    CiudadEmpresa: string;
 }

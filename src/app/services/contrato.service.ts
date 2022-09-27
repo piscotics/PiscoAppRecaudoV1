@@ -146,6 +146,208 @@ export class ContratoService {
     })
   }
 
+ 
+  consultarContratoPorEmpresa(empresa: string) {
+    return new Promise((resolve, reject) => {
+
+      const params = new HttpParams().set('NumberEmpresa', empresa);
+      const configHelper = new ConfigHelper(this.config);
+      const httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+        }),
+        params
+      };
+  
+      const isOffline = localStorage.getItem('offlineMode') === 'true' ? true : false;
+      if(!isOffline)
+      {
+          this.loadingController.create({
+            message: 'Consultando empresa',
+            duration: 30000
+          }).then((loading) => {
+    
+            loading.present();
+    
+            this.http.post(`${configHelper.getApiUrl()}/contrato/searchnumberempresa`, null, httpOptions)
+              .subscribe((contrato: ConsultaContratoResponseModel[]) => {
+    
+                console.log(JSON.stringify(contrato));
+    
+                if (contrato.length === 0) {
+                  loading.dismiss();
+                  this.mostrarToast('No se encontraron datos, intente nuevamente.');
+                  reject();
+                } else {
+                  loading.dismiss();
+                  resolve(contrato);
+                }
+
+              },
+                (error: HttpErrorResponse) => {
+    
+                  loading.dismiss();
+                  console.log(JSON.stringify(error))
+                  reject();
+                  this.mostrarToast('Error consultando datos');
+    
+                });
+    
+          });
+      }
+     /* else{
+        this.loadingController.create({
+          message: 'Consultando Empresa',
+          duration: 30000
+        }).then((loading) => {
+          this.offline.createDatabase().then(res => {
+              // tslint:disable-next-line: no-shadowed-variable
+              this.offline.getInfoCedula(empresa).then((res: any[]) => {
+                const  returncontrato: ConsultaContratoResponseModel[] = [];
+                const contrato: ConsultaContratoResponseModel = new ConsultaContratoResponseModel();
+                for (let i = 0; i < res.length ; i++) {
+                  contrato.IdContrato =  res[i].IDCONTRATO;
+                  contrato.FechaAfiliacion = res[i].FECHAAFILIACION;
+                  //contrato.FechaCobertura  = res[i].FECHACOERTURA;
+                  contrato.EstadoContrato = res[i].ESTADOCONTRATO;
+                  contrato.Cedula = res[i].CEDULA;
+                  contrato.FechaCobertura = res[i].PAGOHASTA;
+                  contrato.Titular = res[i].TITULAR ;
+                  contrato.Direccion = res[i].DIRECCION;
+                  contrato.DireccionCobro = res[i].DIRECCIONCOBRO;
+                  contrato.Telefono = res[i].TELEFONO ;
+                  contrato.Celular = res[i].CELULAR;
+                  contrato.Plan = res[i].PLAN;
+                  contrato.Cuota = res[i].CUOTA ;
+                  contrato.FechaUltimoPago = res[i].FECHAULTIMOPAGO;
+                  contrato.NoRecibo = res[i].NORECIBO;
+                  contrato.Valor = res[i].VALOR;
+                  contrato.Departamento = res[i].DEPARTAMENTO;
+                  contrato.DepartamentoCobro = res[i].DEPARTAMENTOCOBRO;
+                  contrato.Municipio = res[i].MUNICIPIO;
+                  contrato.MunicipioCobro = res[i].MUNICIPIOCOBRO;
+                  contrato.Barrio = res[i].BARRIO;
+                  contrato.BarrioCobro = res[i].BARRIOCOBRO;
+                  contrato.Email = res[i].EMAIL;
+                  contrato.Nota1 = res[i].NOTA1;
+                  returncontrato.push(contrato);
+                }
+                if (returncontrato.length === 0) {
+                  loading.dismiss();
+                  this.mostrarToast('No se encontraron datos, intente nuevamente.');
+                  reject();
+                } else {
+                  loading.dismiss();
+                  resolve(returncontrato);
+                }
+              });
+          });
+        });
+      }*/
+    });
+  }
+
+
+  consultarContratoPorNit(nit: string) {
+    return new Promise((resolve, reject) => {
+
+      const params = new HttpParams().set('NumberNit', nit);
+      const configHelper = new ConfigHelper(this.config);
+      const httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+        }),
+        params
+      };
+  
+      const isOffline = localStorage.getItem('offlineMode') === 'true' ? true : false;
+      if(!isOffline)
+      {
+          this.loadingController.create({
+            message: 'Consultando nit',
+            duration: 30000
+          }).then((loading) => {
+    
+            loading.present();
+    
+            this.http.post(`${configHelper.getApiUrl()}/contrato/searchnumbernit`, null, httpOptions)
+              .subscribe((contrato: ConsultaContratoResponseModel[]) => {
+    
+                console.log(JSON.stringify(contrato));
+    
+                if (contrato.length === 0) {
+                  loading.dismiss();
+                  this.mostrarToast('No se encontraron datos, intente nuevamente.');
+                  reject();
+                } else {
+                  loading.dismiss();
+                  resolve(contrato);
+                }
+
+              },
+                (error: HttpErrorResponse) => {
+    
+                  loading.dismiss();
+                  console.log(JSON.stringify(error))
+                  reject();
+                  this.mostrarToast('Error consultando datos');
+    
+                });
+    
+          });
+      }
+     /* else{
+        this.loadingController.create({
+          message: 'Consultando Empresa',
+          duration: 30000
+        }).then((loading) => {
+          this.offline.createDatabase().then(res => {
+              // tslint:disable-next-line: no-shadowed-variable
+              this.offline.getInfoCedula(empresa).then((res: any[]) => {
+                const  returncontrato: ConsultaContratoResponseModel[] = [];
+                const contrato: ConsultaContratoResponseModel = new ConsultaContratoResponseModel();
+                for (let i = 0; i < res.length ; i++) {
+                  contrato.IdContrato =  res[i].IDCONTRATO;
+                  contrato.FechaAfiliacion = res[i].FECHAAFILIACION;
+                  //contrato.FechaCobertura  = res[i].FECHACOERTURA;
+                  contrato.EstadoContrato = res[i].ESTADOCONTRATO;
+                  contrato.Cedula = res[i].CEDULA;
+                  contrato.FechaCobertura = res[i].PAGOHASTA;
+                  contrato.Titular = res[i].TITULAR ;
+                  contrato.Direccion = res[i].DIRECCION;
+                  contrato.DireccionCobro = res[i].DIRECCIONCOBRO;
+                  contrato.Telefono = res[i].TELEFONO ;
+                  contrato.Celular = res[i].CELULAR;
+                  contrato.Plan = res[i].PLAN;
+                  contrato.Cuota = res[i].CUOTA ;
+                  contrato.FechaUltimoPago = res[i].FECHAULTIMOPAGO;
+                  contrato.NoRecibo = res[i].NORECIBO;
+                  contrato.Valor = res[i].VALOR;
+                  contrato.Departamento = res[i].DEPARTAMENTO;
+                  contrato.DepartamentoCobro = res[i].DEPARTAMENTOCOBRO;
+                  contrato.Municipio = res[i].MUNICIPIO;
+                  contrato.MunicipioCobro = res[i].MUNICIPIOCOBRO;
+                  contrato.Barrio = res[i].BARRIO;
+                  contrato.BarrioCobro = res[i].BARRIOCOBRO;
+                  contrato.Email = res[i].EMAIL;
+                  contrato.Nota1 = res[i].NOTA1;
+                  returncontrato.push(contrato);
+                }
+                if (returncontrato.length === 0) {
+                  loading.dismiss();
+                  this.mostrarToast('No se encontraron datos, intente nuevamente.');
+                  reject();
+                } else {
+                  loading.dismiss();
+                  resolve(returncontrato);
+                }
+              });
+          });
+        });
+      }*/
+    });
+  }
+
   consultarBeneficiarrios(cedula: string){
 
 
@@ -218,7 +420,77 @@ export class ContratoService {
   }
  
   
+  consultarFacturasPendientes(cedula: string){
 
+
+    let isOffline = localStorage.getItem('offlineMode') === 'true' ? true : false;
+
+    
+    return new Promise((resolve, reject) => {
+
+      const params = new HttpParams().set('NumberId', cedula);
+      const configHelper = new ConfigHelper(this.config);
+      const httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+        }),
+        params
+      };
+
+      if(!isOffline)
+      {
+          
+      
+          this.loadingController.create({
+            message: 'Consultando Facturas',
+            duration: 30000
+          }).then((loading) => {
+    
+            loading.present();
+    
+            this.http.post(`${configHelper.getApiUrl()}/contrato/searchFacturas`, null, httpOptions)
+              .subscribe((facturas: string[]) => {
+    
+                console.log(JSON.stringify(facturas));
+    
+                if (facturas.length === 0) {
+                  loading.dismiss();
+                  this.mostrarToast('No se encontraron facuras, intente nuevamente.');
+                  reject();
+                } else {
+                  loading.dismiss();
+                  resolve(facturas);
+                }
+    
+              },
+                (error: HttpErrorResponse) => {
+    
+                  loading.dismiss();
+                  console.log(JSON.stringify(error))
+                  reject();
+                  this.mostrarToast('Error consultando facturas');
+    
+                });
+    
+          });
+        }
+        /*else{
+          this.loadingController.create({
+            message: 'Consultando Facturas',
+            duration: 30000
+          }).then((loading) => {
+            loading.present();
+            this.offline.getBeneficiarios(cedula).then((facturas: string[]) => {
+                loading.dismiss();
+                resolve(facturas);
+            });
+          });
+    
+        }*/
+
+    });
+  }
+  
   consultarUltimosPagos(contrato: string){
     let isOffline = localStorage.getItem('offlineMode') === 'true' ? true : false;
 

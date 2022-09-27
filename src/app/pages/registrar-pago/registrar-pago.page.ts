@@ -32,11 +32,20 @@ export class RegistrarPagoPage implements OnInit {
   registroPago: RegistrarpagoModel = null;
   sesionLocal: SesionLocalModel = null;
   tipopago: any[] = [];
+  facturaspago: any[] = [];
+
+  facturaspagoCopy: Array<{
+    Factura: string,
+    Valor : number}> = [];
+
   isDisabled: any = true;
   listCantidadCuotas: number[] = [];
   ngTipoPago: string;
+  ngfacturaspago: string;
   nvoFormaPago: string ;
-
+  nvofacturaspago: string ;
+  registraPago : boolean;
+  TipoBusqueda : string = '';
   constructor(
     private activatedRoute: ActivatedRoute,
     private platform: Platform,
@@ -57,9 +66,12 @@ export class RegistrarPagoPage implements OnInit {
 
 
   ngOnInit() {
+    this.TipoBusqueda =  localStorage.getItem("TipoBusqueda")
+    this.registraPago = true; 
     this.platform.ready().then(() => {
       this.sesionLocal = this.sesionService.sesionLocal;
       this.tipopago = [];
+      this.facturaspago = [];
 
       // Crear datos selección de cuotas
       for (let i = 0; i <= 12; i++) {
@@ -91,13 +103,36 @@ export class RegistrarPagoPage implements OnInit {
       this.pagosService.cargarFormaPago().then((tipospagos: any[]) => {
         this.tipopago = tipospagos;
         this.nvoFormaPago = 'Efectivo';//this.tipopago[3].NombreTipoPago ;
-
-        console.log("el tipo de pgo es " + this.nvoFormaPago ); //JSON.stringify(tipospagos[3].NombreTipoPago)
         
-        //this.ngTipoPago = JSON.stringify(tipospagos[3]); 
-       console.log(JSON.stringify(this.tipopago));
+        console.log(JSON.stringify(this.tipopago));
       });
+
+      //carga el listado de facturas a pagar 
+      this.pagosService.cargarFacturaPago(this.contrato.contrato).then((facturaspagos: any[]) => {
+        this.facturaspago = facturaspagos;
+       console.log(JSON.stringify(this.facturaspago));
+      });
+
     });
+
+    
+
+  }
+
+  filterItems(searchTerm){
+    return this.facturaspago.filter((item) => {
+     return item.Factura.toLowerCase().indexOf(
+       searchTerm.toLowerCase()) > -1;
+     });
+    }
+
+  valorFactura(event){
+
+    this.facturaspagoCopy = this.filterItems(event.target.value)
+
+    this.registroPago.VALOR = this.facturaspagoCopy[0].Valor;
+
+    console.log(this.facturaspagoCopy);
 
   }
 
@@ -114,9 +149,12 @@ export class RegistrarPagoPage implements OnInit {
 
   actualizatipopago(event) {
     this.registroPago.FORMAPAGO = event.target.value;
+    this.isDisabled = false;
   }
 
   guardar() {
+
+    this.registraPago = false; 
 
     this.pagosService.prepararRegistroPago(this.registroPago).then((registroPago: RegistrarpagoModel) => {
 
@@ -173,11 +211,19 @@ export class RegistrarPagoPage implements OnInit {
               registroBusqueda.VlrIva = respuesta.VlrIva;
               registroBusqueda.FormaPago = registroPago.FORMAPAGO;
               registroBusqueda.NROREF = registroPago.NROREF;
+
+              //DATOS DE LA EMPRESA 
+              registroBusqueda.NitEmpresa = respuesta.NitEmpresa;
+              registroBusqueda.Empresa = respuesta.Empresa;
+              registroBusqueda.TelefonoEmpresa = respuesta.TelefonoEmpresa;
+              registroBusqueda.DireccionEmpresa = respuesta.DireccionEmpresa;
+              registroBusqueda.CiudadEmpresa = respuesta.CiudadEmpresa;
               
               console.log("la forma de pago al guardar es :" + registroPago.FORMAPAGO)
 
 
               this.router.navigate(['registrar-pago2', JSON.stringify(registroBusqueda)], extras);
+
             });
 
           }
@@ -189,6 +235,7 @@ export class RegistrarPagoPage implements OnInit {
       });
 
     });
+    this.registraPago = true; 
   }
 
   mostrarToastSimple(mensaje: string) {

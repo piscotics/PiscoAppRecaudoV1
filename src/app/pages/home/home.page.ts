@@ -15,6 +15,7 @@ import { SesionService } from 'src/app/services/sesion.service';
 export class HomePage {
 
   sesionLocal: SesionLocalModel = new SesionLocalModel();
+  fechaRuta: string;
 
   constructor(
     private platform: Platform,
@@ -22,6 +23,7 @@ export class HomePage {
   ) {
     this.platform.ready().then(() => {
       this.sesionLocal = this.sesionService.sesionLocal;
+      this.fechaRuta =localStorage.getItem('fechaRuta') ;
     });
   }
 

@@ -79,7 +79,7 @@ export class ConsultarContrato2Page implements OnInit {
           .catch(() => {
             this.consultandoContrato = false;
           });
-      } else {
+      } else if (this.criterioBusqueda === 'CEDULA'){
         this.contratoSevice.consultarContratoPorCedula(this.textoBusqueda)
           .then((contratoResponse: ConsultaContratoResponseModel[]) => {
             this.contratos = contratoResponse.map((c) => {
@@ -113,6 +113,76 @@ export class ConsultarContrato2Page implements OnInit {
           .catch(() => {
             this.consultandoContrato = false;
           });
+      }else if (this.criterioBusqueda === 'EMPRESA'){
+        this.contratoSevice.consultarContratoPorEmpresa(this.textoBusqueda)
+          .then((contratoResponse: ConsultaContratoResponseModel[]) => {
+            this.contratos = contratoResponse.map((c) => {
+              const contrato = new ContratoModel();
+
+              contrato.contrato = c.IdContrato;
+              contrato.cuota = c.Cuota;
+              contrato.fehaAfiliacion = c.FechaAfiliacion;
+              contrato.pagoHasta = c.FechaCobertura;
+              contrato.estado = c.EstadoContrato;
+              contrato.plan = c.Plan;
+              contrato.cedula = c.Cedula;
+              contrato.nombre = c.Titular;
+              contrato.departamento = c.Departamento;
+              contrato.departamentocobro = c.DepartamentoCobro;
+              contrato.ciudadcobro = c.MunicipioCobro;
+              contrato.barrio = c.Barrio;
+              contrato.barriocobro = c.BarrioCobro;
+              contrato.ciudad = c.Municipio;
+              contrato.direccion = c.Direccion;
+              contrato.direccionCobro = c.DireccionCobro;
+              contrato.telefono = c.Telefono;
+              contrato.movil = c.Celular;
+              contrato.email = c.Email;
+              contrato.Nota1 = c.Nota1;
+              return contrato;
+            });
+
+            this.consultandoContrato = false;
+          })
+          .catch(() => {
+            this.consultandoContrato = false;
+          });
+
+      }else if (this.criterioBusqueda === 'NIT'){
+        this.contratoSevice.consultarContratoPorNit(this.textoBusqueda)
+          .then((contratoResponse: ConsultaContratoResponseModel[]) => {
+            this.contratos = contratoResponse.map((c) => {
+              const contrato = new ContratoModel();
+
+              contrato.contrato = c.IdContrato;
+              contrato.cuota = c.Cuota;
+              contrato.fehaAfiliacion = c.FechaAfiliacion;
+              contrato.pagoHasta = c.FechaCobertura;
+              contrato.estado = c.EstadoContrato;
+              contrato.plan = c.Plan;
+              contrato.cedula = c.Cedula;
+              contrato.nombre = c.Titular;
+              contrato.departamento = c.Departamento;
+              contrato.departamentocobro = c.DepartamentoCobro;
+              contrato.ciudadcobro = c.MunicipioCobro;
+              contrato.barrio = c.Barrio;
+              contrato.barriocobro = c.BarrioCobro;
+              contrato.ciudad = c.Municipio;
+              contrato.direccion = c.Direccion;
+              contrato.direccionCobro = c.DireccionCobro;
+              contrato.telefono = c.Telefono;
+              contrato.movil = c.Celular;
+              contrato.email = c.Email;
+              contrato.Nota1 = c.Nota1;
+              return contrato;
+            });
+
+            this.consultandoContrato = false;
+          })
+          .catch(() => {
+            this.consultandoContrato = false;
+          });
+
       }
 
     });
@@ -200,6 +270,26 @@ export class ConsultarContrato2Page implements OnInit {
           component: BeneficiariosComponent,
           componentProps: {
             beneficiarios
+          },
+        }).then((modal) => {
+           modal.present();
+        });
+       });
+    }
+  }
+
+  verfacturaspendientes() {
+
+    if (!this.contrato) {
+      alert('Seleccione contrato');
+      return;
+    } else {
+        this.contratoSevice.consultarFacturasPendientes(this.contrato.contrato).then((facturas: string[]) => {
+         console.log(JSON.stringify(facturas));
+         this.modalController.create({
+          component: BeneficiariosComponent,
+          componentProps: {
+            beneficiarios : facturas
           },
         }).then((modal) => {
            modal.present();

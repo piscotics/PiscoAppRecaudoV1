@@ -1,4 +1,4 @@
-import { ToastController, LoadingController } from '@ionic/angular';
+import { ToastController, LoadingController, AlertController } from '@ionic/angular';
 import { ConsultaPagoModel } from '../../models/consulta-pago.model';
 import { Component, OnInit, Input } from '@angular/core';
 
@@ -27,7 +27,8 @@ export class DatosPagoComponent implements OnInit {
     private loading: LoadingController,
     private config: ConfiguracionService,
     private sesion: SesionService,
-    private pagosService : PagosService
+    private pagosService : PagosService,
+    private alertController: AlertController,
   ) { }
 
   ngOnInit() {
@@ -40,9 +41,22 @@ export class DatosPagoComponent implements OnInit {
     this.pagosService.notificarRecibo(this.pago.NumeroDocumento);
   }
 
+ // removeAccents(str : string) {
+   // return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+ // } 
 
+ prueba() {
+  console.log("el estado respuesta es:", this.pago.RESPUESTA)
 
+ }
   imprimir() {
+
+   if(this.pago.RESPUESTA != "Recibo Ya Impreso"){
+
+    //guarda el historico del recibo a imprimir 
+    this.pagosService.guardaHistoricoImpresion(this.pago.Contrato,this.pago.NumeroDocumento,this.pago.Usuario,this.pago.Terminal);
+
+
     /** Se comenta código anterior por inexistencia de lógica. */
     // this.printer.print('').catch(() => {
     //   this.mostrarToastSimple('Error al imprimir');
@@ -71,13 +85,13 @@ export class DatosPagoComponent implements OnInit {
             let printBody = '';
             printBody += this.print.PosCommand.TEXT_FORMAT.TXT_ALIGN_CT;
             printBody += this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
-            printBody += this.print.normailizeText(info.NOMBRE);
+            printBody += this.print.normailizeText(this.pago.Empresa);
             printBody += this.print.PosCommand.LF;
-            printBody += this.print.normailizeText(info.NIT);
+            printBody += this.print.normailizeText(this.pago.NitEmpresa);
             printBody += this.print.PosCommand.LF;
-            printBody += this.print.normailizeText((info.CIUDAD == null ? '' : (info.CIUDAD + ' - ')) + info.DIRECCION);
+            printBody += this.print.normailizeText((this.pago.CiudadEmpresa == null ? '' : (this.pago.CiudadEmpresa + ' - ')) + this.print.normailizeText(this.pago.DireccionEmpresa));
             printBody += this.print.PosCommand.LF;
-            printBody += this.print.normailizeText(info.TELEFONOS);
+            printBody += this.print.normailizeText(this.pago.TelefonoEmpresa);
             printBody += this.print.PosCommand.LF;
             printBody += '_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _';
             printBody += this.print.PosCommand.LF;
@@ -156,7 +170,7 @@ export class DatosPagoComponent implements OnInit {
             printBody += 'Nombre:';
             printBody += this.print.PosCommand.LF;
             printBody += this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
-            printBody += this.pago.Nombre;
+            printBody += this.print.normailizeText(this.pago.Nombre);
             printBody += this.print.PosCommand.LF;
             
             printBody += this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
@@ -258,7 +272,7 @@ export class DatosPagoComponent implements OnInit {
             printBody += 'Cobrador:';
             printBody += this.print.PosCommand.LF;
             printBody += this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
-            printBody += cobrador;
+            printBody += this.print.normailizeText(cobrador);
             printBody += this.print.PosCommand.LF;
           
             if( this.pago.ValorLetras !== undefined)
@@ -294,7 +308,7 @@ export class DatosPagoComponent implements OnInit {
               printBody += 'Observaciones:';
               printBody += this.print.PosCommand.LF;
               printBody += this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
-              printBody += this.pago.Observaciones ;
+              printBody += this.print.normailizeText(this.pago.Observaciones);
               printBody += this.print.PosCommand.LF;
             }
 
@@ -307,7 +321,7 @@ export class DatosPagoComponent implements OnInit {
               printBody += 'Concepto:';
               printBody += this.print.PosCommand.LF;
               printBody += this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
-              printBody += this.pago.Concepto;
+              printBody += this.print.normailizeText(this.pago.Concepto);
               printBody += this.print.PosCommand.LF;
               
               printBody += '_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _';
@@ -346,6 +360,9 @@ export class DatosPagoComponent implements OnInit {
           this.toastController.create({ message: err.message, duration: 2000}).then(obj=>{ obj.present()})
         });
      });
+    }else{
+      this.mostrarAlertSimple("Imprimir",this.pago.RESPUESTA )
+    }
   }
 
 
@@ -361,6 +378,19 @@ export class DatosPagoComponent implements OnInit {
       duration: 2000
     }).then(toast => {
       toast.present();
+    });
+  }
+
+  mostrarAlertSimple(titulo: string, texto: string) {
+    this.alertController.create({
+      header: titulo,
+      message: texto,
+      buttons: [{
+        role: 'cancel',
+        text: 'Ok'
+      }]
+    }).then((myAlert) => {
+      myAlert.present();
     });
   }
 

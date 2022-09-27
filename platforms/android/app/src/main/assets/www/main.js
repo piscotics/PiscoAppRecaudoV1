@@ -190,7 +190,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var DatosPagoComponent = /** @class */ (function () {
-    function DatosPagoComponent(printer, toastController, print, loading, config, sesion, pagosService) {
+    function DatosPagoComponent(printer, toastController, print, loading, config, sesion, pagosService, alertController) {
         this.printer = printer;
         this.toastController = toastController;
         this.print = print;
@@ -198,6 +198,7 @@ var DatosPagoComponent = /** @class */ (function () {
         this.config = config;
         this.sesion = sesion;
         this.pagosService = pagosService;
+        this.alertController = alertController;
     }
     DatosPagoComponent.prototype.ngOnInit = function () {
         this.isOffline = localStorage.getItem('offlineMode') === 'true' ? true : false;
@@ -205,241 +206,254 @@ var DatosPagoComponent = /** @class */ (function () {
     DatosPagoComponent.prototype.notificar = function () {
         this.pagosService.notificarRecibo(this.pago.NumeroDocumento);
     };
+    // removeAccents(str : string) {
+    // return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    // } 
+    DatosPagoComponent.prototype.prueba = function () {
+        console.log("el estado respuesta es:", this.pago.RESPUESTA);
+    };
     DatosPagoComponent.prototype.imprimir = function () {
-        /** Se comenta código anterior por inexistencia de lógica. */
-        // this.printer.print('').catch(() => {
-        //   this.mostrarToastSimple('Error al imprimir');
-        // });
         var _this = this;
-        /**
-         * Se inicializa el código para realizar la impresión
-         * 1) Se crea la cadena para el cuerpo del pos.
-         */
-        moment__WEBPACK_IMPORTED_MODULE_10__["locale"]('es');
-        //el dato apelllido retorna el tipo de documento en el api lo especificaron mal
-        var tipodoc = this.sesion.sesionLocal.sesionUsuario.APELLIDOS;
-        console.log("el apellido del cobrador es", this.sesion.sesionLocal.sesionUsuario.APELLIDOS);
-        //el dato nombre retorna nombre y apellidos del cobrador se especifico mal en el api
-        var cobrador = this.sesion.sesionLocal.sesionUsuario.NOMBRES;
-        console.log("el nombre es", this.sesion.sesionLocal.sesionUsuario.NOMBRES);
-        this.loading.create({
-            message: 'Obteniendo configuración de impresora'
-        }).then(function (loading) {
-            loading.present();
-            _this.config.obtenerImpresora().then(function (address) {
-                _this.sesion.obtenerInfoEmpresa().then(function (info) {
-                    var printBody = '';
-                    printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_ALIGN_CT;
-                    printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
-                    printBody += _this.print.normailizeText(info.NOMBRE);
-                    printBody += _this.print.PosCommand.LF;
-                    printBody += _this.print.normailizeText(info.NIT);
-                    printBody += _this.print.PosCommand.LF;
-                    printBody += _this.print.normailizeText((info.CIUDAD == null ? '' : (info.CIUDAD + ' - ')) + info.DIRECCION);
-                    printBody += _this.print.PosCommand.LF;
-                    printBody += _this.print.normailizeText(info.TELEFONOS);
-                    printBody += _this.print.PosCommand.LF;
-                    printBody += '_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _';
-                    printBody += _this.print.PosCommand.LF;
-                    if (_this.pago.Observaciones.indexOf("COPIA") == -1) {
-                        printBody += '| | | | O R I G I N A L | | | |';
-                        printBody += _this.print.PosCommand.LF;
-                    }
-                    else {
-                        printBody += '| | | | | | C O P I A  | | | | |';
-                        printBody += _this.print.PosCommand.LF;
-                    }
-                    printBody += '| | | | REGISTRO DE PAGO| | | |';
-                    printBody += _this.print.PosCommand.LF;
-                    printBody += '_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _';
-                    printBody += _this.print.PosCommand.LF;
-                    printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
-                    if (_this.pago.NumeroDocumento !== undefined) {
-                        if (!_this.isOffline) {
-                            printBody += tipodoc + ': ' + _this.pago.NumeroDocumento;
-                        }
-                        else {
-                            printBody += 'RECIBO' + ': ' + _this.pago.NumeroDocumento;
-                        }
-                        printBody += _this.print.PosCommand.LF;
-                        printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
-                    }
-                    /*  }else{
-                       printBody += tipodoc + ': ' ;
-                       printBody += this.print.PosCommand.LF;
-                       printBody += this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
-                     } */
-                    printBody += _this.print.PosCommand.LF;
-                    printBody += '_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _';
-                    printBody += _this.print.PosCommand.LF;
-                    printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_ALIGN_LT;
-                    printBody += _this.print.mapTextColumn('Contrato:', 'Cuota:');
-                    printBody += _this.print.PosCommand.LF;
-                    printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
-                    printBody += _this.print.mapTextColumn(_this.pago.Contrato, _this.pago.Cuota + '');
-                    printBody += _this.print.PosCommand.LF;
-                    if (_this.pago.Departamento !== null && _this.pago.Departamento !== undefined) {
+        if (this.pago.RESPUESTA != "Recibo Ya Impreso") {
+            //guarda el historico del recibo a imprimir 
+            this.pagosService.guardaHistoricoImpresion(this.pago.Contrato, this.pago.NumeroDocumento, this.pago.Usuario, this.pago.Terminal);
+            /** Se comenta código anterior por inexistencia de lógica. */
+            // this.printer.print('').catch(() => {
+            //   this.mostrarToastSimple('Error al imprimir');
+            // });
+            /**
+             * Se inicializa el código para realizar la impresión
+             * 1) Se crea la cadena para el cuerpo del pos.
+             */
+            moment__WEBPACK_IMPORTED_MODULE_10__["locale"]('es');
+            //el dato apelllido retorna el tipo de documento en el api lo especificaron mal
+            var tipodoc_1 = this.sesion.sesionLocal.sesionUsuario.APELLIDOS;
+            console.log("el apellido del cobrador es", this.sesion.sesionLocal.sesionUsuario.APELLIDOS);
+            //el dato nombre retorna nombre y apellidos del cobrador se especifico mal en el api
+            var cobrador_1 = this.sesion.sesionLocal.sesionUsuario.NOMBRES;
+            console.log("el nombre es", this.sesion.sesionLocal.sesionUsuario.NOMBRES);
+            this.loading.create({
+                message: 'Obteniendo configuración de impresora'
+            }).then(function (loading) {
+                loading.present();
+                _this.config.obtenerImpresora().then(function (address) {
+                    _this.sesion.obtenerInfoEmpresa().then(function (info) {
+                        var printBody = '';
+                        printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_ALIGN_CT;
                         printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
-                        printBody += 'Dpto: ' + _this.pago.Departamento;
-                        ;
+                        printBody += _this.print.normailizeText(_this.pago.Empresa);
                         printBody += _this.print.PosCommand.LF;
-                    }
-                    if (_this.pago.Ciudad !== null && _this.pago.Ciudad !== undefined) {
-                        printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
-                        printBody += 'Ciudad: ' + _this.pago.Ciudad;
+                        printBody += _this.print.normailizeText(_this.pago.NitEmpresa);
                         printBody += _this.print.PosCommand.LF;
-                    }
-                    printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
-                    printBody += 'Nombre:';
-                    printBody += _this.print.PosCommand.LF;
-                    printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
-                    printBody += _this.pago.Nombre;
-                    printBody += _this.print.PosCommand.LF;
-                    printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
-                    printBody += 'Cedula: ' + _this.pago.Cedula;
-                    printBody += _this.print.PosCommand.LF;
-                    printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
-                    printBody += _this.print.mapTextColumn('Fecha Pago:', 'Total:');
-                    printBody += _this.print.PosCommand.LF;
-                    printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
-                    printBody += _this.print.mapTextColumn(moment__WEBPACK_IMPORTED_MODULE_10__(_this.pago.FechaPago).format('MMM DD, YYYY'), _this.pago.Total + '');
-                    printBody += _this.print.PosCommand.LF;
-                    if (_this.pago.PagoDesde !== null && _this.pago.PagoDesde !== undefined) {
-                        printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
-                        printBody += _this.print.mapTextColumn('Pago Desde:', 'Pago Hasta:');
+                        printBody += _this.print.normailizeText((_this.pago.CiudadEmpresa == null ? '' : (_this.pago.CiudadEmpresa + ' - ')) + _this.print.normailizeText(_this.pago.DireccionEmpresa));
                         printBody += _this.print.PosCommand.LF;
-                        printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
-                        // tslint:disable-next-line: max-line-length
-                        console.log('el pago hasta es ' + _this.pago.PagoHasta);
-                        printBody += _this.print.mapTextColumn(moment__WEBPACK_IMPORTED_MODULE_10__(_this.pago.PagoDesde).format('MMM DD, YYYY'), moment__WEBPACK_IMPORTED_MODULE_10__(_this.pago.PagoHasta).format('MMM DD, YYYY'));
-                        printBody += _this.print.PosCommand.LF;
-                    }
-                    if (_this.pago.PVisita !== null && _this.pago.PVisita !== undefined) {
-                        printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
-                        printBody += _this.print.mapTextColumn('Proxima Visi:', 'Anulado:');
-                        printBody += _this.print.PosCommand.LF;
-                        printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
-                        if (_this.pago.Anulado == "1") {
-                            printBody += _this.print.mapTextColumn(moment__WEBPACK_IMPORTED_MODULE_10__(_this.pago.PVisita).format('MMM DD, YYYY'), "Si");
-                        }
-                        else {
-                            printBody += _this.print.mapTextColumn(moment__WEBPACK_IMPORTED_MODULE_10__(_this.pago.PVisita).format('MMM DD, YYYY'), "No");
-                        }
-                        printBody += _this.print.PosCommand.LF;
-                    }
-                    if (_this.pago.Vdesde !== null && _this.pago.Vdesde !== undefined) {
-                        printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
-                        printBody += _this.print.mapTextColumn('V Desde:', 'v Hasta:');
-                        printBody += _this.print.PosCommand.LF;
-                        printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
-                        printBody += _this.print.mapTextColumn(moment__WEBPACK_IMPORTED_MODULE_10__(_this.pago.Vdesde).format('MMM DD, YYYY'), moment__WEBPACK_IMPORTED_MODULE_10__(_this.pago.Vhasta).format('MMM DD, YYYY'));
-                        printBody += _this.print.PosCommand.LF;
-                    }
-                    if (_this.pago.VlrCto !== null && _this.pago.VlrCto !== undefined) {
-                        printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
-                        printBody += 'Valor Contrato:';
-                        printBody += _this.print.PosCommand.LF;
-                        printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
-                        printBody += _this.pago.VlrCto;
-                        printBody += _this.print.PosCommand.LF;
-                    }
-                    if (_this.pago.VlrSaldo !== null && _this.pago.VlrSaldo !== undefined) {
-                        printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
-                        printBody += 'Saldo Contrato:';
-                        printBody += _this.print.PosCommand.LF;
-                        printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
-                        printBody += _this.pago.VlrSaldo;
-                        printBody += _this.print.PosCommand.LF;
-                    }
-                    if (_this.pago.VlrDctoPago !== null) {
-                        printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
-                        printBody += 'Dcto: ' + _this.pago.VlrDctoPago;
-                        ;
-                        printBody += _this.print.PosCommand.LF;
-                    }
-                    printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
-                    printBody += 'Forma De Pago: ' + _this.pago.FormaPago;
-                    printBody += _this.print.PosCommand.LF;
-                    if (_this.pago.VlrIva !== null) {
-                        printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
-                        printBody += 'Valor Iva:';
-                        printBody += _this.print.PosCommand.LF;
-                        printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
-                        printBody += _this.pago.VlrIva;
-                        printBody += _this.print.PosCommand.LF;
-                    }
-                    printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
-                    printBody += 'Cobrador:';
-                    printBody += _this.print.PosCommand.LF;
-                    printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
-                    printBody += cobrador;
-                    printBody += _this.print.PosCommand.LF;
-                    if (_this.pago.ValorLetras !== undefined) {
-                        printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
-                        printBody += 'Valor en Letras:';
-                        printBody += _this.print.PosCommand.LF;
-                        printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
-                        printBody += _this.pago.ValorLetras;
-                        printBody += _this.print.PosCommand.LF;
-                    }
-                    if (_this.pago.Terminal !== null) {
-                        printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
-                        printBody += 'Terminal:';
-                        printBody += _this.print.PosCommand.LF;
-                        printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
-                        printBody += _this.pago.Terminal;
-                        printBody += _this.print.PosCommand.LF;
-                    }
-                    printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
-                    printBody += 'Usuario: ' + _this.pago.Usuario;
-                    printBody += _this.print.PosCommand.LF;
-                    printBody += '_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _';
-                    printBody += _this.print.PosCommand.LF;
-                    if (_this.pago.Observaciones !== null) {
-                        printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
-                        printBody += 'Observaciones:';
-                        printBody += _this.print.PosCommand.LF;
-                        printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
-                        printBody += _this.pago.Observaciones;
-                        printBody += _this.print.PosCommand.LF;
-                    }
-                    printBody += '_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _';
-                    printBody += _this.print.PosCommand.LF;
-                    if (_this.pago.Concepto !== null && _this.pago.Concepto !== undefined) {
-                        printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
-                        printBody += 'Concepto:';
-                        printBody += _this.print.PosCommand.LF;
-                        printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
-                        printBody += _this.pago.Concepto;
+                        printBody += _this.print.normailizeText(_this.pago.TelefonoEmpresa);
                         printBody += _this.print.PosCommand.LF;
                         printBody += '_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _';
                         printBody += _this.print.PosCommand.LF;
-                    }
-                    printBody += _this.print.normailizeText(info.RESOLUCION);
-                    printBody += _this.print.PosCommand.LF;
-                    printBody += _this.print.PosCommand.LF;
-                    printBody += _this.print.PosCommand.LF;
-                    printBody += '_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _';
-                    printBody += _this.print.PosCommand.LF;
-                    printBody += '________________________';
-                    printBody += _this.print.PosCommand.LF;
-                    printBody += 'F I R M A  C L I E N T E ';
-                    printBody += _this.print.PosCommand.LF;
-                    printBody += _this.print.PosCommand.LF;
-                    printBody += _this.print.PosCommand.LF;
-                    var src = _this.config.generarRutaLogoReutilizable();
-                    _this.print.print(address, printBody).then(function () {
-                        loading.dismiss();
+                        if (_this.pago.Observaciones.indexOf("COPIA") == -1) {
+                            printBody += '| | | | O R I G I N A L | | | |';
+                            printBody += _this.print.PosCommand.LF;
+                        }
+                        else {
+                            printBody += '| | | | | | C O P I A  | | | | |';
+                            printBody += _this.print.PosCommand.LF;
+                        }
+                        printBody += '| | | | REGISTRO DE PAGO| | | |';
+                        printBody += _this.print.PosCommand.LF;
+                        printBody += '_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _';
+                        printBody += _this.print.PosCommand.LF;
+                        printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
+                        if (_this.pago.NumeroDocumento !== undefined) {
+                            if (!_this.isOffline) {
+                                printBody += tipodoc_1 + ': ' + _this.pago.NumeroDocumento;
+                            }
+                            else {
+                                printBody += 'RECIBO' + ': ' + _this.pago.NumeroDocumento;
+                            }
+                            printBody += _this.print.PosCommand.LF;
+                            printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
+                        }
+                        /*  }else{
+                           printBody += tipodoc + ': ' ;
+                           printBody += this.print.PosCommand.LF;
+                           printBody += this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
+                         } */
+                        printBody += _this.print.PosCommand.LF;
+                        printBody += '_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _';
+                        printBody += _this.print.PosCommand.LF;
+                        printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_ALIGN_LT;
+                        printBody += _this.print.mapTextColumn('Contrato:', 'Cuota:');
+                        printBody += _this.print.PosCommand.LF;
+                        printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
+                        printBody += _this.print.mapTextColumn(_this.pago.Contrato, _this.pago.Cuota + '');
+                        printBody += _this.print.PosCommand.LF;
+                        if (_this.pago.Departamento !== null && _this.pago.Departamento !== undefined) {
+                            printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
+                            printBody += 'Dpto: ' + _this.pago.Departamento;
+                            ;
+                            printBody += _this.print.PosCommand.LF;
+                        }
+                        if (_this.pago.Ciudad !== null && _this.pago.Ciudad !== undefined) {
+                            printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
+                            printBody += 'Ciudad: ' + _this.pago.Ciudad;
+                            printBody += _this.print.PosCommand.LF;
+                        }
+                        printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
+                        printBody += 'Nombre:';
+                        printBody += _this.print.PosCommand.LF;
+                        printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
+                        printBody += _this.print.normailizeText(_this.pago.Nombre);
+                        printBody += _this.print.PosCommand.LF;
+                        printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
+                        printBody += 'Cedula: ' + _this.pago.Cedula;
+                        printBody += _this.print.PosCommand.LF;
+                        printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
+                        printBody += _this.print.mapTextColumn('Fecha Pago:', 'Total:');
+                        printBody += _this.print.PosCommand.LF;
+                        printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
+                        printBody += _this.print.mapTextColumn(moment__WEBPACK_IMPORTED_MODULE_10__(_this.pago.FechaPago).format('MMM DD, YYYY'), _this.pago.Total + '');
+                        printBody += _this.print.PosCommand.LF;
+                        if (_this.pago.PagoDesde !== null && _this.pago.PagoDesde !== undefined) {
+                            printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
+                            printBody += _this.print.mapTextColumn('Pago Desde:', 'Pago Hasta:');
+                            printBody += _this.print.PosCommand.LF;
+                            printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
+                            // tslint:disable-next-line: max-line-length
+                            console.log('el pago hasta es ' + _this.pago.PagoHasta);
+                            printBody += _this.print.mapTextColumn(moment__WEBPACK_IMPORTED_MODULE_10__(_this.pago.PagoDesde).format('MMM DD, YYYY'), moment__WEBPACK_IMPORTED_MODULE_10__(_this.pago.PagoHasta).format('MMM DD, YYYY'));
+                            printBody += _this.print.PosCommand.LF;
+                        }
+                        if (_this.pago.PVisita !== null && _this.pago.PVisita !== undefined) {
+                            printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
+                            printBody += _this.print.mapTextColumn('Proxima Visi:', 'Anulado:');
+                            printBody += _this.print.PosCommand.LF;
+                            printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
+                            if (_this.pago.Anulado == "1") {
+                                printBody += _this.print.mapTextColumn(moment__WEBPACK_IMPORTED_MODULE_10__(_this.pago.PVisita).format('MMM DD, YYYY'), "Si");
+                            }
+                            else {
+                                printBody += _this.print.mapTextColumn(moment__WEBPACK_IMPORTED_MODULE_10__(_this.pago.PVisita).format('MMM DD, YYYY'), "No");
+                            }
+                            printBody += _this.print.PosCommand.LF;
+                        }
+                        if (_this.pago.Vdesde !== null && _this.pago.Vdesde !== undefined) {
+                            printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
+                            printBody += _this.print.mapTextColumn('V Desde:', 'v Hasta:');
+                            printBody += _this.print.PosCommand.LF;
+                            printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
+                            printBody += _this.print.mapTextColumn(moment__WEBPACK_IMPORTED_MODULE_10__(_this.pago.Vdesde).format('MMM DD, YYYY'), moment__WEBPACK_IMPORTED_MODULE_10__(_this.pago.Vhasta).format('MMM DD, YYYY'));
+                            printBody += _this.print.PosCommand.LF;
+                        }
+                        if (_this.pago.VlrCto !== null && _this.pago.VlrCto !== undefined) {
+                            printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
+                            printBody += 'Valor Contrato:';
+                            printBody += _this.print.PosCommand.LF;
+                            printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
+                            printBody += _this.pago.VlrCto;
+                            printBody += _this.print.PosCommand.LF;
+                        }
+                        if (_this.pago.VlrSaldo !== null && _this.pago.VlrSaldo !== undefined) {
+                            printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
+                            printBody += 'Saldo Contrato:';
+                            printBody += _this.print.PosCommand.LF;
+                            printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
+                            printBody += _this.pago.VlrSaldo;
+                            printBody += _this.print.PosCommand.LF;
+                        }
+                        if (_this.pago.VlrDctoPago !== null) {
+                            printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
+                            printBody += 'Dcto: ' + _this.pago.VlrDctoPago;
+                            ;
+                            printBody += _this.print.PosCommand.LF;
+                        }
+                        printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
+                        printBody += 'Forma De Pago: ' + _this.pago.FormaPago;
+                        printBody += _this.print.PosCommand.LF;
+                        if (_this.pago.VlrIva !== null) {
+                            printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
+                            printBody += 'Valor Iva:';
+                            printBody += _this.print.PosCommand.LF;
+                            printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
+                            printBody += _this.pago.VlrIva;
+                            printBody += _this.print.PosCommand.LF;
+                        }
+                        printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
+                        printBody += 'Cobrador:';
+                        printBody += _this.print.PosCommand.LF;
+                        printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
+                        printBody += _this.print.normailizeText(cobrador_1);
+                        printBody += _this.print.PosCommand.LF;
+                        if (_this.pago.ValorLetras !== undefined) {
+                            printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
+                            printBody += 'Valor en Letras:';
+                            printBody += _this.print.PosCommand.LF;
+                            printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
+                            printBody += _this.pago.ValorLetras;
+                            printBody += _this.print.PosCommand.LF;
+                        }
+                        if (_this.pago.Terminal !== null) {
+                            printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
+                            printBody += 'Terminal:';
+                            printBody += _this.print.PosCommand.LF;
+                            printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
+                            printBody += _this.pago.Terminal;
+                            printBody += _this.print.PosCommand.LF;
+                        }
+                        printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
+                        printBody += 'Usuario: ' + _this.pago.Usuario;
+                        printBody += _this.print.PosCommand.LF;
+                        printBody += '_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _';
+                        printBody += _this.print.PosCommand.LF;
+                        if (_this.pago.Observaciones !== null) {
+                            printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
+                            printBody += 'Observaciones:';
+                            printBody += _this.print.PosCommand.LF;
+                            printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
+                            printBody += _this.print.normailizeText(_this.pago.Observaciones);
+                            printBody += _this.print.PosCommand.LF;
+                        }
+                        printBody += '_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _';
+                        printBody += _this.print.PosCommand.LF;
+                        if (_this.pago.Concepto !== null && _this.pago.Concepto !== undefined) {
+                            printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_ON;
+                            printBody += 'Concepto:';
+                            printBody += _this.print.PosCommand.LF;
+                            printBody += _this.print.PosCommand.TEXT_FORMAT.TXT_BOLD_OFF;
+                            printBody += _this.print.normailizeText(_this.pago.Concepto);
+                            printBody += _this.print.PosCommand.LF;
+                            printBody += '_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _';
+                            printBody += _this.print.PosCommand.LF;
+                        }
+                        printBody += _this.print.normailizeText(info.RESOLUCION);
+                        printBody += _this.print.PosCommand.LF;
+                        printBody += _this.print.PosCommand.LF;
+                        printBody += _this.print.PosCommand.LF;
+                        printBody += '_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _';
+                        printBody += _this.print.PosCommand.LF;
+                        printBody += '________________________';
+                        printBody += _this.print.PosCommand.LF;
+                        printBody += 'F I R M A  C L I E N T E ';
+                        printBody += _this.print.PosCommand.LF;
+                        printBody += _this.print.PosCommand.LF;
+                        printBody += _this.print.PosCommand.LF;
+                        var src = _this.config.generarRutaLogoReutilizable();
+                        _this.print.print(address, printBody).then(function () {
+                            loading.dismiss();
+                        }).catch(function (err) {
+                            loading.dismiss();
+                        });
                     }).catch(function (err) {
-                        loading.dismiss();
                     });
                 }).catch(function (err) {
+                    loading.dismiss();
+                    _this.toastController.create({ message: err.message, duration: 2000 }).then(function (obj) { obj.present(); });
                 });
-            }).catch(function (err) {
-                loading.dismiss();
-                _this.toastController.create({ message: err.message, duration: 2000 }).then(function (obj) { obj.present(); });
             });
-        });
+        }
+        else {
+            this.mostrarAlertSimple("Imprimir", this.pago.RESPUESTA);
+        }
     };
     DatosPagoComponent.prototype.imprimirBloque = function () {
         var _this = this;
@@ -455,6 +469,18 @@ var DatosPagoComponent = /** @class */ (function () {
             toast.present();
         });
     };
+    DatosPagoComponent.prototype.mostrarAlertSimple = function (titulo, texto) {
+        this.alertController.create({
+            header: titulo,
+            message: texto,
+            buttons: [{
+                    role: 'cancel',
+                    text: 'Ok'
+                }]
+        }).then(function (myAlert) {
+            myAlert.present();
+        });
+    };
     DatosPagoComponent.ctorParameters = function () { return [
         { type: _ionic_native_printer_ngx__WEBPACK_IMPORTED_MODULE_6__["Printer"] },
         { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["ToastController"] },
@@ -462,7 +488,8 @@ var DatosPagoComponent = /** @class */ (function () {
         { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["LoadingController"] },
         { type: _services_configuracion_service__WEBPACK_IMPORTED_MODULE_8__["ConfiguracionService"] },
         { type: src_app_services_sesion_service__WEBPACK_IMPORTED_MODULE_9__["SesionService"] },
-        { type: _services_pagos_service__WEBPACK_IMPORTED_MODULE_11__["PagosService"] }
+        { type: _services_pagos_service__WEBPACK_IMPORTED_MODULE_11__["PagosService"] },
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["AlertController"] }
     ]; };
     DatosPagoComponent.propDecorators = {
         pago: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_5__["Input"] }]
@@ -479,7 +506,8 @@ var DatosPagoComponent = /** @class */ (function () {
             _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["LoadingController"],
             _services_configuracion_service__WEBPACK_IMPORTED_MODULE_8__["ConfiguracionService"],
             src_app_services_sesion_service__WEBPACK_IMPORTED_MODULE_9__["SesionService"],
-            _services_pagos_service__WEBPACK_IMPORTED_MODULE_11__["PagosService"]])
+            _services_pagos_service__WEBPACK_IMPORTED_MODULE_11__["PagosService"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["AlertController"]])
     ], DatosPagoComponent);
     return DatosPagoComponent;
 }());
@@ -1450,7 +1478,7 @@ var OfflineService = /** @class */ (function () {
                         return [4 /*yield*/, this.db.executeSql(sql, [])];
                     case 1:
                         _a.sent();
-                        sql = 'CREATE TABLE IF NOT EXISTS PAGOS (ID INTEGER PRIMARY KEY AUTOINCREMENT, IDCONTRATO TEXT, IDPERSONA TEXT, VALOR FLOAT, DESCUENTO FLOAT, CANTIDADCUOTAS FLOAT, MAQUINA TEXT, TRANSAC TEXT, USUARIO TEXT, OBSERVACIONES TEXT, CUOTAMENSUAL FLOAT, ESTADO TEXT, FORMAPAGO TEXT, FECHAPAGOR TEXT, POSX TEXT, POSY TEXT, IDENTIFICADORBASE TEXT, TITULAR TEXT,  SINCRONIZAR TEXT , NRORECIBO TEXT, PagoDesde TEXT, PagoHasta TEXT,ValorLetras TEXT, NROREF TEXT )';
+                        sql = 'CREATE TABLE IF NOT EXISTS PAGOS (ID INTEGER PRIMARY KEY AUTOINCREMENT, IDCONTRATO TEXT, IDPERSONA TEXT, VALOR FLOAT, DESCUENTO FLOAT, CANTIDADCUOTAS FLOAT, MAQUINA TEXT, TRANSAC TEXT, USUARIO TEXT, OBSERVACIONES TEXT, CUOTAMENSUAL FLOAT, ESTADO TEXT, FORMAPAGO TEXT, FECHAPAGOR TEXT, POSX TEXT, POSY TEXT, IDENTIFICADORBASE TEXT, TITULAR TEXT,  SINCRONIZAR TEXT , NRORECIBO TEXT, PagoDesde TEXT, PagoHasta TEXT,ValorLetras TEXT, NROREF TEXT, RESPUESTA TEXT )';
                         return [4 /*yield*/, this.db.executeSql(sql, [])];
                     case 2:
                         _a.sent();
@@ -1522,7 +1550,7 @@ var OfflineService = /** @class */ (function () {
                         _a.trys.push([0, 2, , 3]);
                         console.log("los datos que se envian son", NroPago);
                         data = void 0;
-                        return [4 /*yield*/, this.db.executeSql("SELECT IDCONTRATO, IDPERSONA, VALOR, DESCUENTO, CANTIDADCUOTAS, MAQUINA, USUARIO, OBSERVACIONES, CUOTAMENSUAL, ESTADO, FORMAPAGO, FECHAPAGOR, POSX, POSY, TITULAR, SINCRONIZAR, NRORECIBO NumeroDocumento, PagoDesde, PagoHasta,ValorLetras, NROREF  FROM PAGOS R  WHERE  R.NRORECIBO = ? ", [NroPago])];
+                        return [4 /*yield*/, this.db.executeSql("SELECT IDCONTRATO, IDPERSONA, VALOR, DESCUENTO, CANTIDADCUOTAS, MAQUINA, USUARIO, OBSERVACIONES, CUOTAMENSUAL, ESTADO, FORMAPAGO, FECHAPAGOR, POSX, POSY, TITULAR, SINCRONIZAR, NRORECIBO NumeroDocumento, PagoDesde, PagoHasta,ValorLetras, NROREF, RESPUESTA  FROM PAGOS R  WHERE  R.NRORECIBO = ? ", [NroPago])];
                     case 1:
                         data = _a.sent();
                         console.log("la consulta a ejecutar es ", data);
@@ -1667,13 +1695,13 @@ var OfflineService = /** @class */ (function () {
                         return [4 /*yield*/, this.db.executeSql("DELETE FROM PAGOS", [])];
                     case 1:
                         _a.sent();
-                        sql = 'INSERT INTO PAGOS (IDCONTRATO, IDPERSONA, VALOR, DESCUENTO, CANTIDADCUOTAS, MAQUINA, USUARIO, OBSERVACIONES, CUOTAMENSUAL, ESTADO, FORMAPAGO, FECHAPAGOR, POSX, POSY, TITULAR, NROREF) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?, ?)';
+                        sql = 'INSERT INTO PAGOS (IDCONTRATO, IDPERSONA, VALOR, DESCUENTO, CANTIDADCUOTAS, MAQUINA, USUARIO, OBSERVACIONES, CUOTAMENSUAL, ESTADO, FORMAPAGO, FECHAPAGOR, POSX, POSY, TITULAR, NROREF, RESPUESTA) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?, ?, ?)';
                         _i = 0, data_4 = data;
                         _a.label = 2;
                     case 2:
                         if (!(_i < data_4.length)) return [3 /*break*/, 5];
                         d = data_4[_i];
-                        return [4 /*yield*/, this.db.executeSql(sql, [d.IDCONTRATO, d.IDPERSONA, d.VALOR, d.DESCUENTO, d.CANTIDADCUOTAS, d.MAQUINA, d.USUARIO, d.OBSERVACIONES, d.CUOTAMENSUAL, d.ESTADO, d.FORMAPAGO, d.FECHAPAGOR, d.POSX, d.POSY, d.TITULAR, d.NROREF])];
+                        return [4 /*yield*/, this.db.executeSql(sql, [d.IDCONTRATO, d.IDPERSONA, d.VALOR, d.DESCUENTO, d.CANTIDADCUOTAS, d.MAQUINA, d.USUARIO, d.OBSERVACIONES, d.CUOTAMENSUAL, d.ESTADO, d.FORMAPAGO, d.FECHAPAGOR, d.POSX, d.POSY, d.TITULAR, d.NROREF, d.RESPUESTA])];
                     case 3:
                         _a.sent();
                         _a.label = 4;
@@ -1701,8 +1729,8 @@ var OfflineService = /** @class */ (function () {
                     case 1:
                         _a.trys.push([1, 7, , 8]);
                         id_1 = 0;
-                        sql = 'INSERT INTO PAGOS (IDCONTRATO, IDPERSONA, VALOR, DESCUENTO, CANTIDADCUOTAS, MAQUINA,TRANSAC,  USUARIO, OBSERVACIONES, CUOTAMENSUAL, ESTADO, FORMAPAGO, FECHAPAGOR, POSX, POSY,IDENTIFICADORBASE, TITULAR, SINCRONIZAR, NRORECIBO, PagoDesde, PagoHasta,ValorLetras,NROREF ) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?, ?,?,?,?,?,?,?)';
-                        return [4 /*yield*/, this.db.executeSql(sql, [d.IDCONTRATO, d.IDPERSONA, d.VALOR, d.DESCUENTO, d.CANTIDADCUOTAS, d.MAQUINA, d.TRANSAC, d.USUARIO, d.OBSERVACIONES, d.CUOTAMENSUAL, d.ESTADO, d.FORMAPAGO, new Date(d.FECHAPAGOR).toDateString(), d.POSX, d.POSY, 'OffLine', d.titular, 0, d.NRORECIBO, d.PagoDesde, d.PagoHasta, d.ValorLetras, d.NROREF]).then(function (row) {
+                        sql = 'INSERT INTO PAGOS (IDCONTRATO, IDPERSONA, VALOR, DESCUENTO, CANTIDADCUOTAS, MAQUINA,TRANSAC,  USUARIO, OBSERVACIONES, CUOTAMENSUAL, ESTADO, FORMAPAGO, FECHAPAGOR, POSX, POSY,IDENTIFICADORBASE, TITULAR, SINCRONIZAR, NRORECIBO, PagoDesde, PagoHasta,ValorLetras,NROREF,RESPUESTA ) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?, ?,?,?,?,?,?,?, ?)';
+                        return [4 /*yield*/, this.db.executeSql(sql, [d.IDCONTRATO, d.IDPERSONA, d.VALOR, d.DESCUENTO, d.CANTIDADCUOTAS, d.MAQUINA, d.TRANSAC, d.USUARIO, d.OBSERVACIONES, d.CUOTAMENSUAL, d.ESTADO, d.FORMAPAGO, new Date(d.FECHAPAGOR).toDateString(), d.POSX, d.POSY, 'OffLine', d.titular, 0, d.NRORECIBO, d.PagoDesde, d.PagoHasta, d.ValorLetras, d.NROREF, d.RESPUESTA]).then(function (row) {
                                 _this.pagosLocales.push(d);
                                 id_1 = row.insertId.toString();
                             })];
@@ -2681,6 +2709,7 @@ var DatosContratoComponent = /** @class */ (function () {
         this.contrato = null;
         this.modo = _enums_modo_visualizar_contrato_enum__WEBPACK_IMPORTED_MODULE_3__["ModoVisualizarContratoEnum"].MODO_CONSULTA;
         this.enumModo = _enums_modo_visualizar_contrato_enum__WEBPACK_IMPORTED_MODULE_3__["ModoVisualizarContratoEnum"];
+        this.TipoBusqueda = '';
         this.departamentos = [
             new _models_departamento_model__WEBPACK_IMPORTED_MODULE_5__["DepartamentoModel"](1, 'Huila'),
             new _models_departamento_model__WEBPACK_IMPORTED_MODULE_5__["DepartamentoModel"](2, 'Valle del Cauca'),
@@ -2698,6 +2727,7 @@ var DatosContratoComponent = /** @class */ (function () {
         };
     }
     DatosContratoComponent.prototype.ngOnInit = function () {
+        this.TipoBusqueda = localStorage.getItem("TipoBusqueda");
     };
     DatosContratoComponent.prototype.departamentoSeleccionado = function (event) {
         this.contrato.departamento = event.detail.value;
@@ -3010,7 +3040,6 @@ var SesionService = /** @class */ (function () {
                         if (JSON.stringify(data) !== "\"Licencia No Registrada\"" || (JSON.stringify(data) == "\"Licencia No Registrada\"" && usuario == "PISCO")) {
                             _this.sesionLocal.sesionIniciada = true;
                             _this.sesionLocal.sesionUsuario = data;
-                            console.log("entro **** ", _this.sesionLocal.sesionUsuario);
                             _this.guardarSesionLocal()
                                 .then(function () {
                                 loading.textContent = 'Consultando información de empresa';
@@ -3200,6 +3229,43 @@ var SesionService = /** @class */ (function () {
                     });
                 });
             });
+        });
+    };
+    SesionService.prototype.guardamovilestado = function (Usuario, Estado, Terminal) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            var params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpParams"]().set('Usuario', Usuario)
+                .set('Estado', Estado)
+                .set('Terminal', Terminal);
+            var configHelper = new _helpers_config_helper__WEBPACK_IMPORTED_MODULE_5__["ConfigHelper"](_this.configuracionService.config);
+            var httpOptions = {
+                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpHeaders"]({
+                    'Content-Type': 'application/json',
+                }),
+                params: params
+            };
+            _this.loadingController.create({
+                message: 'Actualizando Estado...',
+                duration: 30000
+            }).then(function (loading) {
+                loading.present();
+                _this.http.post(configHelper.getApiUrl() + "/pago/guardamovilestado", null, httpOptions)
+                    .subscribe(function (resultado) {
+                }, function (error) {
+                    loading.dismiss();
+                    console.log(JSON.stringify(error));
+                    reject();
+                    _this.mostrarToastSimple('Error guardando historico impresion');
+                });
+            });
+        });
+    };
+    SesionService.prototype.mostrarToastSimple = function (texto) {
+        this.toastController.create({
+            message: texto,
+            duration: 2000
+        }).then(function (toast) {
+            toast.present();
         });
     };
     // Para consultar el IMEI
@@ -3618,6 +3684,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_native_device_ngx__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @ionic-native/device/ngx */ "xS7M");
 /* harmony import */ var _models_registro_gestion_model__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./models/registro-gestion.model */ "gjAW");
 /* harmony import */ var _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @ionic-native/network/ngx */ "kwrG");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! moment */ "wd/R");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_20___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_20__);
 
 
 
@@ -3640,8 +3708,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var AppComponent = /** @class */ (function () {
-    function AppComponent(platform, splashScreen, statusBar, router, menu, alertController, configService, sesionService, androidPermissions, print, configuracionService, toastController, alert, sqlite, device, ofline, loading, http, navCtrl, network) {
+    function AppComponent(platform, splashScreen, statusBar, router, menu, alertController, configService, sesionService, androidPermissions, print, configuracionService, toastController, alert, sqlite, device, sesion, ofline, loading, http, navCtrl, network) {
         var _this = this;
         this.platform = platform;
         this.splashScreen = splashScreen;
@@ -3658,6 +3727,7 @@ var AppComponent = /** @class */ (function () {
         this.alert = alert;
         this.sqlite = sqlite;
         this.device = device;
+        this.sesion = sesion;
         this.ofline = ofline;
         this.loading = loading;
         this.http = http;
@@ -3782,6 +3852,10 @@ var AppComponent = /** @class */ (function () {
     };
     AppComponent.prototype.consultarContrato = function () {
         this.router.navigate(['consultar-contrato']);
+        this.menu.close(this.menuPrincipalId);
+    };
+    AppComponent.prototype.inicio = function () {
+        this.router.navigate(['home']);
         this.menu.close(this.menuPrincipalId);
     };
     AppComponent.prototype.consultarPago = function () {
@@ -4114,10 +4188,11 @@ var AppComponent = /** @class */ (function () {
                         data = _a.sent();
                         console.log("los datos de la ruta ", data);
                         if (data == '') {
-                            this.msg = 'Ruta No Encontrada';
+                            this.msg = 'Ruta No Encontrada  ';
                         }
                         else {
                             localStorage.setItem('existeRuta', 'Ruta cargada satisfactoriamente');
+                            localStorage.setItem('fechaRuta', moment__WEBPACK_IMPORTED_MODULE_20__().format('DD/MMM/YYYY'));
                         }
                         return [4 /*yield*/, this.ofline.sincronizarRutas(data)];
                     case 17:
@@ -4323,6 +4398,13 @@ var AppComponent = /** @class */ (function () {
     };
     AppComponent.prototype.offlineChange = function () {
         var _this = this;
+        //guarda el estado
+        if (this.statusOffline == true) {
+            this.sesionService.guardamovilestado(this.sesion.sesionLocal.sesionUsuario.USERNAME, "OffLine", this.device.uuid);
+        }
+        else {
+            this.sesionService.guardamovilestado(this.sesion.sesionLocal.sesionUsuario.USERNAME, "OnLine", this.device.uuid);
+        }
         console.log("statusOffline", this.statusOffline);
         console.log("localstore", localStorage.getItem('offlineMode'));
         if (this.statusOffline === false) {
@@ -4431,6 +4513,7 @@ var AppComponent = /** @class */ (function () {
         { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["AlertController"] },
         { type: _ionic_native_sqlite_ngx__WEBPACK_IMPORTED_MODULE_12__["SQLite"] },
         { type: _ionic_native_device_ngx__WEBPACK_IMPORTED_MODULE_17__["Device"] },
+        { type: _services_sesion_service__WEBPACK_IMPORTED_MODULE_8__["SesionService"] },
         { type: _services_offline_service__WEBPACK_IMPORTED_MODULE_13__["OfflineService"] },
         { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["LoadingController"] },
         { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_14__["HttpClient"] },
@@ -4457,6 +4540,7 @@ var AppComponent = /** @class */ (function () {
             _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["AlertController"],
             _ionic_native_sqlite_ngx__WEBPACK_IMPORTED_MODULE_12__["SQLite"],
             _ionic_native_device_ngx__WEBPACK_IMPORTED_MODULE_17__["Device"],
+            _services_sesion_service__WEBPACK_IMPORTED_MODULE_8__["SesionService"],
             _services_offline_service__WEBPACK_IMPORTED_MODULE_13__["OfflineService"],
             _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["LoadingController"],
             _angular_common_http__WEBPACK_IMPORTED_MODULE_14__["HttpClient"],
@@ -4637,7 +4721,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-app>\r\n\r\n    <ion-menu side=\"end\" [menuId]=\"menuPrincipalId\" *ngIf=\"mostrarMenu()\">\r\n        <ion-header>\r\n            <ion-toolbar color=\"danger\">\r\n                <ion-title>Menú</ion-title>\r\n            </ion-toolbar>\r\n        </ion-header>\r\n        <ion-content>\r\n            <ion-list>\r\n                <ion-item button=\"true\" (click)=\"consultarContrato()\">Consultar contrato</ion-item>\r\n                <ion-item button=\"true\" (click)=\"consultarPago()\">Consultar pago</ion-item>\r\n                <ion-item button=\"true\" (click)=\"cuadreCaja()\">Cuadre caja</ion-item>\r\n                <ion-item button=\"true\" (click)=\"consultarRuta()\">Consultar Ruta</ion-item>\r\n                <ion-item button=\"true\" (click)=\"removerLicencia()\">Remover Licencia</ion-item>\r\n                <ion-item button=\"true\" (click)=\"configurarImpresora()\">Configurar impresora</ion-item>\r\n\r\n                <ion-item *ngIf=\"msg == 'Ruta cargada satisfactoriamente'  \">\r\n                    <ion-label>Trabajo Fuera de Linea</ion-label>\r\n                    <ion-toggle  [(ngModel)]=\"statusOffline\" color=\"primary\" (ionChange)=\"offlineChange()\"></ion-toggle>\r\n                </ion-item>\r\n\r\n                \r\n                <ion-item button=\"true\" *ngIf=\"statusOffline == false \" (click)=\"offlineCargarRutas()\">Cargar Ruta</ion-item>\r\n                <ion-item  *ngIf=\"msg == 'Ruta cargada satisfactoriamente' && statusOffline == false\" button=\"true\" (click)=\"offlineCargarPagosNovedades()\">Sincronizar</ion-item>\r\n\r\n                <ion-item button=\"true\" (click)=\"cerrarSesion()\">Cerrar sesión</ion-item>\r\n                <ion-item button=\"true\">\r\n                    <ion-input disabled=\"true\" #licenseInput color=\"danger\" value=\"{{ license }}\"> </ion-input>\r\n                </ion-item>\r\n                <ion-item button=\"true\">\r\n                    <ion-input disabled=\"true\" #licenseInput color=\"danger\" value=\"V. 19/Abril/2022\"> </ion-input>\r\n                </ion-item>\r\n              \r\n                \r\n            </ion-list>\r\n        </ion-content>\r\n    </ion-menu>\r\n\r\n    <ion-router-outlet main></ion-router-outlet>\r\n</ion-app>");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-app>\r\n\r\n    <ion-menu side=\"end\" [menuId]=\"menuPrincipalId\" *ngIf=\"mostrarMenu()\">\r\n        <ion-header>\r\n            <ion-toolbar color=\"danger\">\r\n                <ion-title>Menú</ion-title>\r\n            </ion-toolbar>\r\n        </ion-header>\r\n        <ion-content>\r\n            <ion-list>\r\n                <ion-item button=\"true\" (click)=\"inicio()\">Inicio</ion-item>\r\n                <ion-item button=\"true\" (click)=\"consultarContrato()\">Consultar contrato</ion-item>\r\n                <ion-item button=\"true\" (click)=\"consultarPago()\">Consultar pago</ion-item>\r\n                <ion-item button=\"true\" (click)=\"cuadreCaja()\">Cuadre caja</ion-item>\r\n                <ion-item button=\"true\" (click)=\"consultarRuta()\">Consultar Ruta</ion-item>\r\n                <ion-item button=\"true\" (click)=\"removerLicencia()\">Remover Licencia</ion-item>\r\n                <ion-item button=\"true\" (click)=\"configurarImpresora()\">Configurar impresora</ion-item>\r\n\r\n                <ion-item *ngIf=\"msg == 'Ruta cargada satisfactoriamente'  \">\r\n                    <ion-label>Trabajo Fuera de Linea</ion-label>\r\n                    <ion-toggle  [(ngModel)]=\"statusOffline\" color=\"primary\" (ionChange)=\"offlineChange()\"></ion-toggle>\r\n                </ion-item>\r\n\r\n                \r\n                <ion-item button=\"true\" *ngIf=\"statusOffline == false \" (click)=\"offlineCargarRutas()\">Cargar Ruta</ion-item>\r\n                <ion-item  *ngIf=\"msg == 'Ruta cargada satisfactoriamente' && statusOffline == false\" button=\"true\" (click)=\"offlineCargarPagosNovedades()\">Sincronizar</ion-item>\r\n\r\n                <ion-item button=\"true\" (click)=\"cerrarSesion()\">Cerrar sesión</ion-item>\r\n                <ion-item button=\"true\">\r\n                    <ion-input disabled=\"true\" #licenseInput color=\"danger\" value=\"{{ license }}\"> </ion-input>\r\n                </ion-item>\r\n                <ion-item button=\"true\">\r\n                    <ion-input disabled=\"true\" #licenseInput color=\"danger\" value=\"V. 25/Sep/2022\"> </ion-input>\r\n                </ion-item>\r\n              \r\n                \r\n            </ion-list>\r\n        </ion-content>\r\n    </ion-menu>\r\n\r\n    <ion-router-outlet main></ion-router-outlet>\r\n</ion-app>");
 
 /***/ }),
 
@@ -4922,7 +5006,7 @@ var LoginPage = /** @class */ (function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"ion-padding\">\r\n  <h5 class=\"semi-titulo\">Datos del contrato</h5>\r\n</div>\r\n<ion-grid fixed>\r\n  <ion-row class=\"ion-align-items-center\">\r\n    <ion-col size=\"4\">Contrato</ion-col>\r\n    <ion-col size=\"4\">\r\n      <ion-text color=\"danger\">\r\n        <span *ngIf=\"contrato\">{{ contrato.contrato }}</span>\r\n      </ion-text>\r\n    </ion-col>\r\n  </ion-row>\r\n  <ion-row>\r\n    <ion-col size=\"4\">\r\n      Cuota\r\n    </ion-col>\r\n    <ion-col size=\"8\">\r\n      <ion-text color=\"danger\">\r\n        <span *ngIf=\"contrato\">{{ contrato.cuota | currency:'COP':'symbol-narrow':'4.2-2' }}</span>\r\n      </ion-text>\r\n    </ion-col>\r\n  </ion-row>\r\n  <ion-row class=\"ion-align-items-center\">\r\n    <ion-col size=\"4\">Fecha Afiliación</ion-col>\r\n    <ion-col size=\"8\"><span class=\"ion-text-capitalize\" *ngIf=\"contrato\">{{ contrato.fehaAfiliacion | date:'MMMM dd yyyy':'':'es-Co' }}</span>\r\n    </ion-col>\r\n  </ion-row>\r\n  <ion-row class=\"ion-align-items-center\">\r\n    <ion-col size=\"4\">Pago Hasta</ion-col>\r\n    <ion-col size=\"8\"><span class=\"ion-text-capitalize\" *ngIf=\"contrato\">{{ contrato.pagoHasta | date:'MMMM dd yyyy':'':'es-Co' }}</span></ion-col>\r\n  </ion-row>\r\n  <ion-row *ngIf=\"modo === enumModo.MODO_CONSULTA || modo === enumModo.MODO_EDICION\" class=\"ion-align-items-center\">\r\n    <ion-col size=\"4\">Estado</ion-col>\r\n    <ion-col size=\"8\"><span *ngIf=\"contrato\">{{ contrato.estado }}</span></ion-col>\r\n  </ion-row>\r\n  <ion-row *ngIf=\"modo === enumModo.MODO_CONSULTA || modo === enumModo.MODO_EDICION\" class=\"ion-align-items-center\">\r\n    <ion-col size=\"4\">Plan</ion-col>\r\n    <ion-col size=\"8\"><span *ngIf=\"contrato\">{{ contrato.plan }}</span></ion-col>\r\n  </ion-row>\r\n  <ion-row class=\"ion-align-items-center\">\r\n    <ion-col size=\"4\">Cédula</ion-col>\r\n    <ion-col size=\"8\">\r\n      <ion-text color=\"danger\">\r\n        <span *ngIf=\"contrato\">{{ contrato.cedula }}</span>\r\n      </ion-text>\r\n    </ion-col>\r\n  </ion-row>\r\n  <ion-row class=\"ion-align-items-center\">\r\n    <ion-col size=\"4\">Nombre</ion-col>\r\n    <ion-col size=\"8\">\r\n      <ion-text color=\"danger\">\r\n        <span *ngIf=\"contrato\">{{ contrato.nombre }}</span>\r\n      </ion-text>\r\n    </ion-col>\r\n  </ion-row>\r\n  <ion-row *ngIf=\"modo === enumModo.MODO_EDICION\" class=\"ion-align-items-center\">\r\n    <ion-col size=\"4\">\r\n      Departamento\r\n    </ion-col>\r\n    <ion-col size=\"8\">\r\n\r\n      <ion-select *ngIf=\"modo === enumModo.MODO_EDICION\" placeholder=\"Seleccione un departamento\" okText=\"Escoger\"\r\n        cancelText=\"Cancelar\" [value]=\"contrato.departamento\" (ionChange)=\"departamentoSeleccionado($event)\">\r\n        <ion-select-option *ngFor=\"let departamento of departamentos\" [value]=\"departamento.id\">{{departamento.nombre}}\r\n        </ion-select-option>\r\n      </ion-select>\r\n\r\n      <span *ngIf=\"contrato && modo !== enumModo.MODO_EDICION\">{{ departamentoPorId(contrato.departamento) }}</span>\r\n\r\n\r\n    </ion-col>\r\n  </ion-row>\r\n  <ion-row *ngIf=\"modo === enumModo.MODO_EDICION\" class=\"ion-align-items-center\">\r\n    <ion-col size=\"4\">Ciudad</ion-col>\r\n    <ion-col size=\"8\">\r\n\r\n      <ion-select *ngIf=\"modo === enumModo.MODO_EDICION\" placeholder=\"Seleccione una ciudad\" okText=\"Escoger\"\r\n        cancelText=\"Cancelar\" [value]=\"contrato.ciudad\" (ionChange)=\"ciudadSeleccionada($event)\">\r\n        <ion-select-option *ngFor=\"let ciudad of ciudades\" [value]=\"ciudad.id\">{{ ciudad.nombre }}</ion-select-option>\r\n      </ion-select>\r\n\r\n      <span *ngIf=\"contrato && modo !== enumModo.MODO_EDICION\">{{ ciudadPorId(contrato.ciudad) }}</span>\r\n\r\n    </ion-col>\r\n  </ion-row>\r\n  <ion-row *ngIf=\"modo === enumModo.MODO_CONSULTA || modo === enumModo.MODO_EDICION\" class=\"ion-align-items-center\">\r\n    <ion-col size=\"4\">Dirección</ion-col>\r\n    <ion-col size=\"8\">\r\n      <ion-input *ngIf=\"modo === enumModo.MODO_EDICION\" placeholder=\"Ingrese una dirección\"\r\n        [value]=\"contrato.direccion\"></ion-input>\r\n      <span *ngIf=\"contrato && modo !== enumModo.MODO_EDICION\">{{ contrato.direccion }}</span>\r\n    </ion-col>\r\n  </ion-row>\r\n  <ion-row *ngIf=\"modo === enumModo.MODO_EDICION\" class=\"ion-align-items-center\">\r\n    <ion-col size=\"4\">Dirección Cobro</ion-col>\r\n    <ion-col size=\"8\">\r\n      <ion-input *ngIf=\"modo === enumModo.MODO_EDICION\" placeholder=\"Ingrese una dirección de cobro\"\r\n        [value]=\"contrato.direccionCobro\">\r\n      </ion-input>\r\n      <span *ngIf=\"contrato && modo !== enumModo.MODO_EDICION\">{{ contrato.direccionCobro }}</span>\r\n    </ion-col>\r\n  </ion-row>\r\n  <ion-row *ngIf=\"modo === enumModo.MODO_CONSULTA || modo === enumModo.MODO_EDICION\" class=\"ion-align-items-center\">\r\n    <ion-col size=\"4\">Teléfono</ion-col>\r\n    <ion-col size=\"8\">\r\n      <ion-input *ngIf=\"modo === enumModo.MODO_EDICION\" placeholder=\"Ingrese el teléfono\" type=\"tel\"\r\n        [value]=\"contrato.telefono\">\r\n      </ion-input>\r\n      <span *ngIf=\"contrato && modo !== enumModo.MODO_EDICION\">{{ contrato.telefono }}</span>\r\n    </ion-col>\r\n  </ion-row>\r\n  <ion-row *ngIf=\"modo === enumModo.MODO_CONSULTA || modo === enumModo.MODO_EDICION\" class=\"ion-align-items-center\">\r\n    <ion-col size=\"4\">Mòvil</ion-col>\r\n    <ion-col size=\"8\">\r\n      <ion-input *ngIf=\"modo === enumModo.MODO_EDICION\" placeholder=\"Ingrese el móvil\" [value]=\"contrato.movil\">\r\n      </ion-input>\r\n      <span *ngIf=\"contrato && modo !== enumModo.MODO_EDICION\">{{ contrato.movil }}</span>\r\n    </ion-col>\r\n  </ion-row>\r\n  <ion-row *ngIf=\"modo === enumModo.MODO_CONSULTA || modo === enumModo.MODO_EDICION\" class=\"ion-align-items-center\">\r\n    <ion-col size=\"4\">Email</ion-col>\r\n    <ion-col size=\"8\">\r\n      <ion-input *ngIf=\"modo === enumModo.MODO_EDICION\" placeholder=\"Ingrese el email\" type=\"email\"\r\n        [value]=\"contrato.email\">\r\n      </ion-input>\r\n      <span *ngIf=\"contrato && modo !== enumModo.MODO_EDICION\">{{ contrato.email }}</span>\r\n    </ion-col>\r\n  </ion-row>\r\n  <ion-row class=\"ion-align-items-center\">\r\n    <ion-col size=\"4\">Nota</ion-col>\r\n    <ion-col size=\"8\">\r\n      <ion-text>\r\n        <span *ngIf=\"contrato\">{{ contrato.Nota1 }}</span>\r\n      </ion-text>\r\n    </ion-col>\r\n  </ion-row>\r\n\r\n</ion-grid>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"ion-padding\">\r\n  <h5 class=\"semi-titulo\" *ngIf=\"(TipoBusqueda==='CEDULA' || TipoBusqueda==='CONTRATO')\">Datos del contrato</h5>\r\n  <h5 class=\"semi-titulo\" *ngIf=\"(TipoBusqueda==='NIT' || TipoBusqueda==='EMPRESA')\">Datos de la empresa</h5>\r\n</div>\r\n<ion-grid fixed>\r\n  <ion-row class=\"ion-align-items-center\">\r\n    <ion-col size=\"4\">Contrato</ion-col>\r\n    <ion-col size=\"4\">\r\n      <ion-text color=\"danger\">\r\n        <span *ngIf=\"contrato\">{{ contrato.contrato }}</span>\r\n      </ion-text>\r\n    </ion-col>\r\n  </ion-row>\r\n  <ion-row>\r\n    <ion-col size=\"4\"  *ngIf=\"(TipoBusqueda==='CEDULA' || TipoBusqueda==='CONTRATO')\">\r\n      Cuota\r\n    </ion-col>\r\n    <ion-col size=\"4\" *ngIf=\"(TipoBusqueda==='NIT' || TipoBusqueda==='EMPRESA')\">\r\n      Saldo\r\n    </ion-col>\r\n    <ion-col size=\"8\">\r\n      <ion-text color=\"danger\">\r\n        <span *ngIf=\"contrato\">{{ contrato.cuota | currency:'COP':'symbol-narrow':'4.2-2' }}</span>\r\n      </ion-text>\r\n    </ion-col>\r\n  </ion-row>\r\n  <ion-row class=\"ion-align-items-center\">\r\n    <ion-col size=\"4\">Fecha Afiliación</ion-col>\r\n    <ion-col size=\"8\"><span class=\"ion-text-capitalize\" *ngIf=\"contrato\">{{ contrato.fehaAfiliacion | date:'MMMM dd yyyy':'':'es-Co' }}</span>\r\n    </ion-col>\r\n  </ion-row>\r\n  <ion-row class=\"ion-align-items-center\">\r\n    <ion-col size=\"4\">Pago Hasta</ion-col>\r\n    <ion-col size=\"8\"><span class=\"ion-text-capitalize\" *ngIf=\"contrato\">{{ contrato.pagoHasta | date:'MMMM dd yyyy':'':'es-Co' }}</span></ion-col>\r\n  </ion-row>\r\n  <ion-row *ngIf=\"modo === enumModo.MODO_CONSULTA || modo === enumModo.MODO_EDICION\" class=\"ion-align-items-center\">\r\n    <ion-col size=\"4\">Estado</ion-col>\r\n    <ion-col size=\"8\"><span *ngIf=\"contrato\">{{ contrato.estado }}</span></ion-col>\r\n  </ion-row>\r\n  <ion-row *ngIf=\"modo === enumModo.MODO_CONSULTA || modo === enumModo.MODO_EDICION\" class=\"ion-align-items-center\">\r\n    <ion-col size=\"4\">Plan</ion-col>\r\n    <ion-col size=\"8\"><span *ngIf=\"contrato\">{{ contrato.plan }}</span></ion-col>\r\n  </ion-row>\r\n  <ion-row class=\"ion-align-items-center\">\r\n    <ion-col size=\"4\">Cédula</ion-col>\r\n    <ion-col size=\"8\">\r\n      <ion-text color=\"danger\">\r\n        <span *ngIf=\"contrato\">{{ contrato.cedula }}</span>\r\n      </ion-text>\r\n    </ion-col>\r\n  </ion-row>\r\n  <ion-row class=\"ion-align-items-center\">\r\n    <ion-col size=\"4\">Nombre</ion-col>\r\n    <ion-col size=\"8\">\r\n      <ion-text color=\"danger\">\r\n        <span *ngIf=\"contrato\">{{ contrato.nombre }}</span>\r\n      </ion-text>\r\n    </ion-col>\r\n  </ion-row>\r\n  <ion-row *ngIf=\"modo === enumModo.MODO_EDICION\" class=\"ion-align-items-center\">\r\n    <ion-col size=\"4\">\r\n      Departamento\r\n    </ion-col>\r\n    <ion-col size=\"8\">\r\n\r\n      <ion-select *ngIf=\"modo === enumModo.MODO_EDICION\" placeholder=\"Seleccione un departamento\" okText=\"Escoger\"\r\n        cancelText=\"Cancelar\" [value]=\"contrato.departamento\" (ionChange)=\"departamentoSeleccionado($event)\">\r\n        <ion-select-option *ngFor=\"let departamento of departamentos\" [value]=\"departamento.id\">{{departamento.nombre}}\r\n        </ion-select-option>\r\n      </ion-select>\r\n\r\n      <span *ngIf=\"contrato && modo !== enumModo.MODO_EDICION\">{{ departamentoPorId(contrato.departamento) }}</span>\r\n\r\n\r\n    </ion-col>\r\n  </ion-row>\r\n  <ion-row *ngIf=\"modo === enumModo.MODO_EDICION\" class=\"ion-align-items-center\">\r\n    <ion-col size=\"4\">Ciudad</ion-col>\r\n    <ion-col size=\"8\">\r\n\r\n      <ion-select *ngIf=\"modo === enumModo.MODO_EDICION\" placeholder=\"Seleccione una ciudad\" okText=\"Escoger\"\r\n        cancelText=\"Cancelar\" [value]=\"contrato.ciudad\" (ionChange)=\"ciudadSeleccionada($event)\">\r\n        <ion-select-option *ngFor=\"let ciudad of ciudades\" [value]=\"ciudad.id\">{{ ciudad.nombre }}</ion-select-option>\r\n      </ion-select>\r\n\r\n      <span *ngIf=\"contrato && modo !== enumModo.MODO_EDICION\">{{ ciudadPorId(contrato.ciudad) }}</span>\r\n\r\n    </ion-col>\r\n  </ion-row>\r\n  <ion-row *ngIf=\"modo === enumModo.MODO_CONSULTA || modo === enumModo.MODO_EDICION\" class=\"ion-align-items-center\">\r\n    <ion-col size=\"4\">Dirección</ion-col>\r\n    <ion-col size=\"8\">\r\n      <ion-input *ngIf=\"modo === enumModo.MODO_EDICION\" placeholder=\"Ingrese una dirección\"\r\n        [value]=\"contrato.direccion\"></ion-input>\r\n      <span *ngIf=\"contrato && modo !== enumModo.MODO_EDICION\">{{ contrato.direccion }}</span>\r\n    </ion-col>\r\n  </ion-row>\r\n  <ion-row *ngIf=\"modo === enumModo.MODO_EDICION\" class=\"ion-align-items-center\">\r\n    <ion-col size=\"4\">Dirección Cobro</ion-col>\r\n    <ion-col size=\"8\">\r\n      <ion-input *ngIf=\"modo === enumModo.MODO_EDICION\" placeholder=\"Ingrese una dirección de cobro\"\r\n        [value]=\"contrato.direccionCobro\">\r\n      </ion-input>\r\n      <span *ngIf=\"contrato && modo !== enumModo.MODO_EDICION\">{{ contrato.direccionCobro }}</span>\r\n    </ion-col>\r\n  </ion-row>\r\n  <ion-row *ngIf=\"modo === enumModo.MODO_CONSULTA || modo === enumModo.MODO_EDICION\" class=\"ion-align-items-center\">\r\n    <ion-col size=\"4\">Teléfono</ion-col>\r\n    <ion-col size=\"8\">\r\n      <ion-input *ngIf=\"modo === enumModo.MODO_EDICION\" placeholder=\"Ingrese el teléfono\" type=\"tel\"\r\n        [value]=\"contrato.telefono\">\r\n      </ion-input>\r\n      <span *ngIf=\"contrato && modo !== enumModo.MODO_EDICION\">{{ contrato.telefono }}</span>\r\n    </ion-col>\r\n  </ion-row>\r\n  <ion-row *ngIf=\"modo === enumModo.MODO_CONSULTA || modo === enumModo.MODO_EDICION\" class=\"ion-align-items-center\">\r\n    <ion-col size=\"4\">Mòvil</ion-col>\r\n    <ion-col size=\"8\">\r\n      <ion-input *ngIf=\"modo === enumModo.MODO_EDICION\" placeholder=\"Ingrese el móvil\" [value]=\"contrato.movil\">\r\n      </ion-input>\r\n      <span *ngIf=\"contrato && modo !== enumModo.MODO_EDICION\">{{ contrato.movil }}</span>\r\n    </ion-col>\r\n  </ion-row>\r\n  <ion-row *ngIf=\"modo === enumModo.MODO_CONSULTA || modo === enumModo.MODO_EDICION\" class=\"ion-align-items-center\">\r\n    <ion-col size=\"4\">Email</ion-col>\r\n    <ion-col size=\"8\">\r\n      <ion-input *ngIf=\"modo === enumModo.MODO_EDICION\" placeholder=\"Ingrese el email\" type=\"email\"\r\n        [value]=\"contrato.email\">\r\n      </ion-input>\r\n      <span *ngIf=\"contrato && modo !== enumModo.MODO_EDICION\">{{ contrato.email }}</span>\r\n    </ion-col>\r\n  </ion-row>\r\n  <ion-row class=\"ion-align-items-center\">\r\n    <ion-col size=\"4\">Nota</ion-col>\r\n    <ion-col size=\"8\">\r\n      <ion-text>\r\n        <span *ngIf=\"contrato\">{{ contrato.Nota1 }}</span>\r\n      </ion-text>\r\n    </ion-col>\r\n  </ion-row>\r\n\r\n</ion-grid>");
 
 /***/ }),
 
@@ -5497,6 +5581,30 @@ var PagosService = /** @class */ (function () {
             }
         });
     };
+    PagosService.prototype.cargarFacturaPago = function (contrato) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            var isOffline = localStorage.getItem('offlineMode') === 'true' ? true : false;
+            if (!isOffline) {
+                var params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpParams"]().set('IDCONTRATO', contrato);
+                var configHelper = new _helpers_config_helper__WEBPACK_IMPORTED_MODULE_4__["ConfigHelper"](_this.config);
+                var httpOptions = {
+                    headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpHeaders"]({
+                        'Content-Type': 'application/json',
+                    }),
+                    params: params
+                };
+                _this.http.post(configHelper.getApiUrl() + "/pago/FacturasPagos", null, httpOptions)
+                    .subscribe(function (result) {
+                    resolve(result);
+                }, function (error) {
+                    console.log(JSON.stringify(error));
+                    reject();
+                    _this.mostrarToastSimple('Error consultando facturas');
+                });
+            }
+        });
+    };
     PagosService.prototype.cuadreCaja = function (fecha, usuario) {
         var _this = this;
         return new Promise(function (resolve, reject) {
@@ -5931,6 +6039,36 @@ var PagosService = /** @class */ (function () {
                     console.log(JSON.stringify(error));
                     reject();
                     _this.mostrarToastSimple('Error enviando recibo');
+                });
+            });
+        });
+    };
+    PagosService.prototype.guardaHistoricoImpresion = function (IdContrato, NoRecibo, Usuario, Terminal) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            var params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpParams"]().set('IdContrato', IdContrato)
+                .set('NoRecibo', NoRecibo)
+                .set('Usuario', Usuario)
+                .set('Terminal', Terminal);
+            var configHelper = new _helpers_config_helper__WEBPACK_IMPORTED_MODULE_4__["ConfigHelper"](_this.configuracionService.config);
+            var httpOptions = {
+                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpHeaders"]({
+                    'Content-Type': 'application/json',
+                }),
+                params: params
+            };
+            _this.loadingController.create({
+                message: 'Preparando Impresion...',
+                duration: 30000
+            }).then(function (loading) {
+                loading.present();
+                _this.http.post(configHelper.getApiUrl() + "/pago/guardahistoricoimpresion", null, httpOptions)
+                    .subscribe(function (resultado) {
+                }, function (error) {
+                    loading.dismiss();
+                    console.log(JSON.stringify(error));
+                    reject();
+                    _this.mostrarToastSimple('Error guardando historico impresion');
                 });
             });
         });

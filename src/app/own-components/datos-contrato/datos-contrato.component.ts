@@ -15,6 +15,8 @@ export class DatosContratoComponent implements OnInit {
   @Input() modo: ModoVisualizarContratoEnum = ModoVisualizarContratoEnum.MODO_CONSULTA;
 
   enumModo = ModoVisualizarContratoEnum;
+  TipoBusqueda : string = '';
+ 
 
   departamentos: DepartamentoModel[] = [
     new DepartamentoModel(1, 'Huila'),
@@ -33,6 +35,7 @@ export class DatosContratoComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.TipoBusqueda =  localStorage.getItem("TipoBusqueda")
 
   }
 

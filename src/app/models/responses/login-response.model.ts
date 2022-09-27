@@ -21,5 +21,6 @@ export class LoginResponseModel {
     IDCAJA: number;
     IDCAJAANT: number;
     RESPUESTA: string;
+    //FECHARUTA: string;
    // OFFLINE : number;
  }

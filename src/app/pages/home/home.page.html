@@ -1,7 +1,10 @@
 <app-header titulo="Home"></app-header>
 
 <ion-content class="ion-padding">
-    <h3 *ngIf="sesionLocal.sesionIniciada">Bienvenido {{ sesionLocal.sesionUsuario.NOMBRES }}</h3>
+    <h3>Bienvenido </h3>
+    <h4 *ngIf="sesionLocal.sesionIniciada">Cobrador: {{ sesionLocal.sesionUsuario.NOMBRES }}</h4>
+    <h4 *ngIf="sesionLocal.sesionIniciada">Doc. Cobrador: {{ sesionLocal.sesionUsuario.IDCOBRADOR }}</h4>
+    <h4 *ngIf="fechaRuta != ''">Fecha Ruta: {{ fechaRuta }}</h4>
     <!-- <h2>Haga click en los botones para ir a las respectivas pantallas</h2>
   <ion-list>
     <ion-item button routerLink="/config">
